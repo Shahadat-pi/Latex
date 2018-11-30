@@ -1,0 +1,307 @@
+\documentclass[a4paper,10.5pt,fleqn]{article}
+\usepackage[sexy,hints]{evan}
+\usepackage{dirtytalk,array,tabu}
+\usepackage{pgf,tikz,empheq}
+\usetikzlibrary{datavisualization.formats.functions}
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\usetikzlibrary{calc,trees,positioning,arrows,fit,shapes,calc}
+\hypersetup{hidelinks=yes}
+\begin{document}
+\section{Definition}
+\subsubsection{ The complex number system}
+There is no real number $ x $ which satisfies the polynomial equation $x^2+ 1 = 0.$ To permit solutions of this and similar equations, the set of complex numbers is introduced. We can consider a complex number as having the form $a + ib$ where a and b are real number and $ i $,
+which is called the imaginary unit, has the property that $ i^2= – 1.$
+It is denoted by $ z $. Therefore,  $z = a + ib$ where \say{$ a $} is called as real part of $ z $ which is denoted by $ (Re\, z) $ and \say{$ b $} is called as imaginary part of $ z $ which is denoted by $(Im\,z).$\\
+
+Any complex number is :\\
+
+$ (i) $ Purely real, if $b = 0$  \quad $ (ii)$ Purely imaginary, if $a = 0$ \quad $(iii)$ Imaginary, if $ b \neq 0.$\\
+
+NOTE :\\ 
+
+$(a)$ The set $\mathbb{R}$ of real numbers is a proper subset of the Complex Numbers. Hence the complete
+number system is $\mathbb{N} \subset \mathbb{W} \subset \mathbb{I} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$\\
+
+$(b)$ Zero is purely real as well as purely imaginary but not imaginary.\\
+
+$(c)$ $ i = \sqrt{-1}$ is called the imaginary unit. Also $i^2 = -1,\; i^3= -i ,\; i^4= 1\; etc.$\\
+
+$(d)\; \sqrt{a} \sqrt{b} = \sqrt{ab} $ only if atleast one of a or b is non - negative.\\
+
+$(e)$ is $z = a + ib$, then $a - ib$ is called complex conjugate of $z$ and written as $ \bar{z} = a -ib$.\\
+
+\textbf{Self Practice Problems}\\
+
+\textbf{1. }Write the following as complex number
+$(i)\, \sqrt{-16} \quad (ii)\, \sqrt{x} , (x > 0)\quad
+(iii)\, –b + \sqrt{-4ac},\, (a, c> 0)$\\
+
+\textbf{Ans.} $(i)\, 0 + i \sqrt{16}\; (ii)\, \sqrt{x}  + i0\; (iii)\, -b + i\sqrt{4ac}$\\
+
+\textbf{2.} Write the following as complex number:\\
+
+$(i)\,\sqrt{x}\,  (x < 0) \quad(ii)\, \text{ roots of}\, x^2- (2\cos\theta)x + 1 = 0$
+
+\textbf{2. Algebraic Operations:}
+Fundamental operations with complex numbers
+In performing operations with complex numbers we can proceed as in the algebra of real numbers,
+replacing $i^2$ by $-1$ when it occurs.\\
+
+\textbf{1. } Addition $(a + bi) + (c + di) = a + bi + c + di = (a + c) + (b + d) i$\\
+\textbf{2. }Subtraction $(a + bi) – c + di) = a + bi – c – di = (a – c) + (b – d) i$\\
+\textbf{3.} Multiplication $(a + bi) (c + di) = ac + adi + bci + bdi= (ac – bd) + (ad+ bc)i$
+
+4. Division
+
+c di
+a bi
+
+
+=
+c di
+a bi
+
+
+.
+c di
+c bi
+
+
+= 2 2 2
+2
+c d i
+ac adi bci bdi
+
+  
+
+= 2 2
+c d
+ac bd (bc ad)i
+
+  
+
+= 2 2
+c d
+ac bd
+
+
++ i
+c d
+bc ad
+2 2
+
+
+
+Inequalities in complex numbers are not defined. There is no validity if we say that complex number is
+positive or negative.
+e.g. z > 0, 4 + 2i < 2 + 4 i are meaningless.
+In real numbers if a2
++ b2
+= 0 then a = 0 = b however in complex numbers,
+
+z1
+2
++ z2
+2
+= 0 does not imply z1
+= z2
+= 0.
+Example : Find multiplicative inverse of 3 + 2i.
+Solution Let z be the multiplicative inverse of 3 + 2i. then
+
+ z . (3 + 2i) = 1
+ z = 3 2i
+1
+
+= 3 2i 3 2i
+3 2i
+ 
+
+
+ z = 13
+3
+– 13
+2
+i
+
+
+
+
+
+
+ i
+13
+2
+13
+3
+
+Ans.
+
+Self Practice Problem
+1. Simplify in+100 + in+50 + in+48 + in+46 , n  .
+Ans. 0
+3. Equality In Complex Number:
+Two complex numbers z1
+= a1 + ib1
+ z2
+= a2 + ib2
+are equal if and only if their real and imaginary parts
+
+are equal respectively
+i.e. z1
+= z2  Re(z1
+) = Re(z2
+) and m
+(z1
+) = m
+(z2The complex number system
+There is no real number x which satisfies the polynomial equation x2
+
++ 1 = 0. To permit solutions of this
+
+and similar equations, the set of complex numbers is introduced.
+We can consider a complex number as having the form a + bi where a and b are real number and i,
+which is called the imaginary unit, has the property that i2
+= – 1.
+
+It is denoted by z i.e. z = a + ib. ‘a’ is called as real part of z which is denoted by (Re z) and ‘b’ is called
+as imaginary part of z which is denoted by (Im z).
+Any complex number is :
+(i) Purely real, if b = 0 ; (ii) Purely imaginary, if a = 0
+(iii) Imaginary, if b  0.
+NOTE : (a) The set R of real numbers is a proper subset of the Complex Numbers. Hence the complete
+number system is N
+(b) Zero is purely real as well as purely imaginary but not imaginary.
+(c) i = 1 is called the imaginary unit.
+Also i2 =  1; i3
+=  i ; i4
+= 1 etc.
+
+(d) a b = a b only if atleast one of a or b is non - negative.
+(e) is z = a + ib, then a – ib is called complex conjugate of z and written as z = a – ib
+Self Practice Problems
+1. Write the following as complex number
+(i) 16 (ii) x , (x > 0)
+(iii) –b +  4ac , (a, c> 0)
+Ans. (i) 0 + i 16 (ii) x + 0i (iii) –b + i 4ac
+2. Write the following as complex number
+(i) x (x < 0) (ii) roots of x2
+
+– (2 cos)x + 1 = 0
+
+2. Algebraic Operations:
+Fundamental operations with complex numbers
+In performing operations with complex numbers we can proceed as in the algebra of real numbers,
+replacing i2 by – 1 when it occurs.
+1. Addition (a + bi) + (c + di) = a + bi + c + di = (a + c) + (b + d) i
+2. Subtraction (a + bi) – c + di) = a + bi – c – di = (a – c) + (b – d) i
+3. Multiplication (a + bi) (c + di) = ac + adi + bci + bdi2
+
+= (ac – bd) + (ad+ bc)i
+
+4. Division
+
+c di
+a bi
+
+
+=
+c di
+a bi
+
+
+.
+c di
+c bi
+
+
+= 2 2 2
+2
+c d i
+ac adi bci bdi
+
+  
+
+= 2 2
+c d
+ac bd (bc ad)i
+
+  
+
+= 2 2
+c d
+ac bd
+
+
++ i
+c d
+bc ad
+2 2
+
+
+
+Inequalities in complex numbers are not defined. There is no validity if we say that complex number is
+positive or negative.
+e.g. z > 0, 4 + 2i < 2 + 4 i are meaningless.
+In real numbers if a2
++ b2
+= 0 then a = 0 = b however in complex numbers,
+
+z1
+2
++ z2
+2
+= 0 does not imply z1
+= z2
+= 0.
+Example : Find multiplicative inverse of 3 + 2i.
+Solution Let z be the multiplicative inverse of 3 + 2i. then
+
+ z . (3 + 2i) = 1
+ z = 3 2i
+1
+
+= 3 2i 3 2i
+3 2i
+ 
+
+
+ z = 13
+3
+– 13
+2
+i
+
+
+
+
+
+
+ i
+13
+2
+13
+3
+
+Ans.
+
+Self Practice Problem
+1. Simplify in+100 + in+50 + in+48 + in+46 , n  .
+Ans. 0
+3. Equality In Complex Number:
+Two complex numbers z1
+= a1 + ib1
+ z2
+= a2 + ib2
+are equal if and only if their real and imaginary parts
+
+are equal respectively
+i.e. z1
+= z2  Re(z1
+) = Re(z2
+) and m
+(z1
+) = m
+(z2
+\end{document}

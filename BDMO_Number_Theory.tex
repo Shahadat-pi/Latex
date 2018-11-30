@@ -1,0 +1,127 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{evan}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{dirtytalk}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{tabu}
+\usetikzlibrary{calc}
+\usepackage{changepage}
+\usepackage{caption,setspace}
+\usepackage{draftwatermark}
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\SetWatermarkText{$f: \mathbb{R}\rightarrow \mathbb{Z}$}
+\begin{document}
+
+\begin{center}
+\begin{LARGE}
+BDMO Number Theory\\
+\end{LARGE}
+\end{center}
+
+01. Let $\underbrace{444\;\cdots\; \cdots\; \cdots 4}_{2018}\underbrace{888\;\cdots\; \cdots\; \cdots 8}_{2017}9$ The number has 2018 digits of 4, followed by 2017 digits of 8 and one digit of 9. Find the sum of the digits of square root of this number.\\
+
+02. $f:\mathbb{R}\rightarrow \mathbb{R}$ an injective function such that $f(f(x))=f(2x+1)$. What is the value of $f(2016)?$\\
+
+03. Given that $f(x,y) = f(xy,\dfrac{x}{y} )$ where $y\neq 0$ if $f(x^4,y^4)+f(x^2,y^2)=16$ then $ f(x,y) = ?$\\
+
+04. $f:\{\mathbb{R}-0\} \to \mathbb{R}$ is such a function that $f(xy)=\dfrac{f(x)}{y}$ . If $f(2012)=1$ then $f(2013)=?$\\
+
+05. $A=\{a_{1},a_{2},a_{3},a_{4},... ... ... , a_{100}\}$ ,  $B=\{b_{1},b_{2},b_{3},b_{4},... ... ... , b_{50}\},$ and $f:A \to B$ is a function. If $f(a_{1}) \le f(a_{2}) \le f(a_{3}) \le ... ... ... \le f(a_{100}) $ Then how many different function $f$ possible?\\
+
+06. For an injective function $f:\mathbb{R} \to \mathbb{R},$  $f(x+f(y)) = 2012+ f(x+y)$ then $f(2013) = ?$\\
+
+07. $f:\mathbb{Z} \to \mathbb{Z},$  $f(n+1) = 2f(n) - f(n-1)$ and $f(-4) = 20, f(-6) = 40$ for any $x \in \mathbb{Z}, f(x) + f(-x) = ?$\\
+
+08. Given that ,$ [f(x^2,y)+f(x,y^2)]^2 = 4f(x^2,y^2).f(x,y) .$Find all the values of $a $ for which $f(x^2,a).f(a^,x^2) = f(x,a).f(a,x) $ will be true.\\
+
+09. A function $f: \mathbb{R} \to \mathbb{R}$ is defined in such a way that $f(x).f(y)=f(x+y),$ for $a \in n , \sum\limits_{k=1}^{n} f(a+k) = 16(2^n -1), f(1)=2$ then what is the value of $a$?\\
+
+10. $f(y)= y$ repeats $y$ times, for example $f(3) = 333, f(5) = 55555.$ If $ a = f(2001)+ f(2002)+f(2003) + f(2004)+ ...$ $...$ $...$ $+ f(2015).$ What is the remainder upon division of $a$ by $3?$\\
+
+11. $f(n)=$ sum of the squares of digits of $n.$ $f_{2}(n) = f(f(n)),$ $f_{2}(n) = f(f(f(n)))$ $etc.$ Then $f_{14}(3) = ?$\\
+
+12. For all positive integer $x,$ $f(f(x)) = 4x+3$ and for one positive value of integer $k,$ $f(5^k) = 5^k \times 2^{k-2} + 2^{k-3}.$ $f(2015) = ?$\\
+
+13. For all positive integers $x,y; f(x) \ge 0$ and $f(xy) = f(x) + f(y) $ If the digit at the one’s of  $x$ is $6,$ then $f(x) = 0$ and If $f(1920) = 420 $ then $f(2015)=?$\\
+
+14. For $x,y$ are positive integers $f(x) = x^2 + 4, $  $f(y) = x^2+23$ then $f(x+y)=?$\\
+
+15. A function $f: \mathbb{R} \to \mathbb{R}$ is defined in such way that $f(x+2) = f(x) - \dfrac{1}{f(x+1)}. $  $f(1)=2, f(2) = 1007; $ for $k \in R$ if $f(k) = 0$ then what is the value of $k?$\\
+
+16. If $xf(x)f(f(x^2))f(f(f(x^2))) = 2013^2,$  $\mid f(2013) \mid=?$\\
+
+17. Consider a function $f: \mathbb{N}_{0} \to \mathbb{N}_{0}$ following the relations:\\
+$(i) f (0) =0$ ;\\ $(ii) f (np) =f (n)$ ;\\ $(iii) f(n) = n + f( \lfloor \dfrac {n}{p} \rfloor)$ . Where $n$ is not divisible by $p$.
+Here $p > 1$ is a positive integer, $ \mathbb{N}_{0}$ is the set of all nonnegative integers and $\lfloor x \rfloor$ is the largest integer smaller or equal to $x$. Let, $a_{k}$ be the maximum value of $f (n)$ for $0 \le n \le p^k$ . Find $a_{k}$.\\
+
+18. $F: \mathbb{N}\rightarrow \mathbb{N}, F(1)=1, F(X) = F\Bigg(\dfrac{X}{2016}\Bigg) $ How many elements are there in the range of the relation?\\
+
+19. $ f(x) + f (-x) = x^2 + (b^2-5b + 6)x +1.$ What is the largest possible value of b?\\
+
+20. $f(3m) = \dfrac{3f(m)}{3},\, f(3m+2)= \dfrac{(m+2)f(m+2)}{3},\, f(3m+1)= \dfrac{(m+1)f(m+1)}{3},\, \\f(2016)=?$\\
+
+21. A function $f:\mathbb{N}\rightarrow \mathbb{N}$ is defined such that $f(x)$ is equal to the number of divisors of $x$. For example, $f(6) = 4$. The least value of $x$, which satisfies the equation $f(x)=2016$ can be written as $a\times b^{2}$, where $a$, has no square divisors. Find the value of $b$.
+
+\begin{center}
+\begin{LARGE}
+Other Function Problems
+\end{LARGE}
+\end{center}
+
+01. A certain function $f$ has the properties that $f(3x) = 3f(x)$ for all positive real values of $x$, and that $f(x) = 1-|x-2|$ for $1\le x \le 3$. Find the smallest $x$ for which $f(x) = f(77)$.\\
+
+02. How many functions $f: \{1,2,3,4,5\} \rightarrow \{1,2,3,4,5\}$ satisfy $f(f(x))=f(x) \quad \forall x \in \{1, 2, 3, 4, 5\}$?\\
+
+03. A function $f(x)$ has the property that, for all positive $x$, $3 f(x) + 7 f(\dfrac{2016}{x}) = 2x$.What is the value of $f(8)$?\\
+
+04. If $f(x)$ is a function taking real numbers to real numbers such that for all real $x\neq0,1$, $$f(x)+f(\frac{1}{1-x})=(2x-1)^2+f(1-\frac{1}{x})$$Find $f(3)=?$
+\clearpage
+
+\begin{center}
+\begin{LARGE}
+Solution to the Other Function's Problems
+\end{LARGE}
+\end{center}
+
+02.  Note that if $f(x)=x$ then $f(f(x)) = f(x)$. We will casework on the number of $x \in \{1,2,3,4,5 \}$ such that $f(x)=x$. If there are $k$ numbers such that $f(x)=x$ (where $0 \leq k \leq 5$), then each of those $k$ numbers satisfies $f(f(x)) = f(x)$. For the other $5-k$ numbers, if we choose $f(x) = c$ where $c$ is not one of the $k$ numbers, then $f(f(x)) = f(c) \neq c$ because only those $k$ numbers have the property that $f(x) = x$. So $f(f(x)) \neq c$, and since $f(x) = c$ we have that $f(f(x)) \neq f(x)$. So $c$ has to be one of the $k$ numbers, in which case everything works because  $f(f(x)) = f(c) = c = f(x)$.
+
+So now to compute the answer: For each of $0 \leq k \leq 5$, first choose $k$ numbers to have $f(x) = x$, and then for each of the other $5-k$ numbers, there are $k$ choices for their output. So the answer is $\sum\limits_{k=0}^{5} \binom{5}{k} k^{5-k}$.\\
+
+03.  $3f(x) + 7f(\frac{{2016}}{x}) = 2x \hfill \\
+x = 8 \Rightarrow 3f(8) + 7f(\frac{{2016}}{8}) = 2 \cdot 8 = 16 \hfill \\
+\Rightarrow 3f(8) + 7f(252) = 16 \hfill \\
+x = 252 \Rightarrow 3f(252) + 7f(3) = 2 \cdot 252 = 504 \hfill \\
+\left\{ \begin{gathered}
+3\overbrace {f(8)}^a + 7\overbrace {f(252)}^b = 16 \hfill \\
+3f(252) + 7f(3) = 504 \hfill \\ 
+\end{gathered} \right. \Rightarrow \left\{ \begin{gathered}
+3a + 7b = 16 \hfill \\
+7a + 3b = 504 \hfill \\ 
+\end{gathered} \right. \Rightarrow a = \frac{{\left| {\begin{array}{*{20}{c}}
+{16}&7 \\ 
+{504}&3 
+\end{array}} \right|}}{{\left| {\begin{array}{*{20}{c}}
+3&7 \\ 
+7&3 
+\end{array}} \right|}} = \frac{{16 \cdot 3 - 7 \cdot 504}}{{3 \cdot 3 - 7 \cdot 7}} \hfill \\ $ or
+Let $P(x)$ be the assertion $ 3f(x)+7f(\dfrac{2016}{x})=2x$
+$P(\dfrac{2016}{x}): 3f(\dfrac{2016}{x})+7f(x)=\dfrac{4032}{x}$
+Solving the system occurs $f(x)=\dfrac{28224-6x^2}{40x} \therefore f(8)=87$\\
+
+04.  $x=1-\dfrac{1}{x} : f \left(1-\dfrac{1}{x} \right)+f(x)= \left(1-\dfrac{2}{x} \right)^2+f \left(\dfrac{1}{1-x}\right)\\ \longrightarrow f(x)-f \left(\dfrac{1}{1-x}\right)=\left(1-\dfrac{2}{x}\right)^2-f \left(1-\dfrac{1}{x} \right) \\f(x)+f\left(\dfrac{1}{1-x}\right)=(2x-1)^2+f\left(1-\dfrac{1}{x}\right)\\f(x)=\dfrac{(2x-1)^2+\left(1-\dfrac{2}{x}\right)^2}{2}\longrightarrow f(3)=\dfrac{113}{9}$
+
+\end{document}

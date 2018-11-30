@@ -1,0 +1,41 @@
+if(!settings.multipleView) settings.batchView=false;
+settings.tex="xelatex";
+defaultfilename="Directed-Angles-14";
+if(settings.render < 0) settings.render=4;
+settings.outformat="";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+import olympiad;
+import cse5;
+pointpen = black;
+pathpen = black;
+pathfontpen = black;
+anglepen = black;
+anglefontpen = black;
+pointfontsize = 10;
+defaultpen(fontsize(10pt));
+size(8cm); // set a reasonable default
+usepackage("amsmath");
+usepackage("amssymb");
+settings.tex="latex";
+settings.outformat="pdf";
+
+size(5cm);
+pair A = Drawing("A", dir(130), dir(130));
+pair B = Drawing("B", dir(210), dir(210));
+pair C = Drawing("C", dir(330), dir(330));
+pair I = Drawing(incenter(A,B,C));
+pair D = Drawing("D", foot(I,B,C), dir(-90));
+pair E = Drawing("E", foot(I,C,A), dir(70));
+pair F = Drawing("F", foot(I,A,B), dir(160));
+pair X = Drawing("X", extension(B,I,E,F), dir(70));
+pair Y = Drawing("Y", extension(C,I,E,F), dir(70));
+draw(arc(midpoint(B--C), C, B), dotted);
+draw(A--B--C--cycle);
+draw(CP(I,D));
+draw(B--X);
+draw(C--Y);
+draw(F--X);

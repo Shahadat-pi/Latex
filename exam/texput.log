@@ -1,0 +1,19 @@
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6100 64-bit) (preloaded format=xelatex 2016.12.9)  11 AUG 2017 00:53
+entering extended mode
+**exam.tex
+
+! Emergency stop.
+<*> exam.tex
+            
+*** (job aborted, file error in nonstop mode)
+
+ 
+Here is how much of TeX's memory you used:
+ 2 strings out of 428408
+ 14 string characters out of 3160621
+ 53104 words of memory out of 3000000
+ 3502 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 0i,0n,0p,1b,6s stack positions out of 5000i,500n,10000p,200000b,50000s
+No pages of output.

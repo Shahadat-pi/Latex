@@ -1,0 +1,1297 @@
+\documentstyle[12pt,psfig]{article}
+\message{
+ 	Copyright, 1993, all rights reserved, Charlie Ebner (Dept.of Physics, 
+ The Ohio State University, Columbus OH 43210) and Mark Jarrell (Dept.of 
+ Physics, The University of Cincinnati, Cincinnati, OH 45221-0011).  This 
+ material may not be reproduced for profit, modified or published in any 
+ form (this includes electronic redistribution) without the prior written 
+ permission of the authors listed above.	
+}
+
+
+\begin{document}
+
+
+\section{Introduction and Definitions}
+As far as anyone knows, there is no such thing as a free magnetic charge or
+{\em magnetic monopole}, although there are people who look for them (and
+occasionally claim to have found one); certainly they may exist. Because
+no known phenomena require their existence, we shall
+develop magnetostatics and eventually electrodynamics assuming that they do
+not exist. In this case there is a fundamental difference between
+electrostatics and magnetostatics, explaining in part why the two subjects
+developed independently and were regarded as distinct rather than
+different limits or aspects of one type of phenomenon (electromagnetic
+phenomena). 
+
+\subsection{Magnetic Induction}
+In the absence of monopole moments, the most fundamental source
+of magnetic effects is the {\em magnetic dipole}. In the presence of other
+magnetic materials, a point dipole will experience some force. One
+defines the {\em magnetic flux density} or {\em magnetic induction} $\B$ in
+terms of the torque $\N$ exerted on the dipole. Given that the dipole
+moment is $\mm$, the defining relation is
+\beq
+\N\equiv\mm\times\B.
+\eeq
+Thus, as for electrostatics, the basic field of magnetostatics is defined
+by the effect produced on an elementary source.
+
+\subsection{Current Density and Conservation}
+Among the first known manifestations of magnetic phenomena were the forces
+observed to act on some materials (magnets) as a consequence of the earth's
+magnetic field. In 1819, Hans Christian Oersted (1777-1851) found that very
+similar effects could be produced by placing a magnet close to a
+current-carrying wire, indicating a connection between electrical current
+and magnetism. Much of what we have to say about magnetostatics will
+involve the use of currents as sources of $\B$, so let us say a few words
+about the properties of stationary, \ie time-independent, currents.
+We shall write the {\em current density} as $\Jx$; it has dimensions of
+charge/area-time and is by definition such that a component $J_i$ is the
+amount of charge that crosses unit area in unit time given that the normal
+to the surface is in the $i$-direction. Given a charge density $\rhx$ moving
+at a velocity $\v$, there is a current density
+\beq
+\Jx=\rhx\v.
+\eeq
+
+It is an experimental fact that charge is conserved. We may determine a
+continuity or conservation equation which expresses this fact. Consider
+\beq
+\inv\,\div\Jx=\ina\,\J\cdot\nn.
+\eeq
+The surface integral gives the rate at which charge flows out of the domain
+V through the surface S. Because charge is conserved, this must be equal to
+the negative of the rate at which the total charge inside of V changes:
+\beq
+\ina\,\Jx\cdot\nn=-\pde{}{t}\lep\inv\,\rhx\rip.
+\eeq
+Assuming that V is independent of time, we may move the derivative with
+respect to time inside of the integral and so have
+\beq
+\inv\,\div\Jx=\ina\,\Jx\cdot\nn=-\inv\,\pde{\rhx}{t}.
+\eeq
+Now argue in the usual fashion: Because V is an arbitrary domain, this
+equation can only be true if the integrands on the two sides are the same
+everywhere. Hence we have
+\beq
+\div\Jx+\pde{\rhx}{t}=0.
+\eeq
+This equation is true so long as charge is {\em locally} conserved, meaning
+that the only way for charge to appear in V (or to disappear from V) is by
+flowing across the boundary. The equation has the typical form of a
+continuity equation which is that the divergence of the current density
+of some quantity plus the time derivative of the density of that quantity
+equals zero. If there are sources (or sinks) of the quantity in question,
+there is an additional term in the equation expressing the contribution of
+these sources.
+
+\section{Amp\`ere's Law}
+Even as currents in wires produce forces on magnetic materials, so do they
+produce forces on other current loops.
+F\'elix Savart (1791-1841) and Jean-Baptiste Biot (1774-1862)
+began experiments on these forces soon after Oersted's discovery, as did
+Andr\'e-Marie Amp\`ere. Amp\`ere continued his experiments for some years
+and published his collected results in 1825. The basic law emerging from
+Amp\`ere's work deals with the forces acting between closed current loops.
+Suppose that we have a current $I$ in one loop and a current $I'$ in a
+second. Let $\F$ be the force acting on the loop carrying current $I$.
+
+\centerline{\psfig{figure=fig1.ps,height=1.75in,width=4.25in}}
+
+\noindent Then {\em Amp\`ere's Law} may be expressed as follows:
+\beq
+\F=kII'\int\int\frac{d\l\times[d\l'\times(\x-\xp)]}{|\x-\xp|^3}
+\eeq
+where the integrals over $\l$ and $\l'$ are, respectively, around the loops
+carrying currents $I$ and $I'$; $\x$ and $\xp$ are the
+position vectors of the integration points. The constant $k$ depends on the
+units employed. For our units, with current expressed as $statcoul/sec$, or
+$statamp$, $k$ has dimensions of (inverse speed)$^2$ (remember that charge
+has has dimensions of $M^{1/2}L^{3/2}/T$ in our units). Hence one writes
+$k\equiv1/c^2$ where $c$ is a speed. From appropriate experiments one may
+find that its numerical value in cgs units is $c=2.998\times10^10\,cm/sec$.
+We recognize this as the speed of light, but that is, for the moment, not
+important.
+
+At this juncture we may introduce the magnetic induction by writing the
+force as
+\beq
+\F\equiv\frac{I}{c}\int d\l\times\Bx
+\eeq
+where $\Bx$ is the magnetic induction produced by the other loop's current.
+It is not yet clear apparent this $\B$ is the same as the one introduced in
+\eq{1}; nevertheless, it is, as we shall see presently.
+
+Comparison of \eq{7} with \eq{8} shows that the magnetic induction
+produced by the loop carrying current $I'$ may be written as an integral over
+that loop,
+\beq
+\Bx=\frac{I'}{c}\int\frac{\dvl'\times(\x-\xp)}{|\x-\xp|^3};
+\eeq
+this equation is often called the {\em Biot-Savart Law}.
+
+One also writes these equations in differential form, although that may
+introduce some inaccuracies and even misunderstanding. First, the force
+acting on just an infinitesimal piece of the loop carrying current $I$ is
+\beq
+d\F(\x)=\frac Ic\dvl\times\Bx.
+\eeq
+
+\centerline{\psfig{figure=fig2.ps,height=1.0in,width=6.375in}}
+
+\noindent The correct interpretation of this equation is that it 
+expresses the force
+on the element $\dvl$ of the loop carrying current $I$ which is produced by
+the current $I'$ in the other loop; $\Bx$ is the magnetic induction
+produced by this other loop. There will be additional forces on the element
+$dl$ produced by the current in other parts of its own loop.
+
+Another equation one frequently sees is an expression for the infinitesimal
+magnetic induction produced at a point $\x$ by an infinitesimal element of
+a source loop. Given that the source loop is, as above, the one carrying
+current $I'$, this expression is
+\beq
+d\Bx=\frac{I'}{c}\frac{\dvl'\times(\x-\xp)}{|\x-\xp|^3}.
+\eeq
+This is, however, not a correct statement in that the element $\dvl'$ of this
+circuit acting alone does not produce such a magnetic induction. First, it is
+impossible to have such a source acting alone if there is no time
+dependence in the sources and fields; the flowing charge which gives the
+current $I'$ in $\dvl'$ has to come from somewhere and go somewhere and so
+if this element is the entire source current distribution, then there must be
+some time dependence associated with the accumulation and depletion of
+charge at the two ends of the element. When this time dependence is 
+included, \eq{11} will not give the magnetic induction correctly.
+
+\subsection{Induction of an Arbitrary Current Density}
+The preceding results are capable of generalization to arbitrary current
+distributions (not just filaments). One has to replace $I\dvl$ by $\Jx dadl$
+where $\Jx$ is the current density, $da$ is the cross-sectional area of the
+filament, and $dl$ is the magnitude of $\dvl$. Then note that $dadl=d^3x$, a
+volume element. 
+
+\centerline{\psfig{figure=fig3.ps,height=1.0in,width=6.375in}}
+
+\noindent Hence one finds that the flux produced by an extended
+current distribution is
+\beq
+\Bx=\frac1c\inivp\,\frac{\Jxp\times(\x-\xp)}{|\x-\xp|^3}
+\eeq
+while the force on an extended current distribution $\Jx$ produced by some
+externally applied $\Bx$ is
+\beq
+\F=\frac1c\iniv\,\Jx\times\Bx.
+\eeq
+The corresponding force density at point $\x$ is
+\beq
+d\F=\frac1cd^3x\,\Jx\times\Bx,
+\eeq
+and the expression for $d\B$ (not to be trusted) becomes
+\beq
+d\Bx=\frac1cd^3x\,\frac{\Jxp\times(\x-\xp)}{|\x-\xp|^3}.
+\eeq
+
+Finally, let's add to our arsenal of equations one for the torque $\N$
+felt by a current distribution $\Jx$ acted upon by an externally applied
+magnetic induction $\Bx$. Given an object experiencing a force
+$\F$, the torque relative to a point $O$ is just $\x\times\F$ where $\x$ is
+the location of the object relative to $O$. Hence the torque on the current
+distribution is
+\beq
+\N=\frac1c\iniv[\x\times(\Jx\times\Bx)].
+\eeq
+
+\subsection{An Alternate Form of Amp\`ere's law}
+
+Before going on to additional formalism, let us express Amp\`ere's law,
+\eq{7}, in a more symmetric form by applying some vector manipulations.
+First, we will make use of the general identity $\A\times(\B\times\C)=
+(\A\cdot\C)\B-(\A\cdot\B)\C$ to have
+\beq
+\F=\frac{II'}{c^2}\int\int\frac{[\dvl\cdot(\x-\xp)]d\l'-[\dvl\cdot \dvl']
+(\x-\xp)}{|\x-\xp|^3}.
+\eeq
+According to Newton, the force of the loop carrying current $I$ should be
+equal and opposite to the force on the other loop, implying certain
+symmetries in the integrand above. The second term in the numerator changes
+sign under interchange of $\x$ and $\xp$, but the first does not. Let us
+study the latter more closely. Consider
+\beq
+\int \dvl'\int\dvl\cdot\leb-\grad\lep\frac1\xxpa\rip\rib=-\int\dvl'\int
+d\lep\frac1\xxpa\rip\equiv0
+\eeq
+where the last step follows from the fact we integrate over a 
+closed path\footnote{For example, $\oint d\phi = \phi(x)-\phi(x)$, where $x$
+is an arbitrary point along the contour}.
+Thus we find that the force $\F$ may be written simply as
+\beq
+\F=-\frac{II'}{c^2}\int\int\frac{\dvl\cdot \dvl'}{|\x-\xp|^3}(\x-\xp).
+\eeq
+
+{\subsection{Example: Force Between Parallel Wires}
+Let us look at an example. Suppose we have two parallel wires a distance
+$d$ apart carrying currents $I$ and $I'$ and wish to find the force per
+unit length acting on one of them. At a point $\x$ on the one carrying
+current $I$, there is an induction $B$ from the other one which is directed
+perpendicular to the plane containing the wires. This field is given by the
+integral over the sources in the other wire,
+
+\centerline{\psfig{figure=fig4.ps,height=1.0in,width=4.25in}}
+
+\beq
+|\B|=B=\frac{I'}{c}\int\frac{\dvl'\times(\x-\xp)}{|\x-\xp|^3}=
+\frac{I'd}{c}\int_{-\infty}^\infty \frac{dz'}{(d^2+z'^2)^{3/2}}
+=\frac{I'}{cd}\int_{-\infty}^\infty \frac{du}{(1+u^2)^{3/2}}=\frac{2I'}
+{cd}.
+\eeq
+The consequent force on the current $I$ in length $dz$ is
+\beq
+|d\F|=\frac Ic\,dz\,B=\frac{2II'}{c^2d}.
+\eeq
+The direction of $\F$ is such that the wires are attracted toward each
+other if the currents are in the same direction and they are repelled if
+the currents are in opposite directions. In doing this calculations we
+have conveniently ignored the fact that we didn't deal with closed current
+loops; in principal the wires have to be bent into closed loops somewhere
+far away from where we have calculated the force. With a little work one
+can convince himself that for sufficiently large loops, the contributions
+from the part that we ignored will be as small as desired.
+
+\section{Differential Equations of Magnetostatics}
+Even as we found equations for the divergence and curl of the electric
+field, so can we find such equations for the magnetic induction. Our
+starting point is the integral expression for the induction produced by a
+source distribution $\Jx$,
+\beq
+\Bx=\frac1c\inivp\Jxp\times\frac{(\x-\xp)}{|\x-\xp|^3},
+\eeq
+or, proceeding in the same manner as we have done before,
+\beq
+\Bx=-\frac1c\inivp\Jxp\times\grad\lep\xxpi\rip.
+\eeq
+Now apply the identity $\curl(f\A)=(\curl\A)f+\grad f\times\A$:
+\beq
+\curl\lep\frac{\Jxp}{\xxpa}\rip=(\curl\Jxp)\xxpi+\grad\lep\xxpi\rip\times
+\Jxp.
+\eeq
+The curl (taken with respect to components of $\x$) of $\Jxp$ is zero, so,
+upon substituting into \eq{24}, we find
+\beq
+\Bx=\frac1c\inivp\curl\lep\frac{\Jxp}{\xxpa}\rip=\frac1c\curl\lep
+\inivp\frac{\Jxp}{\xxpa}\rip.
+\eeq
+Because $\Bx$ is the curl of a vector field, its divergence must be zero,
+\beq
+\div\Bx=0.
+\eeq
+This is our equation for the divergence of the magnetic induction. It tells
+us that there are no magnetic charges.
+
+To find a curl equation for $\Bx$, we take the curl of \eq{25},
+\beq
+\curl\Bx=\frac1c\curl\leb\curl\lep\inivp\frac{\Jxp}{\xxpa}\rip\rib.
+\eeq
+Now employ the identity
+\beq
+\curl(\curl\A)=\grad(\div\A)-\lap\A,
+\eeq
+valid for any vector field $\Ax$; the last term on the right-hand side of this
+identity is to be interpreted as
+\beq
+\lap\A\equiv(\lap A_x)\xh+(\lap A_y)\yh+(\lap A_z)\zh;
+\eeq
+it is important that this relation is written in Cartesian coordinates.
+Using the identity, we find
+\beq
+\curl\leb\curl\lep\frac{\Jxp}{\xxpa}\rip\rib=\grad\leb\Jxp\cdot\grad
+\lep\xxpi\rip\rib-\Jxp\lap\lep\xxpi\rip.
+\eeq
+The second term is just $4\pi\Jxp\de(\x-\xp)$, so we have
+\beq
+\curl\Bx=\frac{4\pi}c\Jx+\frac1c\grad\leb\inivp\Jxp\cdot\grad\lep\xxpi\rip\rib.
+\eeq
+The remaining integral may be completed as follows:
+\beqa
+\grad\inivp\Jxp\cdot\grad\lep\xxpi\rip=-\grad\inivp\Jxp\cdot\grad'\lep\xxpi\rip
+\nonumber\\=-\grad\inivp\divp\lep\frac{\Jxp}{\xxpa}\rip+\grad\inivp\frac
+{\divp\Jxp}{\xxpa}.
+\eeqa
+The first term in the final expression can be converted to a surface
+integral which then vanishes for a localized current distribution which
+lies totally within the domain enclosed by the surface. The integrand of
+the second term involves $\divp\Jxp=-\partial\rh(\xp)/\partial t\equiv0$
+for a steady-state current distribution. Consequently we have the curl
+equation
+\beq
+\curl\Bx=\frac{4\pi}{c}\Jx \mbox{ Sometimes called Ampere's Law}
+\eeq
+
+The curl and divergence equations, $\div\Bx=0$ and $\curl\Bx=(4\pi/c)\Jx$
+plus an appropriate statement about the behavior of $\Bx$ on a boundary
+tell us all we need to know to find the magnetic induction for a given set
+of sources $\Jx$. There are, of course, also integral versions of these
+differential equations. One finds the most common forms of them from the
+Stokes theorem and the divergence theorem.
+\beq
+\inv\div\Bx=\ina\Bx\cdot\nn=0
+\eeq
+and
+\beq
+\ina(\curl\Bx)\cdot\nn=\invl\cdot\Bx=\frac{4\pi}{c}\ina\Jx\cdot\nn.
+\eeq
+The last of these is also commonly written as
+\beq
+\invl\cdot\Bx=\frac{4\pi}{c}I_s
+\eeq
+where $I_s$ is the total current passing through the surface S in the
+direction of a right-hand normal relative to the direction in which the
+line integral around C is done.
+
+\centerline{\psfig{figure=fig5.ps,height=1.25in,width=4.25in}}
+
+\noindent This relation is frequently called
+Amp\`ere's law. One interesting feature of this equation is that the result
+is independent of the actual surface S employed so long as it is an open
+surface that ends on the path C. The amount of charge passing through all
+such surfaces per unit time \ie $I_s$, is independent of S because $\div\Jx
+=0$.
+
+\section{Vector and Scalar Potentials}
+In all electromagnetic systems it is possible to devise a potential
+which is a vector field for $\Bx$; it is called a {\em vector potential}.
+Sometimes, it is also possible to devise a scalar potential for $\Bx$. We
+shall consider the latter first.
+
+\subsection{Scalar Potential}
+As we have seen in the study of electrostatics, one can write a vector
+field as the gradient of a scalar if the vector field has zero divergence.
+This is the case for $\Bx$ in those regions of space where $\Jx=0$. Thus,
+in a source-free domain, we can write
+\beq
+\Bx=-\grad\Ph_M(\x).
+\eeq
+The {\em magnetic scalar potential} satisfies a differential equation which
+follows from the requirement that $\div\Bx=0$; it is
+\beq
+\lap\Ph_M(\x)=0.
+\eeq
+Thus, wherever there is a magnetic scalar potential, it satisfies the
+Laplace equation. In order to solve for it, we may apply any of the
+techniques we learned for finding the electrostatic potential in
+charge-free regions of space. Hence no more will be said about the
+magnetic scalar potential in general in this chapter.
+
+\subsection{Vector Potential and Gauge Invariance}
+Consider now the vector potential for a magnetostatic field. Because
+$\div\Bx=0$, it is possible to write the magnetic induction as the curl of
+another vector field (since $\div\lep\curl\A\rip$).  We have in fact already 
+constructed such a vector field because in \eq{25} we have written
+\beq
+\Bx=\curl\lep\frac1c\inivp\frac{\J(\xp)}{\xxpa}\rip.
+\eeq
+The field within the parentheses is a vector potential for $\Bx$. We shall
+write it as $\Ax$. It is, in contrast to the electrostatic scalar
+potential, not unique because one can always add to it the gradient of any
+scalar field $\chx$ and have a vector field whose curl is still $\Bx$.
+That is, given
+\beq
+\Ax=\frac1c\inivp\frac\Jxp\xxpa,
+\eeq
+which is such that $\Bx=\curl\Ax$, we can write
+\beq
+\A'(\x)=\Ax+\grad\chx,
+\eeq
+where $\chx$ is arbitrary. Then it is true that $\Bx=\curl\A'(\x)$ because
+the curl of the gradient of a scalar field is zero.
+
+By writing $\Bx=\curl\Ax$, we have automatically satisfied the requirement
+that $\div\Bx=0$; Hence we may find a single (vector) equation for the vector
+potential by substituting $\B=\curl\A$ into Amp\`ere's law:
+\beq
+\curl\Bx=\curl(\curl\Ax)=\frac{4\pi}c\Jx,
+\eeq
+or, using $\curl(\curl\A)=\grad(\div\A)-\lap\A$,
+\beq
+\lap\Ax-\grad(\div\Ax)=-\frac{4\pi}c\Jx.
+\eeq
+This equation would be considerably simpler if we could make the divergence
+of $\Ax$ vanish. It is possible to do this by using a vector potential
+constructed with an appropriate choice of $\chx$. The underlying
+mathematical point is the following: so far, the only condition we have
+placed on the vector potential is that its curl should be the magnetic
+induction. We are free to choose it so that its divergence conforms to our
+wishes because a vector field is sufficiently flexible that its curl and
+divergence can both be specified arbitrarily. Consider then the divergence of
+the most general vector potential. We write this potential as
+\beq
+\Ax=\frac1c\inivp\frac{\J(\xp)}\xxpa+\grad\chx.
+\eeq
+Then
+\beq
+\div\Ax=\frac1c\inivp\J(\xp)\cdot\grad\lep\xxpi\rip+\lap\chx.
+\eeq
+Now change the $\grad$ operator to $-\grad'$ and then do an integration by
+parts. The surface integral may be discarded if the volume integral is over
+all space and $\Jxp$ is localized (so that it vanishes on the surface of
+the volume of integration). What one then has left is
+\beq
+\div\Ax=\frac1c\inivp\frac{\divp\J(\xp)}\xxpa+\lap\chx=\lap\chx,
+\eeq
+where the last step follows from the fact that a time-independent set of
+sources give a current distribution having zero divergence.
+
+From this result we can see two things: first, the
+vector potential has zero divergence if we forget about $\chx$, \ie if we
+set it equal to zero. Second, we can make the divergence be any
+scalar function $f(\x)$ we want by setting $\lap\chx=f(\x)$. We would then
+have to solve for $\chx$ which is in principle straightforward because the
+differential equation for $\ch$ is just the Poisson equation and we know
+how to solve that. The solution is
+\beq
+\chx=-\frac1{4\pi}\inivp\frac{f(\xp)}\xxpa.
+\eeq
+
+Specifying the divergence of $\Ax$ is called choosing the {\em gauge} of
+the vector potential, and changing the function $\chx$ is called making a
+{\em gauge transformation}. Notice that one can make a transformation
+without changing the gauge (\ie without changing $\div\A$); to do this one
+must change $\ch$ by a function which satisfies the Laplace equation. The
+particular gauge specified by $\div\Ax=0$ is called the
+{\em Coulomb gauge}.
+
+Returning to our original point, we have found that we can pick a vector
+potential with zero divergence. In particular,
+\beq
+\Ax=\frac1c\inivp\frac{\J(\xp)}\xxpa
+\eeq
+has this property. In this, the Coulomb gauge, the vector potential
+satisfies the equations
+\beq
+\lap\Ax=-\frac{4\pi}c\Jx,
+\eeq
+which {\bf{must}} be interpreted as
+\beq
+\lap A_i(\x)=-\frac{4\pi}cJ_i(\x)
+\eeq
+where the subscript $i$ denotes any Cartesian component of $\A$.
+
+\subsection{Example: A Circular Current Loop}
+
+Consider a circular loop of radius $a$ carrying a current $I$. Let the loop
+lie in the $z=0$ plane and be centered at the origin of coordinates. 
+
+\centerline{\psfig{figure=fig6.ps,height=2.0in,width=6.375in}}
+
+\noindent Then
+we may write $\Jx=J_\ph(\x)\phh$ with
+\beq
+\J_\ph(\x)=\frac Ia\de(\cos\th)\de(r-a).
+\eeq
+It is a natural temptation to do the following INCORRECT thing:
+write $\Ax=A_\ph(\x)\phh$ (correct so far) with
+\beq
+A_\ph(\x)=\frac1c\inivp\frac{J_\ph(\xp)}\xxpa.
+\eeq
+This integral is not correct because the unit vector $\phh$ at the field
+point $\x$ is not the same as the unit vector $\phh'$ at the field point
+$\xp$.
+
+What we can do instead is to make use of the azimuthal symmetry of the
+system and trivially generalize to all values of $\ph$ after having first
+evaluated the vector potential at some particular value of $\ph$.
+Let us look at the potential at $\ph=0$, \ie in the $x$-$z$ plane. Here,
+the vector potential will be in the $y$ direction, so we can say that
+
+\beq
+A_\ph(r,\th)=A_y(r,\th,\ph=0)=\frac1c\inivp\frac{J_y(\xp)}\xxpa
+\eeq
+at $\ph=0$. Now, $J_y(\xp)=J_{\ph'}\cos\ph'$, so
+\beq
+A_\ph(r,\ph)=\frac{I}{ac}\inivp\frac{\de(r'-a)\de(\cos\th')\cos\ph'}{(r^2+
+a^2-2ar\cos\ga)^{1/2}}
+\eeq
+where $\ga$ is the angle between the directions of $\x$ and $\xp$,
+$\cos\ga=\sin\th\cos\ph'$. 
+
+The integral is an elliptic integral; rather
+than deal with its arcane properties, we will expand it in the usual way:
+\beqa
+A_\ph(r,\th)=\frac{I}{ca}\inivp\frac{\de(r'-a)\de(\cos\th')\cos\ph'}
+{\xxpa}\nonumber\\=Re\lec\frac{I}{ca}\inivp\frac{\de(r'-a)\de(\cos\th')}
+{\xxpa} e^{i\ph'}\ric\nonumber\\=Re\lec\frac{I}{ca}\inivp\de(r'-a)\de(\cos
+\th')e^{i\ph'}\sum_{l,m}\frac{4\pi}{2l+1}\frac{r_<^l}{r_>^{l+1}}\ylmsp
+\ylm|_{\ph=0}\ric\nonumber\\=Re\lec\frac{Ia}{c}\sum_{l,m}\frac{(l-m)!}{(l+m
+)!}P_l^m(\cos\th)P_l^m(0)\frac{r_<^l}{r_>^{l+1}}\int_0^{2\pi}d\ph'e^{i\ph'}
+e^{-im\ph'}\ric\nonumber\\=\frac{2\pi Ia}{c}\sum_{l=1}^\infty\frac{P_l^1(0)
+P_l^1(\cos\th)}{l(l+1)}\frac{r_<^l}{r_>^{l+1}}
+\eeqa
+where $r_<$ and $r_>$ refer to the smaller and larger of $r$ and $a$.
+Next one notes that $P_l^1(0)=0$ for $l$ even and
+\beq
+P_l^1(0)=(-1)^{(l+1)/2}l!/[(l-1)!!]^2
+\eeq
+for $l$ odd; set $l=2n+1$ and have
+\beqa
+A_\ph(r,\th)=\frac{2\pi Ia}{c}\sum_{n=0}^\infty\frac{(-1)^{n+1}(2n+1)!}{
+(2n+1)(2n+2)[(2n)!!]^2}\frac{r_<^{2n+1}}{r_>^{2n+2}}P_{2n+1}^1(\cos\th)
+\nonumber\\=\frac{\pi  Ia}{c}\sum_{n=0}^\infty\frac{(-1)^{n+1}(2n-1)!!}{2^n
+(n+1)!}\frac{r_<^{2n+1}}{r_>^{2n+2}}P_{2n+1}^1(\cos\th).
+\eeqa
+At large $r$, \ie $r>>a$, we can keep just the leading term (n=0) and find
+\beq
+A_\ph(r,\th)=\frac{\pi Ia}{c}\frac{a}{r^2}\sin\th.
+\eeq
+The corresponding components of the magnetic induction are
+\beq
+B_r(r,\th)=\frac1{r\sin\th}\pde{}{\th}(\sin\th A_\ph)=\frac{2\pi Ia^2}{cr^3}
+\cos\th,
+\eeq
+and
+\beq
+B_\th(r,\th)=-\frac1r\pde{}{r}(rA_\ph)=\frac{\pi Ia^2}{cr^3}\sin\th.
+\eeq
+
+\centerline{\psfig{figure=fig7.ps,height=2.0in,width=6.375in}}
+
+We recognize these as having the same form as the 
+field of an electric
+powers of $a/r$, the current loop is treated as a {\em magnetic dipole}
+with {\em magnetic dipole moment} $\mdm\equiv (\pi I a^2/c)\zh$; the
+corresponding vector potential, \eq{58},  is
+\beq
+\Ax=A_\ph(r,\th)\phh=\frac{|\mdm|\sth}{r^2}\phh=\frac{\mdm\times \x}
+{|\x|^3}.
+\eeq
+We may compare this potential to that of an electric dipole which is
+\beq
+\Phx=\frac{\edm\cdot\x}{|\x|^3}.
+\eeq
+
+\section{The Field of a Localized Current Distribution}
+The example of the preceding section is a special case of the field of a
+localized current distribution. Let us now suppose that we have some such
+distribution $\Jxp$ around the origin of coordinates. We shall find the
+potential of this distribution in the dipole approximation. To this end we
+must expand the function
+\beq
+\xxpi\approx\frac1{|\x|}\leb1+\frac{\x\cdot\xp}{|\x|^2}+...\rib
+\eeq
+in powers of $r'/r$.
+
+\centerline{\psfig{figure=fig8.ps,height=1.5in,width=6.375in}}
+
+Of particular interest to us is the first-order term in the brackets.
+Using this expansion, we find that the vector potential is
+\beq
+\Ax=\frac1c\inivp\Jxp\leb\frac1{|\x|}+\frac{\x\cdot\xp}{|\x|^3}+...\rib.
+\eeq
+The first term $\sim\inivp\Jxp$ is zero for a localized steady current
+distribution (Why?)\footnote{The short answer is just that in lieu of sources
+or sinks of charge the total current density in a  current distribution must 
+be zero.  More formally, consider the 3-vector with components $U_i$
+\[
+U_i=0=\inv x_i\div\J=\inv\leb \div\lep x_i \J\rip-\J\cdot\grad x_i\rib
+\]
+Using the divergence theorem, this becomes
+\[
+\ina x_i \J\cdot\nn -\inv \J\cdot{\hat{\x}_i}
+\]
+which follows since $\grad x_i={\hat{\x}_i}$.  Then if we take the surface to
+infinity, where there is no current density, we obtain the desired result
+\[
+0=-\inv J_i
+\]
+}
+; the second one is
+\beq
+\A_d(\x)=\frac1{c|\x|^3}\inivp(\x\cdot\xp)\Jxp.
+\eeq
+However, $(\x\cdot\xp)\J=-\x\times(\xp\times\J)+(\x\cdot\J)\xp$, so
+\beq
+\A_d(\x)=\frac1{c|\x|^3}\lec\inivp(\x\cdot\Jxp)\xp-\x\times\inivp(\xp\times
+\Jxp)\ric.
+\eeq
+Consider the $j^{th}$ component of the first integral:
+\beq
+\inivp x_j'(\x\cdot\Jxp)=\sum_{i=1}^3\inivp x_j'x_iJ_i(\xp).
+\eeq
+Now, it is the case that
+\beq
+\divp(x_i'\Jxp)=(\grad'x_i')\cdot\Jxp+x_i'(\divp\Jxp)=J_i(\xp),
+\eeq
+since the divergence of $\J$ is zero. This allows us to write
+\beqa
+\inivp(\x\cdot\Jxp)x_j'=\sum_{i=1}^3x_i\inivp[\divp(x_i'\Jxp)]x_j'
+\nonumber\\ \hbox{Parts integration:}\nonumber \\
+=-\sum_{i=1}^3x_i\inivp(x_i'\Jxp)\cdot(\grad'x_j')=-\inivp(\x\cdot\xp)J_j(
+\xp).
+\eeqa
+Generalizing now to all three components of this integral, we find
+\beq
+\inivp(\x\cdot\Jxp)\xp=-\inivp(\x\cdot\xp)\Jxp.
+\eeq
+Comparison with the expressions for $\A_d$ shows that
+\beq
+\A_d(\x)=-\frac1{2c}\frac1{|\x|^3}\x\times\leb\inivp(\xp\times\Jxp)\rib
+\equiv\frac{\mdm\times\x}{|\x|^3}=\curl\lep\frac{\mdm}{|\x|}\rip
+\eeq
+where the {\em magnetic dipole moment} of the current distribution is defined as
+\beq
+\mdm\equiv\frac1{2c}\inivp(\xp\times\Jxp).
+\eeq
+The {\em magnetic moment density} of the distribution is defined by
+\beq
+{\cal M}(\x)\equiv\frac1{2c}\x\times\Jx
+\eeq
+so that the magnetic moment is the integral of this density over all space.
+
+The field produced by the source in the magnetic dipole approximation is
+\beq
+\B_d(\x)=\curl\A_d(\x)=\curl\lep\frac{\mdm\times\x}{|\x|^3}\rip.
+\eeq
+Using the identity
+\beq
+\curl(\A\times\B)=\A(\div\B)-\B(\div\A)+(\B\cdot\grad)\A-(\A\cdot\grad)\B,
+\eeq
+we can write this equation as
+\beq
+\B_d(\x)=\frac{3\nn(\nn\cdot\mdm)-\mdm}{|\x|^3}
+\eeq
+where $\nn=\x/|\x|$. 
+
+	This is, as was the case for the electric dipole, only
+the field outside of the current distribution. For a point magnetic dipole,
+it would be the field away from the location of the dipole (the origin),
+and at the origin there is a delta-function field as for the point electric
+dipole. We may find the magnitude and direction of this singular field by
+a more careful analysis of what happens as $r\rightarrow0$. To this end it
+is useful to write the vector potential of the dipole as
+\beq
+\A_d(\x)=\curl\lep\frac{\mdm}{|\x|}\rip.
+\eeq
+Then we can write
+
+\beq
+\Bx=\curl\Ax=\curl\leb\curl\lep\frac\mdm r\rip\rib=\grad\leb\div\lep\frac
+\mdm r\rip\rib-\lap\lep\frac\mdm r\rip.
+\eeq
+The last term on the right-hand side is just $4\pi\mdm\de(\x)$. The first
+one we have seen before, as it is the same as the electric field of an
+electric dipole; we already know what singularity is contained therein but
+will figure it out again as an exercise. Start by integrating this term
+over a small sphere of radius $\ep$ centered at the origin and then take
+the limit as $\ep\rightarrow0$:
+\beq
+\int_{r<\ep}d^3x\grad\leb\div\lep\frac\mdm r\rip\rib=\int_{r=\ep}d^2x
+\nn\leb\div\lep\frac\mdm r\rip\rib,
+\eeq
+where we have used the identity, valid for any scalar function $f(\x)$:
+\beq
+\iniv\grad f(\x)=\inia\nn f(\x);
+\eeq
+S is the surface enclosing the domain V and $\nn$ is the usual outward unit
+normal. Continuing, we have
+\beq
+\int_{r=\ep}d^2x\nn\leb\div\lep\frac\mdm r\rip\rib=-\int_{r=\ep}d^2x\,\rhh\lep
+\frac{\mdm\cdot\x}{r^3}\rip=-\frac{4\pi}3\mdm.
+\eeq
+Hence we find that $\grad[\grad\cdot(\mdm/r)]$ contains the singular piece
+$(4\pi/3)\mdm\de(\x)$. Putting it into \eq{78}, we conclude that the
+delta-function piece of the magnetic field is $(8\pi/3)
+\mdm\de(\x)$, and hence the total field of the magnetic dipole is
+\beq
+\Bx=\frac{3(\nn\cdot\mdm)\nn-\mdm}{r^3}+\frac{8\pi}3\mdm\de(\x).
+\eeq
+
+The consequences of the presence of the delta-function piece are observed
+in atomic hydrogen where the magnetic moment of the electron interacts with
+that of the nucleus, or proton. Without this interaction, all total-spin
+states of the atom would be degenerate. As a consequence of the
+interaction, the ``triplet'' or ``spin-one'' states are raised slightly in
+energy relative to the ``singlet'' or ``spin-zero'' state. The splitting is
+small even on the scale of atomic energies, being about $10^{-17} erg$ or
+$10^{-5}\;ev$. A photon which has the same energy as this
+splitting, and which is thus produced or absorbed by a transition between
+the two atomic energy levels, has a wavelength of 21 $cm$. The delta-function
+part of the field also plays an important role in the scattering of neutrons
+from magnetic materials.
+
+\section{Forces on a Localized Current Distribution}
+We shall look next at the interaction of a localized current distribution
+with an externally applied field, again using procedures reminiscent of the
+multipole expansion for a localized charge distribution. First, we expand
+the applied field around some suitably chosen origin (at the center of
+the current distribution),
+
+\centerline{\psfig{figure=fig9.ps,height=1.5in,width=6.375in}}
+
+\beq
+\Bx=\B(0)+(\x\cdot\grad')\B(\xp)|_{\xp=0}+...;
+\eeq
+The force that the field exerts on a localized current distribution
+located around the origin is then expanded as follows:
+\beqa
+\F=\frac1c\iniv(\Jx\times\Bx)\nonumber\\
+=-\frac1c\B(0)\times\iniv\Jx+\frac1c\iniv\Jx\times[(\x\cdot\grad')\B(\xp)
+|_{\xp=0}]+...  .
+\eeqa
+Now, the first integral in the last line vanishes for a localized
+steady-state current distribution (there can't be any net flow of charge
+in any direction), and we can manipulate the integrand in the final
+integral as follows:
+\beq
+(\x\cdot\grad')\B(\xp)=\grad'(\x\cdot\B(\xp))-\x\times(\grad'\times\B(\xp))
+,\eeq
+and we may suppose that $\B$ is due entirely to external sources so that
+$\grad'\times\B(\xp)=0$ for $\xp$ around the origin. Thus we find that the
+force is
+\beqa
+\F=\frac1c\iniv\Jx\times[\grad'(\x\cdot\B(\xp))|_{\xp=0}]\nonumber\\
+=-\frac1c\iniv\grad'\times[(\x\cdot\B(\xp))|_{\xp=0}\Jx]\nonumber\\
+=-\frac1c\grad'\times\iniv[\x\cdot\B(\xp))|_{\xp=0}\Jx].
+\eeqa
+Now, we can write the last integral as
+\beq
+\iniv(\x\cdot\B(\xp))\Jx=-\iniv[\B(\xp)\times(\x\times\Jx)-\x(\B(\xp)\cdot
+\Jx)].
+\eeq
+Further, it is true that
+\beq
+\iniv\x(\B(\xp)\cdot\Jx)=-\iniv(\x\cdot\B(\xp))\Jx;
+\eeq
+we can demonstrate this fact by considering the $i^{th}$ component of the
+integral.
+\beqa
+-\iniv(\x\cdot\B(\xp))J_i(\x)=-\iniv(\x\cdot\B(\xp))\div(x_i\Jx)\nonumber\\
+=\iniv[\grad(\x\cdot\B(\xp))]\cdot(x_i\Jx)=\iniv\B(\xp)\cdot(x_i\Jx)\nonumber
+\\=\iniv x_i(\B(\xp)\cdot\Jx).
+\eeqa
+Hence, from \eqss{84}{85}{86} we find that
+\beqa
+\F=\frac1{2c}\grad'\times\lec\iniv[\B(\xp)\times(\x\times\Jx)]\ric|_{\xp=0}
+\nonumber\\=\frac1{2c}\grad'\times\lec\B(\xp)\times\iniv(\x\times\Jx)
+\ric|_{\xp=0}\nonumber\\
+=\grad'\times(\B(\xp)\times\mdm)|_{\xp=0}=(\mdm\cdot\grad')\B(\xp)|_{\xp=0}-
+\mdm(\grad'\cdot\B(\xp))|_{\xp=0}\nonumber\\
+=\grad'(\mdm\cdot\B(\xp))|_{\xp=0}-\mdm\times(\grad'\times\B(\xp))|_{\xp=
+0}.
+\eeqa
+
+Along the way in this derivation we have made use of the facts that the
+divergence and curl of $\B$ are zero in the region near the origin. The
+final result has the form of the gradient of a scalar function,
+\beq
+\F=-\grad(-\mdm\cdot\Bx)
+\eeq
+where the gradient is to be evaluated at the center of the current
+distribution. Notice in particular that there is no force if the applied
+magnetic induction is uniform. More generally, the force is in the
+direction of the gradient of the component of $\B$ in the direction of
+$\mdm$.
+
+The torque $\N$ on the current distribution may be found using similar
+manipulations.
+\beqa
+\N=\frac1c\iniv\,\x\times(\Jx\times\Bx)\approx\frac1c\iniv\,\x\times(\Jx\times
+\B(0))\nonumber\\
+=\frac1c\iniv\,[(\x\cdot\B)\Jx-(\x\cdot\Jx)\B]=
+-\frac1{2c}\iniv\B\times(\x\times\Jx
+)\nonumber\\-\frac1c\B\iniv(\x\cdot\Jx)=\mdm\times\B-\frac1c\B\iniv(\x
+\cdot\Jx)
+\eeqa
+However,
+\beq
+\div(r^2\Jx)=2\x\cdot\Jx+r^2(\div\Jx);
+\eeq
+the final term here is zero, so it is the case that
+\beq
+\iniv(\x\cdot\Jx)=\frac12\iniv\div(r^2\Jx)=0,
+\eeq
+the final step following from the fact that the current distribution is
+localized. Thus the torque on the localized source reduces to
+\beq
+\N=\mdm\times\B,
+\eeq
+in the dipole approximation. Compare this result with \eq{1}.
+
+\section{Macroscopic Magnetostatics}
+If one has a macroscopic object with lots of microscopic currents flowing
+around in it (electrons on molecules give many small current loops), then
+it is best to carry out suitable averages over volumes small compared to
+anything macroscopic but large compared to molecules and to calculate only
+the average quantities. The elementary procedure, in which many
+complications are blissfully ignored, is to break the sources up into
+free and bound:
+\begin{enumerate}
+\item the {\em macroscopic current density}, written as $\Jx$
+\item the
+{\em magnetization} $\Mx$ which is defined as the magnetic dipole moment per
+unit volume. 
+\end{enumerate} 
+The latter comes from the molecules, atoms, ions, etc., in a
+material medium. The macroscopic current density comes from moving charges
+which are not bound on molecules, \ie not localized. Notice that within
+this approach we can accommodate sources which cannot actually be described
+as the motion of charges, or currents; that is, the spin magnetic moments of
+``elementary'' particles such as the electron. These may be treated as
+point dipoles and so simply contribute to the magnetization.
+
+Given these sources, use of \eqs{48}{71} tell us that the (macroscopic)
+vector potential is
+\beq
+\Ax=\frac1c\inivp\leb\frac\Jxp\xxpa+\frac{c\Mxp\times\xxp}{\xxpa^3}\rib.
+\eeq
+We can manipulate the term involving the magnetization in a manner which
+should be familiar:
+\beqa
+\Ax=\frac1c\inivp\lec\frac\Jxp\xxpa+\frac{c\Mxp\times\xxp}{\xxpa^3}\ric
+\nonumber\\=\frac1c\inivp\lec\frac\Jxp\xxpa+c\Mxp\times\grad'\lep\frac1\xxpa
+\rip\ric\nonumber\\=\frac1c\inivp\lec\frac{\Jxp+c(\grad'\times\Mxp)}\xxpa\ric
+-\inivp\grad'\times\lep\frac\Mxp\xxpa\rip
+\eeqa
+However, there is an identity which allows us to convert the integral of a
+curl to a surface integral:
+\beq
+\inv\curl\V=\inac\nn\times\V.
+\eeq
+In the present instance, when the last integral in \eq{97} is converted to a
+surface integral, it will vanish because if the surface encloses all of the
+magnetic materials, $\M$ will be zero on the boundary. Hence we have the
+result
+\beq
+\Ax=\frac1c\inivp\,\frac{\Jxp+c[\grad'\times\Mxp]}\xxpa
+\eeq
+for the macroscopic vector potential.
+
+\subsection{Magnetization Current Density}
+
+The form of this equation implies that $c\curl\Mx$ is a current density 
+associated with spatial variations of the magnetization. 
+It is possible to imagine how the curl of the magnetization yields a current
+source, if we consider each magnetic dipole as originating from a vanishingly
+small current loop.
+
+\centerline{\psfig{figure=fig10.ps,height=1.9in,width=6.375in}}
+
+\noindent This may or may not
+really be the case. If the magnetization is the consequence of the motions of
+bound charges on molecules, then it is indeed a current. But if the
+magnetization is the consequence of the intrinsic dipole moments of elementary
+particles such as the electron, then it is not reasonable to think of the curl
+of the magnetization as a current density. Nevertheless, we shall define
+the {\em magnetization current density} $\J_M(\x)$ as\footnote{Notice that
+this object has zero divergence, as a steady-state current density should.}
+\beq
+\J_M(\x)=c\curl\Mx.
+\eeq
+In terms of the magnetization current density, we have
+\beq
+\Ax=\frac1c\inivp\frac{\Jxp+\J_M(\xp)}\xxpa.
+\eeq
+
+The differential field equations obeyed by the {\em macroscopic magnetic
+induction}, which is the curl of the macroscopic vector potential,
+\beq
+\Bx=\curl\Ax,
+\eeq
+are easy to write down by referring to our earlier derivation; they are
+\beq
+\curl\Bx=\frac{4\pi}c(\Jx+\J_M(\x))
+\eeq
+and, of course,
+\beq
+\div\Bx=0.
+\eeq
+
+\subsection{Magnetic Field}
+
+The difficulty one faces in solving these equations is much the same as
+faced in macroscopic electrostatics. One generally does not know
+magnetization until after solving for the induction. Further, the relation
+between $\Bx$ and $\Mx$ depends on the material. It is customary to define
+an additional macroscopic field $\Hx$, called the {\em magnetic field},
+\beq
+\Hx\equiv\Bx-4\pi\Mx.
+\eeq
+Then \eq{103} can be rewritten as
+\beq
+\curl\Bx=\frac{4\pi}c(\Jx+c\curl\Mx)
+\eeq
+or
+\beq
+\curl(\Bx-4\pi\Mx)=\frac{4\pi}c\Jx
+\eeq
+or
+\beq
+\curl\Hx=\frac{4\pi}c\Jx.
+\eeq
+We haven't resolved anything by making this definition, of course; we have
+simply phrased the problem in a somewhat different form. The advantage in
+introducing the magnetic field is that it obeys a relatively simple
+differential equation and that, in many materials, there is a simple
+approximate relation between $\B$ and $\H$. The simplest materials are,
+like dielectrics, linear, isotropic, and uniform, in which case the relation
+between $\B$ and $\H$ is
+\beq
+\Hx=\frac1\mu\Bx
+\eeq
+where $\mu$ is a constant known as the {\em magnetic permeability}. This
+positive constant can be smaller or larger than unity, leading to two
+classifications of magnetic materials: If $\mu<1$, the material is said to
+be a {\em diamagnet}; if $\mu>1$, it is called a {\em paramagnet}. 
+
+\centerline{\psfig{figure=diapara.ps,height=2.5in,width=4.25in}}
+
+\noindent For
+linear, isotropic materials, it is also common to introduce the
+{\em magnetic susceptibility} $\ch_m$,
+\beq
+\ch_m\equiv\frac{\mu-1}{4\pi}
+\eeq
+so that $\M=\ch_m\H$.
+
+Many materials have dramatically different relations among $\B$, $\M$, and
+$\H$. {\em Ferromagnets} are a prime example; they can have a finite
+magnetic induction with zero magnetic field as well as the converse. In
+addition, as shown in the figure below
+the relation between these two fields in ferromagnets is usually not
+single-valued; the particular magnetic field one finds for a given value of
+$\B$ depends on the ``history'' of the sample, meaning it depends on what
+external fields it was subjected to prior to determining $\B$ and $\H$. We
+will not concern ourselves with the origins of this behavior.
+
+\centerline{\psfig{figure=fig12.ps,height=2.0in,width=4.25in}}
+ 
+\subsection{Boundary Conditions}
+We have the general differential equations of magnetostatics
+\beq
+\curl\Hx=\frac{4\pi}c\Jx
+\eeq
+and
+\beq
+\div\Bx=0.
+\eeq
+
+These are valid for any system, independent of the particular relation
+between the magnetic induction and the magnetic field. From them we can
+derive general boundary or continuity conditions. From the divergence
+equation, we infer that the normal component of the magnetic induction is
+continuous at an interface between two materials,
+
+\centerline{\psfig{figure=bc1.ps,height=2.5in,width=5.0in}}
+
+\beq
+(\B_2-\B_1)\cdot\nn=0
+\eeq
+where the subscripts 1 and 2 refer to the induction in each of two
+materials meeting at an interface, and $\nn$ is a unit vector normal to the
+interface and pointing into medium 2.
+
+From the curl equation, one finds that the tangential components of $\H$ can
+be discontinuous. The discontinuity is related to the current flowing along
+(parallel to) the interface. Consider Stokes' theorem as applied to the
+curl equation. 
+
+\centerline{\psfig{figure=bc2.ps,height=3.0in,width=5.0in}}
+
+\noindent Thus,
+\beq
+\ina[\curl\Hx]\cdot\nn'=\invlc\cdot\Hx=\frac{4\pi}c\ina\Jx\cdot\nn'
+\eeq
+where the unit vector $\nn'$ is directed normal to the surface S over which
+the integration is done. Using a rectangle of dimensions $a$ by $h$, where
+$a<<h$ and $a$ is directed perpendicular to the interface while $h$ is
+parallel to it, we find that the line integral comes down to
+\beq
+\invlc\cdot\Hx=h(\H_2-\H_1)\cdot(\nn'\times\nn)
+\eeq
+which is to say, we find the discontinuity in a particular tangential
+component of $\H$ across the interface. The integral over the current, on
+the other hand, gives, for a finite, slowly varying current,
+\beq
+\frac{4\pi}c\ina\Jx\cdot\nn'\sim ah\J\cdot\nn';
+\eeq
+this is proportional to $a$ and so is insignificant for $a<<h$ assuming a
+finite well-behaved current density. In this case, there is no
+discontinuity in the tangential components of $\H$,
+\beq
+(\H_2-\H_1)\times\nn=0.
+\eeq
+
+There is also the possibility of a singular term in $\Jx$ which would be of
+the form
+\beq
+\J_s(\x)=\K(\x)\de(\xi)
+\eeq
+where $\xi$ is the distance from the interface and the vector $\K$ points
+in a direction parallel to the interface. This vector is a {\em
+surface-current density} and has dimensions of charge per unit length per
+unit time. This expression is, of course, an idealization. When currents
+run along the surface of a material, they typically are not localized
+precisely at the surface (\ie, within an atomic size) but are spread over a
+surface layer of thickness ranging from a few hundred Angstroms to some
+microns. If the length $a$ is significantly larger than this layer's
+thickness, then it is reasonable to talk about a surface-current density
+and quite acceptable to regard it as being localized at the interface.
+Proceeding on this basis, we find that the continuity condition becomes
+\beq
+h(\H_2-\H_1)\cdot(\nn'\times\nn)=h\frac{4\pi}{c}\K\cdot\nn'.
+\eeq
+This relation can be written in the more general form
+\beq
+\nn\times(\H_2-\H_1)=\frac{4\pi}c\K
+\eeq
+as may be shown by (1) realizing that $\K\cdot\nn=0$ and (2) taking the inner
+product of \eq{120} with any vector (such as $\nn'$) lying in the
+plane of the interface.
+
+\section{Examples of Boundary-Value Problems in Magnetostatics}
+
+\subsection{Uniformly Magnetized Sphere}
+
+The principal example is a uniformly magnetized sphere meaning a material that
+maintains a constant magnetization $\M_0$ in the absence of any applied
+field. 
+
+\centerline{\psfig{figure=mag_sphere.ps,height=1.5in,width=1.5in}}
+
+\noindent We shall let the direction of $\M$ be the z-direction and so have
+\beq
+\Mx=\lec\barr{cc} M_0\zh  & r<a\\0 & r>a.\ear \right.
+\eeq
+In the region $r>a$, $\B=\H$. For $r<a$, $\B=\H+4\pi\M$. However, $\M$ is
+constant here and so has no curl or divergence. This means that the curls
+of both $\B$ and $\H$ are zero everywhere except at the boundary of the
+sphere.
+
+Consider the magnetization current density, $\J_M=c\curl\M$; it is non-zero
+only at $r=a$ where it is singular. By applying Stokes' theorem to this
+equation in the same manner as was done to find the continuity condition on
+the tangential components of $\H$ at an interface, one finds that there is
+a magnetization surface-current density $\K_M$ given by
+\beq
+\K_M=c\nn\times(\M_2-\M_1)
+\eeq
+where $\nn$ is the unit normal at the surface pointing into material 2.
+In the present application, $\M_1=\M_0$ and $\M_2=0$. Since $\rhh\times
+\zh=-\sth\phh$, we have $\K_M=K_M\phh$ where $K_M=cM_0\sth$.
+
+\subsubsection{Scalar Potential for the Induction}
+Now that we have identified the sources, let's look at some methods of
+solution. First, consider a scalar potential approach. Because the curl of
+$\B$ is zero for $r<a$ and $r>a$, we can devise scalar potentials for the
+magnetic induction in these two regions. Because $\div\Bx=0$, the
+potentials satisfy the Laplace equation. Further, the system is invariant
+under rotation around the $z$-axis, implying that the potential is
+independent of $\ph$. Hence it must be possible to write
+\beq
+\Ph_<(\x)=M_0a\sum_lA_l\lep\frac ra\rip^lP_l(\cth) \hbox{ for $r<a$}
+\eeq
+ and
+\beq
+\Ph_>(\x)=M_0a\sum_lC_l\lep\frac ar\rip^{l+1}P_l(\cth) \hbox{ for $r>a$}.
+\eeq
+Given that $\B=-\grad\Phx$, the condition that the normal component of $\B$
+is continuous at $r=a$ becomes (making use of the orthogonality of the
+Legendre polynomials in the usual way)
+\beq
+lA_l=-(l+1)C_l
+\eeq
+for all $l$. The other boundary condition is that the tangential component
+of $\H$, or $H_\th$ is continuous. Since $\B=\H+4\pi\M$, and since the
+$\th$-component of the magnetization is $-M_0\sth$ (and $\sth=-dP_1(\cth)/d
+\th$, this second condition leads to
+\beq
+A_l=C_l \hbox{ for $l$ not equal to 1}
+\eeq
+and
+\beq
+C_1=A_1+4\pi.
+\eeq
+>From these equations it is easy to see that $A_l=C_l=0$, $l\ne1$, while
+$C_1=4\pi/3$ and $A_1=-8\pi/3$.
+
+Having found the potential, we may compute the fields. The magnetic
+induction at $r>a$ has the familiar dipolar form; the field within the
+sphere is a constant:
+\beq
+\B_<=\frac{8\pi}3\M_0 \hbox{ and } \H_<=-\frac{4\pi}3\M_0.
+\eeq
+
+\subsubsection{Scalar Potential for the Field}
+A second approach to this problem is to devise a scalar potential for the
+magnetic field. Since $\Jx=0$ everywhere, the curl of $\H$ is zero
+everywhere and so there is a potential $\Ph_H$ for $\H$ {\bf everywhere}
+such that $\Hx=-\grad\Ph_H(\x)$. The
+divergence of $\H$ obeys
+\beq
+\div\Hx=-\lap\Ph_H(\x)=\div\Bx-4\pi\div\Mx=-4\pi\div\Mx.
+\eeq
+Looking upon this as a Poisson equation, we can immediately see that the
+solution for the potential is
+\beq
+\Ph_H(\x)=-\inivp\frac{\divp\Mxp}\xxpa=-\inivp\leb\divp\lep\frac\Mxp\xxpa
+\rip-\Mxp\cdot\grad'\lep\frac1\xxpa\rip\rib
+\eeq
+The first term in the final expression may be converted to a surface
+integral which is seen to be zero from the fact that the magnetization is
+non-zero only within the sphere. Hence
+\beqa
+\Ph_H(\x)=M_0\zh\cdot\int_{r'<a}d^3x'\grad'\lep\frac1\xxpa\rip
+=-\div\leb M_0\zh\int_{r'<a}\frac{d^3x'}\xxpa\rib\nonumber\\
+=-\div\leb M_0\zh\int_0^ar'^2dr'4\pi\frac1{r_>}\rib
+\eeqa
+where $r_>$ is the larger of $a$ and $r$. For $r>a$, we find
+\beq
+\Ph_H(\x)=-\div\lep M_0\zh 4\pi\frac{a^3}{3r}\rip=\frac{4\pi}3a^3M_0
+\frac{\cth}{r^2},
+\eeq
+and for $r<a$,
+\beq
+\Ph_H(\x)=-\div\leb M_0\zh4\pi\lep\frac{a^2}2-\frac{r^2}6\rip\rib
+=\frac{4\pi}3M_0z.
+\eeq
+
+Notice how the preceding calculation avoids having to think about what happens
+at the surface of the sphere; the integration by parts leaves us with a simpler
+integration over the magnetization. It is, of course, possible to evaluate the
+divergence of the magnetization and complete the integral directly without
+using the integration by parts. To this end, write the magnetization as
+\beq
+\Mx=M_0\zh\th(a-r)
+\eeq
+where the $\th$-function is a step function,
+\beq
+\th(x)=\lec\barr{cc} 1,  & x>0\\0,   &  x<0.\ear\right.
+\eeq
+Then
+\beq
+\div\Mx=M_0\pde{}{z}\th(a-r)=-M_0\de(a-r)\pde rz
+\eeq
+since
+\beq
+\der{\th(x)}x=\de(x).
+\eeq
+Hence
+\beqa
+\Ph_H(\x)=\inivp\frac{\divp\Mxp}\xxpa=M_0a^2\int d\Om'\frac{\cth'}\xxpa \\
+\nonumber\\=M_0a^2\frac{4\pi}3\frac3{4\pi}\frac{4\pi}3\frac{r_<}{r_>^2}
+\cth=\frac{4\pi}3 M_0a^2\frac{r_<}{r_>^2}\cth.
+\eeqa
+Here, $\xp$, after integrating over $r'$, has the magnitude $a$.
+
+\subsubsection{Direct Calculation of $\B$}
+Another approach to this problem is to calculate the vector potential for $
+\Bx$ directly. Since $\Jx=0$ everywhere, only the curl of the magnetization
+acts as a source of this potential. Thus we have
+\beqa
+\Ax=\frac1c\inivp\frac{c\grad'\times\Mxp}\xxpa=\inivp\leb\grad'\times\lep
+\frac\Mxp\xxpa\rip-\grad'\lep\frac1\xxpa\rip\times\Mxp\rib\nonumber\\
+=\inacp\nn'\times\lep\frac\Mxp\xxpa\rip+\curl\lep\inivp\frac\Mxp\xxpa\rip
+\nonumber\\=\curl M_0\zh4\pi\lec\barr{cc} a^3/3r, & r>a\\
+a^2/2-r^2/6, & r<a. \ear\right.
+\eeqa
+One may easily work out the curl to find
+\beq
+\Ax=\frac{4\pi}3M_0a^3\frac\sth{r^2}\phh \hbox{ for $r>a$}
+\eeq
+and
+\beq
+\Ax=\frac{4\pi}3M_0r\sth\phh \hbox{ for $r<a$.}
+\eeq
+These expressions may be summarized as
+\beq
+\Ax=\frac{4\pi M_0}3a^2\lep\frac{r_<}{r_>^2}\rip\sth\phh.
+\eeq
+
+The preceding example is a typical one involving a permanently magnetized
+material. Then one knows $\Mx$ and so can proceed with a solution of the
+equations for $\B$ or $\H$ via the route of one's choice. A quite different
+sort of problem is one involving linear, isotropic magnetic materials with
+$\Jx=0$. These are entirely equivalent to problems in macroscopic
+electrostatics (Laplace equation problems) with which we have extensive
+experience. The point is that one has
+\beq
+\curl\Hx=0
+\eeq
+ which means there is a potential $\Ph_H(\x)$ such that
+\beq
+\Hx=-\grad\Ph_H(\x).
+\eeq
+Further, since $\div\Bx=0$, and $\Bx=\mu\Hx$, we have
+\beq
+0=\div\Bx=\div(\mu\Hx)=(\grad\mu)\Hx+\mu\div\Hx=-(\grad\mu)\grad\Ph_H(\x)
+-\mu\lap\Ph_H(\x),
+\eeq
+or
+\beq
+\lap\Ph_H(\x)=-\frac{\grad\mu}{\mu}\grad\Ph_H(\x).
+\eeq
+In any region of space where $\mu$ is a constant, this is just the Laplace
+equation,
+\beq
+\lap\Ph_H(\x)=0.
+\eeq
+Hence we may write down an appropriate solution of the Laplace equation for
+$\Ph_H(\x)$ in each region of space where the magnetic properties are
+uniform and then make sure the continuity conditions on the tangential
+components of $\Hx$ and on the normal components of $\Bx$ are satisfied on
+the boundaries between such regions. The techniques used are the same as
+for boundary value problems in electrostatics.
+
+Notice that in problems of this kind, we can equally well make a scalar
+potential for $\Bx$ in each of the regions where $\mu$ is constant.
+
+\subsection{Shielding by a Paramagnetic Cylinder}
+A standard example is magnetic shielding in which a shell of magnetic
+material with a very large value of $\mu$ (a strongly paramagnetic
+material) is placed around some region of space. Suppose, for example, that
+a long cylindrical shell of inner radius $a$ and outer radius $b$ is placed
+around the z-axis and that this system is subjected to a transverse applied
+field $\H_0=H_0\xh$. Then we have three regions, $\rh<a$, $a<\rh<b$, and
+$b<\rh$, in which we may make potentials $\Ph_H$ which satisfy the Laplace
+equation. These potentials will have the forms\newline
+(i) $\rh<a$:
+\beq
+\Ph_H(\x)=H_0A\rh\cph
+\eeq
+(ii) $a<\rh<b$:
+\beq
+\Ph_H(\\x)=H_0\leb C\rh\cph+Da^2\cph/\rh\rib
+\eeq
+(iii) $b<\rh$:
+\beq
+\Ph_H(\x)=H_0\leb -\rh\cph+Eb^2\cph/\rh\rib.
+\eeq
+Here, we have guessed (on the basis of long experience) that the only terms
+in the potential will be the ones with the same dependence on $\ph$ as the
+potential of the applied field. The latter is $-H_0x=-H_0\rh\cph$.
+
+Continuing, one has the boundary conditions at $\rh=a$ and $\rh=b$ which
+are that $H_\ph$ and $B_\rh$ must be continuous. These lead to the four
+equations
+\beqa
+A=C+D\nonumber\\
+C+D\frac{a^2}{b^2}=-1+E\nonumber\\
+A=\mu C-\mu D\nonumber\\
+\hbox{and}\nonumber\\
+\mu C-\mu D\frac{a^2}{b^2}=-1-E.
+\eeqa
+The solution for $A$ in particular is
+\beq
+A=-\lep\frac{4\mu}{(\mu+1)^2-(a^2/b^2)(\mu-1)^2}\rip,
+\eeq
+from which one finds that the field inside of the shield is
+\beq
+\Hx=\Bx=\frac{4\mu}{(\mu+1)^2-(a^2/b^2)(\mu-1)^2}\H_0.
+\eeq
+The field inside is decreased relative to the applied field by a factor of
+$A$. If one employs a ``high-$\mu$'' material with a permeability of order
+$10^4$ or $10^5$, then $a\sim4/\{\mu[1-(a^2/b^2)]\}$ which will be much
+smaller than unity if $a$ is significantly smaller than $b$. This is the
+limit in which the sleeve acts as a good shield against the applied
+magnetic field.
+\edo
+
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\usepackage{geometry}
+\usepackage[banglamainfont=Kalpurush, 
+            banglattfont=Siyam Rupali
+           ]{latexbangla}
+        
+\begin{document}
+\textbf{উদাহরণ 3.4} 8 ডিজিটের  একটি লাইসেন্স প্লেটকে জোড় প্লেট বলা হবে যদি এতে জোড় সংখ্যক শূণ্য থাকে। এরকম কতগুলো জোড় লাইসেন্স প্লেট সম্ভব?\\
+\textbf{সমাধান:} একটি প্লেটে $0\le k \le 4$ এর জন্য যদি $2k$ সংখ্যক শূণ্য থাকে তবে $8-2k$ সংখ্যক অশূণ্য ডিজিট রয়েছে যাদেরকে 9 উপায়ে বাছাই করা যায়। সুতরাং $2k$ অবস্থানগুলো $0$ দ্বারা পূরণের জন্য $\binom{8}{2k}$ সংখ্যক উপায় রয়েছে। এবং $\binom{8}{2k}9^{8-2k}$ সংখ্যক  প্লেটের এক্সাক্টলি $2k$ সংখ্যক শূণ্য রয়েছে। আবার $0\le k \le 4$ এর জন্য  $\binom{8}{2k}9^{8-2k} = 9^8 + \binom{8}{2}9^6 + \binom{8}{4}9^4 + \binom{8}{6}9^2 + \binom{8}{8}9^0 $। দ্বিপদী উপপাদ্য অনুসারে $(9+1)^8 = 9^8 + \binom{8}{1}9^7 + \binom{8}{2}9^6 + \binom{8}{3}9^5 + \binom{8}{4}9^4 + \binom{8}{5}9^3 + \binom{8}{6}9^2 + \binom{8}{7}9 + 1$ এবং $(9-1)^8 = 9^8 - \binom{8}{1}9^7 + \binom{8}{2}9^6 - \binom{8}{3}9^5 + \binom{8}{4}9^4 - \binom{8}{5}9^3 + \binom{8}{6}9^2 - \binom{8}{7}9 + 1$ সুতরাং $\frac{(9+1)^8 + (9-1)^8}{2} = \frac{10^8 + 8^8}{2}\blacksquare$\\
+
+ধরা যাক $n$ এবং $k$ ধনাত্নক পূর্ণ সংখ্যা হয় যেখানে $n\ge k$। তাহলে $\binom{n}{k}$ বাইনোমিয়াল কোইফিসিয়েন্টের নিচের ধর্মগুলো বিরাজ করে।\\
+$(a)\quad \binom{n}{k} = \binom{n}{n-k};$\\
+$(b)\quad \binom{n}{k+1} = \binom{n-1}{k+1} + \binom{n-1}{k};$\\
+$(c)\quad \binom{n}{0} < \binom{n}{1} < \binom{n}{2} \cdots < \binom{n}{\ceil{\frac{n-1}{2}}} = \binom{n}{\ceil{\frac{n}{2}}};$\\
+\end{document}

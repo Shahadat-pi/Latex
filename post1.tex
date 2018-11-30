@@ -1,0 +1,884 @@
+
+% article.tex, a sample LaTeX file.
+% Run LaTeX on this file twice for proper section numbers.
+% A '%' causes LaTeX to ignore remaining text on the line
+
+
+
+
+
+
+
+
+
+
+\documentclass{seminar}
+
+%\documentclass{slides}   % Specifies the document style.
+%\usepackage{color}
+
+%\setlength{\oddsidemargin}{0.25in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\documentclass[portrait]{slides}
+%\usepackage{epsfig}
+%\usepackage{rotating}
+\usepackage{fancybox}
+\usepackage{color}
+\usepackage{pstricks}
+%\usepackage{include_format}
+
+
+\usepackage{ifpdf}
+
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+\else
+  \usepackage[dvips]{graphicx}
+\fi
+
+%\input{pst-3d}
+
+%\graphicspath{{figures/}}
+
+\pagestyle{empty}
+\slidestyle{bottom}
+
+%\slideframe{double}
+%\slideframe{shadow}
+%\slideframe{oval}
+%\slideframe{none}
+
+\def\slidelabel{{\tiny
+Physics 170 Week 6, Lecture 1\hspace*{\fill} \
+    \thepage}}
+
+%\newenvironment{landslide}
+%{\renewcommand{\slideleftmargin}{11.5cm}
+%\renewcommand{\slidetopmargin}{-5.5cm}
+%\begin{slide}[225mm,150mm] \special{landscape}}
+%{\end{slide}}
+
+%\newenvironment{portslide}
+%{\renewcommand{\slideleftmargin}{1.5cm}
+%\renewcommand{\slidetopmargin}{2.5cm}
+%\begin{slide*}[220mm,155mm] \special{landscape}}
+%{\end{slide*}}
+
+\begin{document}
+
+%\newenvironment{landslide}
+%{\renewcommand{\slideleftmargin}{11.5cm}
+%\renewcommand{\slidetopmargin}{-5.5cm}
+%\begin{slide}[225mm,150mm] \special{landscape}}
+
+%\special{landscape}\special{! /landscape90 true store}
+\begin{slide}
+
+
+
+ {\large\bf Physics 170 Week 6, Lecture 1}
+
+\vskip .5cm
+
+http://www.phas.ubc.ca/$\sim$gordonws/170 \\
+
+\includegraphics[scale=0.25]{cover1.eps}\vfill
+\end{slide}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Set width of the text - What is left will be the right margin.
+% In this case, right margin is 8.5in - 1.25in - 6in = 1.25in.
+\setlength{\textwidth}{6in}
+% command sets a 0.75-inch top margin.
+\setlength{\topmargin}{-0.25in}
+
+% Set height of the text - What is left will be the bottom margin.
+% In this case, bottom margin is 11in - 0.75in - 9.5in = 0.75in
+\setlength{\textheight}{8in}
+%\begin{document}
+
+
+
+
+\begin{slide}
+\centerline{\huge\bf\red\it Textbook Chapter 8: \\Section 8.1-8.2}
+\end{slide}
+
+
+
+\begin{slide}
+{\bf\it \red Learning Goals:}
+
+\begin{itemize}
+\item{}Learn about the force of static friction.
+\item{}Learn how to analyze systems in the state of ``impending motion''.
+\item{}Learn about the ``coefficient of static friction'' and 
+the ``angle of friction''.
+\item{}Solve an example which illustrates how the coefficient of
+friction can be used to gain information in a statics problem.
+\item{}Learn how to incorporate the force of friction into a 
+statics problem which has both forces and moments.
+\item{}Solve an example using the force of friction and
+the equations of equilibrium for a static rigid body.
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+\begin{slide}
+
+{\bf \blue The Force of friction:}
+
+The ``force of friction'' is a force which resists slippage
+at an interface between two materials.
+
+It depends on the details of 
+\begin{itemize}
+\item{}the shape and nature of the surfaces
+\item{}the materials involved
+\end{itemize}
+
+We will {\bf model} friction and use it to get information
+about a static system.
+
+
+The threshold force needed to begin slippage at an interface where
+the normal force between the two surfaces is $N$ is
+$$
+F_f= \mu_s N
+$$
+where $\mu_s$ is the {\bf\it ``coefficient of static friction''}
+
+
+\vfill
+\end{slide}
+
+
+
+
+
+\begin{slide}
+{\bf\blue The state of impending motion}\\
+\includegraphics[scale=0.09]{impending.eps}
+\includegraphics[scale=0.09]{fg08_03.eps}\\
+Before the box begins to move, force of friction cancels pull: 
+$\vec F_f=-\vec P$\\
+At ``impending motion'', the force $\vec P$ is just enough so that the box 
+begins to move: $F_s=|\vec F_f|_{\rm max}=|\vec P|=\mu_s N$\\
+Once it starts moving, friction obeys a different formula,
+$F_k=|\vec F_f|=\mu_k N$ with $\mu_k$ is {\bf\it ``coefficient of kinetic friction''}.\\
+Usually $\mu_k<\mu_s$. 
+\vfill\end{slide}
+
+
+
+\begin{slide}
+{\bf\blue Coefficients of static friction}
+
+\vskip 1cm
+
+~~$\mu_s$~~~~~~~{\bf Contact materials}\\
+0.03-0.05~~~~metal on ice \\
+0.30-0.70~~~~wood on wood\\
+0.20-0.50~~~~leather on wood\\
+0.30-0.60~~~~leather on metal\\
+1.10-1.70~~~~aluminum on aluminum\\
+\vfill
+\end{slide}
+
+
+
+
+
+
+\begin{slide}
+\includegraphics[scale=0.18]{8-49.eps}\\
+{\bf\blue Example:} The block of weight W is being pulled up the
+inclined plane of slope $\alpha$ using a force $\vec P$.  If $\vec
+P$ acts at an angle $\phi$ as shown, show that for slipping to occur
+$P=W\sin(\alpha+\theta)/\cos(\phi-\theta)$ where $\theta$ is the
+angle of friction $\theta=\arctan\mu_s$.
+
+
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+\includegraphics[scale=0.14]{8-49a.eps}\\
+ In order to understand what
+the ``angle of friction'' is, we will begin by putting $\vec P=0$ and
+asking at what angle the block will begin to slide?\\ We will assume
+the situation of ``impending motion'' that the slope has been
+increased from zero to its current slope with angle $\alpha$ where it
+is just about to start sliding.  \\
+We will begin by analyzing the forces acting on the block.
+\vfill
+\end{slide}
+
+
+
+\begin{slide}
+\includegraphics[scale=0.14]{8-49a.eps}\\
+{\bf\blue The Forces acting on the block are:}\\
+\begin{itemize}
+\item{}Gravity: $\vec F_G = -W\hat j$
+\item{}$\vec P=0$.
+\item{}Normal reaction force: $\vec N = N\left( -\sin\alpha \hat i +
+\cos\alpha\hat j\right)$
+\item{}Friction force: $\vec F_f = \mu_s N \left( \cos\alpha \hat i
++\sin\alpha\hat j\right)$
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+\begin{slide}
+Equilibrium of forces, $\sum_i \vec F_i = 0$ implies
+
+$$
+\vec F_G + \vec N + \vec F_f=0
+$$
+$$
+\left(-W\hat j\right) + N\left( -\sin\alpha \hat i +
+\cos\alpha\hat j\right)+ \mu_s N \left( \cos\alpha \hat i
++ \sin\alpha\hat j\right) =0
+$$
+Or, in components:\\
+$\sum_i F_{ix}=0$: $-N\sin\alpha +N\mu_s\cos\alpha=0$\\
+This is all we need for now! 
+$N$ cancels from this equation.\\
+The remaining equation can be written as
+$$
+-\sin\alpha+\mu_s\cos\alpha=0~,~\mu_s=\frac{\sin\alpha}{\cos\alpha}
+$$
+or 
+\fbox{$
+\mu_s = \tan\alpha
+$}~but remember $\mu_s=\tan\theta$ = tan ``angle of friction''\\
+$\alpha$ is equal to the angle of friction $\alpha=\theta$!
+The angle of friction is the angle to which you can increase
+the slope of the plane before the block starts to slide.
+This is independent of $W$ or $N$!
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+
+We can measure the coefficient of friction $\mu_s$ by \\
+{\bf A.~}Lifting the ramp until the block slides, then measuring the
+ angle $\alpha$\\
+
+{\bf\magenta Then compute $\mu_s=\tan\alpha$.}
+
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+{\bf\blue Back to the example:}\\
+\includegraphics[scale=0.18]{8-49.eps}\\ 
+The block of weight W is being pulled up the inclined plane of slope
+$\alpha$ using a force $\vec P$.  If $\vec P$ acts at an angle $\phi$
+as shown, show that for slipping to occur
+$P=W\frac{\sin(\alpha+\theta)}{\cos(\phi-\theta)}$ where $\theta$ is
+the angle of friction $\theta=\arctan\mu_s$.  \vfill
+\end{slide}
+
+
+
+
+
+
+\begin{slide}
+{\bf \blue Strategy for finding a solution:} ~~
+\includegraphics[scale=0.1]{8-49.eps}
+\begin{itemize}
+\item{}This is a two-dimensional problem:
+we shall take the x-coordinate as horizontal and
+y-coordinate as vertical.  
+\item{}The z-direction is toward the
+viewer out of the page -- and will not be used here -- z-component
+of all vectors will be zero.
+\item{}We recognize that this is a situation of ``impending moton''. 
+The force needed to
+begin sliding should be that which just overcomes the force of
+static friction plus gravity.  
+\item{}The force of static friction is equal to the
+coefficient of static friction, $\mu_s=\tan\theta$, times
+the normal force.
+\vfill
+\end{itemize}
+\end{slide}
+
+
+
+\begin{slide}
+{\bf\blue Free body diagram}\\
+
+\includegraphics[scale=0.06]{8-49.eps}\\
+
+\includegraphics[scale=0.18]{drawingblock.eps}
+
+
+\vfill
+\end{slide}
+
+
+
+
+\begin{slide}
+{\bf\blue Find the forces:}~~
+\includegraphics[scale=0.1]{drawingblock.eps}\\
+\begin{itemize}
+\item{}Gravity: $\vec F_G = -W\hat j$
+\item{}Pull:  $\vec P = P\left( \cos(\phi+\alpha)\hat i +
+\sin(\phi+\alpha)\hat j\right)$
+\item{}Normal reaction force: $\vec N = N\left( -\sin\alpha \hat i +
+\cos\alpha\hat j\right)$
+\item{}Friction force: $\vec F_f = -\mu_s N \left( \cos\alpha \hat i
++ \sin\alpha\hat j\right)$
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+\begin{slide}
+
+{\bf\blue Equilibrium of forces: }
+$\vec F_G = -W\hat j~~,~~\vec P = P\left( \cos(\phi+\alpha)\hat i +
+\sin(\phi+\alpha)\hat j\right)$\\
+$\vec N = N\left( -\sin\alpha \hat i +
+\cos\alpha\hat j\right)~,~\vec F_f = -\mu_s N \left(\cos\alpha \hat i
++\sin\alpha\hat j\right)$
+$$
+ \vec F_G +\vec P +\vec N +\vec F_f = 0
+$$
+\begin{eqnarray}
+-W\hat j+ P\left( \cos(\phi+\alpha)\hat i + \sin(\phi+\alpha)\hat
+j\right)+ N\left( -\sin\alpha \hat i + \cos\alpha\hat j\right)\nonumber \\
+-\mu_s N \left( \cos\alpha \hat i + \sin\alpha\hat
+j\right)=0\nonumber
+\end{eqnarray}
+components:
+$$
+ P \cos(\phi+\alpha)-N \sin\alpha -\mu_s N  \cos\alpha  =0
+$$
+$$
+-W +  P  \sin(\phi+\alpha)+ N  \cos\alpha -\mu_s N  \sin\alpha=0
+$$
+\vfill
+\end{slide}
+
+
+
+
+
+
+\begin{slide}
+components:
+$$
+ P \cos(\phi+\alpha)-N \sin\alpha -\mu_s N  \cos\alpha  =0
+$$
+$$
+-W +  P  \sin(\phi+\alpha)+ N  \cos\alpha -\mu_s N  \sin\alpha=0
+$$
+Solve the first equation to get
+$$
+N=P\frac{ \cos(\phi + \alpha)}{\sin\alpha + \mu_s\cos\alpha}
+$$
+Then, use the second equation to find
+$$
+P\left[ \sin(\phi+\alpha)+ (\cos\alpha -\mu_s   \sin\alpha)\frac{
+\cos(\phi + \alpha)}{\sin\alpha + \mu_s\cos\alpha}\right]=W
+$$
+\vfill
+\end{slide}
+
+
+
+
+
+
+\begin{slide}
+Bringing forward the last equation from the previous page:
+$$
+P\left[ \sin(\phi+\alpha)+ (\cos\alpha -\mu_s   \sin\alpha)\frac{
+\cos(\phi + \alpha)}{\sin\alpha +\mu_s\cos\alpha}\right]=W
+$$
+Now we solve for $P$:
+$$
+P=  W\frac{  (\sin\alpha+ \mu_s\cos\alpha) } { (\sin\alpha +
+\mu_s\cos\alpha) \sin(\phi+\alpha)+ (\cos\alpha -\mu_s   \sin\alpha)
+\cos(\phi + \alpha)  }
+$$
+Now we substitute $\mu_s=\tan\theta=\frac{\sin\theta}{\cos\theta} $ 
+{\small
+$$
+P=  \frac{  W(\cos\theta\sin\alpha + \sin\theta\cos\alpha) } {
+(\cos\theta\sin\alpha + \sin\theta\cos\alpha) \sin(\phi+\alpha)+
+(\cos\theta\cos\alpha -\sin\theta \sin\alpha) \cos(\phi + \alpha)  }
+$$}
+Remember the double angle formulas:
+$$
+\cos(a\pm b)=\cos a\cos b \mp \sin a \sin b
+$$
+$$
+\sin(a\pm b)=\sin a \cos b \pm \cos a \sin b
+$$
+\vfill
+\end{slide}
+
+
+
+\begin{slide}
+{\small $$
+P=  \frac{  W(\cos\theta\sin\alpha + \sin\theta\cos\alpha) } {
+(\cos\theta\sin\alpha + \sin\theta\cos\alpha) \sin(\phi+\alpha)+
+(\cos\theta\cos\alpha -\sin\theta \sin\alpha) \cos(\phi + \alpha)  }
+$$}
+Using
+$$
+\cos(a\pm b)=\cos a\cos b \mp \sin a \sin b
+$$
+$$
+\sin(a\pm b)=\sin a \cos b \pm \cos a \sin b
+$$
+we get
+$$
+P=  W\frac{  \sin(\alpha+\theta) } { \sin(\alpha+\theta)
+\sin(\phi+\alpha)+ \cos(\alpha+\theta)\cos(\phi + \alpha)  }
+$$
+Finally\\
+\fbox{$
+P=W\frac{\sin(\alpha+\theta)}{\cos(\phi-\theta)}
+$}
+ \vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+{\bf\blue Equivalent systems and resultant normal force:}\\
+Normal force is usually distributed.\\
+ A distributed normal reaction force on
+flat interface $~=~$ reaction force at a single point.
+\begin{itemize}
+\item{}Consider a flat interface with a variety of forces $\vec F_i$
+acting normal to the interface. (For simplicity, take the force
+vectors to be parallel.)
+\item{}The forces can all be moved to a single point by adding a couple moment.
+\item{}The point can then be adjusted until the additional couple
+moment vanishes. The point at which the force is then located is the
+{\bf \red ``location of the resultant normal force''}.
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+
+{\bf\blue Example:} \\
+\includegraphics[scale=0.15]{8-38.eps}\\
+The crate has a weight of 200lb and a center of
+gravity at G. Determine the horizontal force P required to tow it.
+Also determine the location of the resultant normal force  measured
+from $A$. Take $h=4ft$ and $\mu_s=0.4$.
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+{\bf\blue Strategy for finding a solution:} 
+\begin{itemize} 
+\item{}This is a two-dimensional problem.  We take the x-coordinate horizontal and
+y-coordinate vertical with origin at $G$. The z-direction is 
+toward the viewer out of the page.
+\item{}We recognize that the force needed to begin towing the crate should be that 
+which puts it in a state of impending motion, where the force of friction is
+$|\vec F_f|=\mu_s|\vec N|$.
+\item{}We will assume that the reaction normal force acts at a point which is
+a distance $x$ along the horizontal from the point $A$ at the bottom right-hand corner
+of the crate.  As we have discussed, the normal force is distributed over the contact.  Placing
+it all at a single point is the same as finding an equivalent system which has the same total
+force and exerts the same total moments on the object. 
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+\begin{itemize}
+\item{}We must also decide where to place the point of action of the force of friction.  We
+remember that we can consider an equivalent system with this force moved to an point along
+its line of action.  For a flat interface, we can thus think of the force as acting at any point
+on the interface.  
+\item{}Similarly for the towing force, it is exerted by a rope which surrounds the crate and is
+likely distributed over the rope.  Since the rope is located along the line of action
+of the force, we can consider it a single concentrated force at any point along its line
+of action. 
+\item{}We will find a mathematical expression for all of the forces
+acting on the crate, including the reaction normal force and the force
+of friction.
+\item{}We will compute the moments of each of the forces.
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+\begin{itemize} 
+\item{}We will then impose the conditions of equilibrium,
+$
+\sum_i \vec F_i=0$, $\sum_i \vec M_{{\cal O}i}=0$
+\item{}There are three equations which we can use to solve for the unknown quantities. 
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+
+
+
+\begin{slide}
+{\bf\blue Free body diagram}\\
+\includegraphics[scale=0.1]{8-38.eps}\\~~\\
+\includegraphics[scale=0.14]{crate.eps}
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+
+{\bf \blue Find the forces and the position vectors of points where they act:}\\
+
+\includegraphics[scale=0.1]{crate.eps}
+\begin{itemize}
+\item{}Gravity: $\vec W = -(200lb) \hat j$ acting at $\vec r_G=\vec 0$
+\item{}Towing:  $\vec P = P\hat i$ acting at $\vec r_P=(h-(3ft))\hat j$
+\item{}Reaction: $\vec N=N\hat j$ acting at $\vec r_N=((2ft)+x)\hat i - (3ft)\hat j$
+\item{}Friction:   $\vec F_f = -\mu_s N \hat i$ acting at
+$- (3ft)\hat j$
+\end{itemize}
+ \vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+{\bf \blue Equilibrium of forces:} \\
+We can find $P$ and $N$ from the force equations:
+$$\vec W +\vec P  +\vec N+\vec F_f=0$$
+$$
+  -(200lb) \hat j+ P\hat i  + N\hat j -\mu_s N\hat i=0$$
+In components:
+$$
+P=\mu_sN~~,~~N=W=200lbs
+$$
+\fbox{$
+N=(200lb)$}~~,~~\fbox{$P=(80lb)$}\\
+To find the point of action of the resultant normal force,
+we must analyze the moments.
+\vfill
+\end{slide}
+
+
+
+
+\begin{slide}
+{\bf\blue Equilibrium of Moments ``in two dimensions'':}\\
+~~\\
+\includegraphics[scale=0.1]{crate.eps}\\
+Moment due to Friction = $-3\mu_sN$\\
+Moment due to Weight =0\\
+Moment due to Normal $= (2+x)N$\\
+Moment due to Pull $= -(h-3)P$\\
+Total moments $M=-3\mu_sN+(2+x)N-(h-3)P$\\
+Also, we know that $N=W$. $P=\mu_sN$ so $M=(-h\mu_s+2+x)W$\\
+$M=0~\to~\mu_s h=(x+2)/\mu_s$\\
+Note that this equation is independent of $W$!
+\vfill
+\end{slide} 
+
+
+
+
+
+\begin{slide}
+{\bf \blue Computation of Moments using vectors:}\\
+For completeness, let us also compute the moments using our
+vector techniques. We compute moments about $G$:
+\begin{itemize}
+\item{}Gravity: $\vec M_G=\vec 0\times( -(200lb)) \hat j=\vec 0$
+\item{}Towing:  $\vec M_P=((h-(3ft))\hat j)\times  P\hat i=-(h-(3ft))P\hat k$
+\item{}Reaction: $\vec M_N=(((2ft)+x)\hat i - (3ft)\hat j)\times\left( N\hat j\right)
+=((2ft)+x)N\hat k$
+\item{}Friction: $\vec M_f=(-(3ft)\hat j)\times (-\mu_sN\hat i)=-\mu_s(3ft)N\hat k$
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+\begin{slide}
+{\bf\blue Equilibrium of Moments using vectors:}
+ $$\sum \vec M=0~~~~~~~~~~~~~~~~~~~~~~~~~$$
+$$ \vec M_G + \vec M_P + \vec M_N + \vec M_f=0
+$$
+Explicitly substituting the moment vectors gives
+$$
+ \vec 0 -(h-(3ft))P\hat k+((2ft)+x)N \hat
+ k   -\mu_s(3ft)N\hat k =0
+$$
+or, remembering that $N=W$ and $P=\mu_sN$, 
+$$
+[-(h-3)\mu_s +2+x-3\mu_s]N\hat k=0~\to~ h\mu_s=x+2
+$$
+with $x$ and $h$ in ft.  We are given that
+$$
+h=4~ft~,~\mu_s=0.4
+$$
+\fbox{$x=-.400~ft$}
+ \vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+{\bf\blue Example:}\\
+\includegraphics[scale=0.15]{8-38.eps}\\
+The crate has a weight of 200lb and a center of
+gravity at $G$. Determine the height $h$ of the tow rope so that the
+crate slips and tips at the same time.  What horizontal force $P$ is
+required to do this?
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+
+\begin{slide}
+{\bf\blue Example:}\\
+\includegraphics[scale=0.14]{8-38.eps}\\
+The crate has a weight of 200lb and a center of
+gravity at $G$. Determine the height $h$ of the tow rope so that the
+crate slips and tips at the same time.  What horizontal force $P$ is
+required to do this?
+\vfill
+\end{slide}
+
+
+
+
+
+
+\begin{slide}
+\includegraphics[scale=0.1]{crate.eps}\\
+{\bf\blue Strategy for finding a solution:}
+\begin{itemize}
+\item{}The crate will slip and tip at the same time when the resultant
+normal reaction force is at $A$ and when the force of friction is just
+compensated by $P$ so that the crate is in a state of impending motion.
+\item{}In the previous problem, we found that
+$$
+h\mu_s=x+2
+$$
+Now, we set $x=0$ and we get \fbox{$h=2/\mu_s=\frac{(2)}{(0.4)}~=~5~ft$}
+\end{itemize}
+\vfill
+\end{slide}
+
+
+
+
+
+
+
+
+
+\begin{slide}
+\centerline{\huge\bf\red\it For the next lecture, please read}
+
+\vskip .5cm
+
+\centerline{\huge\bf\red\it Textbook Chapter 8:Section 8.2-8.3}
+\end{slide}
+
+\end{document}
+
+
+

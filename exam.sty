@@ -1,0 +1,394 @@
+%% EXAM.STY -- Examination Style (article version) for LaTeX version 2.09
+%% History:  July 21, 1989; Original version (MCTF.STY) July 25, 1988
+%% Author: George D. Greenwade (BED_GDG@SHSU.BITNET)
+%%         Center for Business and Economic Research
+%%         Sam Houston State University, Huntsville, TX  77341-2056 
+%%         Huntsville, Texas, USA  77341-2056 
+%%         (409) 294-1518
+%% 
+%% Includes ART11.STY, FULLPAGE.STY, and FANCYHEADINGS.STY as default. 
+%% Usage: \documentstyle[exam]{article}
+%%        %\key     % remove leading comment if key is desired, see below
+%%        %\listing % remove leading comment if listing is desired, see below
+%%        \courseno{ECO 530} % specify the course number in this field
+%%        \examno{One} % specify the exam number in this field
+%%        \date{Exam Date} % specify exam date (my preference is to use
+%%                         % semester and year); default is \today
+%%        \prof{Greenwade} % specify the professor's name in this field
+%%        \intro{Instruction text} % specify the instruction text in this
+%%                                 % field.  Note that this version does NOT
+%%                                 % provide a line for the student's name.
+%%        \begin{document}
+%%        \maketitle               % generate a first page with information
+%%                                 % provided above
+%%        \startquestions
+%%        %See below for specifics of operation
+%%        
+%%        % multiple choice example
+%%        \qtem{A}{03.015} This is a multiple choice question and:
+%%        \startanswers
+%%        \atem this is the correct answer.
+%%        \atem this is an incorrect answer.
+%%        \atem this is another incorrect answer.
+%%        \finishanswers
+%%        
+%%        % true-false example
+%%        \qtem{T}{05.027} This is a true statement. \endtf
+%%        
+%%        % essay example, with a 2 inch blank response area
+%%        \ltem{2}{11.045} You have two inches to respond to this. \endessay
+%%        
+%%        % fill-in-the-blank example
+%%        \ftem{missing}{15.23} There is a word \_\_\_\_\_\_\_\_\_\_\_\_\_ .
+%%        \endfitb
+%%
+%%        \finishquestions
+%%        \end{document}
+%%
+%%                                     NOTES
+%% All questions are within a minipage environment to ensure that questions
+%% are not broken across pages. 
+%% 
+%% A variation of the enumi counter is employed (\qcount) to ensure proper
+%% enumeration of questions.
+%% 
+%% There are useful variations of \item within the file to assist in the
+%% generation of exams:
+%% 
+%% Exam questions are delimited by \startquestions ... \finishquestions
+%%                           QUESTION TYPES
+%% -- \qtem{X}{Y} creates a question item for multiple choice and
+%%    true/false items, with a blank leading line for responses.  In this
+%%    case, {X} represents the correct response (\qtema) and {Y} represents
+%%    the question number from within the master question data file
+%%    (\qmasno).  BOTH X AND Y MUST BE SPECIFIED, EVEN IF AS \qtem{}{}
+%% -- \ltem{X}{Y} creates a question item for essay and fill-in-the-blank
+%%    items, without a blank leading line for responses.  In this case, {X} 
+%%    represents the vertical blank space for the response (\qtema) and
+%%    {Y} represents the question number from within the master question
+%%    data file (\qmasno).
+%%    BOTH X AND Y MUST BE SPECIFIED, WITH X POSSESSING AN EXPLICIT NUMBER. 
+%%    THE MINIMAL ENTRY IS \ltem{0}{}
+%%                            ANSWER TYPES
+%% Answers to question are delimited by:
+%% -- MULTIPLE CHOICE: (Following \qtem{X}{Y} The question text...) a
+%%    delimited range begining with \startanswers and ended by \finishanswers;
+%%    each answer item is identified with \atem.  This creates an enumerated
+%%    list (\enumii) of a., b., c., ...
+%% -- TRUE/FALSE: (Following \qtem{X}{Y} The question text...) terminate
+%%    text with \endtf , which automatically generates a. True  b. False
+%% -- ESSAY/FILL-IN-THE-BLANK:  (Following \ltem{X}{Y} The question text...)
+%%    terminate test with \endessay , which provides X inches of specified
+%%    vertical space for the response.  In the case of Fill-in questions,
+%%    specify X to zero
+%% 
+%% There are two useful preamble declarations (\key and \listing) used to
+%% produce different reports from a .TEX file:
+%% -- no declaration creates an exam, with leading blanks, as specified by
+%%    \qtem or \ltem.
+%% -- \key creates an answer key, with the correct answer placed where the
+%%    leading blank space was on the exam form.  The key format is
+%%    identical to the corresponding exam.
+%% -- \listing creates a listing of questions similar to \key, but the
+%%    master question number is also provided.  This option is handy in
+%%    maintaining the master database of questions.  In the case of the
+%%    \listing output for \ltem items, a note is provided informing of the
+%%    vertical space provided for the answer, rather than the physical space
+%%    for the answer to conserve printed output.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Get ART11.STY from local collection
+\input{art11.sty}
+
+% This is FULLPAGE.STY, version 2 
+% (hardcoded to ensure consistency between users)
+% This is FULLPAGE.STY by H.Partl, Version 2 as of 15 Dec 1988.
+\topmargin 0pt
+\headheight 13.6pt  % necessary variation to avoid overfull vboxes
+\headsep 30pt       % necessary variation to provide nicer tops of pages
+\advance \topmargin by -\headheight
+\advance \topmargin by -\headsep
+     
+\textheight 9.2in
+     
+\oddsidemargin 0pt
+\evensidemargin \oddsidemargin
+\marginparwidth 0.5in
+     
+\textwidth 6.5in
+%  end of FULLPAGE.STY
+
+% This is FANCYHEADINGS.STY
+% (hardcoded to ensure consistency between users)
+% fancyheadings.sty version 1.0
+% Fancy headers and footers.
+% Piet van Oostrum, Dept of Computer Science, University of Utrecht
+% Padualaan 14, P.O. Box 80.089, 3508 TB Utrecht, The Netherlands
+% Telephone: +31-30-531806. piet@cs.ruu.nl (mcvax!hp4nl!ruuinf!piet)
+% March, 1989.
+\def\lhead{\@ifnextchar[{\@xlhead}{\@ylhead}}
+\def\@xlhead[#1]#2{\gdef\@elhead{#1}\gdef\@olhead{#2}}
+\def\@ylhead#1{\gdef\@elhead{#1}\gdef\@olhead{#1}}
+
+\def\chead{\@ifnextchar[{\@xchead}{\@ychead}}
+\def\@xchead[#1]#2{\gdef\@echead{#1}\gdef\@ochead{#2}}
+\def\@ychead#1{\gdef\@echead{#1}\gdef\@ochead{#1}}
+
+\def\rhead{\@ifnextchar[{\@xrhead}{\@yrhead}}
+\def\@xrhead[#1]#2{\gdef\@erhead{#1}\gdef\@orhead{#2}}
+\def\@yrhead#1{\gdef\@erhead{#1}\gdef\@orhead{#1}}
+
+\def\lfoot{\@ifnextchar[{\@xlfoot}{\@ylfoot}}
+\def\@xlfoot[#1]#2{\gdef\@elfoot{#1}\gdef\@olfoot{#2}}
+\def\@ylfoot#1{\gdef\@elfoot{#1}\gdef\@olfoot{#1}}
+
+\def\cfoot{\@ifnextchar[{\@xcfoot}{\@ycfoot}}
+\def\@xcfoot[#1]#2{\gdef\@ecfoot{#1}\gdef\@ocfoot{#2}}
+\def\@ycfoot#1{\gdef\@ecfoot{#1}\gdef\@ocfoot{#1}}
+
+\def\rfoot{\@ifnextchar[{\@xrfoot}{\@yrfoot}}
+\def\@xrfoot[#1]#2{\gdef\@erfoot{#1}\gdef\@orfoot{#2}}
+\def\@yrfoot#1{\gdef\@erfoot{#1}\gdef\@orfoot{#1}}
+
+\newdimen\headrulewidth
+\newdimen\footrulewidth
+\newdimen\plainheadrulewidth
+\newdimen\plainfootrulewidth
+\newdimen\headwidth
+\newif\if@fancyplain \@fancyplainfalse
+\def\fancyplain#1#2{\if@fancyplain#1\else#2\fi}
+
+\headrulewidth 0.4pt
+\footrulewidth\z@
+\plainheadrulewidth\z@
+\plainfootrulewidth\z@
+
+\lhead[\fancyplain{}{\sl\rightmark}]{\fancyplain{}{\sl\leftmark}}
+\chead{}
+\rhead[\fancyplain{}{\sl\leftmark}]{\fancyplain{}{\sl\rightmark}}
+\lfoot{}
+\cfoot{\rm\thepage} % page number
+\rfoot{}
+
+\def\@fancyhead#1#2#3#4#5{#1\hbox to\headwidth{\vbox{\hbox
+{\rlap{\parbox[b]{\headwidth}{\raggedright#2\strut}}\hfill
+\parbox[b]{\headwidth}{\centering#3\strut}\hfill
+\llap{\parbox[b]{\headwidth}{\raggedleft#4\strut}}}\headrule}}#5}
+
+\def\@fancyfoot#1#2#3#4#5{#1\hbox to\headwidth{\vbox{\footrule
+\hbox{\rlap{\parbox[t]{\headwidth}{\raggedright#2\strut}}\hfill
+\parbox[t]{\headwidth}{\centering#3\strut}\hfill
+\llap{\parbox[t]{\headwidth}{\raggedleft#4\strut}}}}}#5}
+
+\def\headrule{{\if@fancyplain\headrulewidth\plainheadrulewidth\fi
+\hrule\@height\headrulewidth\@width\headwidth \vskip-\headrulewidth}}
+
+\def\footrule{{\if@fancyplain\footrulewidth\plainfootrulewidth\fi
+\vskip-0.3\normalbaselineskip\vskip-\footrulewidth
+\hrule\@width\headwidth\@height\footrulewidth\vskip0.3\normalbaselineskip}}
+
+\def\ps@fancy{
+\let\@mkboth\markboth
+\@ifundefined{chapter}{\def\sectionmark##1{\markboth
+{\uppercase{\ifnum \c@secnumdepth>\z@
+ \thesection\hskip 1em\relax \fi ##1}}{}}
+\def\subsectionmark##1{\markright {\ifnum \c@secnumdepth >\@ne
+ \thesubsection\hskip 1em\relax \fi ##1}}}
+{\def\chaptermark##1{\markboth {\uppercase{\ifnum \c@secnumdepth>\m@ne
+ \@chapapp\ \thechapter. \ \fi ##1}}{}}
+\def\sectionmark##1{\markright{\uppercase{\ifnum \c@secnumdepth >\z@
+ \thesection. \ \fi ##1}}}}
+\def\@oddhead{\@fancyhead\relax\@olhead\@ochead\@orhead\hss}
+\def\@oddfoot{\@fancyfoot\relax\@olfoot\@ocfoot\@orfoot\hss}
+\def\@evenhead{\@fancyhead\hss\@elhead\@echead\@erhead\relax}
+\def\@evenfoot{\@fancyfoot\hss\@elfoot\@ecfoot\@erfoot\relax}
+\headwidth\textwidth}
+\def\ps@fancyplain{\ps@fancy \let\ps@plain\ps@plain@fancy}
+\def\ps@plain@fancy{\@fancyplaintrue\ps@fancy}
+%  end of FANCYHEADINGS.STY
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \def's for \prof, \examno, and \courseno   %%
+%% \date and \intro                           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\prof#1{\edef\prof{#1}}
+\def\examno#1{\edef\examno{#1}}
+\def\courseno#1{\edef\courseno{#1}}
+\def\intro#1{\gdef\intro{#1}}
+\def\date#1{\gdef\@date{#1}}
+\gdef\@date{\today}          %Default is today's date
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \newifs for key and listing of questions   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\ifkey
+\newif\iflisting
+
+\global\keyfalse
+\global\listingfalse
+
+\def\key{\global\keytrue \global\listingfalse}
+\def\listing{\global\listingtrue \global\keytrue}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Create leading blank answer line           %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\ansline{
+\iflisting{\qmasno\ \underline{$\bullet$ \qtema\ $\bullet$}} \else
+\ifkey{\underline{\rule{.15in}{.0mm}$\bullet$ \qtema\
+ $\bullet$\rule{.15in}{.0mm}}} \else
+ \ifnum\qcount<9 {\rule{.5in}{.3mm} \kern 5mm}
+ \else\ifnum\qcount>8 {\rule{.5in}{.3mm} \kern 3mm}
+ \else {\rule{.5in}{.3mm} \kern 3mm}
+\fi \fi \fi \fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Make following period for answer options   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\labelenumii{\alph{enumii}.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Questions use enumi counter and are        %%
+%% inserted appropriately using minipage      %%
+%% leading blank line is used and redefined   %%
+%% to original status upon exit; define       %%
+%% \endtf for questions without subitems      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcount\qcount
+\qcount=-1
+
+%%% QUESTIONS WITH A LEADING BLANK RESPONSE LINE
+
+%% \startquestions is used to create question items WITH a blank answer
+%%    line for responses to be entered.
+\def\startquestions{\qcount=-1\def\labelenumi{\ansline \arabic{enumi}.}
+   \ \\ } 
+
+%% \qtem is a question and answer set placed on a minipage which HAS a leading
+%%   blank line for responses.
+\def\qtem#1#2{\advance \qcount by 1 \noindent
+   \hspace*{.7in} \begin{minipage}{5.7in} \edef\qtema{#1} \edef\qmasno{#2}
+   \begin{enumerate} \setcounter{enumi}{\qcount} \item}
+
+%% \finishquestions is used to end questions and reset \labelenumi so that the
+%%   leading blank space is removed (used with \startquestions)
+\def\finishquestions{\def\labelenumi{\arabic{enumi}.}}
+
+%% \ltem is a question and answer set placed on a minipage which does NOT have
+%%   a leading blank line for responses.
+\def\ltem#1#2{\advance \qcount by 1 \noindent
+   \hspace*{.7in} \begin{minipage}{5.7in} \edef\qtema{#1} \edef\qmasno{#2}
+\let\ansline\essayline
+   \begin{enumerate} \setcounter{enumi}{\qcount} \item}
+
+\def\essayline{
+\iflisting{\qmasno\ \rule{.25in}{0pt}} \else
+ \ifnum\qcount<9 {\rule{.5in}{0mm} \kern 5mm}
+ \else\ifnum\qcount>8 {\rule{.5in}{0mm} \kern 3mm}
+ \else {\rule{.5in}{.3mm} \kern 3mm}
+\fi \fi \fi}
+
+%% \ftem is a question and answer set placed on a minipage which does NOT have
+%%   a leading blank line for responses.
+\def\ftem#1#2{\advance \qcount by 1 \noindent
+   \hspace*{.7in} \begin{minipage}{5.7in} \edef\qtema{#1} \edef\qmasno{#2}
+\let\ansline\essayline
+   \begin{enumerate} \setcounter{enumi}{\qcount} \item}
+
+\def\fillblankline{
+\iflisting{\qmasno\ \qtema} \else
+\ifkey{\underline{\qtema}}\else
+ \ifnum\qcount<9 {\rule{.5in}{0mm} \kern 5mm}
+ \else\ifnum\qcount>8 {\rule{.5in}{0mm} \kern 3mm}
+ \else {\rule{.5in}{.3mm} \kern 3mm}
+\fi \fi \fi \fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Answers use enumii counter and are         %%
+%% inserted appropriately using minipage      %%
+%% optional "atem" is defined to tighten up   %%
+%% vertical space between answers             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newdimen\mcitemsep
+\mcitemsep 0pt
+
+%% \startanswers is used to start an answer set of multiple choice answers
+\def\startanswers{ \vspace*{-2mm} \begin{enumerate} \let\itemsep\mcitemsep}
+
+%% \finishanswers is used to end the answer list and close the minipage
+\def\finishanswers{\ \\ \end{enumerate} \end{enumerate} \end{minipage} }
+
+%% \endtf is used to end a true-false statement which has no multiple choice
+%%   answers present (primarily, close the minipage)
+\def\endtf{\begin{enumerate} \atem True \rule{.5in}{0pt} b. False \ \\
+
+\end{enumerate} \end{enumerate} \end{minipage} }
+
+\def\endessay{\ \\ \iflisting{{\sl A vertical space of \qtema\ inches is left
+for this response}\\
+
+} \else 
+{\rule{0pt}{\qtema in}} \fi
+\end{enumerate} \end{minipage}}
+
+\def\endfitb{\ \\ \ifkey{{\sl \qtema }\\
+
+} \else {\ \\} \fi \end{enumerate} \end{minipage}}
+
+%% \atem is an answer item used following \startanswers.  Note the negative
+%%   \vspace* added to tighten up the appearance of the answer set.
+%%   Can use \item if happy with standard LaTeX spacing for enumii.
+\def\atem{%\vspace*{-1.5mm} 
+ \item}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% \maketitle for test, list, and key headers %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\maketitle{
+\typeout{ }
+
+\iflisting\typeout{Processing a Listing of Questions for \courseno } \else 
+\ifkey\typeout{Processing Answer Key for Exam \examno , \courseno} \else 
+\typeout{Processing Exam \examno , \courseno , for Professor \prof } \fi\fi
+
+\typeout{ }
+\iflisting{\noindent {\bf \courseno \hfill \today \\
+Listing of Questions \hfill \prof }\\
+\vspace*{2mm}
+
+This is a listing of questions in your exam database.  The first number in the
+left column represents the question number in the master database, with a
+number such as 05.012 representing question 12 in chapter 5.  The second entry
+in the left column represents the correct answer from among the choices
+presented.  The third number in the left column represents the running question
+count for the range of questions in the database specified (this is handy once
+questions are deleted from your database).  Finally, the question, as it would
+appear on an exam, is presented.\\ \rule{0pt}{4mm}}
+\else 
+\ifkey
+{\noindent {\bf \courseno \hfill \@date \\
+Exam \examno \hfill $\bullet$ ANSWER KEY $\bullet$ \hfill \prof }\\
+\vspace*{2mm}
+
+\intro \ \\ \rule{0pt}{4mm}}
+\else %\ifexam
+{\noindent {\bf \courseno \hfill \@date \\
+Exam \examno \hfill \prof }\\
+\vspace*{2mm}
+
+\intro \ \\ \rule{0pt}{4mm}}
+\fi \fi }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Headers for pages other than first         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lhead{\iflisting{\sl \courseno\ Listing of Questions}
+ \else\ifkey{\sl \courseno, Exam \examno\ Answer Key}
+ \else{\sl \courseno, Exam \examno}\fi \fi}
+\chead{\sl \prof}
+\rhead{\sl Page \thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\pagestyle{fancy}
+\thispagestyle{empty}
+

@@ -1,0 +1,61 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{relsize}
+\usepackage{xfrac}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{dirtytalk}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{tabu}
+\usetikzlibrary{calc}
+\usepackage{changepage}
+\usepackage{caption,setspace}
+\usepackage{draftwatermark}
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\SetWatermarkText{$AIME$}
+\begin{document}
+
+\begin{center}
+\begin{LARGE}
+AIME AMC Number Theory
+\end{LARGE}
+\end{center}
+
+\textbf{Problem 1}
+
+Let $a_n$ equal $6^{n}+8^{n}$. Determine the remainder upon dividing $a_ {83}$ by $49$.
+
+\textbf{Solution 1}
+First, we try to find a relationship between the numbers we're provided with and $49$. We realize that $49=7^2$ and both $6$ and $8$ are greater or less than $7$ by $1$.
+
+Expressing the numbers in terms of $7$, we get $(7-1)^{83}+(7+1)^{83}$.
+
+Applying the Binomial Theorem, half of our terms cancel out and we are left with $2(7^{83}+3403\cdot7^{81}+\cdots + 83\cdot7)$. We realize that all of these terms are divisible by $49$ except the final term.
+
+After some quick division, our answer is $\boxed{035}$.
+
+\textbf{Solution 2}
+
+Since $\phi(49) = 42$ (the Euler's totient function), by Euler's Totient Theorem, $a^{42} \equiv 1 \pmod{49}$ where $\text{gcd}(a,49) = 1$. Thus $6^{83} + 8^{83} \equiv 6^{2(42)-1}+8^{2(42)-1}$  $\equiv 6^{-1} + 8^{-1} \equiv \frac{8+6}{48}$ $\equiv \frac{14}{-1}\equiv \boxed{035} \pmod{49}$.
+
+Alternatively, we could have noted that $a^b\equiv a^{b\pmod{\phi{(n)}}}\pmod n$. This way, we have $6^{83}\equiv 6^{83\pmod {42}}\equiv 6^{-1}\pmod {49}$, and can finish the same way.
+
+\textbf{ Problem 2}
+What is the largest 2-digit prime factor of the integer $\mathlarger{{200\choose 100}}$?
+
+\textbf{Solution}
+Expanding the binomial coefficient, we get $\mathlarger{{200 \choose 100}=\frac{200!}{100!100!}}$. Let the prime be $p$; then $10 \le p < 100$. If $p > 50$, then the factor of $p$ appears twice in the denominator. Thus, we need $p$ to appear as a factor three times in the numerator, or $3p<200$. The largest such prime is $\boxed{061}$, which is our answer.
+ 
+ 
+ 
+\end{document}

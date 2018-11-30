@@ -1,0 +1,167 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\usepackage{geometry}
+\usepackage[banglamainfont=Kalpurush, 
+            banglattfont=Siyam Rupali
+           ]{latexbangla}
+\usepackage{tikz}
+\usetikzlibrary{scopes}
+\begin{document}
+
+\def\iangle{35} % Angle of the inclined plane
+
+\def\down{-90}
+\def\arcr{0.5cm} % Radius of the arc used to indicate angles
+\begin{center}
+
+\begin{tikzpicture}[
+    force/.style={>=latex,draw=blue,fill=blue},
+    axis/.style={densely dashed,gray,font=\small},
+    M/.style={rectangle,draw,fill=lightgray,minimum size=0.5cm,thin},
+    m/.style={rectangle,draw=black,fill=lightgray,minimum size=0.3cm,thin},
+    plane/.style={draw=black,fill=blue!10},
+    string/.style={draw=red, thick},
+    pulley/.style={thick},
+    scale=1.5
+]
+
+
+    %% Sketch
+    \draw[plane] (0,-1) coordinate (base)
+                     -- coordinate[pos=0.5] (mid) ++(\iangle:3) coordinate (top)
+                     |- (base) -- cycle;
+    \path (mid) node[M,rotate=\iangle,yshift=0.25cm] (M) {};
+    \draw[->] (base)++(\arcr,0) arc (0:\iangle:\arcr);
+    \draw[->] ([shift=(\iangle:\arcr)]M.east) arc (\iangle:80:\arcr);
+    \path (base)++(\iangle*0.5:\arcr+5pt) node {$\alpha$};
+     \node at (1.7,.8) {$\theta$};
+    {[force,->]
+            % Assuming that Mg = 1. The normal force will therefore be cos(alpha)
+            \draw (M.center)[rotate=\iangle] -- ++(0,{cos(\iangle)}) node[above] {$N$};
+            \draw (M.west) -- ++(\iangle:-1.2) node[left] {$\mu N$};
+            \draw (M.east) -- ++(\iangle:1.2) ;
+            \draw (M.east) -- ++(80:1.5) node[right] {$P$};
+            \draw[force,->] (M.center) -- ++(0,-1.5) node[below] {$W$};
+        }
+                {[axis,->]
+             \draw (M.center)[rotate=305] -- ++(\iangle:1.2);
+            % Indicate angle. The code is a bit awkward.
+
+            \draw[solid,shorten >=0.5pt,rotate=\iangle] (0.58,-1.1)
+                arc(\down-\iangle:\down:\arcr);
+            \node at (1.3,-.8) {$\alpha$};
+        }
+
+    %%
+\end{tikzpicture}
+\end{center}
+ধরা যাক $W$ ওজন বিশিষ্ট একটি বস্তু ভূমির সাথে $\alpha$ কোণে আনত একটি অমসৃণ একটি তলের উপর তলের সাথে $\theta$ কোণে আনত একটি বল $P$ প্রয়োগ করার ফলে সাম্যবস্থায় রয়েছে।\\
+$(a)$ প্রথমে মনে করা যাক বস্তুটি উপরে উঠার জন্য গতির উপক্রম হওয়ার বিন্দুতে নিন্মোক্ত বলগুলোর জন্য সাম্যবস্থায় আছে।\\
+এর ওজন $W$;\\
+আনত তলের সাধারণ প্রতিক্রিয়া $N$;\\
+তলের উপর ক্রিয়াশীল প্রান্তীয় ঘর্ষণ $\mu N$ যেহেতু বস্তুটি উপরে উঠার উপক্রম হচ্ছে;\\
+এবং বল $P$ যা আনত তলের সাথে $\angle \theta$ কোণে ক্রিয়া রত রয়েছে।\\
+আনত তলের সাপেক্ষে লম্বাংশ উপপাদ্যের সাহায্যে লেখা যায়, লদ্ধির আনুভূমিক উপাংশ
+\begin{equation}
+\begin{split}
+P\cos \theta &=N\cos 90 +\mu N \cos 180 + W\cos (270-\alpha) \\&= \mu N  + W\sin \alpha 
+\end{split}
+\end{equation} 
+ উলম্বিক উপাংশ
+\begin{equation}
+\begin{split}
+P\sin \theta &=N\sin 90 +\mu N \sin 180 + W\sin (270-\alpha) \\&=  W\cos \alpha -N \\N &= W\cos \alpha - P\sin \theta  
+\end{split}
+\end{equation} 
+$N$ এর মান এ বসালে\\
+\begin{equation}
+\begin{split}
+P\cos \theta &= \mu (W\cos \alpha - P\sin \theta)  + W\sin \alpha\\P (\cos \theta + \mu\sin \theta) &= W(\sin\alpha + \mu\cos \alpha)\\P &= \dfrac{\sin \alpha + \mu\cos\alpha}{\cos\theta + \mu \sin\theta}W\\&=  \dfrac{\sin \alpha + \tan \phi \cos\alpha}{\cos\theta + \tan\phi \sin\theta}W\\&= \dfrac{\sin \alpha\cos\phi + \cos\alpha\sin\phi}{\cos\theta\cos\phi + \sin\phi \sin\theta}W\\&= \dfrac{\sin (\alpha +\phi)}{\cos(\theta -\phi)}W
+\end{split}
+\end{equation} 
+$R = P\sin \alpha +W \cos \alpha$
+\begin{tikzpicture}[
+    force/.style={>=latex,draw=blue,fill=blue},
+    axis/.style={densely dashed,gray,font=\small},
+    M/.style={rectangle,draw,fill=lightgray,minimum size=0.5cm,thin},
+    m/.style={rectangle,draw=black,fill=lightgray,minimum size=0.3cm,thin},
+    plane/.style={draw=black,fill=blue!10},
+    string/.style={draw=red, thick},
+    pulley/.style={thick},
+]
+
+
+    %% Sketch
+    \draw[plane] (0,-1) coordinate (base)
+                     -- coordinate[pos=0.5] (mid) ++(\iangle:3) coordinate (top)
+                     |- (base) -- cycle;
+    \path (mid) node[M,rotate=\iangle,yshift=0.25cm] (M) {};
+    \draw[->] (base)++(\arcr,0) arc (0:\iangle:\arcr);
+     \draw[->] (M.east)++(\arcr,0) arc (0:\iangle:\arcr);
+    \path (base)++(\iangle*0.5:\arcr+5pt) node {$\alpha$};
+     \path (M.east)++(\iangle*0.5:\arcr+5pt) node {$\alpha$};
+    {[force,->]
+            % Assuming that Mg = 1. The normal force will therefore be cos(alpha)
+            \draw (M.center)[rotate=\iangle] -- ++(0,{cos(\iangle)}) node[above] {$R$};
+            \draw (M.west) -- ++(\iangle:-1.2) node[left] {$\mu R$};
+            \draw (M.east) -- ++(\iangle:1.2) ;
+            \draw (M.east) -- ++(1.5,0) node[right] {$P$};
+            \draw[force,->] (M.center) -- ++(0,-1.5) node[below] {$W$};
+        }
+                {[axis,->]
+             \draw (M.center)[rotate=305] -- ++(\iangle:1.2);
+            % Indicate angle. The code is a bit awkward.
+
+            \draw[solid,shorten >=0.5pt,rotate=\iangle] (0.58,-1.1)
+                arc(\down-\iangle:\down:\arcr);
+            \node at (1.3,-.8) {$\alpha$};
+        }
+
+    %%
+\end{tikzpicture}
+
+The spring considered here is ideal, that it has no mass. The flat attachment on the spring is also assumed to be mass less.
+
+This is to support the assumption that the spring initially has no compression or elongation. It thus is in its natural length. No energy is stored in it.
+
+The height $H$ is measured from the bottom of the block. As the block falls and touches the flat extension on the spring, the bottom of the block has moved the distance $H$. The center of the block also moves the same distance. The block thus loses gravitational potential energy  equal to $MgH$.
+
+Now the spring gets compressed and the block also moves downward with it.
+
+Assume that the maximum downward movement, the maximum compression of the spring is $x$.
+
+Then the bottom of the block  has moved  a total distance $H+x$ downward from its initial position.
+
+By the time the spring gets compressed to maximum, the  lost  gravitational potential energy  equal to $Mg(H+x)$.
+
+Where does this energy go?
+
+When the mass falls on the spring, the impact compresses the spring through a
+
+distance $x$. Then the total vertical fall of the block will be $(H+x)$.
+
+This fall reduces the gravitational potential energy by $Mg(H+x)$
+
+Now the spring starts getting compressed.
+
+When the spring is compressed it develops a restoring force that acts opposite to the velocity of the block. 
+
+This force will retard the mass and it will come to a momentary rest.
+
+At this instant, potential energy lost by the block will appear as the elastic potential energy of the spring.
+
+Therefore, $\frac{1}{2}Kx^2\:=\:Mg(H+x)$
+
+Or, $\frac{1}{2}Kx^2\:=\:Mg(H+x)$
+
+or, $\frac{1}{2}Kx^2\:-\:Mg(H+x)\:=0$                                   
+
+Which becomes, $Kx^2\:-\:2Mgx\:-\:2MgH\:=0$
+
+The compression of the spring
+
+$x\:=\:\frac{\frac{2Mg}{K}\pm \sqrt{(\frac{2Mg}{K})^2 \:+\:\frac{8Mgh}{K}}}{2}$
+\end{document}

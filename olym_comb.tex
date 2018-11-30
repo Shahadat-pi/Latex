@@ -1,0 +1,1289 @@
+\documentclass[a4paper,11pt]{book}
+\usepackage[sexy,hints]{evan}
+\usepackage{dirtytalk,array,tabu}
+\begin{document}
+\chapter{Algorithm}
+\section{Introduction}
+Put simply, an algorithm is a procedure or set of rules designed to accomplish some task. Mathematical algorithms are indispensable tools, and assist in financial risk minimization, traffic flow optimization, flight scheduling, automatic facial recognition, Google search, and several other services that impact our daily lives.\\
+
+Often, an algorithm can give us a deeper understanding of
+mathematics itself. For instance, the famous Euclidean algorithm essentially lays the foundation for the field of number theory. In this chapter, we will focus on using algorithms to prove combinatorial results. We can often prove the existence of an object (say, a graph with certain properties or a family of sets satisfying certain conditions) by giving a procedure to explicitly construct it. These proofs are hence known as constructive proofs.Our main goals in this chapter will be to study techniques for designing algorithms for constructive proofs, and proving that they actually work.\\
+
+In this chapter, and throughout the book, the emphasis will be
+on ideas. What can we observe while solving a given problem?
+How can disparate ideas and observations be pieced together
+cohesively to motivate a solution? What can we learn from the
+solution of one problem, and how may we apply it to others in the future? Each problem in this book is intended to teach some lesson this may be a combinatorial trick or a new way of looking at problems. We suggest that you keep a log of new ideas and insights into combinatorial structures and problems that you encounter or come up with yourself.
+\section{Greedy Algorithm}
+\begin{center}
+\textit{\say{Be fearful when others are greedy and greedy when others are fearful - Warren Buffet}}
+\end{center} 
+Greedy algorithms are algorithms that make the best possible
+short term choices, hence in each step maximizing short term
+gain. They aren’t always the optimal algorithm in the long run, but often are still extremely useful. The idea of looking at extreme elements (that are biggest, smallest, best, or worst in some respect) is central to this approach
+\begin{example}
+In a graph $G$ with $n$ vertices, no vertex has degree greater than $\triangle$. Show that one can color the vertices using at most $\triangle +1$ colors, such that no two neighboring vertices are the same color.
+\end{example}
+\begin{soln}
+We use the following greedy algorithm: arrange the vertices in an arbitrary order. Let the colors be $1, 2, 3\dots$ Color the first vertex with color 1. Then in each stage, take the next vertex in the order and color it with the smallest color that has not yet been used on any of its neighbours. Clearly this algorithm ensures that two.adjacent vertices won’t be the same color. It also ensures that at most $\triangle +1$ colors are used: each vertex has at most $\triangle$ neighbours, so when coloring a particular vertex $v$, at most $\triangle$ colors have been used by its neighbours, so at least one color in the set $\{1, 2, 3, \dots,\triangle+1\}$ has not been used. The minimum such color will be used for the vertex $v$. Hence all vertices are colored using colors in the set $\{1, 2, 3,\dots, \triangle+1\}$ and the problem is solved.
+\end{soln}
+\textbf{\textit{ Remark:}} The \say{greedy} step here lies in always choosing the color with the smallest number. Intuitively, we’re saving larger numbers only for when we really need them.
+\begin{example}[Russia 2005, Indian TST 2012, France 2006]
+In a $2 \times n$ array we have positive reals such that the sum of the numbers in each of the n columns is 1. Show that we can select one number in each column such that the sum of the selected numbers in each row is at most $\dfrac{n+1}{4}$.
+\end{example}
+\begin{center}
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c|c|c|c|c|c|c| c|c|} 
+\hline
+0.4 & 0.7 & 0.9 & 0.2 & 0.6 & 0.4 & 0.3 & 0.1 \\
+\hline
+0.6 & 0.3 & 0.1 & 0.8 & 0.4 & 0.6 & 0.7 & 0.9 \\
+\hline
+\end{tabular}
+\caption{$2\times n$ array of positive reals, $n=8$}
+\end{table}
+\end{center}
+\begin{soln}
+A very trivial greedy algorithm would be to select the smaller
+number in each column. Unfortunately, this won’t always work, as can easily be seen from an instance in which all numbers in the top row are 0.4. So we need to be more clever. Let the numbers in the top row in \textbf{\textit{non-decreasing order}}  be $a_1, a_2, \dots, a_n$ and the corresponding numbers in the bottom row be $b_1, b_2, \dots, b_n$ (in nonincreasing order, since $b_{i} = 1 - a_i)$. Further suppose that the sum of the numbers in the top row is less than or equal to that of the bottom row. The idea of ordering the variables is frequently used, since it provides some structure for us to work with.\\
+
+Our algorithm is as follows: Starting from $a_1$, keep choosing the smallest remaining element in the top row as long as possible. In other words, select $a_1, a_2, \dots, a_k$ such that $a_1 + a_2 + \dots + a_k \le \dfrac{n+1}{4}$ but $a_1 + a_2 + \dots + a_k + a_{k+1} > \dfrac{n+1}{4}$. Now we cannot select any more from the top row (as we would then violate the problem’s condition) so in the remaining columns choose elements from the bottom row. We just need to prove that the sum of the chosen elements in the bottom row is at most Note that $a_{k+1}$ is at least the average of $a_1, a_2, \dots, a_k, a_{k+1}$ which is more than $\dfrac{n+1}{4(k+1)}$.\\
+
+Hence $b_{k+1} = (1 - a_{k+1}) < 1-\dfrac{n+1}{4(k+1)}$. But $b_{k+1}$ is the largest of the chosen elements in the bottom row. So the sum of the chosen elements in the bottom row cannot exceed $\Bigg(1 -\dfrac{n+1}{4(k+1)} \Bigg) \times (n-k)$. We leave it to the reader to check that this quantity cannot exceed $\dfrac{n+1}{4}$.
+\end{soln}
+\textit{\textbf{Remark:}} One of the perks of writing a book is that I can leave boring calculations to my readers.
+\begin{example}
+In a graph \textbf{G}  with \textbf{V} vertices and \textbf{E} edges, show that there exists an induced subgraph \textbf{H} with each vertex having degree at least  $\dfrac{E}{V}$.(In other words, a graph with average degree d has an induced subgraph with minimum degree at least $\dfrac{d}{2}$).
+\end{example}
+\begin{soln}
+Note that the average degree of a vertex is $\dfrac{2E}{V}$. Intuitively, we should get rid of \say{bad} vertices: vertices that have $degree\,<  \dfrac{E}{V}$. Thus a natural algorithm for finding such a subgraph is as follows: start with the graph \textbf{G} , and as long as there exists a vertex with $degree\,<  \dfrac{E}{V}$, delete it. However, remember that while deleting a vertex we are also deleting the edges incident to it, and in the process vertices that were initially not \say{bad} may become bad in the subgraph formed. What if we end up with a graph with all  vertices bad? Fortunately, this won’t happen: notice that the ratio of $\dfrac{edges}{vertices}$ is strictly increasing (it started at $\dfrac{E}{V}$. and each time we deleted a vertex, less than $\dfrac{E}{V}$. edges were deleted by the condition of our algorithm). Hence, it is impossible to reach a stage when only 1 vertex is remaining, since in this case the
+$\dfrac{edges}{vertices}$ ratio is 0. So at some point, our algorithm must terminate, leaving us with a graph with more than one vertex, all of whose vertices have degree at least $\dfrac{E}{V}$. 
+\end{soln}
+
+\textbf{ \textit{Remark:}} This proof used the idea of monovariants, which we will explore further in the next section. \\
+
+The next problem initially appears to have nothing to do with algorithms, but visualizing what it actually means allows us to think about it algorithmically. The heuristics we develop lead us to a very simple algorithm, and proving that it works isn’t hard either.
+
+\begin{example}[IMO shortlist 2001, C4]
+A set of three non-negative integers$ \{x, y, z \}$ with $x < y < z$ satisfying $\{z-y, y-x\} = \{1776, 2001\}$ is called a historic set. Show that the set of all non-negative integers can be written as a disjoint union of historic sets.
+\end{example}
+\textbf{ \textit{Remark:}} The problem is still true if we replace $\{1776, 2001 \}$ with an arbitrary pair of distinct positive integers $\{a, b\}.$ These numbers were chosen since IMO 2001 took place in USA, which won independence in the year 1776.
+\begin{soln}
+Let $1776 = a, 2001 =b.$ A historic set is of the form $\{x, x+a, x+a+b\}$
+or $\{x, x+b, x+a+b\}.$ Call these small sets and big sets respectively.
+Essentially, we want to cover the set of non-negative integers using
+historic sets. To construct such a covering, we visualize the
+problem as follows: let the set of non-negative integers be written
+in a line. In each move, we choose a historic set and cover these
+numbers on the line. Every number must be covered at the end of
+our infinite process, but no number can be covered twice (the
+historic sets must be disjoint). We have the following heuristics, or
+intuitive guidelines our algorithm should follow:\\
+\textbf{ Heuristic 1:} At any point, the smallest number not yet covered is
+the most \say{unsafe}- it may get trapped if we do not cover it (for
+example, if $x$ is the smallest number not yet covered but $x+a+b$ has
+been covered, we can never delete $x$). Thus in each move we
+should choose $x$ as the smallest uncovered number.\\
+\textbf{ Heuristic 2: } From heuristic 1, it follows that our algorithm should
+prefer small numbers to big numbers. Thus it should prefer small
+sets to big sets.
+Based on these two simple heuristics, we construct the
+following greedy algorithm that minimizes short run risk: in any
+move, choose x to be the smallest number not yet covered. Use
+the small set if possible; only otherwise use the big set. We now
+show that this simple algorithm indeed works:
+Suppose the algorithm fails (that is, we are stuck because using
+either the small or big set would cover a number that has already
+been covered) in the $(n+1)^{th}$ step. Let $ x_i$ be the value chosen for $x$
+in step $i.$ Before the $(n+1){th}$ step, $ x_{n+1}$ hasn’t yet been covered, by the way it is defined. $x_{n+1} + a + b$ hasn’t yet been covered since it is
+larger than all the covered elements ($x_{n+1} > x_i$ by our algorithm). So the problem must arise due to $x_{n+1} + a$ and  $x_{n+1} + b.$ Both of these
+numbers must already be covered. Further, $x_{n+1} + b$ must have
+been the largest number in its set. Thus the smallest number in this set would be $x_{n+1} + b - (a+b) = x_{n+1} - a.$ But at this stage, $x_{n+1}$
+was not yet covered, so the small set should have been used and $x_{n+1}$ should have been covered in that step. This is a contradiction.Thus our supposition is wrong and the algorithm indeed works.
+\end{soln}
+\textbf{\textit{Remark:}} In an official solution to this problem, the heuristics would be skipped. Reading such a solution would leave you
+thinking \say{Well that’s nice and everything, but how on earth would
+anyone come up with that?} One of the purposes of this book is to show that Olympiad solutions don't just \say{come out of nowhere}. By including heuristics and observations in our solutions, we hope that readers will see the motivation and the key ideas behind them.
+\section{Invariants and Monovariants}
+Now we move on to two more extremely important concepts:
+invariants and monovariants. Recall that a monovariant is a
+quantity that changes monotonically (either it is non-increasing or
+non-decreasing), and an invariant is a quantity that doesn't
+change. These concepts are especially useful when studying
+combinatorial processes. While constructing algorithms, they help
+us in several ways. Monovariants often help us answer the
+question \say{Well, what do we do now?} In the next few examples,
+invariants and monovariants play a crucial role in both
+constructing the algorithm and ensuring that it works.
+
+\begin{example} [IMO shortlist 1989]
+A natural number is written in each square of an $m \times n$
+chessboard. The allowed move is to add an integer $k$ to each of
+two adjacent numbers in such a way that non-negative numbers
+are obtained (two squares are adjacent if they share a common
+side). Find a necessary and sufficient condition for it to be
+possible for all the numbers to be zero after finitely many
+operations.
+\end{example}
+\begin{soln}
+Note that in each move, we are adding the same number to 2
+squares, one of which is white and one of which is black (if the
+chessboard is colored alternately black and white). If $S_b$ and $S_w$
+denote the sum of numbers on black and white squares
+respectively, then $S_{b} - S_w$ is an invariant. Thus if all numbers are $0$
+at the end, $S_b - S_w = 0$ at the end and hence $S_b - S_w = 0$ in the beginning as well. This condition is thus necessary; now we prove
+that it is sufficient.
+ \textbf{ Figure 1.2}: A move on the $m \times n$ board.
+Suppose $a, b, c$ are numbers in cells $A, B, C$ respectively, where
+$A, B, C$ are cells such that $A$ and $C$ are both adjacent to $B$. If $a \le b$,
+we can add ($-a$) to both $a$ and $b$, making a 0. If $a \ge b$, then add ($a-b$)
+to $b$ and $c$. Then b becomes a, and now we can add ($-a$) to both of
+them, making them 0. Thus we have an algorithm for reducing a
+positive integer to 0. Apply this in each row, making all but the
+last 2 entries 0. Now all columns have only zeroes except the last
+two. Now apply the algorithm starting from the top of these
+columns, until only two adjacent nonzero numbers remain. These
+last two numbers must be equal since $S_b = S_w$ . Thus we can reduce
+them to 0 as well.
+\end{soln}
+The solution to the next example looks long and complicated, but
+it is actually quite intuitive and natural. We have tried to motivate
+each step, and show that each idea follows quite naturally from
+the previous ones.\\
+
+\begin{example}[New Zealand IMO Training, 2011]
+There are $2n$ people seated around a circular table, and $m$ cookies are distributed among them. The cookies can be passed under the
+following rules:
+
+\par\noindent ($a$) Each person can only pass cookies to his or her neighbors
+\par\noindent ($b$) Each time someone passes a cookie, he or she must also eat a
+cookie.\\
+
+ Let $A$ be one of these people. Find the least $m$ such that no matter
+how $m$ cookies are distributed initially, there is a strategy to pass
+cookies so that $A$ receives at least one cookie.
+\end{example}
+\begin{soln}
+We begin by labeling the people $A_{-n+1}, A_{-n+2},\cdots, A_0, A_1, A_2, \cdots, A_n,$
+such that $A = A_0$. Also denote $A_{-n} = A_n$. We assign weight $\dfrac{1}{2^{|i|}}$ to
+each cookie held by person $A_i.$ Thus for example, if $A_3$ passes a cookie to $A_2$, that cookie’s weight increases from $\dfrac{1}{8}$ to $\dfrac{1}{4}$ Note that
+$A_3$ must also eat a cookie (of weight $\dfrac{1}{8}$) in this step. Thus we see in
+this case the sum of the weights of all the cookies has remained the same. More precisely, if $A_i$ has $a_i$ cookies for each $i$, then the
+total weight of all cookies is
+\[
+ W = \sum_{i = -n+1}^{n} \dfrac{a_{i}}{2^{|i|}}
+\]
+Whenever a cookie is passed towards $A_0$ (from $A_{±i}$ to $A_{±(i-1)}$ for $i$ positive) one cookie is eaten and another cookie doubles its weight, so the total weight remains invariant. If a cookie is passed away from $A$, then the total weight decreases. Thus the total weight is indeed a monovariant.
+\begin{center}
+\begin{asy}
+import cse5;
+import olympiad;
+import graph;
+size(200);
+draw(circle((86.60,50),15));
+label("$A_2$",(86.60,50));
+draw(circle((50,86.60),15));
+label("$A_1$",(50,86.60));
+draw(circle((-86.60,50),15));
+label("$A_{-2}$",(-86.60,50));
+draw(circle((-100,0),15));
+label("$A_{-3}$",(-100,0));
+draw(circle((-50,86.60),15));
+label("$A_{-1}$",(-50,86.60));
+draw(circle((86.60,-50),15));
+label("$A_4$",(86.60,-50));
+draw(circle((-50,-86.60),15));
+label("$A_{-5}$",(-50,-86.60));
+draw(circle((50,-86.60),15));
+label("$A_5$",(50,-86.60));
+draw(circle((-86.60,-50),15));
+label("$A_{-4}$",(-86.60,-50));
+draw(circle((0,-100),15));
+label("$A_{6}$",(0,-100));
+draw(circle((100,0),15));
+label("$A_3$",(100,0));
+filldraw(circle((0,100),15),lightblue);
+label("$A_0$",(0,100));
+\end{asy}
+\end{center}
+\begin{center}
+\textbf{{ Figure 1.3:}} Labeling scheme to create a monovariant ($n=5$)
+\end{center}
+
+If $m < 2^n$, then if all the cookies are initially given to $A_n$, the
+initial total weight is $\dfrac{m}{2^n}< 1.$ Therefore the total weight is
+always less than 1 (since it can never increase), so $A_0$ cannot
+receive a cookie (if $A_0$ received a cookie it would have weight 1).
+Thus we must have $m \ge 2^{n}.$
+We now show that for $m \ge 2^{n}$, we can always ensure that $A_0$
+gets a cookie. Intuitively, we have the following heuristic:
+Our algorithm should never pass away from $A_0$, otherwise we will
+decrease our monovariant. Thus in each step we should pass
+towards $A_0$.
+This heuristic, however, does not tell us which way An should
+pass a cookie, as both directions are towards $A_0$ ($A_n$ and $A_0$ are
+diametrically opposite). This leads us to consider a new quantity
+in order to distinguish between the two directions that An can pass
+to. Let $W_{+}$ be the sum of the weights of cookies held by $A_0, A_1, A_2,
+\cdots, A_n$ and let $W_{-}$ be the sum of the weights of cookies held by $A_0,
+A_{-1}, A_{-2}, \cdots, A_{-n}.$ Assume WLOG $W_{+} \ge W_{-}$. Then this suggests that we should make $A_n$ pass cookies only to $A_{n-1}$ and that we should only
+work in the semicircle containing nonnegative indices, since this
+is the semicircle having more weight. Thus our algorithm is to
+make An pass as many cookies as possible to $A_{n-1}$, then make $A_{n-1}$
+pass as many cookies as possible to $A_{n-2}$, and so on until $A_0$ gets a
+cookie. But this works if and only if $W_+ \ge 1: W_+ \ge 1$ is certainly
+necessary since $W_+$ is a monovariant under our algorithm, and we
+now show it is sufficient.
+Suppose $W_+ \ge 1$. Note that our algorithm leaves $W_+$ invariant.
+Suppose our algorithm terminates, that is, we cannot pass
+anymore cookies from any of the $A_i$’s with $i$ positive, and $A_0$
+doesn’t have any cookies. Then $A_1, A_2, \cdots, A_n$ all have at most 1
+cookie at the end (if they had more than one, they could eat one
+and pass one and our algorithm wouldn’t have terminated).
+at this point $W_{+} \le \dfrac{1}{2}+ \dfrac{1}{4} + \cdots + \dfrac{1}{2^{n}} <1$, contradicting the fact that
+$W_+$ is invariant and $\ge 1$. Thus $W_+ \ge 1$ is a sufficient condition for
+our algorithm to work.
+Finally, we prove that we indeed have W+ ≥ 1. We assumed $W_+ \ge W_{-}$. Now simply note that each cookie contributes at least $\dfrac{1}{2^{n-1}}$ to
+the sum ($W_+ + W_-$), because each cookie has weight at least $\dfrac{1}{2^{n-1}}$
+except for cookies at $A_n$. However, cookies at An are counted twice
+since they contribute to both $W_+$ and $W_-$, so they also contribute
+$\dfrac{1}{2^{n-1}}$ to the sum. Hence, since we have at least $2^{n}$ cookies, $W_+ + W_{-}\ge 2$, so $W_+ \ge 1$ and we are done. 
+\end{soln}
+The next example demonstrates three very useful ideas:
+monovariants, binary representation and the Euclidean algorithm.
+All of these are very helpful tools.\\
+
+\textbf{ Example 7 [IMO shortlist 1994, C3]}\\
+Peter has 3 accounts in a bank, each with an integral number of
+dollars. He is only allowed to transfer money from one account to
+another so that the amount of money in the latter is doubled.
+Prove that Peter can always transfer all his money into two
+accounts. Can he always transfer all his money into one account?\\
+
+\textbf{ Answer:}
+The second part of the question is trivial - if the total number of dollars is odd, it is clearly not always possible to get all the money into one account. Now we solve the first part. Let $ A, B, C$ with $A \le B \le C$ be the number of dollars in the account 1, account 2 and account 3 respectively at a particular point of time. If $A = 0$ initially, we are done so assume $A > 0$. As we perform any algorithm, the values of $A, B$ and $C$ keep changing. Our aim is to monotonically strictly decrease the value of min ($A, B, C$). This will ensure that we eventually end up with min $(A, B, C) = 0$ and we
+will be done. Now, we know a very simple and useful algorithm
+that monotonically reduces a number- the Euclidean algorithm. So
+let $B = qA + r$ with $0 r < A$. Our aim now is to reduce the number
+of dollars in the second account from B to r. Since $r < A$, we would
+have reduced min $(A, B, C)$, which was our aim.
+Now, since the question involves doubling certain numbers, it
+is a good idea to consider binary representations of numbers. Let
+$q = m_0 + 2m_1 + \cdots + 2^{k}m_{k}$ be the binary representation of $q$, where
+$m_i = 0$ or 1. To reduce B to r, in step i of our algorithm, we transfer
+money to account 1. The transfer is from account 2 if $m_{i-1} = 1$ and
+from account 3 if $m_{i-1} = 0$. The number of dollars in the first
+account starts with $A$ and keeps doubling in each step. Thus we
+end up transferring $A(m_0 + 2m_1 + \cdots + 2^{k}m_{k}) = Aq$ dollars from
+account 2 to account 1, and we are left with $B-Aq = r$ dollars in
+account 2. We have thus succeeded in reducing min ($A, B, C$) and
+so we are done. \hfill $\blacksquare$\\
+
+Now we look at a very challenging problem that can be solved
+using monovariants.\\
+
+\textbf{Example 8 [APMO 1997, Problem 5]}\\
+$n$ people are seated in a circle. A total of $nk$ coins have been
+distributed among them, but not necessarily equally. A move is the
+transfer of a single coin between two adjacent people. Find an
+algorithm for making the minimum possible number of moves
+which result in everyone ending up with the same number of
+coins.
+\textbf{ Answer:}
+We want each person to end up with k coins. Let the people be
+labeled from $1, 2, \cdots, n$ in order (note that $n$ is next to 1 since they
+are sitting in a circle). Suppose person i has $c_i$ coins. We introduce
+the variable $d_i = c_i – k$, since this indicates how close a person is to
+having the desired number of coins. Consider the quantity
+$X = |d_11| + |d_1 + d_2| + |d_1 + d_2 + d_3| + \cdots + |d_1 + d_2 + \cdots + d_{n-1}|$
+Clearly $X = 0$ if and only if everyone has k coins, so our goal is to make $X = 0$. The reason for this choice of X is that moving a coin between person $j$ and person $j + 1$ for $1 \le j \le n -1$ changes $X$ by
+exactly 1 as only the term $|d_1 + d_2 + \cdots+ d_j|$ will be affected. Hence
+$X$ is a monovariant and is fairly easy to control (except when
+moving a coin from 1 to $n$ or vice versa). Let $s_j = d_1 + d_2 + \cdots + d_j$.
+We claim that as long as $X > 0$ it is always possible to reduce $X$
+by 1 by a move between $j$ and $ j +1$ for some $1\le j \le n -1$. We use the
+following algorithm. Assume WLOG $d_1 \ge 1$. Take the first j such
+that $d_{j+1} < 0$. If $s_j > 0$, then simply make a transfer from $j $ to $j + 1$.
+This reduces $X$ by one since it reduces the term $|s_j|$ by one. The
+other possibility is $s_j = 0$, which means $d_1 = d_2 = \cdots = d_j =0 $ (recall
+that $d_{j+1}$ is the first negative term). In this case, take the first $m >
+i+1$ such that $d_m \ge 0$. Then $d_{m-1} < 0 $ by the assumption on $m$, so we
+move a coin from $m$ to ($m-$1). Note that all terms before $d_m$ were
+either 0 or less than 0 and $d_{m-1} < 0$ , so $s_{m-1}$ was less than 0. Our
+move has increased $s_{m-1}$ by one, and has hence decreased $|s_{m-1}"$ by
+one, so we have decreased $X$ by one.
+Thus at any stage we can always decrease $X$ by at least one by
+moving between $j$ and $j +1$ for some $1 \le j \le n -1$. We have not yet
+considered the effect of a move between 1 and $n$. Thus our full
+algorithm is as follows: At any point of time, if we can decrease $X$
+by moving a coin from 1 to$n$ or $n$ to 1, do this. Otherwise, decrease
+$X$ by 1 by the algorithm described in the above paragraph. \hfill $\blacksquare$\\
+
+Sometimes while creating algorithms that monotonically decrease
+(or increase) a quantity, we run into trouble in particular cases
+and our algorithm doesn’t work. We can often get around these
+difficulties as follows. Suppose we want to monotonically
+decrease a particular quantity. Call a position good if we can
+decrease the monovariant with our algorithm. Otherwise, call the
+position bad. Now create an algorithm that converts bad positions
+into good positions, without increasing our monovariant. We use
+the first algorithm when possible, and then if we are stuck in a bad
+position, use the second algorithm to get back to a good position.
+Then we can again use the first algorithm. The next example
+(which is quite hard) demonstrates this idea.\\
+
+\textbf{ Example 9 [USAMO 2003-6]}\\
+At the vertices of a regular hexagon are written 6 nonnegative
+integers whose sum is 2003. Bert is allowed to make moves of the
+following form: he may pick a vertex and replace the number
+written there by the absolute value of the difference between the
+numbers at the neighboring vertices. Prove that Bert can make a
+sequence of moves, after which the number 0 appears at all 6
+vertices.
+Remark: We advise the reader to follow this solution with a paper
+and pen, and fill in the details that have been left for the reader.
+We first suggest that the reader try some small cases (with 2003
+replaced by smaller numbers).\\
+
+\textbf{ Answer:}
+Our algorithm uses the fact that 2003 is odd. Let the sum of a
+position be the sum of the 6 numbers and the maximum denote
+the value of the maximum of the 6 numbers. Let $A, B, C, D, E, F$ be
+the numbers at the 6 vertices in that order. Our aim is to
+monotonically decrease the maximum. Note that the maximum
+can never increase.
+We need two sub-algorithms:
+\par\noindent($i$) “Good position” creation: from a position with odd sum, go to
+a position with exactly one odd number
+\par\noindent($ii$) Monovariant reduction: from a position with exactly one odd
+number, go to a position with odd sum and strictly smaller
+maximum, or go to the all 0 position.\\
+For ($i$), since (A + B + C + D + E + F) is odd, assume WLOG that A
++ C + E is odd. If exactly one of A, C, E is odd, suppose A is odd.
+Then make the following sequence of moves: B, F, D A, F (here we
+denote a move by the vertex at which the move is made). This
+way, we end up with a situation in which only B is odd and the
+rest become even (check this), and we are done with step ($i$). The
+other possibility is that all of A, C and E are odd. In this case make
+the sequence of moves (B, D, F, C, E). After this only A is odd
+(check this).
+Now we are ready to apply step ($ii$), the step that actually
+decreases our monovariant. At this point, only one vertex contains
+an odd number; call this vertex A. Again we take two cases. If the
+maximum is even, then it is one of B, C, D, E or F. Now make moves
+at B, C, D, E and F in this order. (The reader should check that this
+works, that is, this sequence of moves decreases the maximum
+and ensures that the sum is odd). If the maximum is odd, then it is
+A. If $C = E = 0$, then the sequence of moves (B, F, D, A, B, F) leaves
+us with all numbers 0 and we are done. Otherwise, suppose at
+least one of C and E is nonzero so suppose $C > 0$ (the case $E > 0$ is
+similar). In this case, make the moves (B, F, A, F). The reader can
+check that this decreases the maximum and leaves us with odd
+sum.
+Thus starting with odd sum, we apply ($i$) if needed, after which
+we apply ($ii$). This decreases the maximum, and also leaves us
+again with odd sum (or in some cases it leaves us with all 0s and
+we are done), so we can repeat the entire procedure until the
+maximum eventually becomes 0. \hfill $\blacksquare$\\
+
+\begin{Large}
+\begin{center}
+\textbf{ Miscellaneous Examples}
+\end{center}
+\end{Large}
+
+Now we look at a few more problems involving moves that don’t
+directly use monovariants or greedy algorithms. These problems
+can often be solved by algorithms that build up the required
+configuration in steps. Sometimes, the required algorithm
+becomes easier to find after making some crucial observations or
+proving an auxiliary lemma. But in lots of cases, all a
+combinatorics problem needs is patience and straightforward
+logic, as the next example shows. Here again the solution looks
+long but most of what is written is just intended to motivate the
+solution.\\
+
+\textbf{ Example 10 [China 2010, Problem 5]}\\
+There are some (finite number of) cards placed at the points $A_1,
+A_2, \cdots, A_n$ and $O$, where $n \ge3$. We can perform one of the following
+operations in each step:
+\par\noindent (1) If there are more than 2 cards at some point $A_i$, we can remove
+3 cards from this point and place one each at $A_{i-1}, A_{i+1}$ and $O$
+(here $A_0 = A_n$ and $A_{n+1} = A_1$)
+\par\noindent (2) If there are at least n cards at $O$, we can remove $n$ cards from $O$and place one each at $A_1, A_2, \cdots, A_n$.\\
+Show that if the total number of cards is at least $n^2+3n+1$, we can
+make the number of cards at each vertex at least $n + 1$ after
+finitely many steps.
+Answer:
+Note that the total number of cards stays the same. We make a few
+observations:
+\par\noindent ($a$) We should aim to make the number of cards at each $A_i$ equal
+or close to equal, since if in the end some point has lots of
+cards, some other point won’t have enough.
+\par\noindent ($b$) We can make each of the $A'_{i}$s have 0, 1 or 2 cards.\\
+\textbf{ Proof:} repeatedly apply operation (1) as long as there is a
+point with at least 3 cards. This process must terminate, since
+the number of coins in $O$ increases in each step but cannot
+increase indefinitely. This is a good idea since the $A'_{i}$s would
+now have a ‘close to equal’ number of coins, which is a good
+thing by observation $a$).
+\par\noindent ($c$) From observation $b$), we see that it is also possible to makeeach of the $A'_{i}$s have 1, 2, or 3 cards (from the stage where
+each vertex has 0, 1 or 2 cards, just apply operation (2) once).
+This still preserves the ‘close to equal’ property, but gives us
+some more flexibility since we are now able to apply
+operation 1.
+\par\noindent (d) Based on observation c), we make each of the $A'_{i}$s have 1, 2 or
+3 cards. Suppose x of the $A'_{i}$s have 1 card, y of the $A'_{i}$s have 2
+cards and z of the $A'_{i}$s have 3 cards. The number of cards at $O$
+is then at least ($n^2+3n+1$) - ($x +2y + 3z$). Since $x + y + z = n$, $(x +
+2y + 3z) = (2x + 2y + 2z) + z – x = 2n + z – x \le 2n$ if $x \ge z$. Thus if
+$x \ge z$, $O$ will have at least $(n^2+3n+1) – 2n = n^2+n + 1$ cards. Now
+we can apply operation (2) $n$ times. Then all the $A'_{i}$s will now
+have at least $n + 1$ cards (they already each had at least 1
+card), and $O$ will have at least $n^2 + n + 1 – n^2 = n + 1$ cards and
+we will be done.
+Thus, based on observation $d$), it suffices to find an algorithm
+that starts with a position in which each of the $A'_{i}$s have 1, 2, or 3
+cards and ends in a position in which each of the $A'_{i}$s have 1, 2, or
+3 cards but the number of points having 3 cards is not more than
+the number of points having 1 card. This is not very difficult- the
+basic idea is to ensure that between any two points having 3
+cards, there is a point containing 1 card. We can do this as follows:
+If there are consecutive 3’s in a chain, like ($x, 3, 3, \cdots, 3, y$) with
+($x, y \neq 3$), apply operation (1) on all the points with 3 cards to get
+($x + 1, 1, 2, 2, \cdots, 2, 1, y+1$). Thus we can ensure that there are no
+adjacent 3’s. Now suppose there are two 3’s with only 2’s between
+them, like ($x, 3, 2, 2, 2,\cdots,2, 3, y$) with $x, y \neq 3$. After doing operation
+(1) first on the first 3, then on the point adjacent to it that has
+become a 3 and so on until the point before y, we get the sequence
+($x+1, 1, 1,\cdots,1, y+1$).
+Thus we can repeat this procedure as long as there exist two
+3’s that do not have a 1 between them. Note that the procedure
+preserves the property that all $A'_{i}$s have 1, 2 or 3 cards. But this
+cannot go on indefinitely since the number of coins at $O$ is
+increasing. So eventually we end up with a situation where there
+is at least one 1 between any two 3’s, and we are done. \hfill $\blacksquare$ \\
+
+\textbf{ Example 11 [IMO 2010, Problem 5]}\\
+Six boxes $B_1, B_2, B_3, B_4, B_5, B_6$ of coins are placed in a row. Each box
+initially contains exactly one coin. There are two types of allowed
+moves:
+\par\noindent Move 1: If $B_k$ with $1 \le k \le 5$ contains at least one coin, you may
+remove one coin from Bk and add two coins to Bk+1.
+\par\noindent Move 2: If $B_k$ with $1 \le k \le 4$ contains at least one coin, you may
+remove one coin from $B_k$ and exchange the contents (possibly
+empty) of boxes $B_{k+1}$ and $B_{k+2}$.
+Determine if there exists a finite sequence of moves of the allowed
+types, such that the five boxes  $B_1, B_2, B_3, B_4, B_5$ become empty,
+while box $B_6$ contains exactly $ 2010^{2010^{2010}}$  coins.
+Note: $abc = a(bc)$\\
+Answer:
+Surprisingly, the answer is yes. Let  $ A = 2010^{2010^{2010}}$. We denote by
+$(a_1, a_2, \cdots, a_n) \rightarrow (a’_1, a’_2, \cdots, a’_n)$ the following: if some consecutive
+boxes have $a_1, a_2, \cdots, a_n$ coins respectively, we can make them have
+$a’_1, a’_2, \cdots, a’_n$ coins by a legal sequence of moves, with all other
+boxes unchanged.
+Observations:
+\par\noindent a) Suppose we reach a stage where all boxes are empty, except
+for $B_4$, which contains at least $\dfrac{A}{4}$ coins. Then we can apply
+move 2 if necessary until $B_4$ contains exactly $\dfrac{A}{4}$ coins, and
+then apply move 1 twice and we will be done. Thus reaching
+this stage will be our key goal.
+\par\noindent b) Move 1 is our only way of increasing the number of coins.
+Since it involves doubling, we should look for ways of
+generating powers of 2. In fact, since A is so large, we should
+try to generate towers of $2’s$ (numbers of the form $2^{2^{2}}$ ).
+Based on this, we construct two sub algorithms.\\
+
+\textbf{ Algorithm 1:} $(a, 0, 0) \rightarrow (0, 2^a, 0) $ for any positive integer $a$.\\
+\textbf{ Proof:}  First use move 1: $(a, 0, 0) \rightarrow (a-1, 2, 0)$.
+Now use move 1 on the middle box till it is empty: $(a-1, 2, 0) \rightarrow
+(a-1, 0, 4)$
+Use move 2 on the first box to get $(a-2, 4, 0)$.
+Repeating this procedure (that is, alternately use move one on the
+second box till it is empty, followed by move one on the first box
+and so on), we eventually get $(0, 2^a, 0)$.
+Now, using this algorithm, we can construct an even more
+powerful algorithm that generates a large number of coins.
+
+\textbf{ Algorithm 2:} Let $P_n$ be a tower of $n\quad 2’$s for each positive integer $n$
+(eg. $P_3 = 2^{2^{2}} = 16$). Then
+$(a, 0, 0, 0) \rightarrow (0, P_a, 0, 0)$.\\
+\textbf{Proof: } We use algorithm 1. As in algorithm 1, the construction is
+stepwise. It is convenient to explain it using induction.
+We prove that $(a, 0, 0, 0) \rightarrow(a-k, P_k, 0, 0)$ for each $1 \le k \le a$. For
+$k = 1$, simply apply move 1 to the first box. Suppose we have
+reached the stage $(a-k, P_k, 0, 0)$. We want to reach $(a- (k+1), P_{k+1}, 0,
+0)$. To do this, apply algorithm 1 to get $(a-k, 0, 2P_k, 0)$. Note that
+$2^{P_k} = P_{k+1}$. So now just apply move 2 to the first box and we get $(a-k-1, P_{k+1}, 0, 0)$. Thus by induction, we finally reach $(for \quad k = a) (0, P_a,
+0, 0).$
+With algorithm 2 and observation a), we are ready to solve the
+problem.
+First apply move 1 to box 5, then move 2 to box 4, 3, 2 and 1 in
+this order:\\
+$(1, 1, 1, 1, 1, 1) \rightarrow (1, 1, 1, 1, 0, 3) \rightarrow (1, 1, 1, 0, 3, 0) \rightarrow (1, 1, 0, 3, 0,
+0) \rightarrow(1, 0, 3, 0, 0, 0) \rightarrow (0, 3, 0, 0, 0, 0).$
+Now we use algorithm 2 twice:
+$(0, 3, 0, 0, 0, 0) \rightarrow (0, 0, P_3, 0, 0, 0) \rightarrow (0, 0, 0, P_{16}, 0, 0).$
+Now we leave it to the reader to check that $P_{16} > \dfrac{A}{4}$ (in fact $P_{16}$
+is much larger than $A$). By observation $a$), we are done.
+Remark: In the contest, several contestants thought the answer
+was no, and spent most of their time trying to prove that no such
+sequence exists. Make sure that you don’t ever jump to
+conclusions like that too quickly. On a lighter note, in a conference
+of the team leaders and deputy leaders after the contest, one
+deputy leader remarked “Even most of us thought that no such
+sequence existed”. To this, one leader replied, “That’s why you are
+deputy leaders and not team leaders!”
+We close this chapter with one of the hardest questions ever
+asked at the IMO. Only 2 out of over 500 contestants completely
+solved problem 3 in IMO 2007. Yup, that’s right- 2 high school
+students in the entire world.\\
+
+\textbf{Example 12 [IMO 2007, Problem 3]}\\
+In a mathematical competition some competitors are friends;
+friendship is always mutual. Call a group of competitors a clique if
+each two of them are friends. The number of members in a clique
+is called its size. It is known that the size of the largest clique(s) is
+even. Prove that the competitors can be arranged in two rooms
+such that the size of the largest cliques in one room is the same as
+the size of the largest cliques in the other room.\\
+\textbf{ Answer:}
+Let $M$ be one of the cliques of largest size, $|M| = 2m$. First send all
+members of M to Room A and all other people to Room B. Let $ c(A)$
+and $c(B)$ denote the sizes of the largest cliques in rooms $A$ and $ B$ at
+a given point in time. Since $M$ is a clique of the largest size, we
+initially have $c(A) =|M| \ge c(B)$. Now we want to “balance things
+out”. As long as $c(A) > c(B)$, send one person from Room $A$ to
+Room B. In each step, $c(A)$ decreases by one and $c(B)$ increases by
+at most one. So at the end we have $c(A) \le c(B) \le c(A) + 1$. We also
+have $c(A) = |A| \ge m$ at the end. Otherwise we would have at least
+$m+1$ members of $M$ in Room $B$ and at most $m−1$ in Room $A$,
+implying $c(B)-c(A) \ge (m+1)−(m−1) = 2$.
+Clearly if $c(A) = c(B)$ we are done so at this stage the only case
+we need to consider is $c(B) - c(A) = 1$. Let $c(A) = k, c(B) = k+1$. Now
+if there is a competitor in B, who is also in M but is not in the
+biggest clique in B, then by sending her to $A$, $c(B)$ doesn’t change
+but $c(A)$ increases by 1 and we are done. Now suppose there is no
+such competitor. We do the following: take each clique of size $k+1$
+in $B$ and send one competitor to $A$. At the end of this process, $c(B)
+= k$. Now we leave it to the reader to finish the proof by showing
+that $c(A)$ is still k. (You will need to use the supposition that there
+is no competitor in B who is also in M but not in the biggest clique
+of B. This means that every clique in B of size $(k+1)$ contains
+$B\cap M$). \hfill $\blacksquare$\\
+
+\begin{center}
+\begin{large}
+\textbf{ Exercises}
+\end{large}
+\end{center}
+\textbf{ 1. [Activity Selection Problem]}\\
+On a particular day, there are n events (say, movies, classes,
+parties, etc.) you want to attend. Call the events $ E_1, E_2, \cdots, E_n$
+and let $E_i$ start at time $s_i$ and finish at time $f_i$. You are only
+allowed to attend events that do not overlap (that is, one
+should finish before the other starts). Provide an efficient
+algorithm that selects as many events as possible while satisfying this condition.
+(Note: We have not defined what “efficient” here means. Note
+that this problem can be solved by simply testing all $2n$
+possible combinations of events, and taking the best
+combination that works. However, this uses a number of steps
+that is exponential in $n$. By efficient, we mean a procedure that
+is guaranteed to require at most a number of steps that is
+polynomial in $n$).\\
+\textbf{ 2. [Weighted Activity Selection]}
+Solve the following generalization of the previous problem:
+event $E_i$ has now weight $w_i$ and the objective is not to
+maximize the number of activities attended, but the sum of the
+weights of all activities attended.\\
+\textbf{3. [Russia 1961]}
+Real numbers are written in an $m \times n$ table. It is permissible to
+reverse the signs of all the numbers in any row or column.
+Prove that after a number of these operations, we can make
+the sum of the numbers along each line (row or column)
+nonnegative.\\
+\textbf{ 4.} Given $2n$ points in the plane with no three collinear, show that
+it is possible to pair them up in such a way that the n line
+segments joining paired points do not intersect.\\
+\textbf{ 5. [Czech and Slovak Republics 1997]}
+Each side and diagonal of a regular $n-$gon ($n ≥ 3$) is colored
+blue or green. A move consists of choosing a vertex and
+switching the color of each segment incident to that vertex
+(from blue to green or vice versa). Prove that regardless of the
+initial coloring, it is possible to make the number of blue
+segments incident to each vertex even by following a sequence
+of moves. Also show that the final configuration obtained is
+uniquely determined by the initial coloring.\\
+\textbf{ 6. [Bulgaria 2001]}
+Given a permutation of the numbers $1, 2,\cdots, n,$ one may
+interchange two consecutive blocks to obtain a new
+permutation. For instance, 3 5 4 8 9 7 2 1 6 can be
+transformed to 3 9 7 2 5 4 8 1 6 by swapping the consecutive
+blocks 5 4 8 and 9 7 2. Find the least number of changes
+required to change $n, n-1, n-2, …, 1$ to $1, 2, …, n$.\\
+\textbf{ 7. [Minimum makespan scheduling]}
+Given the times taken to complete $n$ jobs, $t_1, t_2, …, t_n$, and $m$
+identical machines, the task is to assign each job to a machine
+so that the total time taken to finish all jobs is minimized. For
+example, if $n = 5, m = 3$ and the times are 5, 4, 4, 6 and 7 hours,
+the best we can do is make machine 1 do jobs taking 4 and 5
+hours, machine 2 do jobs taking 4 and 6 hours, and machine 3
+do the job taking 7 hours. The total time will then be 10 hours
+since machine 2 takes (4 + 6) hours.
+Consider the following greedy algorithm: Order the jobs
+arbitrarily, and in this order assign to each job the machine
+that has been given the least work so far. Let TOPT be the total
+time taken by the best possible schedule, and TA the time
+taken by our algorithm. Show that TA/TOPT $\le$ 2; in other words,
+our algorithm always finds a schedule that takes at most twice
+the time taken by an optimal schedule. (This is known as a 2-
+factor approximation algorithm.)\\
+\textbf{ 8. [USAMO 2011-2]}
+An integer is written at each vertex of a regular pentagon. A
+solitaire game is played as follows: a turn consists of choosing
+an integer m and two adjacent vertices of the pentagon, and
+subtracting m from the numbers at these vertices and adding
+$2m$ to the vertex opposite them. (Note that m and the vertices
+chosen can change from turn to turn). The game is said to be
+won at a vertex when the number 2011 is written at it and the
+other four vertices have the number 0 written at them. Show
+that there is exactly one vertex at which the game can be won.\\
+\textbf{9. [Chvatal’s set covering algorithm]}
+Let $S_1, S_2, …, S_k$ be subsets of $\{1, 2, …, n\}$. With each set $S_i$ is an
+associated cost $c_i$. Given this information, the minimum set
+cover problem asks us to select certain sets among $S_1,\cdots, S_k$
+such that the union of the selected sets is $\{1, 2, …, n\}$ (that is,
+each element is covered by some chosen set) and the total cost
+of the selected sets is minimized. For example, if $n = 4, k = 3, S_1
+= {1, 2}; S_2 = {2, 3, 4}$ and $S_3 = {1, 3, 4}$ and the costs of S1, S2
+and $S_3$ are 5, 6 and 4 respectively, the best solution would be
+to select $S_1$ and $S_3$.
+Consider the following greedy algorithm for set cover: In each
+stage of the algorithm, we select the subset $S_i$ which
+maximizes the value of $\dfrac{|s_{i} \cup c'|}{c_i}$ , where $C'$ denotes the set of
+elements not yet covered at that point. Intuitively, this
+algorithm maximizes (additional benefit)/cost in each step.
+This algorithm does not produce an optimal result, but it gets
+fairly close: let $CA$ be the cost of the selected sets produced by
+the algorithm, and let COPT be the cost of the best possible
+selection of sets (the lowest cost). Prove that $CA/C_{OPT} \le H_n$,
+where $H_n = 1 + \frac{1}{2}+ \cdots+ \frac{1}{n}$. (In other words, this is an Hnfactor approximation algorithm.)\\
+\textbf{ 10.} A matroid is an ordered pair (S, F) satisfying the following
+conditions:
+\par\noindent($i$) $S$ is a finite set
+\par\noindent($ii$) $F$ is a nonempty family of subsets of $S$, such that if $A$ is a
+set in $F$, all subsets of $A$ are also in $F$. The members of $F$
+are called independent sets
+\par\noindent($iii$) If $A$ and $B$ belong to $F$ but $ |A| > |B|$, then there exists an
+element $x \in B\setminus A$ such that $A \cup \{x\} \in F$. For example, if $S = \{1, 2, 3, 4\}$ and $F =\{  \phi , \{1\}, \{2\}, \{3\}, \{4\}, \{1,2v\}, \{1, 3\}, \{1, 4\}, \{2, 3\}, \{2, 4\}, \{3,4\}\}$, then you can easily verify
+that the above properties are satisfied. In general, note that if $F$ contains all subsets of $S$ with $k$ or fewer elements for some $k \le |S|$, $\{S, F\}$ will be a matroid.
+An independent set $A$ is said to be maximal if there does not
+exist any element $x$ in $S$ such that $A \cup \{x\} \in F$. (In other words,
+adding any element to A destroys its independence.) Prove
+that all maximal independent sets have the same
+cardinality.\\
+\textbf{ 11.} Consider a matroid $\{S, F\}$ where $S = {a_1, \cdots, a_n}$. Let element $a_i$
+have weight $w_i$, and define the weight of a set $A$ to be the sum
+of the weights of its elements. A problem central to the theory
+of greedy algorithms is to find an independent set in this
+matroid of maximum weight. Consider the following greedy
+approach: starting from the null set, in each stage of the
+algorithm add an element (that has not been selected so far)
+with the highest weight possible while preserving the
+independence of the set of selected elements. When no more
+elements can be added, stop.
+Show that this greedy algorithm indeed produces a maximum
+weight independent set.\\
+\textbf{ 12. [IMO Shortlist 2013, C3]}
+A crazy physicist discovered a new kind of particle which he
+called an imon. Some pairs of imons in the lab can be
+entangled, and each imon can participate in many
+entanglement relations. The physicist has found a way to
+perform the following two kinds of operations with these
+particles, one operation at a time.
+\par\noindent(i) If some imon is entangled with an odd number of other
+imons in the lab, then the physicist can destroy it.
+\par\noindent(ii) At any moment, he may double the whole family of imons
+in the lab by creating a copy I’ of each imon I. During this
+procedure, the two copies I’ and J’ become entangled if and
+only if the original imons I and J are entangled, and each
+copy I’ becomes entangled with its original imon I; no
+other entanglements occur or disappear at this moment.
+Show that after a finite number of operations, he can ensure
+that no pair of particles is entangled.\\
+\textbf{ 13. [Japan 1998]}
+Let $n$ be a positive integer. At each of $2n$ points around a circle
+we place a disk with one white side and one black side. We
+may perform the following move: select a black disk, and flip
+over its two neighbors. Find all initial configurations from
+which some sequence of such moves leads to a position where
+all disks but one are white.\\
+\textbf{ 14. [Based on IOI 2007]}
+You are given n integers $a_1, a_2, \cdots, a_n$ and another set of $n$
+integers $b_1, b_2, …, b_n$ such that for each $i$, $b_i \le a_i$. For each $i = 1$,
+$2, \cdots, n,$ you must choose a set of bi distinct integers from the
+set$ {1, 2, …, a_i}$. In total, ($b_1 + b_2 +\cdots+ b_n$) integers are selected,
+but not all of these are distinct. Suppose k distinct integers
+have been selected, with multiplicities $c_1, c_2, c_3, \cdots, c_k$. Your
+score is defined as $\sum_{i=1}^{k} c_{k}(c_{k} -1)$ . Give an efficient algorithm
+to select numbers in order to minimize your score.\\
+\textbf{15. [Based on Asia Pacific Informatics Olympiad 2007]}
+Given a set of n distinct positive real numbers $S = \{a_1, a_2, \cdots, a_n\}$
+and an integer $k < \frac{n}{2}$, provide an efficient algorithm to form $k$
+pairs of numbers $(b_1, c_1), (b_2, c_2), \cdots, (b_k, c_k)$ such that these $2k$
+numbers are all distinct and from $S$, and such that the sum $\sum_{i=1}^{k} |b_i - c_i|$ is minimized.
+Hint: A natural greedy algorithm is to form pairs sequentially
+by choosing the closest possible pair in each step. However,
+this doesn’t always work. Analyze where precisely the
+problem in this approach lies, and then accordingly adapt this
+algorithm so that it works.\\
+\textbf{16. [ELMO Shortlist 2010]}
+You are given a deck of kn cards each with a number in $\{1, 2,
+…, n\}$ such that there are k cards with each number. First, $n$
+piles numbered $\{1, 2, \cdots, n\}$ of k cards each are dealt out face
+down. You are allowed to look at the piles and rearrange the $k$
+cards in each pile. You now flip over a card from pile 1, place
+that card face up at the bottom of the pile, then next flip over a
+card from the pile whose number matches the number on the
+card just flipped. You repeat this until you reach a pile in
+which every card has already been flipped and wins if at that
+point every card has been flipped. Under what initial
+conditions (distributions of cards into piles) can you
+guarantee winning this game?\\
+\textbf{17. [Russia 2005]}
+100 people from 25 countries, four from each country, sit in a
+circle. Prove that one may partition them onto 4 groups in
+such way that no two countrymen, nor two neighboring
+people in the circle, are in the same group.\\
+\textbf{18. [Saint Petersburg 1997]}
+An Aztec diamond of rank n is a figure consisting of those
+squares of a gridded coordinate plane lying inside the square
+$|x| + |y| \le n+1$. For any covering of an Aztec diamond by
+dominoes, a move consists of selecting a $2\times 2$ square covered
+by two dominoes and rotating it by $90^{\circ}$ degrees. The aim is to
+convert the initial covering into the covering consisting of only
+horizontal dominoes. Show that this can be done using at most
+$\dfrac{n(n+1)(2n+1)}{6}$.
+\clearpage
+\begin{LARGE}
+\begin{center}
+2. ALGORITHMS – PART II
+\end{center}
+\end{LARGE}
+
+In this chapter we focus on some very important themes in the
+study of algorithms: recursive algorithms, efficiency and
+information. A recursive algorithm is one which performs a task
+involving n objects by breaking it into smaller parts. This is known
+as a “divide and conquer” strategy. Typically, we either do this by
+splitting the task with n objects into two tasks with $\frac{n}{2}$ objects or
+by first reducing the task to a task with $(n-1)$ objects. The latter
+approach, which is essentially induction, is very often used to
+solve Olympiad problems.
+Induction
+We first look at two problems which use induction. In the first
+one, we use the technique of ignoring one object and applying the
+induction hypothesis on the remaining $(n-1)$ objects. This
+obviously needs some care: we cannot completely ignore the nth
+object if it has some effect on the other objects!\\
+
+\textbf{ Example 1 [China Girls Math Olympiad 2011-7]}\\
+There are n boxes $B_1, B_2, \cdots, B_n$ in a row. N balls are distributed
+amongst them (not necessarily equally). If there is at least one ball
+in $B_1$, we can move one ball from $B_1$ to $B_2$. If there is at least 1 ball
+in $B_n$, we can move one ball from $B_n$ to $B_{n-1}$. For $2 \le k \le (n -1)$, if
+there are at least two balls in Bk, we can remove two balls from Bk
+and place one in $B_{k+1}$ and one in $B_{k-1}$. Show that whatever the
+initial distribution of balls, we can make each box have exactly one
+ball.\\
+\textbf{ Answer:}
+We use induction and monovariants. The base cases $n =1$ and 2
+are trivial. Suppose we have an algorithm $A_{n-1}$ for $n-1$ boxes; we
+construct an algorithm An for n boxes. We use two steps. The first
+step aims to get a ball into Bn and the second uses the induction
+hypothesis.
+Step 1: If Bn contains at least one ball, move to step two.
+Otherwise, all n balls lie in the first (n-1) boxes. Assign a weight 2k
+to box Bk. Now keep moving balls from the boxes B1, B2, …, Bn-1 as
+long as possible. This cannot go on indefinitely as the total weight
+of the balls is a positive integer and strictly increases in each move
+but is bounded above by n2n. Thus at some point this operation
+terminates. This can only happen if B1 has 0 balls and B2, B3, …, Bn-1
+each has at most 1 ball. But then Bn will have at least 2 balls. Now
+go to step 2.
+Step 2: If Bn has k > 1 balls, move (k-1) balls from Bn to Bn-1. Now
+Bn has exactly one ball and the remaining (n-1) boxes have (n-1)
+balls. Color these (n-1) balls red and color the ball in Bn blue. Now
+we apply the induction hypothesis. Use algorithm An-1 to make
+each of the first (n-1) boxes have one ball each. The only time we
+run into trouble is when a move needs to be made from Bn-1,
+because in An-1, Bn-1 only needed 1 ball to make a move, but now it
+needs 2. We can easily fix this. Whenever An-1 says we need to
+move a ball from Bn-1 to Bn-2, we first move the blue ball to Bn-1.
+Then we move a ball from Bn-1 to Bn-2 and pass the blue ball back to
+Bn. This completes the proof. ■Chapter 2: Algorithms - Part II 3
+Example 2 [IMO Shortlist 2005, C1]
+A house has an even number of lamps distributed among its
+rooms in such a way that there are at least three lamps in every
+room. Each lamp shares a switch with exactly one other lamp, not
+necessarily from the same room. Each change in the switch shared
+by two lamps changes their states simultaneously. Prove that for
+every initial state of the lamps there exists a sequence of changes
+in some of the switches at the end of which each room contains
+lamps which are on as well as lamps which are off.
+Answer:
+Call a room bad if all its lamps are in the same state and good
+otherwise. We want to make all rooms good. We show that if k ≥ 1
+rooms are bad, then we can make a finite sequence of switches so
+that (k-1) rooms are bad. This will prove our result.
+Call two lamps connected if they share a switch. Take a bad
+room R1 and switch a lamp there. If this lamp is connected to a
+lamp in R1, we are done since each room has at least 3 lamps. If
+this lamp is connected to a lamp in another room R2, then R1
+becomes good but R2 might become bad. If R2 doesn’t become bad,
+we are done. If R2 does become bad, then repeat the procedure so
+that R2 becomes good but some other room R3 becomes bad.
+Continue in this manner. If we ever succeed in making a room
+good without making any other room bad we are done, so assume
+this is not the case. Then eventually we will reach a room we have
+already visited before. We prove that at this stage, the final switch
+we made would not have made any room bad.
+Consider the first time this happens and let Rm = Rn for some m
+> n. We claim that Rm is good at this stage. The first time we
+switched a lamp in Rn, we converted it from bad to good by
+switching one lamp. Now when we go to Rm (= Rn), we cannot
+switch the same lamp, since this lamp was connected to a lamp in
+room Rn-1, whereas the lamp we are about to switch is connected
+to a lamp in Rm-1. So two distinct lamps have been switched in Rm
+and hence Rm is good (since there are at least three lamps, at leastOlympiad Combinatorics 4
+one lamp hasn’t been switched, and initially all lamps were in the
+same state since the room was bad before). Thus our final switch
+has made Rm-1 good without making Rm bad. Hence we have
+reduced the number of bad rooms by one, and repeating this we
+eventually make all rooms good. ■
+The next two examples demonstrate how to construct objects
+inductively.
+Example 3:
+Given a graph G in which each vertex has degree at least (n-1), and
+a tree T with n vertices, show that there is a subgraph of G
+isomorphic to T.
+Answer:
+We find such a subgraph inductively. Assume the result holds for
+(n-1); we prove it holds for n. Delete a terminal vertex v from T. By
+induction we can find a tree H isomorphic to T \ {v} as a subgraph
+of G. This is because T \ {v} has (n-1) vertices and each vertex in G
+has degree at least (n-1) > (n-1) - 1, so we can apply the induction
+hypothesis. Now suppose v was adjacent to vertex u in T
+(remember that v is adjacent to only one vertex). Let w be the
+vertex in G corresponding to u. w has at least (n-1) neighbors in G,
+and at most (n-2) of them are in H since H has (n-1) vertices and w
+is one of them. Thus w has at least 1 neighbor in G that is not in H,
+and we take this vertex as the vertex corresponding to v. ■
+Figure 2.1: Finding H inductively
+u
+a b
+v
+T
+w
+a’ b’
+G
+This vertex can
+be added to HChapter 2: Algorithms - Part II 5
+Example 4 [USAMO 2002]
+Let S be a set with 2002 elements, and let N be an integer with 0 ≤
+N ≤ 22002. Prove that it is possible to color every subset of S black
+or white, such that:
+a) The union of two white subsets is white
+b) The union of two black subsets is black
+c) There are exactly N white subsets.
+Answer
+You may have thought of inducting on N, but instead we induct on
+the number of elements of S. In this problem |S| = 2002, but we
+prove the more general result with |S| = n and 0 ≤ N ≤ 2n. The
+result trivially holds for n = 1, so suppose the result holds for n =
+k. Now we prove the result for n = k+1. If N ≤ 2n-1, note that by
+induction there is a coloring for the same value of N and n = k. We
+use this coloring for all sets that do not contain the (k+1)th
+element of S, and all subsets containing the (k+1)th element of S
+(which were not there in the case |S| = k) are now colored black.
+(Essentially, all “new” subsets are colored black while the old ones
+maintain their original color). Clearly, this coloring works.
+If N ≥ 2n-1, simply interchange the roles of white and black, and
+then use the same argument as in the previous case. ■
+Information, Efficiency and Recursions
+The next few problems primarily deal with collecting information
+and performing tasks efficiently, that is, with the minimum
+possible number of moves. Determining certain information with
+the least number of moves or questions is extremely important in
+computer science.
+The next example is a simple and well-known problem inOlympiad Combinatorics 6
+computer science.
+Example 5 [Merge Sort Algorithm]
+Given n real numbers, we want to sort them (arrange them in nondecreasing order) using as few comparisons as possible (in one
+comparison we can take two numbers a and b and check whether
+a < b, b < a or a = b). Clearly, we can sort them if we make all
+possible n(n-1)/2 comparisons. Can we do better?
+Answer:
+Yes. We use a recursive algorithm. Let f(n) be the number of
+comparisons needed for a set of n numbers. Split the set of n
+numbers into 2 sets of size n/2 (or if n is odd, sizes (n-1)/2 and
+(n+1)/2. For the rest of this problem, suppose n is even for
+simplicity). Now sort these two sets of numbers individually. This
+requires 2f(n/2) comparisons. Suppose the resulting sorted lists
+are a1 ≤ a2 ≤ … ≤ an/2 and b1 ≤ b2 ≤ … ≤ bn/2. Now we want to
+combine or ‘merge’ these two lists. First compare a1 and b1. Thus
+after a comparison between ai and bj, if ai ≤ bj, compare ai+1 and bj
+and if bj < ai, compare bj+1 and ai in the next round. This process
+terminates after at most n comparisons, after which we would
+have completely sorted the list. We used a total of at most 2f(n/2)
++ n comparisons, so f(n) ≤ 2f(n/2) + n.
+From this recursion, we can show by induction that f(2k) ≤ k x
+2k and in general, for n numbers the required number of
+comparisons is of the order nlog2(n), which is much more efficient
+than the trivial bound n(n-1)/2 which is of order n2. ■
+Example 6
+Suppose we are given n lamps and n switches, but we don’t know
+which lamp corresponds to which switch. In one operation, we
+can specify an arbitrary set of switches, and all of them will be
+switched from off to on simultaneously. We will then see which
+lamps come on (initially they are all off). For example, if n = 10
+and we specify the set of switches {1, 2, 3} and lamps L6, L4 and L9Chapter 2: Algorithms - Part II 7
+come on, we know that switches {1, 2, 3} correspond to lamps L6,
+L4 and L9 in some order. We want to determine which switch
+corresponds to which lamp. Obviously by switching only one
+switch per operation, we can achieve this in n operations. Can we
+do better?
+Answer:
+Yes. We actually need only ⌈log2(n)⌉ operations, where ⌈ ⌉ is the
+ceiling function. This is much better than n operations. For
+example, if n is one million, individually testing switches requires
+999,999 operations, whereas our solution only requires 20. We
+give two solutions. For convenience assume n is even.
+Solution 1:
+In the first operation specify a set of n/2 switches. Now we have
+two sets of n/2 switches, and we know which n/2 lamps they both
+correspond to. Now we want to apply the algorithm for n/2 lamps
+and switches to the two sets. Hence it initially appears that we
+have the recursion f(n) = 2f(n/2)+1, where f(n) is the number of
+steps taken by our algorithm for n lamps. However, note that we
+can actually apply the algorithms for both sets simultaneously,
+since we know which set of switches corresponds to which set of
+lamps. Thus the actual recursion is f(n) = f(n/2)+1. Since f(1) = 0,
+we inductively get f(n) = ⌈log2(n)⌉.
+Solution 2:
+The algorithm in this solution is essentially equivalent to that in
+solution 1, but the thought process behind it is different. Label the
+switches 1, 2, …, n. Now read their labels in binary. Each label has
+at most ⌈log2(n)⌉ digits. Now in operation 1, flip all switches that
+have a 1 in the units place of the binary representation of their
+labels. In general, in operation k we flip all switches that have a 1
+in the kth position of their binary representation. At the end of
+⌈log2(n)⌉ operations, consider any lamp. Look at all the operations
+in which it came on. For example, if a lamp comes on in the
+second, third and fifth operations, but not in the first, fourth andOlympiad Combinatorics 8
+6th operations, then it must correspond to the switch with binary
+representation 010110 (1s in the 2nd, 3rd and 5th positions from
+the right). Thus each lamp can be uniquely matched to a switch
+and we are done. ■
+Example 7 [Generalization of IMO shortlist 1998, C3]
+Cards numbered 1 to n are arranged at random in a row with n ≥
+5. In a move, one may choose any block of consecutive cards
+whose numbers are in ascending or descending order, and switch
+the block around. For example, if n=9, then 91 6 5 3 2 7 4 8 may be
+changed to 91 3 5 6 2 7 4 8. Prove that in at most 2n - 6 moves,
+one can arrange the n cards so that their numbers are in
+ascending or descending order.
+Answer:
+We use a recursive algorithm relating the situation with n cards to
+the situation with n-1 cards. Let f(n) be the minimum number of
+moves required to ‘monotonize’ any permutation of the n cards.
+Suppose we have a permutation with starting card k. In f(n-1)
+moves, we can monotonize the remaining (n-1) cards to get either
+the sequence (k, 1, 2, …, k-1, k+1, …, n) or (k, n, n-1, …, k+1, k–1, …,
+2, 1). In one move, we can make the former sequence (k, k-1, k-2,
+…, 1, k+1, k+2, …, n) and with one more move we get the sequence
+(1, 2, 3, …., n) and we are done. Similarly in the latter case we need
+only two additional moves to get (n, n-1, …., 1). Thus in either case,
+we can complete the task using f(n-1) + 2 moves, so f(n) ≤ f(n-1) +
+2.
+Now to prove the bound for general n ≥ 5, it suffices to prove it
+for n = 5 and then induct using f(n) ≤ f(n-1) + 2. To prove that f(5)
+≤ 4, first note that f(3) = 1 and f(4) = 3. With a little case work (do
+this), we can show that any permutation of 4 cards can be
+monotonized either way in at most 3 moves (thus both {1, 2, 3, 4}
+and {4, 3, 2, 1} can be reached after at most 3 moves, regardless of
+the initial permutation). Now given a permutation of {1, 2, 3, 4, 5},
+use one move if necessary to ensure that either 1 or 5 is at an
+extreme position. Now monotonize the remaining 4 numbers in 3Chapter 2: Algorithms - Part II 9
+moves, in such a way that the whole sequence is monotonized (we
+can do this by the previous statement). Hence at most 4 moves are
+required for 5 cards, and we are done. ■
+Remark: Since we wanted a linear bound in this problem, we
+tried to relate f(n) to f(n-1). However, when we want a logarithmic
+bound, we generally relate f(n) to f(n/2), or use binary
+representations. Thus the question itself often gives us a hint as to
+what strategy we should use.
+Example 8 [Russia 2000]
+Tanya choses a natural number X ≤ 100, and Sasha is trying to
+guess this number. She can select two natural numbers M and N
+less than 100 and ask for the value of gcd (X+M, N). Show that
+Sasha can determine Tanya's number with at most seven
+questions (the numbers M and N can change each question).
+Answer:
+Since 26 < 100 < 27 we guess that more generally ⌈log2(n)⌉
+guesses are needed, where n is the maximum possible value of X
+and ⌈ ⌉ is the ceiling function.
+Our strategy is to determine the digits of X in binary notation;
+that is, the bits of X. First ask for gcd (X+2, 2). This will tell us
+whether X is even or odd, so we will know the units bit of X. If X is
+even, ask for gcd (X+4, 4). This tells us whether or not X is
+divisible by 4. Otherwise ask for gcd (X+1, 4). This tells us if X is 1
+or 3 mod 4 (if the gcd is 4, then X+1 is divisible by 4 and so X ≡ 3
+mod 4). With this information we can determine the next bit of X.
+For example, if X is odd and is 3 mod 4, its last two bits will be 11.
+Now suppose X = i mod 4. To determine the next digit, ask for gcd
+(X + (4-i), 8). This gcd is either 4 or 8, according as X = i or 4+i mod
+8. This gives us the next bit. For example, if X = 3 mod 4 but X = 7
+mod 8, then the last 3 bits of X will be 111, but if X = 3 mod 8, then
+the last 3 bits would be 011. Now the pattern is clear. We continue
+in this manner until we obtain all the bits of X. This takes kOlympiad Combinatorics 10
+questions, where k is the number of bits of n (since X ≤ n, we don’t
+have to ask for further bits), which is at most equal to ⌈log2(n)⌉. ■
+Example 9 [Generalization of Russia 2004, grade 9 problem
+3]
+On a table there are n boxes, where n is even and positive, and in
+each box there is one ball. Some of the balls are white and the
+number of white balls is even and greater than 0. In each turn we
+are allowed to point to two arbitrary boxes and ask whether there
+is at least one white ball in the two boxes (the answer is yes or
+no). Show that after (2n – 3) questions we can indicate two boxes
+which definitely contain white balls.
+Answer:
+Label the boxes from 1 to n. Ask for the pairs of boxes (1, j), where
+j= 2, 3, …, n. If at some stage we get a no, this means box 1 contains
+a black ball. Then for all j such that we got a ‘yes’ for (1, j), box j
+contains a white ball and we are done. The only other possibility is
+if we got a yes for all boxes (1, j), in which case there are 2
+possibilities: either box 1 has a white ball or box 1 has a black ball
+and all the other (n-1) boxes have white balls. The latter case is
+ruled out since we are given that an even number or boxes have
+black balls, and (n-1) is odd. Hence box 1 has a white ball. Now ask
+for the pairs (2, j) where j =3, 4, …, n. Note that now we have asked
+a total of (n-1) + (n-2) = (2n-3) questions. Again if we get a ‘no’
+somewhere, then box 2 has a black ball and all yeses tell us which
+boxes have white balls. In this case we are done. The other case is
+if all the answers are yes. The same argument we used earlier
+shows that box 2 has a white ball and we are done. ■
+Now we look at a simple problem from computer science (part a
+of the next problem), which also happens to be a game I played
+when I was a little kid. Part b is a little trick question I just came
+up with.
+Example 10 a) [Binary Search Algorithm]Chapter 2: Algorithms - Part II 11
+My friend thinks of a natural number X between 1 and 2k inclusive.
+In one move I can ask the following question: I specify a number n
+and he says bigger, smaller or correct according as n < X, n > X, or
+n = X. Show that I can determine the number X using at most k
+moves.
+Answer:
+In my first move I say 2k-1. Either I win, or I have reduced number
+of possibilities to 2k-1. Repeat this process- in each stage reduce
+the number of possibilities by a factor of 2. Then in k moves there
+is only one possibility left.
+Example: If k = 6, first guess 32. If the answer is “smaller”, guess
+16. If the answer is now “bigger”, guess 24 (the average of 16 and
+32). If the answer is now “smaller”, guess 20. If the answer is again
+smaller, guess 18. If the answer is now “bigger”, the number is 19.
+In general if we replace 2k with n, we need ⌈log2(n)⌉ questions. ■
+Example 10 b) [Binary Search with noise – a little trick]
+We play the same game, but with a couple changes. First, I can
+now ask any yes or no question. Second, now my friend is allowed
+to lie - at most once in the whole game though. Now, from part a) I
+can win with 2k + 1 moves: I simply ask each question twice, and
+if the answer changes, that means my friend has lied. Then I ask
+the question again, and this time I get the true answer (he can
+only lie once). Thus I ask each question twice except for possibly
+one question which I ask thrice, for a total of 2k + 1 questions. Can
+I do better?
+Answer:
+First I ask about each of the k digits in the binary representation
+of X. If the game didn’t involve lying, I would be done. Now I need
+to account for the possibility that one answer was a lie. I ask the
+question, “did you ever lie this game?” If the answer is no, we are
+done (if he had lied, he would have to say yes now as he can’t lieOlympiad Combinatorics 12
+twice). If the answer is yes, I ask the question, “was the previous
+answer a lie?” If the answer to this is yes, then that means he
+never lied in the first k questions and again we are done. If the
+answer is no, then we can be sure that one of the first k answers
+we received (about the binary digits) was a lie. Note that he
+cannot lie anymore. We want to determine which answer was a
+lie. But using part a), we can do this in at most ⌈log2( )⌉ moves!
+This is because determining which of k moves was a lie is
+equivalent to guessing a number X’ with X’ ≤ k, and for this I use
+the algorithm in part a). After this, I know which digit in my
+original binary representation of X is wrong and I change it, and
+now I am done. I have used k + 2 + ⌈log2( )⌉ questions, which is
+much less than 2k + 1 questions for large k.
+In general, if 2k is replaced by n, this algorithm takes ⌈log2(n)⌉+
+⌈log2 ⌈log2(n)⌉⌉ + 2 moves. ■
+As in the previous chapter, we end this section with one of the
+hardest questions ever asked at the IMO. Only 3 out of over 550
+contestants managed to completely solve it. However, the
+difficulty of this now famous problem has been hotly debated on
+AOPS, with many people arguing that it is a lot easier that the
+statistics indicate. We’ll let the reader be the judge of that. The
+following solution is based on one found during the contest. The
+official solution is much more complicated.
+Example 11 [IMO 2009, Problem 6]
+Let n be a nonnegative integer. A grasshopper jumps along the
+real axis. He starts at point 0 and makes n + 1 jumps to the right
+with pairwise different positive integral lengths a1, a2, … an+1 in an
+arbitrary order. Let M be a set of n positive integers in the interval
+(0, s), where s = a1 + a2 + ··· + an+1. Prove that the grasshopper can
+arrange his jumps in such a way that he never lands on a point
+from M.Chapter 2: Algorithms - Part II 13
+Answer:
+We construct an algorithm using induction and the extremal
+principle. The case n = 1 is trivial, so let us assume that n > 1 and
+that the statement holds for 1, 2, ..., n−1. Assume that a1 <···< an.
+Let m be the smallest element of M. Consider the following cases:
+Case 1: m < an+1: If an+1 does not belong to M then make the first
+jump of size an+1. The problem gets reduced to the sequence a1, ...,
+an and the set $M\setminus \{m\}$, which immediately follows by induction. So
+now suppose that an+1 ∈ M. Consider the following n pairs: (a1,
+a1+an+1), ..., (an, an+an+1). All numbers from these pairs that are in
+M belong to the (n−1)-element set $M\setminus \{an\}$, hence at least one of
+these pairs, say (ak, ak +an), has both of its members outside of M.
+If the first two jumps of the grasshopper are ak and ak +an+1, it has
+jumped over at least two members of M: m and an+1. There are at
+most n−2 more elements of M to jump over, and n−1 more jumps,
+so we are done by induction.
+Case 2: m ≥ an+1: Note that it is equivalent to solve the problem in
+reverse: start from s = a1 + a2 + ··· + an+1 and try to reach 0 without
+landing on any point in M. By the induction hypothesis, the
+grasshopper can start from s make n jumps of sizes a1, ..., an to the
+left, and avoid all the points of$M\setminus \{m\}$. If it misses the point m as
+well, then we are done, since we can now make a jump of size an+1
+and reach 0. So suppose that after making the jump ak the
+grasshopper landed at m. If it changes the jump ak to the jump an,
+it will jump past m and all subsequent jumps will land outside of
+M because m is the left-most point. ■Olympiad Combinatorics 14
+Exercises
+1. [Spain 1997]
+The exact quantity of gas needed for a car to complete a single
+loop around a track is distributed among n containers placed
+along the track. Show that there exists a point from which the
+car can start with an empty tank and complete the loop (by
+collecting gas from tanks it encounters along the way). [Note:
+assume that there is no limit to the amount of gas the car can
+carry].
+2. [Russia]
+Arutyun and Amayak perform a magic trick as follows. A
+spectator writes down on a board a sequence of N (decimal)
+digits. Amayak covers two adjacent digits by a black disc. Then
+Arutyun comes and says both closed digits (and their order).
+For which minimal N can this trick always work?
+3. [Generalization of Russia 2005]
+Consider a game in which one person thinks of a permutation
+of {1, 2, …, n} and the other’s task is to deduce this
+permutation (n is known to the guesser). In a turn, he is
+allowed to select three positions of the permutation and is
+told the relative order of the three numbers in those positions.
+For example, if the permutation is 2, 4, 3, 5, 1 and the guesser
+selects positions 1, 4 and 5, the other player will reveal that 5th
+number < 1st number < 4th number. Determine the minimum
+number of moves for the guesser to always be able to figure
+out the permutation.
+4. [IMO Shortlist 1990]
+Given n countries with three representatives each, m
+committees A1, A2, …, Am are called a cycle ifChapter 2: Algorithms - Part II 15
+i. each committee has n members, one from each country;
+ii. no two committees have the same membership;
+iii. for 1 ≤ i ≤ m, committee Ai and committee Ai+1 have no
+member in common, where Am+1 denotes A1
+iv. if 1 < |i-j| < m-1, then committees Ai and Aj have at least
+one member in common.
+Is it possible to have a cycle of 1990 committees with 11
+countries?
+5. [Canada 2012 – 4]
+A number of robots are placed on the squares of a finite,
+rectangular grid of squares. A square can hold any number of
+robots. Every edge of each square of the grid is classified as
+either passable or impassable. All edges on the boundary of
+the grid are impassable. A move consists of giving one of the
+commands up, down, left or right. All of the robots then
+simultaneously try to move in the specified direction. If the
+edge adjacent to a robot in that direction is passable, the robot
+moves across the edge and into the next square. Otherwise,
+the robot remains on its current square.
+Suppose that for any individual robot, and any square on
+the grid, there is a finite sequence of commands that will move
+that robot to that square. Prove that you can also give a finite
+sequence of commands such that all of the robots end up on
+the same square at the same time.
+6. [IMO Shortlist 2002, C4]
+Let T be the set of ordered triples (x, y, z), where x, y, z are
+integers with 0 ≤ x, y, z ≤ 9. Players A and B play the following
+guessing game. Player A chooses a triple in T (x, y, z), and
+Player B has to discover A’s triple in as few moves as possible.
+A move consists of the following: B gives A a triple (a, b, c) in T,
+and A replies by giving B the number |x + y – a – b| + |y + z – bOlympiad Combinatorics 16
+– c| + |z + x – c – a|. Find the minimum number of moves that B
+needs in order to determine A’s triple.
+7. Given a finite set of points in the plane,
+each with integer coordinates, is it always possible to color
+the points red or white so that for any straight line L parallel
+to one of the coordinate axes the difference (in absolute value)
+between the numbers of white and red points on L is not
+greater than 1?
+8. [Generalization of Russia 1993]
+There are n people sitting in a circle, of which some are
+truthful and others are liars (we don’t know who is a liar and
+who isn’t though). Each person states whether the person to
+in front of him is a liar or not. The truthful people always tell
+the truth, whereas the liars may either lie or tell the truth. The
+aim is for us to use the information provided to find one
+person who is definitely truthful. Show that if the number of
+liars is at most 2√ – 3, we can always do this.
+9. On each square of a chessboard is a light which has two stateson or off. A move consists of choosing a square and changing
+the state of the bulbs in that square and in its neighboring
+squares (squares that share a side with it). Show that starting
+from any configuration we can make finitely many moves to
+reach a point where all the bulbs are switched off
+10. [Indian Postal Coaching 2011]
+Let C be a circle, A1, A2, …, An be distinct points inside C and B1,
+B2, …, Bn be distinct points on C such that no two of the
+segments A1B1, …, AnBn intersect. A grasshopper can jump from
+Ar to As if the line segment ArAs does not intersect any line
+segment AtBt (t ≠ r, s). Prove that after a certain number of
+jumps, the grasshopper can jump from any Au to any Av.Chapter 2: Algorithms - Part II 17
+11. [USAMO 2000, Problem 3]
+You are given R red cards, B blue cards and W white cards and
+asked to arrange them in a row from left to right. Once
+arranged, each card receives a score as follows. Each blue card
+receives a score equal to the number of white cards to its
+right. Each white card receives a score equal to twice the
+number of red cards to its right. Each red card receives a score
+equal to three times the number of blue cards to its right. For
+example, if the arrangement is Red Blue White Blue Red Blue,
+the total score will be 9 + 1 + 2 + 0 + 3 + 0 = 15. Determine, as
+a function of R, B and W, the minimum possible score that can
+obtained, and find all configurations that achieve this
+minimum.
+12. [IMO Shortlist 2005, C7]
+Suppose that a1, a2, …, an are integers such that n | (a1 + a2 + …
++ an). Prove that there exist two permutations b1, b2, …, bn and
+c1, c2, …, cn of (1, 2, …, n) such that for each integer i with 1 ≤ i ≤
+n, we have n | ai – bi – ci.
+13. [St. Petersburg 2001]
+In the parliament of the country of Alternativia, for any two
+deputies there exists a third who is acquainted with exactly
+one of the two. There are two parties, and each deputy
+belongs to exactly one of them. Each day the President (not a
+member of the parliament) selects a group of deputies and
+orders them to switch parties, at which time each deputy
+acquainted with at least one member of the group also
+switches parties. Show that the President can eventually
+ensure that all deputies belong to the same party.
+\end{document}

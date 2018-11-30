@@ -1,0 +1,1106 @@
+\indexentry{margins|hyperpage}{1}
+\indexentry{points|hyperpage}{1}
+\indexentry{points!total|hyperpage}{1}
+\indexentry{beta test|hyperpage}{2}
+\indexentry{web page|hyperpage}{2}
+\indexentry{Latex Project Public License@\LaTeX{} Project Public License|hyperpage}{3}
+\indexentry{license|hyperpage}{3}
+\indexentry{LPPL|hyperpage}{3}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}|hyperpage}{3}
+\indexentry{name|hyperpage}{3}
+\indexentry{student's name|hyperpage}{3}
+\indexentry{question@\texttt  {\char `\\question}|hyperpage}{4}
+\indexentry{questions environment|hyperpage}{4}
+\indexentry{environment!questions|hyperpage}{4}
+\indexentry{questions@\texttt  {questions}|hyperpage}{4}
+\indexentry{blank lines|hyperpage}{4}
+\indexentry{marksnotpoints@\texttt  {\char `\\marksnotpoints}|hyperpage}{5}
+\indexentry{parts@\texttt  {parts}|hyperpage}{5}
+\indexentry{part@\texttt  {\char `\\part}|hyperpage}{5}
+\indexentry{parts environment|hyperpage}{5}
+\indexentry{environment!parts|hyperpage}{5}
+\indexentry{parts@\texttt  {parts}|hyperpage}{6}
+\indexentry{parts environment|hyperpage}{6}
+\indexentry{environment!parts|hyperpage}{6}
+\indexentry{blank lines|hyperpage}{6}
+\indexentry{space!for answers|hyperpage}{6}
+\indexentry{answer space|hyperpage}{6}
+\indexentry{blank space|hyperpage}{6}
+\indexentry{space!blank|hyperpage}{6}
+\indexentry{stretch@\texttt  {\char `\\stretch}|hyperpage}{6}
+\indexentry{space!allocating|hyperpage}{6}
+\indexentry{allocating space|hyperpage}{6}
+\indexentry{header|(hyperpage}{7}
+\indexentry{footer|(hyperpage}{7}
+\indexentry{pagestyle@\texttt  {\char `\\pagestyle}|hyperpage}{7}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{7}
+\indexentry{firstpagefooter@\texttt  {\char `\\firstpagefooter}|hyperpage}{7}
+\indexentry{firstpageheadrule@\texttt  {\char `\\firstpageheadrule}|hyperpage}{7}
+\indexentry{firstpagefootrule@\texttt  {\char `\\firstpagefootrule}|hyperpage}{7}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{7}
+\indexentry{runningfooter@\texttt  {\char `\\runningfooter}|hyperpage}{7}
+\indexentry{runningheadrule@\texttt  {\char `\\runningheadrule}|hyperpage}{7}
+\indexentry{runningfootrule@\texttt  {\char `\\runningfootrule}|hyperpage}{7}
+\indexentry{header|)hyperpage}{8}
+\indexentry{footer|)hyperpage}{8}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}|hyperpage}{8}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}!options|hyperpage}{8}
+\indexentry{addpoints@\texttt  {addpoints}|hyperpage}{8}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}!options|hyperpage}{8}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{9}
+\indexentry{noaddpoints@\texttt  {\char `\\noaddpoints}|hyperpage}{9}
+\indexentry{answers@\texttt  {answers}|hyperpage}{9}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}!options|hyperpage}{9}
+\indexentry{printanswers@\texttt  {\char `\\printanswers}|hyperpage}{9}
+\indexentry{solution@\texttt  {solution}|hyperpage}{9}
+\indexentry{solutionorbox@\texttt  {solutionorbox}|hyperpage}{9}
+\indexentry{solutionorlines@\texttt  {solutionorlines}|hyperpage}{9}
+\indexentry{solutionordottedlines@\texttt  {solutionordottedlines}|hyperpage}{9}
+\indexentry{choices@\texttt  {choices}|hyperpage}{10}
+\indexentry{oneparchoices@\texttt  {oneparchoices}|hyperpage}{10}
+\indexentry{checkboxes@\texttt  {checkboxes}|hyperpage}{10}
+\indexentry{oneparcheckboxes@\texttt  {oneparcheckboxes}|hyperpage}{10}
+\indexentry{CorrectChoice@\texttt  {\char `\\CorrectChoice}|hyperpage}{10}
+\indexentry{choice@\texttt  {\char `\\choice}|hyperpage}{10}
+\indexentry{CorrectChoiceEmphasis@\texttt  {\char `\\CorrectChoiceEmphasis}|hyperpage}{10}
+\indexentry{answerline@\texttt  {\char `\\answerline}|hyperpage}{10}
+\indexentry{answerline@\texttt  {\char `\\answerline}!optional\nobreakspace  {}argument|hyperpage}{10}
+\indexentry{questions@\texttt  {questions}|hyperpage}{10}
+\indexentry{questions environment|hyperpage}{10}
+\indexentry{environment!questions|hyperpage}{10}
+\indexentry{question@\texttt  {\char `\\question}|hyperpage}{10}
+\indexentry{points|hyperpage}{10}
+\indexentry{parts@\texttt  {parts}|hyperpage}{10}
+\indexentry{parts environment|hyperpage}{10}
+\indexentry{environment!parts|hyperpage}{10}
+\indexentry{part@\texttt  {\char `\\part}|hyperpage}{10}
+\indexentry{questions@\texttt  {questions}|hyperpage}{10}
+\indexentry{questions environment|hyperpage}{10}
+\indexentry{environment!questions|hyperpage}{10}
+\indexentry{question@\texttt  {\char `\\question}|hyperpage}{10}
+\indexentry{blank lines|hyperpage}{11}
+\indexentry{parts@\texttt  {parts}|hyperpage}{11}
+\indexentry{parts environment|hyperpage}{11}
+\indexentry{environment!parts|hyperpage}{11}
+\indexentry{parts@\texttt  {parts}|hyperpage}{12}
+\indexentry{parts environment|hyperpage}{12}
+\indexentry{environment!parts|hyperpage}{12}
+\indexentry{blank lines|hyperpage}{12}
+\indexentry{subparts@\texttt  {subparts}|hyperpage}{12}
+\indexentry{subparts environment|hyperpage}{12}
+\indexentry{environment!subparts|hyperpage}{12}
+\indexentry{subsubparts@\texttt  {subsubparts}|hyperpage}{12}
+\indexentry{subsubparts environment|hyperpage}{12}
+\indexentry{environment!subsubparts|hyperpage}{12}
+\indexentry{subpart@\texttt  {\char `\\subpart}|hyperpage}{12}
+\indexentry{subsubpart@\texttt  {\char `\\subsubpart}|hyperpage}{12}
+\indexentry{question@\texttt  {\char `\\question}!optional argument|hyperpage}{14}
+\indexentry{part@\texttt  {\char `\\part}!optional argument|hyperpage}{14}
+\indexentry{subpart@\texttt  {\char `\\subpart}!optional argument|hyperpage}{14}
+\indexentry{subsubpart@\texttt  {\char `\\subsubpart}!optional argument|hyperpage}{14}
+\indexentry{points|(hyperpage}{14}
+\indexentry{points!where printed|(hyperpage}{15}
+\indexentry{pointsinmargin@\texttt  {\char `\\pointsinmargin}|hyperpage}{15}
+\indexentry{pointsinrightmargin@\texttt  {\char `\\pointsinrightmargin}|hyperpage}{15}
+\indexentry{nopointsinmargin@\texttt  {\char `\\nopointsinmargin}|hyperpage}{15}
+\indexentry{nopointsinrightmargin@\texttt  {\char `\\nopointsinrightmargin}|hyperpage}{15}
+\indexentry{pointsinmargin@\texttt  {\char `\\pointsinmargin}|hyperpage}{15}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{16}
+\indexentry{pointsinrightmargin@\texttt  {\char `\\pointsinrightmargin}|hyperpage}{16}
+\indexentry{points!at the end of the question|(hyperpage}{16}
+\indexentry{pointsdroppedatright@\texttt  {\char `\\pointsdroppedatright}|(hyperpage}{16}
+\indexentry{droppoints@\texttt  {\char `\\droppoints}|(hyperpage}{16}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{16}
+\indexentry{pointsinrightmargin@\texttt  {\char `\\pointsinrightmargin}|hyperpage}{16}
+\indexentry{bracketedpoints@\texttt  {\char `\\bracketedpoints}|hyperpage}{16}
+\indexentry{boxedpoints@\texttt  {\char `\\boxedpoints}|hyperpage}{16}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{16}
+\indexentry{droppoints@\texttt  {\char `\\droppoints}|)hyperpage}{18}
+\indexentry{pointsdroppedatright@\texttt  {\char `\\pointsdroppedatright}|)hyperpage}{18}
+\indexentry{points!at the end of the question|)hyperpage}{18}
+\indexentry{points!where printed|)hyperpage}{18}
+\indexentry{points!half|(hyperpage}{18}
+\indexentry{half points|(hyperpage}{18}
+\indexentry{half@\texttt  {\char `\\half}|hyperpage}{18}
+\indexentry{half@\texttt  {\char `\\half}|hyperpage}{18}
+\indexentry{usehorizontalhalf@\texttt  {\char `\\usehorizontalhalf}|hyperpage}{18}
+\indexentry{customization!\texttt{\char`\\half}|hyperpage}{18}
+\indexentry{half@\texttt  {\char `\\half}!customization|hyperpage}{18}
+\indexentry{useslantedhalf@\texttt  {\char `\\useslantedhalf}|hyperpage}{18}
+\indexentry{half points|)hyperpage}{18}
+\indexentry{points!half|)hyperpage}{18}
+\indexentry{customization!points|(hyperpage}{18}
+\indexentry{points!customization|(hyperpage}{18}
+\indexentry{bracketedpoints@\texttt  {\char `\\bracketedpoints}|hyperpage}{18}
+\indexentry{boxedpoints@\texttt  {\char `\\boxedpoints}|hyperpage}{19}
+\indexentry{boxedpoints@\texttt  {\char `\\boxedpoints}|hyperpage}{19}
+\indexentry{pointsinmargin@\texttt  {\char `\\pointsinmargin}|hyperpage}{19}
+\indexentry{bracketedpoints@\texttt  {\char `\\bracketedpoints}|hyperpage}{19}
+\indexentry{pointsinrightmargin@\texttt  {\char `\\pointsinrightmargin}|hyperpage}{19}
+\indexentry{boxedpoints@\texttt  {\char `\\boxedpoints}|hyperpage}{19}
+\indexentry{bracketedpoints@\texttt  {\char `\\bracketedpoints}|hyperpage}{19}
+\indexentry{noboxedpoints@\texttt  {\char `\\noboxedpoints}|hyperpage}{19}
+\indexentry{nobracketedpoints@\texttt  {\char `\\nobracketedpoints}|hyperpage}{19}
+\indexentry{points!substitute words|(hyperpage}{20}
+\indexentry{points!language|(hyperpage}{20}
+\indexentry{nopointsinmargin@\texttt  {\char `\\nopointsinmargin}|hyperpage}{20}
+\indexentry{noboxedpoints@\texttt  {\char `\\noboxedpoints}|hyperpage}{20}
+\indexentry{points@\texttt  {\char `\\points}|hyperpage}{20}
+\indexentry{pointpoints@\texttt  {\char `\\pointpoints}|hyperpage}{20}
+\indexentry{pointname@\texttt  {\char `\\pointname}|hyperpage}{20}
+\indexentry{pointname@\texttt  {\char `\\pointname}|hyperpage}{20}
+\indexentry{points@\texttt  {\char `\\points}|hyperpage}{20}
+\indexentry{pointpoints@\texttt  {\char `\\pointpoints}|hyperpage}{20}
+\indexentry{pointpoints@\texttt  {\char `\\pointpoints}|hyperpage}{20}
+\indexentry{marksnotpoints@\texttt  {\char `\\marksnotpoints}|hyperpage}{21}
+\indexentry{marks|hyperpage}{21}
+\indexentry{pointpoints@\texttt  {\char `\\pointpoints}|hyperpage}{21}
+\indexentry{bonuspointpoints@\texttt  {\char `\\bonuspointpoints}|hyperpage}{21}
+\indexentry{marks|hyperpage}{21}
+\indexentry{pointname@\texttt  {\char `\\pointname}|hyperpage}{21}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{21}
+\indexentry{pointsinmargin@\texttt  {\char `\\pointsinmargin}|hyperpage}{21}
+\indexentry{pointsinrightmargin@\texttt  {\char `\\pointsinrightmargin}|hyperpage}{21}
+\indexentry{boxedpoints@\texttt  {\char `\\boxedpoints}|hyperpage}{22}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{22}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{22}
+\indexentry{margins!enlarge|hyperpage}{22}
+\indexentry{extrawidth@\texttt  {\char `\\extrawidth}|hyperpage}{22}
+\indexentry{pointformat@\texttt  {\char `\\pointformat}|hyperpage}{22}
+\indexentry{bonuspointformat@\texttt  {\char `\\bonuspointformat}|hyperpage}{22}
+\indexentry{thepoints@\texttt  {\char `\\thepoints}|hyperpage}{22}
+\indexentry{pointname@\texttt  {\char `\\pointname}|hyperpage}{23}
+\indexentry{bonuspointname@\texttt  {\char `\\bonuspointname}|hyperpage}{23}
+\indexentry{themarginpoints@\texttt  {\char `\\themarginpoints}|hyperpage}{23}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{23}
+\indexentry{marginbonuspointname@\texttt  {\char `\\marginbonuspointname}|hyperpage}{23}
+\indexentry{bracketedpoints@\texttt  {\char `\\bracketedpoints}|hyperpage}{23}
+\indexentry{pointformat@\texttt  {\char `\\pointformat}|hyperpage}{23}
+\indexentry{bonuspointformat@\texttt  {\char `\\bonuspointformat}|hyperpage}{23}
+\indexentry{thepoints@\texttt  {\char `\\thepoints}|hyperpage}{23}
+\indexentry{pointformat@\texttt  {\char `\\pointformat}|hyperpage}{23}
+\indexentry{bonuspointformat@\texttt  {\char `\\bonuspointformat}|hyperpage}{23}
+\indexentry{themarginpoints@\texttt  {\char `\\themarginpoints}|hyperpage}{23}
+\indexentry{pointformat@\texttt  {\char `\\pointformat}|hyperpage}{23}
+\indexentry{bonuspointformat@\texttt  {\char `\\bonuspointformat}|hyperpage}{23}
+\indexentry{thepoints@\texttt  {\char `\\thepoints}|hyperpage}{23}
+\indexentry{pointformat@\texttt  {\char `\\pointformat}|hyperpage}{23}
+\indexentry{bonuspointformat@\texttt  {\char `\\bonuspointformat}|hyperpage}{23}
+\indexentry{themarginpoints@\texttt  {\char `\\themarginpoints}|hyperpage}{23}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{23}
+\indexentry{pointsinmargin@\texttt  {\char `\\pointsinmargin}|hyperpage}{23}
+\indexentry{pointformat@\texttt  {\char `\\pointformat}|hyperpage}{23}
+\indexentry{pointsinmargin@\texttt  {\char `\\pointsinmargin}|hyperpage}{23}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{23}
+\indexentry{pointsinmargin@\texttt  {\char `\\pointsinmargin}|hyperpage}{23}
+\indexentry{pointformat@\texttt  {\char `\\pointformat}|hyperpage}{23}
+\indexentry{pointsinrightmargin@\texttt  {\char `\\pointsinrightmargin}|hyperpage}{23}
+\indexentry{boldmath@\texttt  {\char `\\boldmath}|hyperpage}{24}
+\indexentry{pointformat@\texttt  {\char `\\pointformat}|hyperpage}{24}
+\indexentry{boldmath@\texttt  {\char `\\boldmath}|hyperpage}{24}
+\indexentry{points!language|)hyperpage}{24}
+\indexentry{points!substitute words|)hyperpage}{24}
+\indexentry{points!customization|)hyperpage}{24}
+\indexentry{customization!points|)hyperpage}{24}
+\indexentry{questions!that begin with a parts environment|hyperpage}{24}
+\indexentry{points!for both question and part|hyperpage}{24}
+\indexentry{addpoints@\texttt  {addpoints}|hyperpage}{25}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{25}
+\indexentry{droptotalpoints@\texttt  {\char `\\droptotalpoints}|hyperpage}{25}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{25}
+\indexentry{droptotalbonuspoints@\texttt  {\char `\\droptotalbonuspoints}|hyperpage}{25}
+\indexentry{marginbonuspointname@\texttt  {\char `\\marginbonuspointname}|hyperpage}{25}
+\indexentry{droptotalpoints@\texttt  {\char `\\droptotalpoints}|hyperpage}{25}
+\indexentry{totalformat@\texttt  {\char `\\totalformat}|hyperpage}{25}
+\indexentry{rightpointsmargin@\texttt  {\char `\\rightpointsmargin}|hyperpage}{25}
+\indexentry{totalpoints@\texttt  {\char `\\totalpoints}|hyperpage}{25}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{25}
+\indexentry{pointsofquestion@\texttt  {\char `\\pointsofquestion}|hyperpage}{26}
+\indexentry{totalformat@\texttt  {\char `\\totalformat}|hyperpage}{26}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{26}
+\indexentry{totalpoints@\texttt  {\char `\\totalpoints}|hyperpage}{26}
+\indexentry{totalformat@\texttt  {\char `\\totalformat}|hyperpage}{26}
+\indexentry{totalpoints@\texttt  {\char `\\totalpoints}|hyperpage}{26}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{26}
+\indexentry{bracketedpoints@\texttt  {\char `\\bracketedpoints}|hyperpage}{26}
+\indexentry{pointsdroppedatright@\texttt  {\char `\\pointsdroppedatright}|hyperpage}{26}
+\indexentry{totalformat@\texttt  {\char `\\totalformat}|hyperpage}{26}
+\indexentry{totalpoints@\texttt  {\char `\\totalpoints}|hyperpage}{26}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{26}
+\indexentry{droptotalbonuspoints@\texttt  {\char `\\droptotalbonuspoints}|hyperpage}{27}
+\indexentry{bonustotalformat@\texttt  {\char `\\bonustotalformat}|hyperpage}{27}
+\indexentry{totalbonuspoints@\texttt  {\char `\\totalbonuspoints}|hyperpage}{27}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{27}
+\indexentry{bonuspointsofquestion@\texttt  {\char `\\bonuspointsofquestion}|hyperpage}{27}
+\indexentry{points|)hyperpage}{27}
+\indexentry{margins!enlarge|(hyperpage}{27}
+\indexentry{pointsinmargin@\texttt  {\char `\\pointsinmargin}|hyperpage}{27}
+\indexentry{marginpointssep@\texttt  {\char `\\marginpointssep}|hyperpage}{27}
+\indexentry{pointsinrightmargin@\texttt  {\char `\\pointsinrightmargin}|hyperpage}{27}
+\indexentry{rightpointsmargin@\texttt  {\char `\\rightpointsmargin}|hyperpage}{27}
+\indexentry{extrawidth@\texttt  {\char `\\extrawidth}|hyperpage}{27}
+\indexentry{margins!enlarge|)hyperpage}{27}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{28}
+\indexentry{questions!customization|(hyperpage}{28}
+\indexentry{noqformat@\texttt  {\char `\\noqformat}|hyperpage}{28}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{28}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{28}
+\indexentry{thequestiontitle@\texttt  {\char `\\thequestiontitle}|hyperpage}{28}
+\indexentry{titledquestion@\texttt  {\char `\\titledquestion}|hyperpage}{28}
+\indexentry{thepoints@\texttt  {\char `\\thepoints}|hyperpage}{28}
+\indexentry{pointname@\texttt  {\char `\\pointname}|hyperpage}{28}
+\indexentry{totalpoints@\texttt  {\char `\\totalpoints}|hyperpage}{28}
+\indexentry{pointsofquestion@\texttt  {\char `\\pointsofquestion}|hyperpage}{28}
+\indexentry{pointpoints@\texttt  {\char `\\pointpoints}|hyperpage}{28}
+\indexentry{points@\texttt  {\char `\\points}|hyperpage}{28}
+\indexentry{thepoints@\texttt  {\char `\\thepoints}|hyperpage}{28}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{28}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{29}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{29}
+\indexentry{thepoints@\texttt  {\char `\\thepoints}|hyperpage}{29}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{29}
+\indexentry{bonusqformat@\texttt  {\char `\\bonusqformat}|hyperpage}{29}
+\indexentry{indentation!remove|hyperpage}{29}
+\indexentry{questions!customization|)hyperpage}{29}
+\indexentry{points!adding|hyperpage}{29}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{29}
+\indexentry{totalpoints@\texttt  {\char `\\totalpoints}|hyperpage}{29}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{29}
+\indexentry{totalpoints@\texttt  {\char `\\totalpoints}|hyperpage}{29}
+\indexentry{addpoints@\texttt  {addpoints}|hyperpage}{29}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{29}
+\indexentry{titledquestion@\texttt  {\char `\\titledquestion}|hyperpage}{30}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{30}
+\indexentry{thequestiontitle@\texttt  {\char `\\thequestiontitle}|hyperpage}{30}
+\indexentry{titledquestion@\texttt  {\char `\\titledquestion}|hyperpage}{30}
+\indexentry{question@\texttt  {\char `\\question}|hyperpage}{30}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{30}
+\indexentry{titledquestion@\texttt  {\char `\\titledquestion}|hyperpage}{30}
+\indexentry{thequestiontitle@\texttt  {\char `\\thequestiontitle}|hyperpage}{30}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{30}
+\indexentry{titledquestion@\texttt  {\char `\\titledquestion}|hyperpage}{30}
+\indexentry{question number|hyperpage}{30}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{30}
+\indexentry{thequestiontitle@\texttt  {\char `\\thequestiontitle}|hyperpage}{31}
+\indexentry{titledquestion@\texttt  {\char `\\titledquestion}|hyperpage}{31}
+\indexentry{question number|hyperpage}{31}
+\indexentry{question@\texttt  {\char `\\question}|hyperpage}{31}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{31}
+\indexentry{thequestiontitle@\texttt  {\char `\\thequestiontitle}|hyperpage}{31}
+\indexentry{titledquestion@\texttt  {\char `\\titledquestion}|hyperpage}{31}
+\indexentry{bonus points|(hyperpage}{31}
+\indexentry{points!bonus|(hyperpage}{31}
+\indexentry{bonusquestion@\texttt  {\char `\\bonusquestion}|hyperpage}{31}
+\indexentry{bonustitledquestion@\texttt  {\char `\\bonustitledquestion}|hyperpage}{31}
+\indexentry{bonuspart@\texttt  {\char `\\bonuspart}|hyperpage}{31}
+\indexentry{bonussubpart@\texttt  {\char `\\bonussubpart}|hyperpage}{31}
+\indexentry{bonussubsubpart@\texttt  {\char `\\bonussubsubpart}|hyperpage}{31}
+\indexentry{bonusqformat@\texttt  {\char `\\bonusqformat}|hyperpage}{32}
+\indexentry{bonusquestion@\texttt  {\char `\\bonusquestion}|hyperpage}{32}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{32}
+\indexentry{nobonusqformat@\texttt  {\char `\\nobonusqformat}|hyperpage}{32}
+\indexentry{noqformat@\texttt  {\char `\\noqformat}|hyperpage}{32}
+\indexentry{thepoints@\texttt  {\char `\\thepoints}|hyperpage}{32}
+\indexentry{bonusqformat@\texttt  {\char `\\bonusqformat}|hyperpage}{32}
+\indexentry{bonusquestion@\texttt  {\char `\\bonusquestion}|hyperpage}{32}
+\indexentry{bonustitledquestion@\texttt  {\char `\\bonustitledquestion}|hyperpage}{32}
+\indexentry{bonuspart@\texttt  {\char `\\bonuspart}|hyperpage}{32}
+\indexentry{bonussubpart@\texttt  {\char `\\bonussubpart}|hyperpage}{32}
+\indexentry{bonussubsubpart@\texttt  {\char `\\bonussubsubpart}|hyperpage}{32}
+\indexentry{gradetable@\texttt  {\char `\\gradetable}|hyperpage}{32}
+\indexentry{pointtable@\texttt  {\char `\\pointtable}|hyperpage}{32}
+\indexentry{bonusgradetable@\texttt  {\char `\\bonusgradetable}|hyperpage}{32}
+\indexentry{bonuspointtable@\texttt  {\char `\\bonuspointtable}|hyperpage}{32}
+\indexentry{combinedgradetable@\texttt  {\char `\\combinedgradetable}|hyperpage}{32}
+\indexentry{combinedpointtable@\texttt  {\char `\\combinedpointtable}|hyperpage}{32}
+\indexentry{droptotalpoints@\texttt  {\char `\\droptotalpoints}|hyperpage}{32}
+\indexentry{droptotalbonuspoints@\texttt  {\char `\\droptotalbonuspoints}|hyperpage}{32}
+\indexentry{pointsofquestion@\texttt  {\char `\\pointsofquestion}|hyperpage}{32}
+\indexentry{pointsonpage@\texttt  {\char `\\pointsonpage}|hyperpage}{32}
+\indexentry{bonuspointsofquestion@\texttt  {\char `\\bonuspointsofquestion}|hyperpage}{32}
+\indexentry{bonuspointsonpage@\texttt  {\char `\\bonuspointsonpage}|hyperpage}{32}
+\indexentry{numpoints@\texttt  {\char `\\numpoints}|hyperpage}{32}
+\indexentry{numbonuspoints@\texttt  {\char `\\numbonuspoints}|hyperpage}{32}
+\indexentry{bonuspointpoints@\texttt  {\char `\\bonuspointpoints}|hyperpage}{32}
+\indexentry{bonuspointpoints@\texttt  {\char `\\bonuspointpoints}|hyperpage}{33}
+\indexentry{bonuspointname@\texttt  {\char `\\bonuspointname}|hyperpage}{33}
+\indexentry{marginbonuspointname@\texttt  {\char `\\marginbonuspointname}|hyperpage}{33}
+\indexentry{droptotalpoints@\texttt  {\char `\\droptotalpoints}|hyperpage}{33}
+\indexentry{bonustotalformat@\texttt  {\char `\\bonustotalformat}|hyperpage}{33}
+\indexentry{totalbonuspoints@\texttt  {\char `\\totalbonuspoints}|hyperpage}{33}
+\indexentry{points!bonus|)hyperpage}{33}
+\indexentry{bonus points|)hyperpage}{33}
+\indexentry{questions!counting|(hyperpage}{33}
+\indexentry{numquestions@\texttt  {\char `\\numquestions}|hyperpage}{33}
+\indexentry{numparts@\texttt  {\char `\\numparts}|hyperpage}{33}
+\indexentry{numsubparts@\texttt  {\char `\\numsubparts}|hyperpage}{33}
+\indexentry{numsubsubparts@\texttt  {\char `\\numsubsubparts}|hyperpage}{33}
+\indexentry{gradetable@\texttt  {\char `\\gradetable}|hyperpage}{33}
+\indexentry{pointtable@\texttt  {\char `\\pointtable}|hyperpage}{33}
+\indexentry{addpoints@\texttt  {addpoints}|hyperpage}{33}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{33}
+\indexentry{numpoints@\texttt  {\char `\\numpoints}|hyperpage}{33}
+\indexentry{numbonuspoints@\texttt  {\char `\\numbonuspoints}|hyperpage}{33}
+\indexentry{addpoints@\texttt  {addpoints}|hyperpage}{34}
+\indexentry{points!acceptable entries|hyperpage}{34}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{34}
+\indexentry{marginpointname@\texttt  {\char `\\marginpointname}|hyperpage}{34}
+\indexentry{pointname@\texttt  {\char `\\pointname}|hyperpage}{34}
+\indexentry{noaddpoints@\texttt  {\char `\\noaddpoints}|hyperpage}{34}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{34}
+\indexentry{questions!counting|)hyperpage}{34}
+\indexentry{cross references|(hyperpage}{34}
+\indexentry{cross references|)hyperpage}{35}
+\indexentry{customization!question numbers|(hyperpage}{35}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{35}
+\indexentry{thepartno@\texttt  {\char `\\thepartno}|hyperpage}{35}
+\indexentry{thesubpart@\texttt  {\char `\\thesubpart}|hyperpage}{35}
+\indexentry{thesubsubpart@\texttt  {\char `\\thesubsubpart}|hyperpage}{35}
+\indexentry{thechoice@\texttt  {\char `\\thechoice}|hyperpage}{35}
+\indexentry{arabic@\texttt  {\char `\\arabic}|hyperpage}{36}
+\indexentry{alph@\texttt  {\char `\\alph}|hyperpage}{36}
+\indexentry{Alph@\texttt  {\char `\\Alph}|hyperpage}{36}
+\indexentry{roman@\texttt  {\char `\\roman}|hyperpage}{36}
+\indexentry{Roman@\texttt  {\char `\\Roman}|hyperpage}{36}
+\indexentry{greeknum@\texttt  {\char `\\greeknum}|hyperpage}{36}
+\indexentry{question counter|hyperpage}{36}
+\indexentry{part counter|hyperpage}{36}
+\indexentry{subpart counter|hyperpage}{36}
+\indexentry{subsubpart counter|hyperpage}{36}
+\indexentry{choice counter|hyperpage}{36}
+\indexentry{question@\texttt  {question}|hyperpage}{36}
+\indexentry{partno@\texttt  {partno}|hyperpage}{36}
+\indexentry{subpart@\texttt  {subpart}|hyperpage}{36}
+\indexentry{subsubpart@\texttt  {subsubpart}|hyperpage}{36}
+\indexentry{choice@\texttt  {choice}|hyperpage}{36}
+\indexentry{greeknum@\texttt  {\char `\\greeknum}|hyperpage}{36}
+\indexentry{thequestion@\texttt  {\char `\\thequestion}|hyperpage}{36}
+\indexentry{thepartno@\texttt  {\char `\\thepartno}|hyperpage}{36}
+\indexentry{questionlabel@\texttt  {\char `\\questionlabel}|hyperpage}{36}
+\indexentry{partlabel@\texttt  {\char `\\partlabel}|hyperpage}{36}
+\indexentry{subpartlabel@\texttt  {\char `\\subpartlabel}|hyperpage}{36}
+\indexentry{subsubpartlabel@\texttt  {\char `\\subsubpartlabel}|hyperpage}{36}
+\indexentry{choicelabel@\texttt  {\char `\\choicelabel}|hyperpage}{36}
+\indexentry{Utopia~font|hyperpage}{36}
+\indexentry{kerning|hyperpage}{37}
+\indexentry{choicelabel@\texttt  {\char `\\choicelabel}|hyperpage}{37}
+\indexentry{customization!question numbers|)hyperpage}{37}
+\indexentry{list environment|(hyperpage}{37}
+\indexentry{environment!list|(hyperpage}{37}
+\indexentry{customization!list parameters|(hyperpage}{37}
+\indexentry{topsep@\texttt  {\char `\\topsep}|hyperpage}{37}
+\indexentry{partopsep@\texttt  {\char `\\partopsep}|hyperpage}{37}
+\indexentry{itemsep@\texttt  {\char `\\itemsep}|hyperpage}{37}
+\indexentry{parsep@\texttt  {\char `\\parsep}|hyperpage}{37}
+\indexentry{questionshook@\texttt  {\char `\\questionshook}|hyperpage}{37}
+\indexentry{partshook@\texttt  {\char `\\partshook}|hyperpage}{37}
+\indexentry{subpartshook@\texttt  {\char `\\subpartshook}|hyperpage}{37}
+\indexentry{subsubpartshook@\texttt  {\char `\\subsubpartshook}|hyperpage}{37}
+\indexentry{choiceshook@\texttt  {\char `\\choiceshook}|hyperpage}{37}
+\indexentry{checkboxeshook@\texttt  {\char `\\checkboxeshook}|hyperpage}{37}
+\indexentry{questionshook@\texttt  {\char `\\questionshook}|hyperpage}{37}
+\indexentry{partshook@\texttt  {\char `\\partshook}|hyperpage}{37}
+\indexentry{qformat@\texttt  {\char `\\qformat}|hyperpage}{37}
+\indexentry{bonusqformat@\texttt  {\char `\\bonusqformat}|hyperpage}{37}
+\indexentry{indentation!remove|hyperpage}{37}
+\indexentry{leftmargin@\texttt  {\char `\\leftmargin}|hyperpage}{37}
+\indexentry{labelsep@\texttt  {\char `\\labelsep}|hyperpage}{37}
+\indexentry{customization!list parameters|)hyperpage}{38}
+\indexentry{environment!list|)hyperpage}{38}
+\indexentry{list environment|)hyperpage}{38}
+\indexentry{multiple choice|hyperpage}{38}
+\indexentry{choices@\texttt  {choices}|hyperpage}{38}
+\indexentry{choices environment|hyperpage}{38}
+\indexentry{environment!choices|hyperpage}{38}
+\indexentry{oneparchoices@\texttt  {oneparchoices}|hyperpage}{38}
+\indexentry{oneparchoices environment|hyperpage}{38}
+\indexentry{environment!oneparchoices|hyperpage}{38}
+\indexentry{answerline@\texttt  {\char `\\answerline}|hyperpage}{38}
+\indexentry{answerline@\texttt  {\char `\\answerline}!optional\nobreakspace  {}argument|hyperpage}{38}
+\indexentry{checkboxes@\texttt  {checkboxes}|hyperpage}{38}
+\indexentry{checkboxes environment|hyperpage}{38}
+\indexentry{environment!checkboxes|hyperpage}{38}
+\indexentry{oneparcheckboxes@\texttt  {oneparcheckboxes}|hyperpage}{38}
+\indexentry{oneparcheckboxes environment|hyperpage}{38}
+\indexentry{environment!oneparcheckboxes|hyperpage}{38}
+\indexentry{choices@\texttt  {choices}|hyperpage}{38}
+\indexentry{choice@\texttt  {\char `\\choice}|hyperpage}{38}
+\indexentry{choices environment|hyperpage}{38}
+\indexentry{environment!choices|hyperpage}{38}
+\indexentry{oneparchoices@\texttt  {oneparchoices}|hyperpage}{39}
+\indexentry{choice@\texttt  {\char `\\choice}|hyperpage}{39}
+\indexentry{oneparchoices environment|hyperpage}{39}
+\indexentry{environment!oneparchoices|hyperpage}{39}
+\indexentry{answerline@\texttt  {\char `\\answerline}|hyperpage}{40}
+\indexentry{checkboxes@\texttt  {checkboxes}|hyperpage}{40}
+\indexentry{choice@\texttt  {\char `\\choice}|hyperpage}{40}
+\indexentry{checkboxes environment|hyperpage}{40}
+\indexentry{environment!checkboxes|hyperpage}{40}
+\indexentry{oneparcheckboxes@\texttt  {oneparcheckboxes}|hyperpage}{40}
+\indexentry{choice@\texttt  {\char `\\choice}|hyperpage}{40}
+\indexentry{oneparcheckboxes environment|hyperpage}{40}
+\indexentry{environment!oneparcheckboxes|hyperpage}{40}
+\indexentry{solutions|hyperpage}{41}
+\indexentry{choices environment!correct choice|hyperpage}{41}
+\indexentry{environment!choices!correct choice|hyperpage}{41}
+\indexentry{oneparchoices environment!correct choice|hyperpage}{41}
+\indexentry{environment!oneparchoices!correct choice|hyperpage}{41}
+\indexentry{checkboxes environment!correct choice|hyperpage}{41}
+\indexentry{environment!checkboxes!correct choice|hyperpage}{41}
+\indexentry{oneparcheckboxes environment!correct choice|hyperpage}{41}
+\indexentry{environment!oneparcheckboxes!correct choice|hyperpage}{41}
+\indexentry{answers@\texttt  {answers}|hyperpage}{41}
+\indexentry{printanswers@\texttt  {\char `\\printanswers}|hyperpage}{41}
+\indexentry{CorrectChoice@\texttt  {\char `\\CorrectChoice}|hyperpage}{41}
+\indexentry{choice@\texttt  {\char `\\choice}|hyperpage}{41}
+\indexentry{correctchoice@\texttt  {\char `\\correctchoice}|hyperpage}{41}
+\indexentry{checkboxes@\texttt  {checkboxes}|hyperpage}{41}
+\indexentry{oneparcheckboxes@\texttt  {oneparcheckboxes}|hyperpage}{41}
+\indexentry{printanswers@\texttt  {\char `\\printanswers}|hyperpage}{41}
+\indexentry{CorrectChoice@\texttt  {\char `\\CorrectChoice}|hyperpage}{41}
+\indexentry{oneparcheckboxes@\texttt  {oneparcheckboxes}|hyperpage}{41}
+\indexentry{oneparchoices@\texttt  {oneparchoices}|hyperpage}{41}
+\indexentry{printanswers@\texttt  {\char `\\printanswers}|hyperpage}{41}
+\indexentry{fillin@\texttt  {\char `\\fillin}|(hyperpage}{41}
+\indexentry{fill in the blank|(hyperpage}{41}
+\indexentry{true/false questions|(hyperpage}{43}
+\indexentry{true/false questions|)hyperpage}{43}
+\indexentry{customization!\texttt{\char`\\fillin}|(hyperpage}{43}
+\indexentry{fillinlinelength@\texttt  {\char `\\fillinlinelength}|hyperpage}{43}
+\indexentry{answerclearance@\texttt  {\char `\\answerclearance}|hyperpage}{44}
+\indexentry{CorrectChoiceEmphasis@\texttt  {\char `\\CorrectChoiceEmphasis}|hyperpage}{44}
+\indexentry{customization!\texttt{\char`\\fillin}|)hyperpage}{44}
+\indexentry{fill in the blank|)hyperpage}{44}
+\indexentry{fillin@\texttt  {\char `\\fillin}|)hyperpage}{44}
+\indexentry{customization!multiple choice questions|(hyperpage}{44}
+\indexentry{choices@\texttt  {choices}|hyperpage}{44}
+\indexentry{oneparchoices@\texttt  {oneparchoices}|hyperpage}{44}
+\indexentry{checkboxes@\texttt  {checkboxes}|hyperpage}{44}
+\indexentry{oneparcheckboxes@\texttt  {oneparcheckboxes}|hyperpage}{44}
+\indexentry{CorrectChoiceEmphasis@\texttt  {\char `\\CorrectChoiceEmphasis}|hyperpage}{44}
+\indexentry{color@\texttt  {color}|hyperpage}{44}
+\indexentry{preamble|hyperpage}{44}
+\indexentry{CorrectChoiceEmphasis@\texttt  {\char `\\CorrectChoiceEmphasis}|hyperpage}{44}
+\indexentry{color@\texttt  {\char `\\color}|hyperpage}{44}
+\indexentry{color@\texttt  {color}|hyperpage}{44}
+\indexentry{color@\texttt  {\char `\\color}|hyperpage}{44}
+\indexentry{correctchoiceemphasis@\texttt  {\char `\\correctchoiceemphasis}|hyperpage}{45}
+\indexentry{CorrectChoiceEmphasis@\texttt  {\char `\\CorrectChoiceEmphasis}|hyperpage}{45}
+\indexentry{checkboxes@\texttt  {checkboxes}|hyperpage}{45}
+\indexentry{oneparcheckboxes@\texttt  {oneparcheckboxes}|hyperpage}{45}
+\indexentry{checkbox|hyperpage}{45}
+\indexentry{checkboxchar@\texttt  {\char `\\checkboxchar}|hyperpage}{45}
+\indexentry{amssymb@\texttt  {amssymb}|hyperpage}{45}
+\indexentry{preamble|hyperpage}{45}
+\indexentry{Box@\texttt  {\char `\\Box}|hyperpage}{45}
+\indexentry{checkboxes@\texttt  {checkboxes}|hyperpage}{45}
+\indexentry{oneparcheckboxes@\texttt  {oneparcheckboxes}|hyperpage}{45}
+\indexentry{checkedchar@\texttt  {\char `\\checkedchar}|hyperpage}{45}
+\indexentry{surd@\texttt  {\char `\\surd}|hyperpage}{45}
+\indexentry{amssymb@\texttt  {amssymb}|hyperpage}{45}
+\indexentry{preamble|hyperpage}{45}
+\indexentry{Box@\texttt  {\char `\\Box}|hyperpage}{45}
+\indexentry{blacksquare@\texttt  {\char `\\blacksquare}|hyperpage}{45}
+\indexentry{customization!multiple choice questions|)hyperpage}{45}
+\indexentry{indentation|(hyperpage}{46}
+\indexentry{uplevel@\texttt  {\char `\\uplevel}|hyperpage}{46}
+\indexentry{fullwidth@\texttt  {\char `\\fullwidth}|hyperpage}{46}
+\indexentry{EnvUplevel@\texttt  {EnvUplevel}|hyperpage}{46}
+\indexentry{environment!EnvUplevel|hyperpage}{46}
+\indexentry{EnvUplevel environment|hyperpage}{46}
+\indexentry{EnvFullwidth@\texttt  {EnvFullwidth}|hyperpage}{46}
+\indexentry{environment!EnvFullwidth|hyperpage}{46}
+\indexentry{EnvFullwidth environment|hyperpage}{46}
+\indexentry{instructions|(hyperpage}{46}
+\indexentry{uplevel@\texttt  {\char `\\uplevel}|(hyperpage}{46}
+\indexentry{EnvUplevel@\texttt  {EnvUplevel}|(hyperpage}{46}
+\indexentry{EnvUplevel environment|(hyperpage}{46}
+\indexentry{environment!EnvUplevel|(hyperpage}{46}
+\indexentry{uplevel@\texttt  {\char `\\uplevel}|)hyperpage}{48}
+\indexentry{EnvUplevel@\texttt  {EnvUplevel}|)hyperpage}{48}
+\indexentry{EnvUplevel environment|)hyperpage}{48}
+\indexentry{environment!EnvUplevel|)hyperpage}{48}
+\indexentry{fullwidth@\texttt  {\char `\\fullwidth}|(hyperpage}{48}
+\indexentry{EnvFullwidth@\texttt  {EnvFullwidth}|(hyperpage}{48}
+\indexentry{EnvFullwidth environment|(hyperpage}{48}
+\indexentry{environment!EnvFullwidth|(hyperpage}{48}
+\indexentry{fullwidth@\texttt  {\char `\\fullwidth}|)hyperpage}{49}
+\indexentry{EnvFullwidth@\texttt  {EnvFullwidth}|)hyperpage}{49}
+\indexentry{EnvFullwidth environment|)hyperpage}{49}
+\indexentry{environment!EnvFullwidth|)hyperpage}{49}
+\indexentry{instructions|)hyperpage}{49}
+\indexentry{naming parts of the exam|(hyperpage}{49}
+\indexentry{fullwidth@\texttt  {\char `\\fullwidth}|hyperpage}{49}
+\indexentry{uplevel@\texttt  {\char `\\uplevel}|hyperpage}{49}
+\indexentry{part@\texttt  {\char `\\part}!standard sectioning command|hyperpage}{49}
+\indexentry{section@\texttt  {\char `\\section}|hyperpage}{49}
+\indexentry{uplevel@\texttt  {\char `\\uplevel}|(hyperpage}{50}
+\indexentry{fullwidth@\texttt  {\char `\\fullwidth}|(hyperpage}{50}
+\indexentry{EnvFullwidth@\texttt  {EnvFullwidth}|(hyperpage}{50}
+\indexentry{EnvFullwidth environment|(hyperpage}{50}
+\indexentry{environment!EnvFullwidth|(hyperpage}{50}
+\indexentry{fullwidth@\texttt  {\char `\\fullwidth}|)hyperpage}{51}
+\indexentry{EnvFullwidth@\texttt  {EnvFullwidth}|)hyperpage}{51}
+\indexentry{EnvFullwidth environment|)hyperpage}{51}
+\indexentry{environment!EnvFullwidth|)hyperpage}{51}
+\indexentry{uplevel@\texttt  {\char `\\uplevel}|)hyperpage}{51}
+\indexentry{part@\texttt  {\char `\\part}!standard sectioning command|hyperpage}{51}
+\indexentry{section@\texttt  {\char `\\section}|hyperpage}{51}
+\indexentry{gradetable@\texttt  {\char `\\gradetable}|hyperpage}{51}
+\indexentry{pointtable@\texttt  {\char `\\pointtable}|hyperpage}{51}
+\indexentry{ifincomplete@\texttt  {\char `\\ifincomplete}|hyperpage}{51}
+\indexentry{ifcontinuation@\texttt  {\char `\\ifcontinuation}|hyperpage}{51}
+\indexentry{fullwidth@\texttt  {\char `\\fullwidth}|hyperpage}{51}
+\indexentry{uplevel@\texttt  {\char `\\uplevel}|hyperpage}{51}
+\indexentry{naming parts of the exam|)hyperpage}{51}
+\indexentry{indentation|)hyperpage}{51}
+\indexentry{space!for answers|(hyperpage}{51}
+\indexentry{answer space|(hyperpage}{51}
+\indexentry{blank space|(hyperpage}{52}
+\indexentry{space!blank|(hyperpage}{52}
+\indexentry{vspace*@\texttt  {\char `\\vspace*}|hyperpage}{52}
+\indexentry{vspace@\texttt  {\char `\\vspace}|hyperpage}{52}
+\indexentry{stretch@\texttt  {\char `\\stretch}|hyperpage}{52}
+\indexentry{space!allocating|hyperpage}{52}
+\indexentry{newpage@\texttt  {\char `\\newpage}|hyperpage}{52}
+\indexentry{space!blank|)hyperpage}{52}
+\indexentry{blank space|)hyperpage}{52}
+\indexentry{space!empty box|(hyperpage}{52}
+\indexentry{empty box|(hyperpage}{52}
+\indexentry{makeemptybox@\texttt  {\char `\\makeemptybox}|(hyperpage}{52}
+\indexentry{stretch@\texttt  {\char `\\stretch}|hyperpage}{54}
+\indexentry{space!allocating|hyperpage}{54}
+\indexentry{newpage@\texttt  {\char `\\newpage}|hyperpage}{54}
+\indexentry{makeemptybox@\texttt  {\char `\\makeemptybox}|)hyperpage}{54}
+\indexentry{empty box|)hyperpage}{54}
+\indexentry{space!empty box|)hyperpage}{54}
+\indexentry{space!lined|(hyperpage}{54}
+\indexentry{lined space|(hyperpage}{54}
+\indexentry{fillwithlines@\texttt  {\char `\\fillwithlines}|(hyperpage}{54}
+\indexentry{linefillheight@\texttt  {\char `\\linefillheight}|hyperpage}{55}
+\indexentry{customization!\texttt{\char`\\fillwithlines}|hyperpage}{55}
+\indexentry{linefillthickness@\texttt  {\char `\\linefillthickness}|hyperpage}{55}
+\indexentry{stretch@\texttt  {\char `\\stretch}|hyperpage}{56}
+\indexentry{space!allocating|hyperpage}{56}
+\indexentry{fillwithlines@\texttt  {\char `\\fillwithlines}|)hyperpage}{56}
+\indexentry{lined space|)hyperpage}{56}
+\indexentry{space!lined|)hyperpage}{56}
+\indexentry{space!dotted lined|(hyperpage}{56}
+\indexentry{dotted lined space|(hyperpage}{56}
+\indexentry{fillwithdottedlines@\texttt  {\char `\\fillwithdottedlines}|(hyperpage}{56}
+\indexentry{dottedlinefillheight@\texttt  {\char `\\dottedlinefillheight}|hyperpage}{56}
+\indexentry{customization!\texttt{\char`\\fillwithdottedlines}|hyperpage}{56}
+\indexentry{stretch@\texttt  {\char `\\stretch}|hyperpage}{57}
+\indexentry{space!allocating|hyperpage}{57}
+\indexentry{fillwithdottedlines@\texttt  {\char `\\fillwithdottedlines}|)hyperpage}{58}
+\indexentry{dotted lined space|)hyperpage}{58}
+\indexentry{space!dotted lined|)hyperpage}{58}
+\indexentry{space!grid|(hyperpage}{58}
+\indexentry{grid space|(hyperpage}{58}
+\indexentry{fillwithgrid@\texttt  {\char `\\fillwithgrid}|(hyperpage}{58}
+\indexentry{customization!\texttt{\char`\\fillwithgrid}|hyperpage}{58}
+\indexentry{colorgrids@\texttt  {\char `\\colorgrids}|hyperpage}{58}
+\indexentry{definecolor@\texttt  {\char `\\definecolor}|hyperpage}{58}
+\indexentry{GridColor@\texttt  {GridColor}|hyperpage}{58}
+\indexentry{customization!\texttt{\char`\\fillwithgrid}|hyperpage}{58}
+\indexentry{stretch@\texttt  {\char `\\stretch}|hyperpage}{59}
+\indexentry{space!allocating|hyperpage}{60}
+\indexentry{grid!covering every page|hyperpage}{60}
+\indexentry{graph paper|hyperpage}{60}
+\indexentry{fillwithgrid@\texttt  {\char `\\fillwithgrid}|)hyperpage}{61}
+\indexentry{grid space|)hyperpage}{61}
+\indexentry{space!grid|)hyperpage}{61}
+\indexentry{answerline@\texttt  {\char `\\answerline}|(hyperpage}{61}
+\indexentry{short answers|(hyperpage}{61}
+\indexentry{answerskip@\texttt  {\char `\\answerskip}|hyperpage}{61}
+\indexentry{answerlinelength@\texttt  {\char `\\answerlinelength}|hyperpage}{61}
+\indexentry{customization!\texttt{\char`\\answerline}|hyperpage}{61}
+\indexentry{customization!\texttt{\char`\\answerline}|hyperpage}{61}
+\indexentry{short answers!answers to|(hyperpage}{63}
+\indexentry{answers!to short answers|(hyperpage}{63}
+\indexentry{answerline@\texttt  {\char `\\answerline}!optional\nobreakspace  {}argument|hyperpage}{63}
+\indexentry{CorrectChoiceEmphasis@\texttt  {\char `\\CorrectChoiceEmphasis}|hyperpage}{63}
+\indexentry{customization!\texttt{\char`\\CorrectChoice}|hyperpage}{63}
+\indexentry{answerclearance@\texttt  {\char `\\answerclearance}|hyperpage}{63}
+\indexentry{customization!\texttt{\char`\\answerline}|hyperpage}{63}
+\indexentry{answers!to short answers|)hyperpage}{63}
+\indexentry{short answers!answers to|)hyperpage}{63}
+\indexentry{short answers|)hyperpage}{63}
+\indexentry{answerline@\texttt  {\char `\\answerline}|)hyperpage}{63}
+\indexentry{answer space|)hyperpage}{63}
+\indexentry{space!for answers|)hyperpage}{63}
+\indexentry{solutions|(hyperpage}{64}
+\indexentry{solution environment|(hyperpage}{64}
+\indexentry{answers|(hyperpage}{64}
+\indexentry{environment!solution|(hyperpage}{64}
+\indexentry{environment!solutionorbox|(hyperpage}{64}
+\indexentry{environment!solutionorlines|(hyperpage}{64}
+\indexentry{environment!solutionordottedlines|(hyperpage}{64}
+\indexentry{environment!solutionorgrid|(hyperpage}{64}
+\indexentry{solution environment|(hyperpage}{64}
+\indexentry{solutionorbox environment|(hyperpage}{64}
+\indexentry{solutionorlines environment|(hyperpage}{64}
+\indexentry{solutionordottedlines environment|(hyperpage}{64}
+\indexentry{printanswers@\texttt  {\char `\\printanswers}|hyperpage}{64}
+\indexentry{noprintanswers@\texttt  {\char `\\noprintanswers}|hyperpage}{64}
+\indexentry{answers@\texttt  {answers}|hyperpage}{64}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}!options|hyperpage}{64}
+\indexentry{printanswers@\texttt  {\char `\\printanswers}|hyperpage}{64}
+\indexentry{solution environment!optional argument|hyperpage}{64}
+\indexentry{vspace*@\texttt  {\char `\\vspace*}|hyperpage}{64}
+\indexentry{makeemptybox@\texttt  {\char `\\makeemptybox}|hyperpage}{64}
+\indexentry{fillwithlines@\texttt  {\char `\\fillwithlines}|hyperpage}{65}
+\indexentry{fillwithdottedlines@\texttt  {\char `\\fillwithdottedlines}|hyperpage}{65}
+\indexentry{fillwithgrid@\texttt  {\char `\\fillwithgrid}|hyperpage}{65}
+\indexentry{solution environment|)hyperpage}{65}
+\indexentry{solutionorbox environment|)hyperpage}{65}
+\indexentry{solutionorlines environment|)hyperpage}{65}
+\indexentry{solutionordottedlines environment|)hyperpage}{65}
+\indexentry{environment!solution|)hyperpage}{65}
+\indexentry{environment!solutionorbox|)hyperpage}{65}
+\indexentry{environment!solutionorlines|)hyperpage}{65}
+\indexentry{environment!solutionordottedlines|)hyperpage}{65}
+\indexentry{environment!solutionorgrid|)hyperpage}{65}
+\indexentry{solution!appearance|(hyperpage}{65}
+\indexentry{solution!in a box|(hyperpage}{65}
+\indexentry{fbox@\texttt  {\char `\\fbox}|hyperpage}{65}
+\indexentry{shadedsolutions@\texttt  {\char `\\shadedsolutions}|hyperpage}{65}
+\indexentry{colorbox@\texttt  {\char `\\colorbox}|hyperpage}{65}
+\indexentry{color package|hyperpage}{65}
+\indexentry{printanswers@\texttt  {\char `\\printanswers}|hyperpage}{66}
+\indexentry{answers@\texttt  {answers}|hyperpage}{66}
+\indexentry{fullwidth@\texttt  {\char `\\fullwidth}|hyperpage}{66}
+\indexentry{uplevel@\texttt  {\char `\\uplevel}|hyperpage}{66}
+\indexentry{EnvFullwidth@\texttt  {EnvFullwidth}|hyperpage}{66}
+\indexentry{EnvFullwidth environment|hyperpage}{66}
+\indexentry{environment!EnvFullwidth|hyperpage}{66}
+\indexentry{EnvUplevel@\texttt  {EnvUplevel}|hyperpage}{66}
+\indexentry{EnvUplevel environment|hyperpage}{66}
+\indexentry{environment!EnvUplevel|hyperpage}{66}
+\indexentry{printanswers@\texttt  {\char `\\printanswers}|hyperpage}{67}
+\indexentry{answers@\texttt  {answers}|hyperpage}{67}
+\indexentry{solution!in a box|)hyperpage}{67}
+\indexentry{solution!shaded|(hyperpage}{67}
+\indexentry{color package|hyperpage}{67}
+\indexentry{shadedsolutions@\texttt  {\char `\\shadedsolutions}|hyperpage}{67}
+\indexentry{SolutionColor@\texttt  {\char `\\SolutionColor}|hyperpage}{67}
+\indexentry{fbox@\texttt  {\char `\\fbox}|hyperpage}{67}
+\indexentry{framedsolutions@\texttt  {\char `\\framedsolutions}|hyperpage}{67}
+\indexentry{solution!shaded|)hyperpage}{67}
+\indexentry{solution!no framing or shading|(hyperpage}{68}
+\indexentry{unframedsolutions@\texttt  {\char `\\unframedsolutions}|hyperpage}{68}
+\indexentry{SolutionEmphasis@\texttt  {\char `\\SolutionEmphasis}|hyperpage}{68}
+\indexentry{framedsolutions@\texttt  {\char `\\framedsolutions}|hyperpage}{68}
+\indexentry{solution!no framing or shading|)hyperpage}{68}
+\indexentry{customization!solution|(hyperpage}{68}
+\indexentry{solution!customizing|(hyperpage}{68}
+\indexentry{solutiontitle@\texttt  {\char `\\solutiontitle}|hyperpage}{68}
+\indexentry{SolutionEmphasis@\texttt  {\char `\\SolutionEmphasis}|hyperpage}{69}
+\indexentry{SolutionEmphasis@\texttt  {\char `\\SolutionEmphasis}|hyperpage}{69}
+\indexentry{SolutionEmphasis@\texttt  {\char `\\SolutionEmphasis}|hyperpage}{69}
+\indexentry{unframedsolutions@\texttt  {\char `\\unframedsolutions}|hyperpage}{69}
+\indexentry{SolutionEmphasis@\texttt  {\char `\\SolutionEmphasis}|hyperpage}{69}
+\indexentry{TheSolution environment|hyperpage}{69}
+\indexentry{environment!TheSolution|hyperpage}{69}
+\indexentry{TheSolution@\texttt  {TheSolution}|hyperpage}{69}
+\indexentry{solution!customizing|)hyperpage}{69}
+\indexentry{customization!solution|)hyperpage}{69}
+\indexentry{solution!appearance|)hyperpage}{69}
+\indexentry{space!for answers|(hyperpage}{70}
+\indexentry{answer space|(hyperpage}{70}
+\indexentry{solution environment!optional argument|(hyperpage}{70}
+\indexentry{solution@\texttt  {solution}!optional argument|hyperpage}{70}
+\indexentry{vspace*@\texttt  {\char `\\vspace*}|hyperpage}{70}
+\indexentry{solutionorbox@\texttt  {solutionorbox}!optional argument|hyperpage}{70}
+\indexentry{makeemptybox@\texttt  {\char `\\makeemptybox}|hyperpage}{70}
+\indexentry{solutionorlines@\texttt  {solutionorlines}!optional argument|hyperpage}{70}
+\indexentry{fillwithlines@\texttt  {\char `\\fillwithlines}|hyperpage}{70}
+\indexentry{solutionordottedlines@\texttt  {solutionordottedlines}!optional argument|hyperpage}{70}
+\indexentry{fillwithdottedlines@\texttt  {\char `\\fillwithdottedlines}|hyperpage}{70}
+\indexentry{solutionorgrid@\texttt  {solutionorgrid}!optional argument|hyperpage}{70}
+\indexentry{fillwithgrid@\texttt  {\char `\\fillwithgrid}|hyperpage}{70}
+\indexentry{cancelspace@\texttt  {\char `\\cancelspace}|(hyperpage}{71}
+\indexentry{nocancelspace@\texttt  {\char `\\nocancelspace}|(hyperpage}{71}
+\indexentry{cancelspace@\texttt  {cancelspace}|hyperpage}{72}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}!options|hyperpage}{72}
+\indexentry{nocancelspace@\texttt  {\char `\\nocancelspace}|)hyperpage}{72}
+\indexentry{cancelspace@\texttt  {\char `\\cancelspace}|)hyperpage}{72}
+\indexentry{solution environment!optional argument|)hyperpage}{72}
+\indexentry{solutionbox@\texttt  {solutionbox}|hyperpage}{72}
+\indexentry{solution!in a box|hyperpage}{72}
+\indexentry{answer space|)hyperpage}{73}
+\indexentry{space!for answers|)hyperpage}{73}
+\indexentry{ifprintanswers@\texttt  {\char `\\ifprintanswers}|(hyperpage}{73}
+\indexentry{selected solution|hyperpage}{74}
+\indexentry{solution!selected|hyperpage}{74}
+\indexentry{ifprintanswers@\texttt  {\char `\\ifprintanswers}|)hyperpage}{74}
+\indexentry{answers|)hyperpage}{74}
+\indexentry{solution environment|)hyperpage}{74}
+\indexentry{solutions|)hyperpage}{74}
+\indexentry{grading table|(hyperpage}{74}
+\indexentry{point table|(hyperpage}{74}
+\indexentry{gradetable@\texttt  {\char `\\gradetable}|(hyperpage}{74}
+\indexentry{pointtable@\texttt  {\char `\\pointtable}|(hyperpage}{74}
+\indexentry{grading table!by question number or page number|(hyperpage}{75}
+\indexentry{addpoints@\texttt  {addpoints}|hyperpage}{75}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}!options|hyperpage}{75}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{75}
+\indexentry{questions environment!only one|hyperpage}{75}
+\indexentry{gradetable[v]@\texttt  {\char `\\gradetable[v]}|hyperpage}{75}
+\indexentry{gradetable[h]@\texttt  {\char `\\gradetable[h]}|hyperpage}{75}
+\indexentry{gradetable[v][questions]@\texttt  {\char `\\gradetable[v][questions]}|hyperpage}{76}
+\indexentry{gradetable[v][pages]@\texttt  {\char `\\gradetable[v][pages]}|hyperpage}{76}
+\indexentry{gradetable[h][questions]@\texttt  {\char `\\gradetable[h][questions]}|hyperpage}{76}
+\indexentry{gradetable[h][pages]@\texttt  {\char `\\gradetable[h][pages]}|hyperpage}{76}
+\indexentry{grading table!by question number or page number|)hyperpage}{78}
+\indexentry{point table!by question number or page number|(hyperpage}{78}
+\indexentry{pointtable[v]@\texttt  {\char `\\pointtable[v]}|hyperpage}{78}
+\indexentry{pointtable[h]@\texttt  {\char `\\pointtable[h]}|hyperpage}{78}
+\indexentry{pointtable[v][questions]@\texttt  {\char `\\pointtable[v][questions]}|hyperpage}{78}
+\indexentry{pointtable[v][pages]@\texttt  {\char `\\pointtable[v][pages]}|hyperpage}{78}
+\indexentry{pointtable[h][questions]@\texttt  {\char `\\pointtable[h][questions]}|hyperpage}{78}
+\indexentry{pointtable[h][pages]@\texttt  {\char `\\pointtable[h][pages]}|hyperpage}{78}
+\indexentry{point table!by question number or page number|)hyperpage}{80}
+\indexentry{grading table!clickable links|hyperpage}{80}
+\indexentry{point table!clickable links|hyperpage}{80}
+\indexentry{clickable links|hyperpage}{80}
+\indexentry{usepackage\{hyperref\}@\texttt  {\char `\\usepackage\{hyperref\}}|hyperpage}{80}
+\indexentry{hyperref@\texttt  {hyperref}|hyperpage}{80}
+\indexentry{grading range|(hyperpage}{81}
+\indexentry{begingradingrange@\texttt  {\char `\\begingradingrange}|(hyperpage}{81}
+\indexentry{endgradingrange@\texttt  {\char `\\endgradingrange}|(hyperpage}{81}
+\indexentry{range!grading|(hyperpage}{81}
+\indexentry{pointsinrange@\texttt  {\char `\\pointsinrange}|hyperpage}{81}
+\indexentry{firstqinrange@\texttt  {\char `\\firstqinrange}|hyperpage}{81}
+\indexentry{lastqinrange@\texttt  {\char `\\lastqinrange}|hyperpage}{81}
+\indexentry{numqinrange@\texttt  {\char `\\numqinrange}|hyperpage}{81}
+\indexentry{partialgradetable@\texttt  {\char `\\partialgradetable}|hyperpage}{81}
+\indexentry{partialpointtable@\texttt  {\char `\\partialpointtable}|hyperpage}{81}
+\indexentry{range!grading|)hyperpage}{81}
+\indexentry{endgradingrange@\texttt  {\char `\\endgradingrange}|)hyperpage}{81}
+\indexentry{begingradingrange@\texttt  {\char `\\begingradingrange}|)hyperpage}{81}
+\indexentry{grading range|)hyperpage}{81}
+\indexentry{addpoints@\texttt  {addpoints}|hyperpage}{82}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}!options|hyperpage}{82}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{82}
+\indexentry{pointsofquestion@\texttt  {\char `\\pointsofquestion}|hyperpage}{82}
+\indexentry{pointsofquestion@\texttt  {\char `\\pointsofquestion}|hyperpage}{82}
+\indexentry{addpoints@\texttt  {addpoints}|hyperpage}{82}
+\indexentry{documentclass@\texttt  {\char `\\documentclass}!options|hyperpage}{82}
+\indexentry{addpoints@\texttt  {\char `\\addpoints}|hyperpage}{82}
+\indexentry{pointsonpage@\texttt  {\char `\\pointsonpage}|hyperpage}{82}
+\indexentry{pointsonpage@\texttt  {\char `\\pointsonpage}!in footer|hyperpage}{83}
+\indexentry{thepage@\texttt  {\char `\\thepage}!reliable only in headers and footers|hyperpage}{83}
+\indexentry{grading table!bonus|(hyperpage}{83}
+\indexentry{point table!bonus|(hyperpage}{83}
+\indexentry{bonus points|hyperpage}{83}
+\indexentry{points!bonus|hyperpage}{83}
+\indexentry{pointsofquestion@\texttt  {\char `\\pointsofquestion}|hyperpage}{83}
+\indexentry{pointsonpage@\texttt  {\char `\\pointsonpage}|hyperpage}{83}
+\indexentry{bonusgradetable@\texttt  {\char `\\bonusgradetable}|hyperpage}{83}
+\indexentry{bonuspointtable@\texttt  {\char `\\bonuspointtable}|hyperpage}{83}
+\indexentry{bonuspointsinrange@\texttt  {\char `\\bonuspointsinrange}|hyperpage}{83}
+\indexentry{partialbonusgradetable@\texttt  {\char `\\partialbonusgradetable}|hyperpage}{83}
+\indexentry{partialbonuspointtable@\texttt  {\char `\\partialbonuspointtable}|hyperpage}{83}
+\indexentry{bonuspointsofquestion@\texttt  {\char `\\bonuspointsofquestion}|hyperpage}{83}
+\indexentry{bonuspointsonpage@\texttt  {\char `\\bonuspointsonpage}|hyperpage}{83}
+\indexentry{begingradingrange@\texttt  {\char `\\begingradingrange}|hyperpage}{83}
+\indexentry{endgradingrange@\texttt  {\char `\\endgradingrange}|hyperpage}{83}
+\indexentry{usepackage\{hyperref\}@\texttt  {\char `\\usepackage\{hyperref\}}|hyperpage}{83}
+\indexentry{hyperref@\texttt  {hyperref}|hyperpage}{83}
+\indexentry{clickable links|hyperpage}{84}
+\indexentry{point table!bonus|)hyperpage}{84}
+\indexentry{grading table!bonus|)hyperpage}{84}
+\indexentry{grading table!combined|(hyperpage}{84}
+\indexentry{point table!combined|(hyperpage}{84}
+\indexentry{combinedgradetable@\texttt  {\char `\\combinedgradetable}|hyperpage}{84}
+\indexentry{combinedpointtable@\texttt  {\char `\\combinedpointtable}|hyperpage}{84}
+\indexentry{partialcombinedgradetable@\texttt  {\char `\\partialcombinedgradetable}|hyperpage}{84}
+\indexentry{partialcombinedpointtable@\texttt  {\char `\\partialcombinedpointtable}|hyperpage}{84}
+\indexentry{clickable links|hyperpage}{84}
+\indexentry{usepackage\{hyperref\}@\texttt  {\char `\\usepackage\{hyperref\}}|hyperpage}{84}
+\indexentry{hyperref@\texttt  {hyperref}|hyperpage}{84}
+\indexentry{point table!combined|)hyperpage}{85}
+\indexentry{grading table!combined|)hyperpage}{85}
+\indexentry{grading table!changing total points|(hyperpage}{85}
+\indexentry{point table!changing total points|(hyperpage}{85}
+\indexentry{settabletotalpoints@\texttt  {\char `\\settabletotalpoints}|hyperpage}{85}
+\indexentry{settabletotalbonuspoints@\texttt  {\char `\\settabletotalbonuspoints}|hyperpage}{85}
+\indexentry{point table!changing total points|)hyperpage}{86}
+\indexentry{grading table!changing total points|)hyperpage}{86}
+\indexentry{customization!grading table|(hyperpage}{86}
+\indexentry{customization!point table|(hyperpage}{86}
+\indexentry{grade table!customization|(hyperpage}{86}
+\indexentry{point table!customization|(hyperpage}{86}
+\indexentry{baselinestretch@\texttt  {\char `\\baselinestretch}|hyperpage}{86}
+\indexentry{gradetablestretch@\texttt  {\char `\\gradetablestretch}|hyperpage}{86}
+\indexentry{cellwidth@\texttt  {\char `\\cellwidth}|hyperpage}{86}
+\indexentry{vqword@\texttt  {\char `\\vqword}|hyperpage}{86}
+\indexentry{vpgword@\texttt  {\char `\\vpgword}|hyperpage}{86}
+\indexentry{vpword@\texttt  {\char `\\vpword}|hyperpage}{86}
+\indexentry{vsword@\texttt  {\char `\\vsword}|hyperpage}{86}
+\indexentry{vtword@\texttt  {\char `\\vtword}|hyperpage}{86}
+\indexentry{hqword@\texttt  {\char `\\hqword}|hyperpage}{87}
+\indexentry{hpgword@\texttt  {\char `\\hpgword}|hyperpage}{87}
+\indexentry{hpword@\texttt  {\char `\\hpword}|hyperpage}{87}
+\indexentry{hsword@\texttt  {\char `\\hsword}|hyperpage}{87}
+\indexentry{htword@\texttt  {\char `\\htword}|hyperpage}{87}
+\indexentry{bvqword@\texttt  {\char `\\bvqword}|hyperpage}{87}
+\indexentry{bvpgword@\texttt  {\char `\\bvpgword}|hyperpage}{87}
+\indexentry{bvpword@\texttt  {\char `\\bvpword}|hyperpage}{87}
+\indexentry{bvsword@\texttt  {\char `\\bvsword}|hyperpage}{87}
+\indexentry{bvtword@\texttt  {\char `\\bvtword}|hyperpage}{87}
+\indexentry{bhqword@\texttt  {\char `\\bhqword}|hyperpage}{87}
+\indexentry{bhpgword@\texttt  {\char `\\bhpgword}|hyperpage}{87}
+\indexentry{bhpword@\texttt  {\char `\\bhpword}|hyperpage}{87}
+\indexentry{bhsword@\texttt  {\char `\\bhsword}|hyperpage}{87}
+\indexentry{bhtword@\texttt  {\char `\\bhtword}|hyperpage}{87}
+\indexentry{cvqword@\texttt  {\char `\\cvqword}|hyperpage}{87}
+\indexentry{cvpgword@\texttt  {\char `\\cvpgword}|hyperpage}{87}
+\indexentry{cvpword@\texttt  {\char `\\cvpword}|hyperpage}{87}
+\indexentry{cvbpword@\texttt  {\char `\\cvbpword}|hyperpage}{87}
+\indexentry{cvsword@\texttt  {\char `\\cvsword}|hyperpage}{87}
+\indexentry{cvtword@\texttt  {\char `\\cvtword}|hyperpage}{87}
+\indexentry{chqword@\texttt  {\char `\\chqword}|hyperpage}{87}
+\indexentry{chpgword@\texttt  {\char `\\chpgword}|hyperpage}{87}
+\indexentry{chpword@\texttt  {\char `\\chpword}|hyperpage}{87}
+\indexentry{chbpword@\texttt  {\char `\\chbpword}|hyperpage}{87}
+\indexentry{chsword@\texttt  {\char `\\chsword}|hyperpage}{87}
+\indexentry{chtword@\texttt  {\char `\\chtword}|hyperpage}{87}
+\indexentry{point table!customization|)hyperpage}{89}
+\indexentry{grade table!customization|)hyperpage}{89}
+\indexentry{customization!point table|)hyperpage}{89}
+\indexentry{customization!grading table|)hyperpage}{89}
+\indexentry{pointtable@\texttt  {\char `\\pointtable}|)hyperpage}{89}
+\indexentry{gradetable@\texttt  {\char `\\gradetable}|)hyperpage}{89}
+\indexentry{point table|)hyperpage}{89}
+\indexentry{grading table|)hyperpage}{89}
+\indexentry{margins|(hyperpage}{89}
+\indexentry{customization!margins|(hyperpage}{89}
+\indexentry{extrawidth@\texttt  {\char `\\extrawidth}|hyperpage}{89}
+\indexentry{extraheadheight@\texttt  {\char `\\extraheadheight}|hyperpage}{89}
+\indexentry{extrafootheight@\texttt  {\char `\\extrafootheight}|hyperpage}{89}
+\indexentry{extraheadheight@\texttt  {\char `\\extraheadheight}!optional argument|hyperpage}{90}
+\indexentry{head height!first page different|hyperpage}{90}
+\indexentry{extrafootheight@\texttt  {\char `\\extrafootheight}|hyperpage}{90}
+\indexentry{extrafootheight@\texttt  {\char `\\extrafootheight}!optional argument|hyperpage}{90}
+\indexentry{foot height!first page different|hyperpage}{90}
+\indexentry{customization!margins|)hyperpage}{90}
+\indexentry{margins|)hyperpage}{90}
+\indexentry{header|(hyperpage}{90}
+\indexentry{footer|(hyperpage}{90}
+\indexentry{pagestyle@\texttt  {\char `\\pagestyle}|(hyperpage}{90}
+\indexentry{header!on or off|hyperpage}{90}
+\indexentry{footer!on or off|hyperpage}{90}
+\indexentry{headandfoot@\texttt  {headandfoot}|hyperpage}{90}
+\indexentry{pagestyle\{headandfoot\}@\texttt  {\char `\\pagestyle\{headandfoot\}}|hyperpage}{90}
+\indexentry{head@\texttt  {head}|hyperpage}{90}
+\indexentry{pagestyle\{head\}@\texttt  {\char `\\pagestyle\{head\}}|hyperpage}{90}
+\indexentry{foot@\texttt  {foot}|hyperpage}{91}
+\indexentry{pagestyle\{foot\}@\texttt  {\char `\\pagestyle\{foot\}}|hyperpage}{91}
+\indexentry{empty@\texttt  {empty}|hyperpage}{91}
+\indexentry{pagestyle\{empty\}@\texttt  {\char `\\pagestyle\{empty\}}|hyperpage}{91}
+\indexentry{thispagestyle@\texttt  {\char `\\thispagestyle}|hyperpage}{91}
+\indexentry{maketitle@\texttt  {\char `\\maketitle}|hyperpage}{91}
+\indexentry{maketitle@\texttt  {\char `\\maketitle}!overriding|hyperpage}{91}
+\indexentry{thispagestyle\{headandfoot\}@\texttt  {\char `\\thispagestyle\{headandfoot\}}|hyperpage}{91}
+\indexentry{pagestyle@\texttt  {\char `\\pagestyle}!default|hyperpage}{91}
+\indexentry{pagestyle@\texttt  {\char `\\pagestyle}|)hyperpage}{91}
+\indexentry{header!three parts|(hyperpage}{91}
+\indexentry{header@\texttt  {\char `\\header}|(hyperpage}{92}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|(hyperpage}{92}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|(hyperpage}{92}
+\indexentry{header!different on first page|hyperpage}{92}
+\indexentry{header@\texttt  {\char `\\header}|)hyperpage}{92}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|)hyperpage}{92}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|)hyperpage}{92}
+\indexentry{lhead@\texttt  {\char `\\lhead}|(hyperpage}{93}
+\indexentry{chead@\texttt  {\char `\\chead}|(hyperpage}{93}
+\indexentry{rhead@\texttt  {\char `\\rhead}|(hyperpage}{93}
+\indexentry{header!different on first page|hyperpage}{93}
+\indexentry{lhead@\texttt  {\char `\\lhead}!optional argument|hyperpage}{93}
+\indexentry{chead@\texttt  {\char `\\chead}!optional argument|hyperpage}{93}
+\indexentry{rhead@\texttt  {\char `\\rhead}!optional argument|hyperpage}{93}
+\indexentry{lhead@\texttt  {\char `\\lhead}!different on first page|hyperpage}{93}
+\indexentry{chead@\texttt  {\char `\\chead}!different on first page|hyperpage}{93}
+\indexentry{rhead@\texttt  {\char `\\rhead}!different on first page|hyperpage}{93}
+\indexentry{header!multiple lines|hyperpage}{93}
+\indexentry{lhead@\texttt  {\char `\\lhead}|)hyperpage}{93}
+\indexentry{chead@\texttt  {\char `\\chead}|)hyperpage}{93}
+\indexentry{rhead@\texttt  {\char `\\rhead}|)hyperpage}{93}
+\indexentry{header!three parts|)hyperpage}{93}
+\indexentry{header!multiple lines|hyperpage}{94}
+\indexentry{footer!three parts|(hyperpage}{94}
+\indexentry{footer@\texttt  {\char `\\footer}|(hyperpage}{94}
+\indexentry{firstpagefooter@\texttt  {\char `\\firstpagefooter}|(hyperpage}{94}
+\indexentry{runningfooter@\texttt  {\char `\\runningfooter}|(hyperpage}{94}
+\indexentry{footer@\texttt  {\char `\\footer}|)hyperpage}{94}
+\indexentry{firstpagefooter@\texttt  {\char `\\firstpagefooter}|)hyperpage}{94}
+\indexentry{runningfooter@\texttt  {\char `\\runningfooter}|)hyperpage}{94}
+\indexentry{lfoot@\texttt  {\char `\\lfoot}|(hyperpage}{94}
+\indexentry{cfoot@\texttt  {\char `\\cfoot}|(hyperpage}{94}
+\indexentry{rfoot@\texttt  {\char `\\rfoot}|(hyperpage}{94}
+\indexentry{lfoot@\texttt  {\char `\\lfoot}|)hyperpage}{95}
+\indexentry{cfoot@\texttt  {\char `\\cfoot}|)hyperpage}{95}
+\indexentry{rfoot@\texttt  {\char `\\rfoot}|)hyperpage}{95}
+\indexentry{footer!three parts|)hyperpage}{95}
+\indexentry{header!with multiple lines|(hyperpage}{95}
+\indexentry{extraheadheight@\texttt  {\char `\\extraheadheight}|hyperpage}{95}
+\indexentry{extraheadheight@\texttt  {\char `\\extraheadheight}!different on first page|hyperpage}{95}
+\indexentry{extraheadheight@\texttt  {\char `\\extraheadheight}|hyperpage}{95}
+\indexentry{header!with multiple lines|)hyperpage}{95}
+\indexentry{footer!with multiple lines|(hyperpage}{96}
+\indexentry{extrafootheight@\texttt  {\char `\\extrafootheight}|hyperpage}{96}
+\indexentry{extrafootheight@\texttt  {\char `\\extrafootheight}!different on first page|hyperpage}{96}
+\indexentry{extrafootheight@\texttt  {\char `\\extrafootheight}|hyperpage}{96}
+\indexentry{footer!with multiple lines|)hyperpage}{96}
+\indexentry{rule!in header or footer|(hyperpage}{96}
+\indexentry{header!rule|(hyperpage}{96}
+\indexentry{footer!rule|(hyperpage}{96}
+\indexentry{runningheadrule@\texttt  {\char `\\runningheadrule}|hyperpage}{96}
+\indexentry{firstpageheadrule@\texttt  {\char `\\firstpageheadrule}|hyperpage}{96}
+\indexentry{headrule@\texttt  {\char `\\headrule}|hyperpage}{96}
+\indexentry{runningfootrule@\texttt  {\char `\\runningfootrule}|hyperpage}{97}
+\indexentry{firstpagefootrule@\texttt  {\char `\\firstpagefootrule}|hyperpage}{97}
+\indexentry{footrule@\texttt  {\char `\\footrule}|hyperpage}{97}
+\indexentry{rule!in header or footer|)hyperpage}{97}
+\indexentry{header!rule|)hyperpage}{97}
+\indexentry{footer!rule|)hyperpage}{97}
+\indexentry{numpages@\texttt  {\char `\\numpages}|hyperpage}{98}
+\indexentry{numpages@\texttt  {\char `\\numpages}!doesn't count cover pages|hyperpage}{98}
+\indexentry{numcoverpages@\texttt  {\char `\\numcoverpages}|hyperpage}{98}
+\indexentry{coverpages@\texttt  {coverpages}|hyperpage}{98}
+\indexentry{environment!coverpages|hyperpage}{98}
+\indexentry{totalnumpages@\texttt  {\char `\\totalnumpages}|hyperpage}{98}
+\indexentry{last page|(hyperpage}{98}
+\indexentry{iflastpage@\texttt  {\char `\\iflastpage}|hyperpage}{98}
+\indexentry{iflastpage@\texttt  {\char `\\iflastpage}|hyperpage}{99}
+\indexentry{last page|)hyperpage}{99}
+\indexentry{odd pages!different from even pages|(hyperpage}{99}
+\indexentry{even pages!different from odd pages|(hyperpage}{99}
+\indexentry{oddeven@\texttt  {\char `\\oddeven}|hyperpage}{99}
+\indexentry{oddeven@\texttt  {\char `\\oddeven}|hyperpage}{99}
+\indexentry{iflastpage@\texttt  {\char `\\iflastpage}|hyperpage}{99}
+\indexentry{oddeven@\texttt  {\char `\\oddeven}!only in headers and footers|hyperpage}{100}
+\indexentry{odd pages!different from even pages|)hyperpage}{100}
+\indexentry{even pages!different from odd pages|)hyperpage}{100}
+\indexentry{questions!that span multiple pages|(hyperpage}{100}
+\indexentry{ifcontinuation@\texttt  {\char `\\ifcontinuation}|hyperpage}{100}
+\indexentry{ContinuedQuestion@\texttt  {\char `\\ContinuedQuestion}|hyperpage}{100}
+\indexentry{ifincomplete@\texttt  {\char `\\ifincomplete}|hyperpage}{100}
+\indexentry{IncompleteQuestion@\texttt  {\char `\\IncompleteQuestion}|hyperpage}{100}
+\indexentry{ifcontinuation@\texttt  {\char `\\ifcontinuation}!reliable only in headers and footers|hyperpage}{100}
+\indexentry{ContinuedQuestion@\texttt  {\char `\\ContinuedQuestion}!reliable only in headers and footers|hyperpage}{100}
+\indexentry{ifincomplete@\texttt  {\char `\\ifincomplete}!reliable only in headers and footers|hyperpage}{100}
+\indexentry{IncompleteQuestion@\texttt  {\char `\\IncompleteQuestion}!reliable only in headers and footers|hyperpage}{100}
+\indexentry{ifcontinuation@\texttt  {\char `\\ifcontinuation}|hyperpage}{100}
+\indexentry{ContinuedQuestion@\texttt  {\char `\\ContinuedQuestion}|hyperpage}{100}
+\indexentry{ContinuedQuestion@\texttt  {\char `\\ContinuedQuestion}|hyperpage}{101}
+\indexentry{ifcontinuation@\texttt  {\char `\\ifcontinuation}|hyperpage}{101}
+\indexentry{nomorequestions@\texttt  {\char `\\nomorequestions}|hyperpage}{101}
+\indexentry{ifincomplete@\texttt  {\char `\\ifincomplete}|(hyperpage}{102}
+\indexentry{ifincomplete@\texttt  {\char `\\ifincomplete}|hyperpage}{102}
+\indexentry{IncompleteQuestion@\texttt  {\char `\\IncompleteQuestion}|hyperpage}{102}
+\indexentry{ifincomplete@\texttt  {\char `\\ifincomplete}|hyperpage}{102}
+\indexentry{IncompleteQuestion@\texttt  {\char `\\IncompleteQuestion}|hyperpage}{102}
+\indexentry{iflastpage@\texttt  {\char `\\iflastpage}|hyperpage}{102}
+\indexentry{addquestionobject@\texttt  {\char `\\addquestionobject}|hyperpage}{102}
+\indexentry{nomorequestions@\texttt  {\char `\\nomorequestions}|hyperpage}{103}
+\indexentry{noquestionsonthispage@\texttt  {\char `\\noquestionsonthispage}|hyperpage}{103}
+\indexentry{noquestionsonthispage@\texttt  {\char `\\noquestionsonthispage}|hyperpage}{103}
+\indexentry{ifcontinuation@\texttt  {\char `\\ifcontinuation}|hyperpage}{103}
+\indexentry{addquestionobject@\texttt  {\char `\\addquestionobject}|hyperpage}{103}
+\indexentry{ifincomplete@\texttt  {\char `\\ifincomplete}|)hyperpage}{103}
+\indexentry{questions!that span multiple pages|)hyperpage}{103}
+\indexentry{lhead@\texttt  {\char `\\lhead}|(hyperpage}{103}
+\indexentry{chead@\texttt  {\char `\\chead}|(hyperpage}{103}
+\indexentry{rhead@\texttt  {\char `\\rhead}|(hyperpage}{103}
+\indexentry{lfoot@\texttt  {\char `\\lfoot}|(hyperpage}{103}
+\indexentry{cfoot@\texttt  {\char `\\cfoot}|(hyperpage}{103}
+\indexentry{rfoot@\texttt  {\char `\\rfoot}|(hyperpage}{103}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{104}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{104}
+\indexentry{runningheadrule@\texttt  {\char `\\runningheadrule}|hyperpage}{104}
+\indexentry{runningfootrule@\texttt  {\char `\\runningfootrule}|hyperpage}{105}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{105}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{105}
+\indexentry{firstpagefooter@\texttt  {\char `\\firstpagefooter}|hyperpage}{105}
+\indexentry{runningfooter@\texttt  {\char `\\runningfooter}|hyperpage}{105}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{106}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{106}
+\indexentry{firstpagefooter@\texttt  {\char `\\firstpagefooter}|hyperpage}{106}
+\indexentry{runningfooter@\texttt  {\char `\\runningfooter}|hyperpage}{106}
+\indexentry{extraheadheight@\texttt  {\char `\\extraheadheight}|hyperpage}{107}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{107}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{107}
+\indexentry{footer@\texttt  {\char `\\footer}|hyperpage}{107}
+\indexentry{numpages@\texttt  {\char `\\numpages}|hyperpage}{107}
+\indexentry{thepage@\texttt  {\char `\\thepage}|hyperpage}{107}
+\indexentry{iflastpage@\texttt  {\char `\\iflastpage}|hyperpage}{107}
+\indexentry{extraheadheight@\texttt  {\char `\\extraheadheight}|hyperpage}{109}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{109}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{109}
+\indexentry{footer@\texttt  {\char `\\footer}|hyperpage}{109}
+\indexentry{runningheadrule@\texttt  {\char `\\runningheadrule}|hyperpage}{110}
+\indexentry{ifcontinuation@\texttt  {\char `\\ifcontinuation}|hyperpage}{110}
+\indexentry{ContinuedQuestion@\texttt  {\char `\\ContinuedQuestion}|hyperpage}{110}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{110}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{110}
+\indexentry{footer@\texttt  {\char `\\footer}|hyperpage}{110}
+\indexentry{thepage@\texttt  {\char `\\thepage}|hyperpage}{110}
+\indexentry{numpages@\texttt  {\char `\\numpages}|hyperpage}{110}
+\indexentry{ifincomplete@\texttt  {\char `\\ifincomplete}|hyperpage}{110}
+\indexentry{IncompleteQuestion@\texttt  {\char `\\IncompleteQuestion}|hyperpage}{110}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{111}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{111}
+\indexentry{runningfooter@\texttt  {\char `\\runningfooter}|hyperpage}{111}
+\indexentry{pointsonpage@\texttt  {\char `\\pointsonpage}|hyperpage}{111}
+\indexentry{thepage@\texttt  {\char `\\thepage}|hyperpage}{111}
+\indexentry{numpages@\texttt  {\char `\\numpages}|hyperpage}{111}
+\indexentry{ifcontinuation@\texttt  {\char `\\ifcontinuation}|hyperpage}{112}
+\indexentry{thepage@\texttt  {\char `\\thepage}|hyperpage}{112}
+\indexentry{numpages@\texttt  {\char `\\numpages}|hyperpage}{112}
+\indexentry{IncompleteQuestion@\texttt  {\char `\\IncompleteQuestion}|hyperpage}{112}
+\indexentry{firstpageheader@\texttt  {\char `\\firstpageheader}|hyperpage}{112}
+\indexentry{runningheader@\texttt  {\char `\\runningheader}|hyperpage}{112}
+\indexentry{oddeven@\texttt  {\char `\\oddeven}|hyperpage}{112}
+\indexentry{footer@\texttt  {\char `\\footer}|hyperpage}{112}
+\indexentry{lhead@\texttt  {\char `\\lhead}|)hyperpage}{113}
+\indexentry{chead@\texttt  {\char `\\chead}|)hyperpage}{113}
+\indexentry{rhead@\texttt  {\char `\\rhead}|)hyperpage}{113}
+\indexentry{lfoot@\texttt  {\char `\\lfoot}|)hyperpage}{113}
+\indexentry{cfoot@\texttt  {\char `\\cfoot}|)hyperpage}{113}
+\indexentry{rfoot@\texttt  {\char `\\rfoot}|)hyperpage}{113}
+\indexentry{footer|)hyperpage}{113}
+\indexentry{header|)hyperpage}{113}
+\indexentry{cover pages|(hyperpage}{113}
+\indexentry{environment!coverpages|(hyperpage}{113}
+\indexentry{coverpages@\texttt  {coverpages}|(hyperpage}{113}
+\indexentry{header!on cover pages|(hyperpage}{114}
+\indexentry{footer!on cover pages|(hyperpage}{114}
+\indexentry{coverheader@\texttt  {\char `\\coverheader}|hyperpage}{114}
+\indexentry{coverrunningheader@\texttt  {\char `\\coverrunningheader}|hyperpage}{114}
+\indexentry{coverfirstpageheader@\texttt  {\char `\\coverfirstpageheader}|hyperpage}{114}
+\indexentry{coverlhead@\texttt  {\char `\\coverlhead}|hyperpage}{114}
+\indexentry{coverchead@\texttt  {\char `\\coverchead}|hyperpage}{114}
+\indexentry{coverrhead@\texttt  {\char `\\coverrhead}|hyperpage}{114}
+\indexentry{coverfooter@\texttt  {\char `\\coverfooter}|hyperpage}{114}
+\indexentry{coverrunningfooter@\texttt  {\char `\\coverrunningfooter}|hyperpage}{114}
+\indexentry{coverfirstpagefooter@\texttt  {\char `\\coverfirstpagefooter}|hyperpage}{114}
+\indexentry{coverlfoot@\texttt  {\char `\\coverlfoot}|hyperpage}{114}
+\indexentry{covercfoot@\texttt  {\char `\\covercfoot}|hyperpage}{114}
+\indexentry{coverrfoot@\texttt  {\char `\\coverrfoot}|hyperpage}{114}
+\indexentry{coverextraheadheight@\texttt  {\char `\\coverextraheadheight}|hyperpage}{114}
+\indexentry{coverextrafootheight@\texttt  {\char `\\coverextrafootheight}|hyperpage}{114}
+\indexentry{header!on cover pages|)hyperpage}{114}
+\indexentry{footer!on cover pages|)hyperpage}{114}
+\indexentry{cover pages!counting|(hyperpage}{114}
+\indexentry{numcoverpages@\texttt  {\char `\\numcoverpages}|(hyperpage}{114}
+\indexentry{totalnumpages@\texttt  {\char `\\totalnumpages}|(hyperpage}{114}
+\indexentry{romannumeral@\texttt  {\char `\\romannumeral}|hyperpage}{114}
+\indexentry{cover pages!counting|)hyperpage}{115}
+\indexentry{numcoverpages@\texttt  {\char `\\numcoverpages}|)hyperpage}{115}
+\indexentry{totalnumpages@\texttt  {\char `\\totalnumpages}|)hyperpage}{115}
+\indexentry{coverpages@\texttt  {coverpages}|)hyperpage}{115}
+\indexentry{environment!coverpages|)hyperpage}{115}
+\indexentry{cover pages|)hyperpage}{115}

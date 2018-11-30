@@ -1,0 +1,337 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{relsize}
+\usepackage{xfrac}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{dirtytalk}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{tabu}
+\usetikzlibrary{calc}
+\usepackage{changepage}
+\usepackage{caption,setspace}
+\usepackage{draftwatermark}
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\SetWatermarkText{$AIME$}
+\begin{document}
+
+\begin{center}
+\begin{LARGE}
+Proofs without words
+\end{LARGE}
+\end{center}
+
+
+The following demonstrate proofs of various identities and theorems using pictures, inspired from this gallery.
+
+\begin{center}
+\begin{asy}
+unitsize(15); defaultpen(linewidth(0.7)); int n = 6; pair shiftR = ((n+2),0); real r = 0.3; pen colors(int i){ return rgb(i/n,0.4+i/(2n),1-i/n); } /* shading */ void htick(pair A, pair B,pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }   /* triangle */ draw((-r,0)--(-r,-n+1)^^(r,-n+1)--(r,0),linetype("4 4")); for(int i = 0; i < n; ++i)   draw((-i,-i)--(i,-i)); for(int i = 0; i < n; ++i)  for(int j = 0; j < 2*i+1; ++j)   filldraw(CR((j-i,-i),r),colors(i));   /* square */ draw(r*expi(pi/4)+shiftR--(n-1,-n+1)+r*expi(pi/4)+shiftR^^r*expi(5*pi/4)+shiftR--r*expi(5*pi/4)+(n-1,-n+1)+shiftR,linetype("4 4")); for(int i = 0; i < n; ++i)  draw(shiftR+(0,-i)--shiftR+(i,-i)--shiftR+(i,0)); for(int i = 0; i < n; ++i)  for(int j = 0; j < n; ++j)   filldraw(CR((j,-i)+shiftR,r),colors((i>j)?i:j));  htick(shiftR+(-1,r),shiftR+(-1,-n+1-r)); label("$n$",shiftR+(-1,(-n+1)/2),W,fontsize(10)); 
+\end{asy}
+\end{center}
+
+The sum of the first $n$ odd natural numbers is $n^2$.
+\begin{center}
+\begin{asy}
+ defaultpen(linewidth(0.7)); unitsize(15); int n = 6; pair shiftR = ((n+2),0); real r = 0.3; pen colors(int i){ return rgb(0.4+i/(2n),i/n,1-i/n); } /* shading */ void htick(pair A, pair B,pair ticklength = (0.15,0)){  draw(A--B);  draw(A-ticklength--A+ticklength);  draw(B-ticklength--B+ticklength); }   /* triangle */ draw((0.5,0)--(n-0.5,-n+1),linetype("4 4")); for(int i = 0; i < n; ++i)  draw((0,-i)--(i,-i)); for(int i = 0; i < n; ++i)  for(int j = 0; j <= i; ++j)   filldraw(CR((j,-i),r),colors(i));    /* arc arrow */ draw( arc((n,-n+1)/2, (1.5,-1.5), (n-1.5,-1.5), CW) ); fill((n-1.5,-1.5) -- (n-1.5,-1.5)+r*expi(5.2*pi/6) -- (n-1.5,-1.5)+r*expi(3.3*pi/6) -- cycle); /* manual arrowhead? avoid resizing */   /* square */ draw(shiftR+(0.5,0)--shiftR+(n-0.5,-n+1),linetype("4 4")); for(int i = 0; i < n; ++i)  draw(shiftR+(0,-i)--shiftR+(i,-i)^^shiftR+(n,-n+1)-(0,-i)--shiftR+(n,-n+1)-(i,-i)); for(int i = 0; i < n; ++i)  for(int j = 0; j < n+1; ++j)   filldraw(CR((j,-i)+shiftR,r),colors((j <= i) ? i : n-1-i));   /* labeling and ticks */ htick(shiftR+(-1,r),shiftR+(-1,-n+1-r)); label("$n$",shiftR+(-1,(-n+1)/2),W,fontsize(10)); htick(shiftR+(-r,-n),shiftR+(n+r-1,-n),(0,0.15)); label("$n$",shiftR+((n-1)/2,-n),S,fontsize(10)); htick(shiftR+(n-r,-n),shiftR+(n+r,-n),(0,0.15)); label("$1$",shiftR+(n,-n),S,fontsize(10)); 
+\end{asy}
+\end{center}
+
+The sum of the first $n$ positive integers is $\dfrac{n(n+1)}{2}$.
+\begin{center}
+\begin{asy}
+unitsize(15); defaultpen(linewidth(0.7)); int n = 6; real r = 0.35, h = 3/4; /* radius size and horizontal spacing */ pair shiftR = (h*(n+1)+r, 0);  pen colors(int i){  /* shading */  if(i == n) return red;   return rgb(5/n,0.4+5/(2n),1-5/n);  }  void htick(pair A, pair B, pair ticklength = (0.15,0)){   draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength);  } void makeshiftarrow(pair A, real dir, real arrowlength = r){  /* Arrow option resizes */   fill(A--A+arrowlength*expi(dir+pi/8)--A+arrowlength*expi(dir-pi/8)--cycle); } pair getCenter(int i, int j){ return ((2*j-i)*h,-i);}   /* triangle */ for(int i = 0; i < n+1; ++i){  draw((-i*h,-i)--(i*h,-i));   /* horizontal lining */  for(int j = 0; j <= i; ++j)   filldraw(circle(getCenter(i,j),r), colors(i)); }   /* fill in circle in row 4, column 3 */ filldraw(circle(getCenter(3,2),r),blue); draw(getCenter(n,2)-- getCenter(3,2)-- getCenter(n,n+2-3));  makeshiftarrow(getCenter(n,2),pi/4,0.5); makeshiftarrow(getCenter(n,n+2-3),3*pi/4,0.5);   htick(shiftR+(-1,r),shiftR+(-1,-n+1-r)); label("$n$",shiftR+(-1,(-n+1)/2),E,fontsize(10)); 
+\end{asy}
+\end{center}
+
+The sum of the first $n$ positive integers is ${n+1 \choose 2}$.
+\begin{center}
+\begin{asy}
+unitsize(15); defaultpen(linewidth(0.7)); int n = 5; pair shiftR = (2*n + 4, 1); real r = 0.35; pen sm = fontsize(10); pen colors(int i){ return rgb(i/n,0.4+i/(2n),1-i/n); } /* shading */ void htick(pair A, pair B,pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }  /* draw plus/minus circle at A */ void plus  (pair A) { filldraw(CR(A,r),rgb(0.5,1,0.5)); MP("+",A,(0,0), sm); } void minus (pair A) { filldraw(CR(A,r),rgb(1,0.5,0.5)); MP("-",A,(0,0), sm); }   /* triangle 1 */ path p1 = (-1,-1/2) -- (1,-1/2); draw((-n+1-r,-n+1-2*r)--(n-1+r,-n+1-2*r)); for(int i = 0; i < n; ++i) {  for(int j = 0; j < 2*i+1; ++j) {   if (i % 2 == 0)     plus((j-i,-i));   else     minus((j-i,-i));  }  if (i % 2 != 0)    p1 = (-i-1/2,-i-3/2)--(-i-1/2,-i+1/2)--p1--(i+1/2,-i+1/2)--(i+1/2,-i-3/2);  plus((2*i - n + 1, -n + 1 - 4*r)); } p1 = p1 -- cycle; draw(p1, rgb(0.85,0.85,0.85));   /* triangle 2 */ n = n+1; path p2 = (-0.1,1/2) -- (0.1,1/2); draw(shiftR+ (-n+1-r,-n+1-2*r)-- shiftR+ (n-1+r,-n+1-2*r)); for(int i = 0; i < n; ++i) {  for(int j = 0; j < 2*i+1; ++j) {   if (i % 2 != 0)     plus(shiftR+ (j-i,-i));   else     minus(shiftR+ (j-i,-i));  }  if (i % 2 == 0)    p2 = (-i-1/2,-i-3/2)--(-i-1/2,-i+1/2)--p2--(i+1/2,-i+1/2)--(i+1/2,-i-3/2);  plus(shiftR+ (2*i - n + 1, -n + 1 - 4*r)); } p2 = p2 -- cycle; draw(shift(shiftR)*p2, rgb(0.85,0.85,0.85)); htick(shiftR+(-n,r),shiftR+(-n,-n+1-r)); label("$n$",shiftR+(-n,(-n+1)/2),W,fontsize(10)); 
+\end{asy}
+\end{center}
+
+The alternating sum of the first $n$ odd natural numbers is $\sum\limits_{k=1}^n (-1)^{n-k}(2k-1) = n$. 
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); pen heavy = linewidth(2);  int n2 = 4, n = floor(n2*(n2+1)/2); real h = 0.6; pair shiftR1 = (n*h+1,0), shiftR2 = shiftR1 + (n*h+1,0); /* global configurable variables */  int lvl(int i){ return ceil(((8*i+9)^.5-1)/2); } pen colors(int i){ return rgb(0.5-lvl(i)/5,0.3+lvl(i)/7,1-lvl(i)/6); } /* shading */  void htick(pair A, pair B,pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }    /* gradient triangle */ for(int i = 0; i < n; ++i){  for(int j = 0; j < 2*i+1; ++j){   filldraw(shift(shiftR1)*xscale(h)*yscale(h)*shift((j-i,-i))*unitsquare,colors(i));    if(j % lvl(i) == 0 && j != lvl(i)^2)    draw(shift(shiftR1)*xscale(h)*yscale(h)*shift((j-i,-i))*((0,0)--(0,1)--(1,1)), heavy);   if(j == 2*i)  /* right border */    draw(shift(shiftR1)*xscale(h)*yscale(h)*shift((j-i,-i))*((1,0)--(1,1)--(0,1)), heavy);  } }   for(int i = 0; i < n2; ++i)   draw(shift(shiftR1)*xscale(h)*yscale(h)*shift((-i*(i+1)/2,-i*(i+1)/2))*((0,1)--(2*i*(i+1)/2+1,1)), heavy); draw(shift(shiftR1)*xscale(h)*yscale(h)*shift((-n2*(n2+1)/2,-n2*(n2+1)/2))*((1,1)--(2*n2*(n2+1)/2,1)), heavy);   /* gradient square */ for(int i = 0; i < n; ++i)  for(int j = 0; j < n; ++j)   filldraw(shift(shiftR2)*xscale(h)*yscale(h)*shift((j,-i))*unitsquare,colors((i>j)?i:j));   /* n nxn squares */ for(int i = 0; i < n2; ++i){  filldraw(xscale(h)*yscale(h)*shift((-i,-(i+1)*(i+2)/2+1))*xscale(i+1)*yscale(i+1)*unitsquare, colors(floor(i*(i+1)/2)), heavy);   } 
+\end{asy}
+\end{center}
+
+Nichomauss' Theorem: $n^3$ can be written as the sum of $n$ consecutive integers, and consequently that $1^3 + 2^3 + \cdots + n^3 = (1+2+\cdots + n)^2$. 
+
+Here, we use the same re-arrangement as the first proof on this page (the sum of first odd integers is a square). Here's another re-arrangement to see this: 
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); pen heavy = linewidth(2);   /* global configurable variables */ int n2 = 4, n = floor(n2*(n2+1)/2);       // number of colors, number of layers real h = 0.6;                             // scale factor of diagram pair shiftR1 = (n*h+1,0),                 // middle diagram shift offset        shiftR2 = shiftR1 + (n*h+1,0);     // right diagram shift offset  int lvl(int i) { return ceil(((8*i+9)^.5-1)/2); } /* return level of square i */  pen colors(int i) { return rgb(0.5-lvl(i)/5,0.3+lvl(i)/7,1-lvl(i)/6); } /* shading */   /* draw tick line with label, segment between A and B */ void htick(pair A, pair B,pair ticklength = (0.15,0)) { draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }    /* gradient triangle */ for(int i = 0; i < n; ++i){  for(int j = 0; j < 2*i+1; ++j){   filldraw(shift(shiftR1)*scale(h)*shift((j-i,-i))*unitsquare,colors(i));    /*   if(j % lvl(i) == 0 && j != lvl(i)^2)    draw(shift(shiftR1)*scale(h)*shift((j-i,-i))*((0,0)--(0,1)--(1,1)), heavy);   if(j == 2*i)  // right border    draw(shift(shiftR1)*scale(h)*shift((j-i,-i))*((1,0)--(1,1)--(0,1)), heavy);   */  }  draw(shift(shiftR1)*scale(h)*shift((-i,-i))*((0,0)--(0,1)--(1,1)), heavy);  draw(shift(shiftR1)*scale(h)*shift(( i,-i))*((1,0)--(1,1)--(0,1)), heavy); }   // return kth triangular number (actually, 1+2+...+k)     int tri(int k) { return ((int) (k*(k+1)/2)); }     for(int i = 0; i < n2; ++i) {  draw(shift(shiftR1)*scale(h)*shift((0-tri(i),0-tri(i)))*((0,1)--(2*tri(i)+1,1)), heavy);  if(i % 2 == 0) {   // vertical heavy lines for odd layers   draw(shift(shiftR1)*scale(h)*((-i/2,1-tri(i))--(-i/2,-i-tri(i))), heavy);   draw(shift(shiftR1)*scale(h)*((1+i/2,1-tri(i))--(1+i/2,-i-tri(i))), heavy);     }  else {   // jagged heavy lines for even layers   pair jag1 = (-(i+1)/2,-(i-1)/2-tri(i)), jag2 = (1+(i+1)/2,-(i-1)/2-tri(i));   draw(shift(shiftR1)*scale(h)*(jag1+(0,1+(i-1)/2) -- jag1 -- jag1+(1,0) -- jag1+( 1,-(i+1)/2)), heavy);   draw(shift(shiftR1)*scale(h)*(jag2+(0,1+(i-1)/2) -- jag2 -- jag2-(1,0) -- jag2+(-1,-(i+1)/2)), heavy);       }  }  draw(shift(shiftR1)*scale(h)*shift((-n2*(n2+1)/2,-n2*(n2+1)/2))*((1,1)--(2*n2*(n2+1)/2,1)), heavy);   /* gradient square */ for(int i = 0; i < n; ++i)   for(int j = 0; j < n; ++j)   filldraw(shift(shiftR2)*scale(h)*shift((j,-i))*unitsquare, colors((i>j)?i:j)); for(int i = 0; i < n2; ++i) {  draw(shift(shiftR2)*scale(h)*((0,1-tri(i))--(tri(i),1-tri(i))--(tri(i),1)),heavy);  draw(shift(shiftR2)*scale(h)*shift(tri(i),-i-tri(i))*scale(i+1)*unitsquare,heavy); } /* outside boundary */ draw(shift(shiftR2)*scale(h)*shift((0,1-n))*scale(n)*unitsquare, heavy);    /* n nxn squares  for(int i = 0; i < n2; ++i){  filldraw(scale(h)*shift((-i,-(i+1)*(i+2)/2+1))*xscale(i+1)*yscale(i+1)*unitsquare, colors(floor(i*(i+1)/2)), heavy);   } 
+\end{asy}
+\end{center}
+
+This also suggests the following alternative proof:
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); pen heavy = linewidth(2);   /* global configurable variables */ int n2 = 4, n = floor(n2*(n2+1)/2);       // number of colors, number of layers real h = 0.6;                             // scale factor of diagram pair shiftR1 = (n*h+1,0),                 // middle diagram shift offset      shiftR2 = shiftR1 + (n*h+1,-1);     // right diagram shift offset  int lvl(int i) { return ceil(((8*i+9)^.5-1)/2); } /* return level of square i */  pen colors(int i) { return rgb(0.5-lvl(i)/5,0.3+lvl(i)/7,1-lvl(i)/6); } /* shading */   /* draw tick line with label, segment between A and B */ void htick(pair A, pair B,pair ticklength = (0.15,0)) { draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }    /* gradient triangle */  /* for(int i = 0; i < n; ++i){  for(int j = 0; j < 2*i+1; ++j){   filldraw(shift(shiftR1)*scale(h)*shift((j-i,-i))*unitsquare,colors(i));       if(j % lvl(i) == 0 && j != lvl(i)^2)    draw(shift(shiftR1)*scale(h)*shift((j-i,-i))*((0,0)--(0,1)--(1,1)), heavy);   if(j == 2*i)  // right border    draw(shift(shiftR1)*scale(h)*shift((j-i,-i))*((1,0)--(1,1)--(0,1)), heavy);     }  draw(shift(shiftR1)*scale(h)*shift((-i,-i))*((0,0)--(0,1)--(1,1)), heavy);  draw(shift(shiftR1)*scale(h)*shift(( i,-i))*((1,0)--(1,1)--(0,1)), heavy); }   */  // return kth triangular number (actually, 1+2+...+k)     int tri(int k) { return ((int) (k*(k+1)/2)); }     /* for(int i = 0; i < n2; ++i) {  draw(shift(shiftR1)*scale(h)*shift((0-tri(i),0-tri(i)))*((0,1)--(2*tri(i)+1,1)), heavy);  if(i % 2 == 0) {   // vertical heavy lines for odd layers   draw(shift(shiftR1)*scale(h)*((-i/2,1-tri(i))--(-i/2,-i-tri(i))), heavy);   draw(shift(shiftR1)*scale(h)*((1+i/2,1-tri(i))--(1+i/2,-i-tri(i))), heavy);     }  else {   // jagged heavy lines for even layers   pair jag1 = (-(i+1)/2,-(i-1)/2-tri(i)), jag2 = (1+(i+1)/2,-(i-1)/2-tri(i));   draw(shift(shiftR1)*scale(h)*(jag1+(0,1+(i-1)/2) -- jag1 -- jag1+(1,0) -- jag1+( 1,-(i+1)/2)), heavy);   draw(shift(shiftR1)*scale(h)*(jag2+(0,1+(i-1)/2) -- jag2 -- jag2-(1,0) -- jag2+(-1,-(i+1)/2)), heavy);       }  }  draw(shift(shiftR1)*scale(h)*shift((-n2*(n2+1)/2,-n2*(n2+1)/2))*((1,1)--(2*n2*(n2+1)/2,1)), heavy); */   /* gradient square */ for(int i = 0; i < n; ++i)   for(int j = 0; j < n; ++j)   filldraw(shift(shiftR2)*scale(h)*shift((j,-i))*unitsquare, colors((i>j)?i:j)); /* internal heavy  lines */ for(int i = 0; i < n2; ++i) {  draw(shift(shiftR2)*scale(h)*((0,1-tri(i))--(tri(i),1-tri(i))--(tri(i),1)),heavy);  draw(shift(shiftR2)*scale(h)*shift(tri(i),-i-tri(i))*scale(i+1)*unitsquare,heavy); }  // cheating, sorry: draw line for i = 4 draw(shift(shiftR2)*scale(h)*((2,-5)--(2,-9)),heavy); draw(shift(shiftR2)*scale(h)*((6,-1)--(10,-1)),heavy);   /* outside heavy boundary */ draw(shift(shiftR2)*scale(h)*shift((0,1-n))*scale(n)*unitsquare, heavy);  /* construct grid for a m x n rectangle */ void drawGrid(pair pos, int m, int n) {  for(int i = 0; i < m; ++i)   for(int j = 0; j < n; ++j)    draw(scale(h)*shift(pos+(i,j))*unitsquare); }   /* n nxn squares */ for(int i = 0; i < n2; ++i) {  label("$"+(string) (i+1) +"^3$", scale(h)*shift((0,1-tri(i+1)-i))*(0,(1+i)/2), W, fontsize(10));  for(int j = 0; j <= i; ++j) {   if(i % 2 == 0 || i != j) {    filldraw(scale(h)*shift((j*(i+2),1-tri(i+1)-i))*xscale(i+1)*yscale(i+1)*unitsquare, colors(floor(i*(i+1)/2)), heavy);      drawGrid((j*(i+2),1-tri(i+1)-i), i+1, i+1);   }   else {     // half-blocks     filldraw(scale(h)*shift((j*(i+2),1-tri(i+1)-i))*xscale((i+1)/2)*yscale(i+1)*unitsquare, colors(floor(i*(i+1)/2)), heavy);      drawGrid((j*(i+2),1-tri(i+1)-i), (int) ((i+1)/2), i+1);    filldraw(scale(h)*shift((j*(i+2)+(i+1)/2+1/2,1-tri(i+1)-i))*xscale((i+1)/2)*yscale(i+1)*unitsquare, colors(floor(i*(i+1)/2)), heavy);      drawGrid((j*(i+2)+(i+1)/2+1/2,1-tri(i+1)-i), (int) ((i+1)/2), i+1);   }  } }  
+\end{asy}
+\end{center}
+
+An animated version of this proof can be found in this gallery.
+
+\begin{center}
+\begin{asy}
+// To change the value of n shown, edit the line "int n = 5;" to whichever desired value of n. // To edit the size of the diagram, change the line unitsize(15); to the desired size.  unitsize(15); defaultpen(linewidth(0.7));  int n = 5;    // nth pentagonal number real r = 0.2; // dot radius pen p0 = red, p1 = rgb(1,1,0.5), p2 = rgb(0.5,1,0.5), p3 = rgb(0.5,0.5,1);  // dot color  // return the coordinate of the ith point of a regular pentagon with radius s // 0 <= i <= 4, and pentagonalPt(0,s) = (0,0)  pair pentagonalPt(int i, real s) {  return s * (dir(i*72+216+18) - dir(216+18)); }  // draw triangles  filldraw(pentagonalPt(4,1)--pentagonalPt(4,n-1)--pentagonalPt(3,n-1)+(pentagonalPt(4,n-1)-pentagonalPt(3,n-1))/(n-1)--cycle, p1, linewidth(1)); filldraw(pentagonalPt(3,1)--pentagonalPt(3,n-1)--pentagonalPt(2,n-1)+(pentagonalPt(3,n-1)-pentagonalPt(2,n-1))/(n-1)--cycle, p2, linewidth(1)); filldraw(pentagonalPt(2,1)--pentagonalPt(2,n-1)--pentagonalPt(1,n-1)+(pentagonalPt(2,n-1)-pentagonalPt(1,n-1))/(n-1)--cycle, p3, linewidth(1));  draw(pentagonalPt(1, n-1)--(0,0)--pentagonalPt(4, n-1)); for(int i = 1; i < n; ++i) {  for(int k = 2; k <= 4; ++k) {   draw(pentagonalPt(k, i) -- pentagonalPt(k-1, i), linetype("2 2"));   for(int j = 0; j <= i; ++j) {    filldraw(circle(pentagonalPt(k, i) + j*(pentagonalPt(k-1, i)-pentagonalPt(k, i))/i, r), p0);   }  } } filldraw(circle((0,0),r), p0); 
+\end{asy}
+\end{center}
+
+The $n$th pentagonal number is the sum of $n$ and three times the $n-1$th triangular number. 
+If $P_n$ denotes the $n$th pentagonal number, then $P_n = 3T_{n-1}+n$.
+
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); pen sm = fontsize(10); int n = 5, fib = 1, fib2 = 1, xsum = 1, ysum = 0; real h = 0.15; void fillsq(pair A = (0,0), real s, pen p = invisible, pen l = linewidth(1)){ filldraw(shift(A)*xscale(s)*yscale(s)*unitsquare, p, l); } void htick(pair A, pair B, pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }  for(int i = 0; i < n; ++i) {  fillsq((0,h*ysum),h*fib2,rgb(0.9,1,0.9));  fillsq((h*xsum,0),h*fib,rgb(1,0.9,0.9));  if(i == n-1){   label("$F_{n}^2$",h*(xsum+fib/2,fib/2),sm);   label("$F_{n-1}^2$",h*(fib2/2,ysum+fib2/2),sm);  }  else if(i == n-2){   label("$F_{n-2}^2$",h*(xsum+fib/2,fib/2),sm);   label("$F_{n-3}^2$",h*(fib2/2,ysum+fib2/2),sm);   }  fib = fib + fib2; fib2 = fib - fib2;  xsum = fib;  ysum = fib2;  fib = fib + fib2; fib2 = fib - fib2; } htick(h*(xsum,0)+(1,0),h*(xsum,ysum)+(1,0)); label("$F_n$",h*(xsum,ysum/2)+(1,0), E, sm); htick(h*(0,ysum)+(0,1),h*(xsum-fib+fib2,ysum)+(0,1),(0,0.15)); label("$F_{n-1}$",h*((xsum-fib+fib2)/2,ysum)+(0,1), N, sm); htick(h*(xsum,ysum)+(0,1),h*(xsum-fib+fib2,ysum)+(0,1),(0,0.15)); label("$F_{n}$",h*((2*xsum-fib+fib2)/2,ysum)+(0,1), N, sm); 
+\end{asy}
+\end{center}
+
+The identity $F_1^2 + F_2^2 + \cdots + F_n^2 = F_{n} \cdot F_{n+1}$, where $F_i$ is the $i$th Fibonacci number.
+
+Back to Top
+Geometric Series
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); int n = 10;  /* # of iterations */ real s = 6; /* square size */ pair shiftR = (s+2,0); pen sm = fontsize(10); void fillrect(pair A, pair B = (0,0), pen p = invisible, pen l = linewidth(1)){ filldraw(A--(A.x,B.y)--B--(B.x,A.y)--cycle, p, l); } void htick(pair A, pair B, pair ticklength = (0,0.15)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }  for(int i = 0; i < 2; ++i) /* left */  fillrect((s/2^(ceil(i/2)),s/2^(floor(i/2)))); for(int i = 0; i < n; ++i) /* right */  fillrect(shiftR,shiftR + (s/2^(ceil(i/2)),s/2^(floor(i/2)))); label("$\frac 12$",(s*3/4,s/2),sm); label("$\cdots$",(s*1/4,s/2),sm);  label("$\frac 12$",shiftR+(s*3/4,s/2),sm); label("$\cdots$",shiftR+(s*1/4,s/2),sm);  label("$\frac 14$",shiftR+(s*1/4,s*3/4),sm); label("$\frac 18$",shiftR+(s*3/8,s/4),sm);  htick((0,-1), (s,-1)); htick(shiftR + (0,-1), shiftR + (s,-1)); label("$1$",(s/2,-1),S,sm); label("$1$",shiftR+(s/2,-1),S,sm); 
+\end{asy}
+\end{center}
+
+The infinite geometric series $\frac 12 + \frac {1}{2^2} + \frac {1}{2^3} + \cdots = 1$.
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); int n = 4; real h = 2; pen colors[] = {rgb(0.8,0,0),rgb(0,0.8,0)}; void drawTriGrid(real s){  for(int i = 0; i < 4; ++i){   draw( (-s*3/2,s*(3/2 - i)) -- (s*3/2,s*(3/2 - i)), linetype("2 2"));   draw( (s*(3/2 - i),-s*3/2) -- (s*(3/2 - i),s*3/2), linetype("2 2"));   } } void fillrect(pair A, pair B, pen p){ filldraw(A--(A.x,B.y)--B--(B.x,A.y)--cycle, p, linewidth(1)); }  for(int i = 0; i < n; ++i) {  fillrect( ((-1)^i*-h/3^i*(3/2),-h/3^i*(3/2)) , ((-1)^i*-h/3^i*(1/2),h/3^i*(3/2)) , colors[0]);  fillrect(-((-1)^i*-h/3^i*(3/2),-h/3^i*(3/2)) ,-((-1)^i*-h/3^i*(1/2),h/3^i*(3/2)) , colors[1]);  fillrect( (-h/3^i*(1/2),(-1)^i*h/3^i*(1/2)) , (h/3^i*(1/2),(-1)^i*h/3^i*(3/2)), colors[0]);  fillrect(-(-h/3^i*(1/2),(-1)^i*h/3^i*(1/2)) ,-(h/3^i*(1/2),(-1)^i*h/3^i*(3/2)), colors[1]);  drawTriGrid(h/3^i); } 
+\end{asy}
+\end{center}
+
+The infinite geometric series $\frac 13 + \frac {1}{3^2} + \frac {1}{3^3} + \cdots = \frac 12$.
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); int n = 10; real h = 6; pen colors[] = {rgb(0.9,0,0),rgb(0,0.9,0),rgb(0,0,0.9)}; pair shiftR = (h+3,0);  void drawEquilaterals(pair A, real s){  filldraw(A--A+s*expi(2*pi/3)--A+(-s,0)--cycle,colors[0]);  filldraw(A--A+s*expi(2*pi/3)--A+s*expi(1*pi/3)--cycle,colors[1]);   filldraw(A--A+s*expi(1*pi/3)--A+(s,0)--cycle,colors[2]); }  for(int i = 0; i < n; ++i)  drawEquilaterals(shiftR + (0,h-h/(2^i) ), (h/(2^(i+1))) *2/3^.5); drawEquilaterals((0,0), h/3^.5); draw((-h/3^.5,0)--(h/3^.5,0)--(0,h)--cycle); label("$\vdots$",(0,3/4*h)); 
+\end{asy}
+\end{center}
+
+The infinite geometric series $\frac 14 + \frac {1}{4^2} + \frac {1}{4^3} + \cdots = \frac 13$.
+
+\begin{center}
+\begin{asy}
+ defaultpen(linewidth(1)); unitsize(15); int n = 8;  /* number of layers */ real h = 3; /* square height */  pen colors[] = {rgb(0.8,0,0),rgb(0,0.8,0),rgb(0,0,0.8)};  pair shiftL = (-3*h,0); /* amount to shift second square left by */  void drawSquares(real s, pair A = (0,0)){  filldraw(shift(A)*shift(-2*s,  -s)*xscale(s)*yscale(s)*unitsquare,colors[0]);  filldraw(shift(A)*shift(-2*s,-2*s)*xscale(s)*yscale(s)*unitsquare,colors[1]);  filldraw(shift(A)*shift(-s  ,-2*s)*xscale(s)*yscale(s)*unitsquare,colors[2]); } for(int i = 0; i < n; ++i)  drawSquares(h/2^i); drawSquares(h,shiftL); draw(shift(shiftL+(-2*h,-2*h))*xscale(2*h)*yscale(2*h)*unitsquare); label("$\cdots$",shiftL+(-h/2,-h/2)); 
+\end{asy}
+\end{center}
+
+Another proof of the identity $\frac 14 + \frac {1}{4^2} + \frac {1}{4^3} + \cdots = \frac 13$. 
+
+\begin{center}
+\begin{asy}
+ unitsize(15); defaultpen(linewidth(1)); pen sm = fontsize(10); real r = 0.7, h = 4.5, n = 10, xsum = 0;  void htick(pair A, pair B, pair ticklength = (0,0.15)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }  filldraw(xscale(h)*yscale(h)*unitsquare,rgb(0.9,1,0.9)); draw((0,0)--(h/(1-r),0)--(0,h)); for(int i = 0; i < n; ++i){  xsum += r^i;  draw((h*xsum,0)--(h*xsum,h*(1-(1-r)*xsum)));  htick((h*(xsum-r^i),-1),(h*xsum,-1));  if(i < 6)    label("$r^"+(string) i+"$",(h*(xsum-r^i/2),-1),S,sm);  else if(i == 8)    label("$\cdots$",(h*(xsum-r^i/2),-1.2),S,sm); }  /* htick((-1,0),(-1,h),(.15,0)); htick((0,h+1),(h,h+1)); */ htick((h+1,h),(h+1,h*r),(.15,0)); label("$1$",(0,h/2),W,sm); label("$1$",(h/2,h),N,sm); label("$1-r$",(h+1,h*(1+r)/2),E,sm);
+\end{asy}
+\end{center}
+
+
+The infinite geometric series $\sum_{n=0}^{\infty} r^n = \frac{1}{1-r}$.
+
+\begin{center}
+\begin{asy}
+unitsize(15); defaultpen(linewidth(1)); pen sm = fontsize(10); real r = 0.55, h = 2.5, n = 7, xsum = 0; pair shiftD = -(0,h*r/(1-r)+2.5); void htick(pair A, pair B, pair ticklength = (0,0.15)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }  draw((0,h*r/(1-r))--(0,0)--(h*n,0)); for(int i = 1; i < n+1; ++i){  draw((h*i,h*(r/(1-r)-xsum-r^(i)))--(h*i,h*(r/(1-r)-xsum))--(0,h*(r/(1-r)-xsum)));  if(i < 4)    label("$r^"+(string) i+"$", (0,h*(r/(1-r)-xsum-r^(i)/2)), W, sm);  htick((h*i,-1),(h*(i-1),-1));  if(i < n)    label("$1$",(h*(i-1/2),-1),S,sm);  else if(i == n)    label("$\cdots$",(h*(i-1/2),-1.2),S,sm);  xsum += r^i; } draw((0,h*r/(1-r))+shiftD--shiftD--(h*n,0)+shiftD); xsum = 0; for(int i = 1; i < n+1; ++i){  draw(shiftD+(h*i,0)--shiftD+(h*i,h*(r/(1-r)-xsum))--shiftD+(h*(i-1),h*(r/(1-r)-xsum)));  draw(shiftD+(h*i,h*(r/(1-r)-xsum))--shiftD+(0,h*(r/(1-r)-xsum)),linetype("4 4")+linewidth(0.5));  if(i < 4)    label("$r^"+(string) i+"$", shiftD+(h*i,h*(r/(1-r)-xsum-r^(i)/2)), ENE, sm);  htick(shiftD+(h*i,-1),shiftD+(h*(i-1),-1));  if(i < n)    label("$1$",shiftD+(h*(i-1/2),-1),S,sm);  else if(i == n)    label("$\cdots$",shiftD+(h*(i-1/2),-1.2),S,sm);  xsum += r^i; } 
+\end{asy}
+\end{center}
+
+
+The arithmetic-geometric series $\sum_{n=1}^{\infty} nr^n = \sum_{n=1}^{\infty} \sum_{i=n}^{\infty} r^i = \sum_{n=1}^{\infty} \frac{r^{n}}{1-r} = \frac{r}{(1-r)^2}$, also known as Gabriel's staircase.[2]
+
+Back to Top
+Geometry
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); real a = 3.6, b = 4.8, c = (a^2 + b^2)^.5; pair shiftR = (a+b+2,0); pen sm = fontsize(10), heavy = linewidth(1.6); void htick(pair A, pair B, pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); } void makeshiftarrow(pair A, real dir, real arrowlength = 0.5){  /* Arrow option resizes */   fill(A--A+arrowlength*expi(dir+pi/8)--A+arrowlength*expi(dir-pi/8)--cycle); }  { /* left side */ filldraw(xscale(a+b)*yscale(a+b)*unitsquare, rgb(1,0.9,0.8));  filldraw((b,0)  --(b,a)--(0,a)  --cycle, rgb(0.9,1,0.9)); filldraw((0,a)  --(a,a)--(a,a+b)--cycle, rgb(0.9,1,0.9)); filldraw((a,a+b)--(a,b)--(a+b,b)--cycle, rgb(0.9,1,0.9)); filldraw((a+b,b)--(b,b)--(b,0)  --cycle, rgb(0.9,1,0.9));  htick((0,-c/10),(b,-c/10),(0,0.15)); htick((-c/10,0),(-c/10,a),(0.15,0)); label("$a$",(-c/10,a/2),W,sm); label("$b$",(b/2,-c/10),S,sm); label("$c$", (a/2,a+b/2),NW,sm); label("$b-a$",(b,(a+b)/2),E,sm); }  { /* right side */ filldraw(shift(shiftR)*xscale(a+b)*yscale(a+b)*unitsquare, rgb(1,0.9,0.8));  filldraw(shift(shiftR)*((0,a)  --(a,a)--(a,a+b)--cycle), rgb(0.9,1,0.9)); filldraw(shift(shiftR)*((a,a+b)--(a,b)--(a+b,b)--cycle), rgb(0.9,1,0.9)); fill(shift(shiftR      )*xscale(a)*yscale(a)*unitsquare,rgb(0.9,0.7,0.7));  fill(shift(shiftR+(a,0))*xscale(b)*yscale(b)*unitsquare,rgb(0.9,0.7,0.7)); filldraw(shift(shiftR)*((a+b,b)--(b,b)--(b,0)  --cycle), rgb(0.7,0.9,0.7)); filldraw(shift(shiftR)*((b,0)  --(b,a)--(0,a)  --cycle), rgb(0.7,0.9,0.7)); draw(shift(shiftR      )*xscale(a)*yscale(a)*unitsquare,heavy);  draw(shift(shiftR+(a,0))*xscale(b)*yscale(b)*unitsquare,heavy); draw(shift(shiftR)*((2*a/3,a+b/3)--(b/3,a/3) ^^ (a+b/3,b+a/3)--(b+2*a/3,b/3))); makeshiftarrow(shiftR+(b/3,a/3),angle((2*a/3,a+b/3)-(b/3,a/3))); makeshiftarrow(shiftR+(b+2*a/3,b/3),angle((a+b/3,b+a/3)-(b+2*a/3,b/3)));   label("$a$",shiftR+(0,a/2),W,sm);  label("$b$",shiftR+(a+b,b/2),E,sm);  label("$c$",shiftR+(a/2,a+b/2),NW,sm);  }
+\end{asy}
+\end{center}
+
+The Pythagorean Theorem (first of many proofs): the left diagram shows that $c^2 = 4 \cdot \frac{ab}2 + (b-a)^2 = a^2 + b^2$, and the right diagram shows a second proof by re-arranging the first diagram (the area of the shaded part is equal to $a^2 + b^2$, but it is also the re-arranged version of the oblique square, which has area $c^2$).[3]
+
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); pen sm = fontsize(10); real a = 3/1.2, b = 4/1.2, c = (a^2 + b^2)^.5, rot1 = acos(a/c); pair shiftR = (a+b+c,0); path top = (0,c)--a*expi(rot1)+(0,c)--(c,c), sq1=rotate(rot1*180/pi)*xscale(a)*yscale(a)*unitsquare, sq2=shift(c,0)*rotate(rot1*180/pi)*xscale(b)*yscale(b)*unitsquare; void htick(pair A, pair B, pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }  { /* first picture */  filldraw((0,0)--(c,0)--a*expi(rot1)--cycle, rgb(1,0.85,0.7));  fill(sq1, rgb(0.95,1,0.95)); fill(sq2, rgb(0.95,1,0.95)); filldraw(rotate(270)*xscale(c)*yscale(c)*unitsquare, rgb(0.96,1,0.96)); filldraw((0,0)--top--(c,0)--a*expi(rot1)--cycle, rgb(0.5,0.9,0.5)); draw(sq1 ^^ sq2); draw(a*expi(rot1+pi/2)--top ^^ a*expi(rot1)--a*expi(rot1)+(0,c));   label("$a$",a/2*expi(rot1),NW,sm); label("$b$",a/2*expi(rot1)+(c/2,0),NE,sm); label("$c$",(c/2,0),S,sm); }  { /* second picture */ fill(shift(shiftR)*sq1, rgb(0.95,1,0.95)); fill(shift(shiftR)*sq2, rgb(0.95,1,0.95)); filldraw(shift(shiftR)*rotate(270)*xscale(c)*yscale(c)*unitsquare, rgb(0.96,1,0.96)); filldraw(shift(shiftR+(0,-c))*((0,0)--top--(c,0)--a*expi(rot1)--cycle), rgb(0.5,0.9,0.5)); filldraw(shift(shiftR+(0,-c))*((0,0)--(c,0)--a*expi(rot1)--cycle), rgb(1,0.85,0.7));  draw(shift(shiftR)*((0,0)--(c,0) ^^ sq1 ^^ sq2 ^^ a*expi(rot1+pi/2)--top ^^ a*expi(rot1)--a*expi(rot1)+(0,c)));   label("$a$",shiftR+a/2*expi(rot1),NW,sm); label("$b$",shiftR+a/2*expi(rot1)+(c/2,0),NE,sm); label("$c$",shiftR+(c/2,0),S,sm); }
+\end{asy}
+\end{center}
+
+Another proof of the Pythagorean Theorem (animated version).
+
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); pen sm = fontsize(10); real a = 3/1.2, b = 4/1.2, c = (a^2 + b^2)^.5, rot1 = acos(a/c); pair shiftR = (a+b+c,0); path top = (0,c)--a*expi(rot1)+(0,c)--(c,c), sq1=rotate(rot1*180/pi)*xscale(a)*yscale(a)*unitsquare, sq2=shift(c,0)*rotate(rot1*180/pi)*xscale(b)*yscale(b)*unitsquare, tri = (0,0)--(0,a)--(b,0)--cycle; void htick(pair A, pair B, pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }  { /* first picture */  filldraw(xscale(a+b)*yscale(a+b)*unitsquare, rgb(1,0.85,0.75)); filldraw(tri, rgb(0.6,0.9,0.6)); filldraw(shift((a+b,0))*rotate(90)*tri, rgb(0.6,0.9,0.6)); filldraw(shift((a+b,a+b))*rotate(180)*tri, rgb(0.6,0.9,0.6)); filldraw(shift((0,a+b))*rotate(270)*tri, rgb(0.6,0.9,0.6)); draw((0,a)--(a+b,b), linetype("2 4")+linewidth(0.7));  label("$a$",(0,a/2),W,sm); label("$b$",(b/2,0),S,sm); label("$c$",(b/2,a/2),NE,sm); }  { /* second picture */ filldraw(shift(shiftR)*xscale(a+b)*yscale(a+b)*unitsquare, rgb(1,0.85,0.75)); filldraw(shift(shiftR+(a,a)  )*rotate(270)*reflect((0,0),(1,1))*tri, rgb(0.6,0.9,0.6));  filldraw(shift(shiftR+(a+b,0))*rotate(90)*reflect((0,0),(1,1))*tri, rgb(0.6,0.9,0.6));  filldraw(shift(shiftR+(a,a)  )*rotate(90)*tri, rgb(0.6,0.9,0.6));  filldraw(shift(shiftR+(0,a+b))*rotate(270)*tri, rgb(0.6,0.9,0.6));  label("$a$",shiftR+(0,a/2),W,sm); label("$a$",shiftR+(a/2,0),S,sm); label("$b$",shiftR+(a+b,a+b/2),E,sm); label("$b$",shiftR+(a+b/2,a+b),N,sm); }
+\end{asy}
+\end{center}
+
+Another proof of the Pythagorean Theorem; the left-hand diagram suggests the identity $c^2 = (a+b)^2 - 4 \cdot \frac{ab}2 = a^2 + b^2$, and the right-hand diagram offers another re-arrangement proof.
+
+
+\begin{center}
+\begin{asy}
+ import graph; defaultpen(linewidth(0.7)); unitsize(15); pen ds=black, ls = linetype("2 2");  pen fueaev=rgb(1,0.4,0.4), ffffea=rgb(1,1,0.4), evfuea=rgb(0.4,1,0.4), fffuev=rgb(1,0.5,0.3), fzfzfz=rgb(0.8,0.8,0.8), evevfz=rgb(0.4,0.4,1);   fill((0,0)--(1.5,2)--(-0.5,3.5)--(-2,1.5)--cycle,fueaev); fill((1.5,2)--(4.17,0)--(6.17,2.67)--(3.5,4.67)--cycle,fueaev); fill((4.17,0)--(0,0)--(0,-4.17)--(4.17,-4.17)--cycle,fueaev); fill((1.5,2)--(2,2.67)--(2,1.63)--cycle,ffffea); fill((2,2.67)--(2,1.63)--(4.17,0)--(6.17,2.67)--cycle,evfuea); fill((0,3.13)--(0,0)--(1.5,2)--cycle,fffuev); fill((-0.5,3.5)--(0,3.13)--(0,0)--(-2,1.5)--cycle,fueaev); fill((0,0)--(1.5,2)--(4.17,0)--cycle,fzfzfz); fill((2,2.67)--(3.5,4.67)--(6.17,2.67)--cycle,evevfz); fill((0,-4.17)--(1.5,-2.17)--(0,-1.04)--cycle,fffuev); fill((1.5,-2.17)--(0,-4.17)--(4.17,-4.17)--cycle,evevfz); fill((4.17,0)--(3.67,-0.67)--(4.17,-1.04)--cycle,white); fill((3.67,-0.67)--(2.17,-2.67)--(4.17,-4.17)--(4.17,-1.04)--cycle,fueaev); fill((0,0)--(0,-1.04)--(2.17,-2.67)--(4.17,0)--cycle,evfuea); fill((4.17,0)--(3.67,-0.67)--(4.17,-1.04)--cycle, ffffea);  draw((0,0)--(1.5,2)); draw((0,0)--(4.17,0)); draw((1.5,2)--(4.17,0)); draw((0,0)--(1.5,2)); draw((1.5,2)--(-0.5,3.5)); draw((-0.5,3.5)--(-2,1.5)); draw((-2,1.5)--(0,0)); draw((1.5,2)--(4.17,0)); draw((4.17,0)--(6.17,2.67)); draw((6.17,2.67)--(3.5,4.67)); draw((3.5,4.67)--(1.5,2)); draw((4.17,0)--(0,0)); draw((0,0)--(0,-4.17)); draw((0,-4.17)--(4.17,-4.17)); draw((4.17,-4.17)--(4.17,0)); draw((0,0)--(-2,1.5)); draw((-2,1.5)--(-0.5,3.5)); draw((-0.5,3.5)--(1.5,2)); draw((0,0)--(0,-4.17)); draw((0,-4.17)--(4.17,-4.17)); draw((4.17,-4.17)--(4.17,0)); draw((4.17,0)--(6.17,2.67)); draw((6.17,2.67)--(3.5,4.67)); draw((3.5,4.67)--(1.5,2)); draw((0,-4.17)--(0,0)); draw((0,0)--(0,3.13)); draw((1.5,2)--(2,2.67)); draw((2,2.67)--(2,1.63)); draw((2,1.63)--(1.5,2)); draw((2,2.67)--(2,1.63)); draw((2,1.63)--(4.17,0)); draw((4.17,0)--(6.17,2.67)); draw((6.17,2.67)--(2,2.67)); draw((0,3.13)--(0,0)); draw((0,0)--(1.5,2)); draw((1.5,2)--(0,3.13)); draw((-0.5,3.5)--(0,3.13)); draw((0,3.13)--(0,0)); draw((0,0)--(-2,1.5)); draw((-2,1.5)--(-0.5,3.5)); draw((0,0)--(1.5,2)); draw((1.5,2)--(4.17,0)); draw((4.17,0)--(0,0)); draw((2,2.67)--(3.5,4.67)); draw((3.5,4.67)--(6.17,2.67)); draw((6.17,2.67)--(2,2.67)); draw((0,-1.04)--(4.17,-4.17)); draw((0,-4.17)--(1.5,-2.17)); draw((1.5,-2.17)--(0,-1.04)); draw((0,-1.04)--(0,-4.17)); draw((1.5,-2.17)--(0,-4.17)); draw((0,-4.17)--(4.17,-4.17)); draw((4.17,-4.17)--(1.5,-2.17)); draw((4.17,0)--(3.67,-0.67)); draw((3.67,-0.67)--(4.17,-1.04)); draw((4.17,-1.04)--(4.17,0)); draw((3.67,-0.67)--(2.17,-2.67)); draw((2.17,-2.67)--(4.17,-4.17)); draw((4.17,-4.17)--(4.17,-1.04)); draw((4.17,-1.04)--(3.67,-0.67)); draw((0,0)--(0,-1.04)); draw((0,-1.04)--(2.17,-2.67)); draw((2.17,-2.67)--(4.17,0)); draw((4.17,0)--(0,0));   draw((-0.5,3.5)--(1.5,6.17),ls);  draw((1.5,6.17)--(3.5,4.67),ls);  draw((0,3.13)--(0,4.17),ls);  draw((1.5,6.17)--(1.5,2),ls);  draw((2,5.79)--(2,2.67),ls);  draw(rightanglemark((0,0),(1.5,2),(4.17,0)));
+\end{asy}
+\end{center}
+
+A dissection proof of the Pythagorean Theorem. (Cut-the-knot)
+
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15); pen sm = fontsize(10); real a = 3/1.2, b = 4/1.2, c = (a^2 + b^2)^.5, rot1 = acos(a/c);  path top = (0,c)--a*expi(rot1)+(0,c)--(c,c), sq1=rotate(rot1*180/pi)*xscale(a)*yscale(a)*unitsquare, sq2=shift(c,0)*rotate(rot1*180/pi)*xscale(b)*yscale(b)*unitsquare; void htick(pair A, pair B, pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); }  filldraw((0,0)--(c,0)--a*expi(rot1)--cycle, rgb(1,0.85,0.7)); /* draw(rightanglemark((0,0),a*expi(rot1),(c,0))); */ filldraw(sq1, rgb(0.95,1,0.95)); filldraw(sq2, rgb(0.95,1,0.95)); filldraw(rotate(270)*xscale(c)*yscale(c)*unitsquare, rgb(0.96,1,0.96));  label("$a$",a/2*expi(rot1),SE,sm); label("$b$",a/2*expi(rot1)+(c/2,0),SW,sm); label("$c$",(c/2,-c),S,sm); 
+\end{asy}
+\end{center}
+
+COMING: The last proof of the Pythagorean Theorem we shall present on this page, this one by dissection.
+
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)+fontsize(10)); unitsize(15); real a = 3.6, b = 4.8, c = (a^2 + b^2)^.5; pair shiftR = (a+b+2,0); pen sm = fontsize(10), heavy = linewidth(1); void htick(pair A, pair B, pair ticklength = (0.15,0)){ draw(A--B ^^ A-ticklength--A+ticklength ^^ B-ticklength--B+ticklength); } void makeshiftarrow(pair A, real dir, real arrowlength = 0.5){  /* Arrow option resizes */   fill(A--A+arrowlength*expi(dir+pi/8)--A+arrowlength*expi(dir-pi/8)--cycle); }  real s1 = 5, s2 = 7, s3 = 8; // triangle side lengths pen c1 = rgb(0.5,0.5,1), c2 = rgb(0.5,1,0.8), c3 = rgb(0.5,1,0.5); // color pens pair shiftR = (s1+1,0); // distance between two diagrams  pair A=(0,0), B = (s1,0), C = intersectionpoints(Circle(A, s3), Circle(B, s2))[0], I = incenter(A,B,C), D = foot(I,B,C), E = foot(I,A,C), F = foot(I,A,B);  // draw left diagram filldraw(A--I--B--cycle, c1, heavy); filldraw(B--I--C--cycle, c2, heavy); filldraw(A--I--C--cycle, c3, heavy); dot(I); draw(incircle(A,B,C), heavy); draw(I--D, linetype("2 2")); draw(I--E, linetype("2 2")); draw(I--F, linetype("2 2"));  label("$a$",(A+B)/2,S); label("$b$",(B+C)/2,NE); label("$c$",(A+C)/2,NW); label("$r$",(I+F)/2,W); draw(rightanglemark(I,F,A)); draw(rightanglemark(I,D,B)); draw(rightanglemark(I,E,C));  pair reflectC = C + 2*(foot(C,A,I) - C), reflectI = (reflectC.x - I.x, I.y);   // draw right diagram filldraw(shift(shiftR)*(A--I--B--cycle), c1, heavy); filldraw(shift(shiftR+B)*(A--reflectI--reflectC--cycle), c3, heavy); filldraw(shift(shiftR)*(I--B--B+reflectI--cycle), c2, heavy); // dashed perpendiculars; arbitrary coding here draw(shift(shiftR)*(I--F), linetype("2 2")); draw(shift(shiftR)*(B--B+(0,inradius(A,B,C))), linetype("2 2")); draw(shift(shiftR+B)*(reflectI--foot(reflectI,A,B)), linetype("2 2")); draw(shift(shiftR)*rightanglemark(I,F,A)); draw(shift(shiftR)*rightanglemark(B,B+(0,inradius(A,B,C)),I)); draw(shift(shiftR+B)*rightanglemark(reflectI,foot(reflectI,A,B),A)); label("$a$",shiftR+(A+B)/2,S); label("$b$",shiftR+(I+B+reflectI)/2,N); label("$c$",shiftR+B+(A+reflectC)/2,S); label("$r$",shiftR+(I+F)/2,W); 
+\end{asy}
+\end{center}
+ The area of a triangle is given by $A = \frac{1}{2} \cdot r \cdot (a+b+c) = rs$, where $r$ is the inradius and $s$ is the semiperimeter.[10] 
+(Comment: we do not need to re-arrange the triangles to a trapezoid to see this, but this re-arrangement works due to alternate interior angles/angle bisector properties of the incenter.)
+
+
+\begin{center}
+\begin{asy}
+unitsize(15); defaultpen(linewidth(0.7) + fontsize(10)); pen heavy = linewidth(1); real a = 4.5, b = 2.5, c = 2, d = 4; pair A = (a,b), B = (a+c,b+d), C = (c,d), D = IP(B--B+2*(A-B), (0,0)--(a,0)), F = IP(B--B+2*(C-B), (0,0)--(0,d)), G = IP(B--D,(0,d)--(a+c,d)), H = IP(B--F,(a,0)--(a,b+d)), shiftR = (a+c+1,0), shiftR2 = 2*shiftR;  // left diagram filldraw((0,0)--(a,0)--(a,d)--(0,d)--cycle, rgb(0.5, 1, 0.5)); draw((0,0)--A--B--C--cycle);  draw(shift((a,d))*xscale(c)*yscale(b)*unitsquare); draw(A--D ^^ C--F, linetype("2 2"));  draw((0,0)--(a,0)--(a,b)--cycle, heavy); draw(shift(C)*((0,0)--(a,0)--(a,b)--cycle), heavy); label("$a$",(a/2,0),S); label("$d$",(0,d/2),W); label("$b$",B-(0,b/2),E); label("$c$",B-(c/2,0),N); label("$(a,b)$",(a,b),SE,fontsize(8)); label("$(c,d)$",(c,d),NW,fontsize(8));  // middle diagram filldraw(shift(shiftR)*((0,0)--A--(a,d)--G--B--C--(0,d)--cycle), rgb(0.5, 1, 0.5)); filldraw(shift(shiftR)*(G--(a+c,d)--B--cycle), rgb(1,0.5,0.5)); draw(shift(shiftR)*((0,0)--(a,0)--(a,d)--(0,d)--cycle)); draw(shift(shiftR+(a,d))*xscale(c)*yscale(b)*unitsquare); draw(shift(shiftR)*(A--D ^^ C--F), linetype("2 2"));  draw(shift(shiftR)*((0,0)--(0,d)--(c,d)--cycle), heavy); draw(shift(shiftR+A)*((0,0)--(0,d)--(c,d)--cycle), heavy); label("$a$",shiftR+(a/2,0),S); label("$d$",shiftR+(0,d/2),W); label("$b$",shiftR+B-(0,b/2),E); label("$c$",shiftR+B-(c/2,0),N);  // right diagram filldraw(shift(shiftR2)*((0,0)--A--G--(a,d)--H--C--cycle), rgb(0.5, 1, 0.5));  filldraw(shift(shiftR2)*(G--(a,d)--H--B--cycle), rgb(0.3, 0.9, 0.3)); filldraw(shift(shiftR2)*(G--(a+c,d)--B--cycle), rgb(1,0.5,0.5)); filldraw(shift(shiftR2)*(H--(a,b+d)--B--cycle), rgb(1,0.5,0.5)); draw(shift(shiftR2)*((0,0)--(a,0)--(a,d)--(0,d)--cycle)); draw(shift(shiftR2)*(A--D ^^ C--F), linetype("2 2"));  label("$a$",shiftR2+(a/2,0),S); label("$d$",shiftR2+(0,d/2),W); label("$b$",shiftR2+B-(0,b/2),E); label("$c$",shiftR2+B-(c/2,0),N); label("$\overrightarrow{(a,b)}$",shiftR2+(a,b),SE,fontsize(8)); label("$\overrightarrow{(c,d)}$",shiftR2+(c,d),NW,fontsize(8)); 
+\end{asy}
+\end{center}
+ The area of a parallelogram with adjacent side vectors $\overrightarrow{(a,b)}, \overrightarrow{(c,d)}$ is given by $\overrightarrow{(a,b)} \times \overrightarrow{(c,d)} = ad-bc$.
+
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(0.7)); unitsize(15);   real r = 3.5; // radius pair shiftL = (-2.5*r,0); // distance between 2 diagrams  /* returns the vertex of the interior equilateral triangle with one edge shared with the dodecagon */ pair dodecagonPt(int i) {  return r*dir(i*360/12) + rotate(60)*(r*(dir((i+1)*360/12) - dir(i*360/12))); }  /* left diagram */ path dodecagon = shiftL+(r,0)--shiftL+r*dir(30); for(int i = 1; i < 12; ++i)   dodecagon = dodecagon--shiftL+r*dir(i*30); dodecagon = dodecagon--cycle; filldraw(dodecagon, rgb(0.5,1,0.5)); draw(Circle(shiftL, r), linetype("2 2")); dot((0,0)); draw(shiftL--shiftL+(r,0)); label("$R$",shiftL+(r/2,0),S);  /* right diagram */ for(int i = 0; i < 9; ++i) {  filldraw((0,0)--r*dir(i*360/12)--dodecagonPt(i)--cycle, rgb(0,0.8,0));  filldraw((0,0)--r*dir((i+1)*360/12)--dodecagonPt(i)--cycle, rgb(0,0.8,0));  filldraw(r*dir(i*360/12)--r*dir((i+1)*360/12)--dodecagonPt(i)--cycle, rgb(0.8,0.8,0));  if (i % 3 == 1) {   filldraw(r*2^.5*dir(floor(i/3)*90+45)--r*dir(i*360/12)--r*dir((i+1)*360/12)--cycle, rgb(0.8,0.8,0));   filldraw(r*2^.5*dir(floor(i/3)*90+45)--r*dir(i*360/12)--r*dir(floor(i/3)*90)--cycle, rgb(0,0.8,0));   filldraw(r*2^.5*dir(floor(i/3)*90+45)--r*dir((i+1)*360/12)--r*dir(floor(i/3)*90+90)--cycle, rgb(0,0.8,0));  } } for(int i = 9; i < 12; ++i) {  filldraw((0,0)--r*dir(i*360/12)--dodecagonPt(i)--cycle, rgb(0.5,1,0.5), linetype("2 2"));  filldraw((0,0)--r*dir((i+1)*360/12)--dodecagonPt(i)--cycle, rgb(0.5,1,0.5), linetype("2 2"));  filldraw(r*dir(i*360/12)--r*dir((i+1)*360/12)--dodecagonPt(i)--cycle, rgb(1,1,0.5), linetype("2 2")); } 
+\end{asy}
+\end{center}
+
+The area of a dodecagon is $3R^2$, where $R$ is the circumradius.
+
+\begin{center}
+\begin{asy}
+ pathpen = linewidth(1); unitsize(15); pen dotted = linetype("2 4"); path xaxis = (-3,0)--(3,0); pair A = (-2,2), B = (1.5,1.5), B3 = (-1.5,0), B2 = (B.x,-B.y), C2 = IP(xaxis, A--B2);   D(xaxis,Arrows(8)); D(D(A)--D(C2)--D(B)); D(D(B2)--C2,dashed+linewidth(0.7));  D(A--D(B3)--B,dotted+linewidth(0.7)); D(B3--B2,dotted); MP("(a,b)",A,W); MP("(c,d)",B,E); MP("(c,-d)",B2,E); 
+\end{asy}
+\end{center}
+
+The smallest distance necessary to travel between $(a,b)$, the x-axis, and then $(c,d)$ for $b,d > 0$ is given by $\sqrt{(a-c)^2 + (b+d)^2}$.[4] 
+
+
+\begin{center}
+\begin{asy}
+defaultpen(linewidth(1)); unitsize(15); pen dotted = linetype("2 4"), sm = fontsize(10); real r = 2; pair A = r*(0,0), B = (r*18/5,A.y), C = r*(16/5,12/5), D = (r*9/5,C.y); pair refl(pair a, pair b = (C+B)/2) { return a+2*(b-a); } void makeshiftarrow(pair a, real dir, real arrowlength = r){  /* Arrow option resizes */   fill(a--a+arrowlength*expi(dir+pi/8)--a+arrowlength*expi(dir-pi/8)--cycle); }  draw(A--B--C--D--cycle); draw(A--C^^B--D); draw(refl(A)--C--B--refl(D)--cycle ^^ C--refl(D), dotted); draw(rightanglemark(A,C,refl(D),15)^^rightanglemark(A,IP(A--C,B--D),B,15), linewidth(0.7)); label("$A$",A,S,sm);label("$B$",B,S,sm);label("$C$",C,N,sm);label("$D$",D,N,sm);label("$A'$",refl(A),N,sm);label("$D'$",refl(D),S,sm);    /* arrow */ draw(arc((B+C)/2,C.y,240,300),linewidth(0.7)); makeshiftarrow((B+C)/2+C.y*expi(pi*300/180),210*pi/180,r/4); 
+\end{asy}
+\end{center}
+
+In trapezoid $ABCD$ with $\overline{AB} \parallel \overline{CD}$, then $\overline{AC} \perp \overline{BD} \Longleftrightarrow AC^2 + BD^2 = (AB + CD)^2$.
+
+
+\begin{center}
+\begin{asy}
+// feel free to change these four points! pair A = (0,0), B = (3, -2), C = (5,1), D = (1,3);  // // Rest of code // size(200); defaultpen(linewidth(0.9)); pen lightgreen = rgb(0.6,1,0.6), lightred = rgb(1,0.6,0.6), smdash = linewidth(0.7)+linetype("2 2");  pair E = IP(A--C,B--D), AB = (A+B)/2, BC = (B+C)/2, CD = (C+D)/2, DA = (D+A)/2, ABE = 2*AB-E, BCE = 2*BC-E, CDE = 2*CD-E, DAE = 2*DA-E; path midpts = AB--BC--CD--DA--cycle; filldraw(shift(-E)*scale(2)*midpts,lightgreen); filldraw(midpts,lightred); draw(A--B--C--D--cycle); draw(A--C); draw(B--D); draw((A+ABE)/2--(C+BCE)/2,smdash); draw((B+ABE)/2--(D+DAE)/2,smdash); draw((B+BCE)/2--(D+CDE)/2,smdash); draw((A+DAE)/2--(C+CDE)/2,smdash);  dot(A); dot(B); dot(C); dot(D); label("$A$",A,W);label("$B$",B,S);label("$C$",C,E);label("$D$",D,N); 
+\end{asy}
+\end{center}
+
+Varignon's theorem: the area of the outer parallelogram is twice the area of the quadrilateral and four times the area of the midpoint parallelogram, so the midpoint parallelogram of a (convex) quadrilateral has area $1/2$ of the quadrilateral.
+
+Proof for Volume of a Cone: http://www.mathematische-basteleien.de/wuerfel16.gif
+
+Back to Top
+Miscellaneous
+
+\begin{center}
+\begin{asy}
+ import graph; size(220); defaultpen(linewidth(0.7)); Label k; k.p=fontsize(10);  real xmax = pi/2+0.5, xmin = -0.5, ymax = 1.39, ymin = -0.39, lblpt = pi/4 + 0.08;   /* f(x) = sin^2(x) */ real f(real x) { return sin(x) * sin(x); } string pilabel(real x) { if(x > 1) return "$\pi/2$"; else if(x > 0) return "$\pi/4$"; else return "";}  xaxis(xmin,xmax,Ticks(k, pilabel, pi/4),Arrows(6)); yaxis(ymin,ymax,Ticks(k, NoZero),Arrows(6)); filldraw(graph(f,0,pi/2)--(pi/2,0)--(0,0)--cycle,gray(0.7),linewidth(1)); draw((lblpt,f(lblpt))--(lblpt,1),Arrows(6)); draw((lblpt,f(lblpt))--(lblpt,0),Arrows(6)); label("$\cos^2(x)$",(lblpt,f(lblpt)/2+1/2),W,fontsize(10)); label("$\sin^2(x)$",(lblpt,f(lblpt)/2),E,fontsize(10)); draw((0,1)--(pi/2,1),linewidth(1));
+\end{asy}
+\end{center}
+
+$\int_0^{\pi/2} \sin^2 x \, dx = \int_0^{\pi/2} \cos^2 x \, dx = \frac {\pi}{4}$ from $\begin{cases}\sin^2 x + \cos^2 x = 1\\ \sin x = \cos(\pi/2 - x)\end{cases}$. (Source)
+
+
+\begin{center}
+\begin{asy}
+ import graph; size(170); defaultpen(linewidth(0.7)); Label k; k.p=fontsize(8);  real xmax = 1.35, xmin = -0.35, ymax = 1.35, ymin = -0.35, lblpt = 1/2 + 0.15, alpha = 2, epsilon = 0.015;   real f(real x) { return x^alpha; }  xaxis(xmin,xmax,Ticks(k, 0.25, NoZero),Arrows(6)); yaxis(ymin,ymax,Ticks(k, 0.25, NoZero),Arrows(6)); filldraw(graph(f,0,1)--(1,0)--(0,0)--cycle,gray(0.7),linewidth(1)); draw(graph(f,1,1.1),linewidth(0.7),EndArrow(4)); draw((lblpt-epsilon,f(lblpt))--(0+epsilon,f(lblpt)),Arrows(4)); draw((lblpt,f(lblpt)-epsilon)--(lblpt,0+epsilon),Arrows(4)); label("$x = y^{1/\alpha}$",(lblpt/2,f(lblpt)),N,fontsize(10)); label("$y = x^{\alpha}$",(lblpt,f(lblpt)/2),E,fontsize(10)); draw((0,1)--(1,1),linewidth(1)); 
+\end{asy}
+\end{center}
+
+$\alpha > 0 \Longrightarrow \int_0^{1} \left(x^\alpha + x^{1/\alpha}\right) \, dx = 1.$ (Source)
+
+
+\begin{center}
+\begin{asy}
+unitsize(15); defaultpen(linewidth(0.7)); real a=2.5,b=5,s=a+b; pen colors[] = {rgb(0.9,0.2,0.2), rgb(0.2,0.9,0.2), rgb(0.2,0.2,0.9)}; pen sm = fontsize(8); void fillrect(pair A, pair B, pen p = invisible, pen l = linewidth(1)){ filldraw(A--(A.x,B.y)--B--(B.x,A.y)--cycle, p, l); } void htick(pair A, pair B, pair ticklength = (0.2,0)){  draw(A--B);  draw(A-ticklength--A+ticklength);  draw(B-ticklength--B+ticklength); }  fillrect((0,0),(s,s)); fillrect((a,b),(s,s),colors[0]); filldraw((0,a)--(a,a)--(s/2,s/2)--(a,b)--(a,s)--(0,s)--cycle,colors[1],linewidth(1)); filldraw((0,0)--(b,0)--(b,b)--(a,a)--(0,a)--cycle,colors[2],linewidth(1)); draw((0,0)--(a,a),linewidth(1));  draw((s/2,s/2)--(b,a)--(a,a)--(a,b),linewidth(0.7)+linetype("4 2")); htick((s+1,0),(s+1,b)); htick((s+1,b),(s+1,s));   /* in labels, a,b swapped */ label("$a$",(s+1,b/2),E);label("$b$",(s+1,(s+b)/2),E); label("$ab$",(a+s,b+s)/2,sm); label("$\frac{(a+b)^2}{4}$",(a,a+s)/2,sm); label("$\frac{a^2}2$",(s/2,a*2/3),sm); label("$\frac{b^2}2$",(a/4,a*2/3),sm); 
+\end{asy}
+\end{center}
+
+The Root-Mean Square-Arithmetic Mean-Geometric Mean inequality, $\color{red}{ab} \color{black} \le \color{green} \frac{(a+b)^2}{4} \color{black} \le \color{blue} \frac{a^2 + b^2}{2}$.
+
+
+\begin{center}
+\begin{asy}
+ unitsize(15); defaultpen(linewidth(0.7)); void htick(pair A, pair B,pair ticklength = (0,0.15)){  draw(A--B);  draw(A-ticklength--A+ticklength);  draw(B-ticklength--B+ticklength); } real a=10,b=3,r=(a+b)/2; pen sm = fontsize(8), dark = linewidth(1); pen colors[] = {rgb(0.9,0.2,0.2) + dark,    /* GM */                 rgb(0.2,0.9,0.2) + dark,    /* AM */                 rgb(0.2,0.2,0.9) + dark,    /* QM */                 rgb(0.2,0.9,0.9) + dark };  /* HM */ pair A = (r-b,(r^2-(r-a)^2)^.5),B=foot((A.x,0),(0,0),A);  draw(arc((0,0),r,0,180)--cycle); dot(A); dot((0,r)); dot((A.x,0)); dot((0,0)); draw(B--A,colors[3]);           label("HM",(A+B)/2, E, sm+colors[3]); draw((0,0)--(0,r),colors[1]);   label("AM",(0,r*2/3), NW, sm+colors[1]);  draw((A.x,0)--A,colors[0]);     label("GM",(A.x,A.y/2), SE, sm+colors[0]);  draw((A.x,0)--(0,r),colors[2]); label("RMS",(A.x/5,r*4/5), NE, sm+colors[2]);    draw((-r,0)--A--(r,0), linetype("4 2")); draw((0,0)--B--(A.x,0), linetype("4 2")); draw(rightanglemark((-r,0),A,(r,0))); draw(rightanglemark((0,0),B,(A.x,0)));  htick((-r,-1),(A.x,-1)); htick((A.x,-1),(r,-1)); label("$a$",((-r+A.x)/2,-1),S); label("$b$",((r+A.x)/2,-1),S); 
+\end{asy}
+\end{center}
+
+The Root-Mean Square-Arithmetic Mean-Geometric Mean-Harmonic mean Inequality.[5]
+
+
+\begin{center}
+\begin{asy}
+ unitsize(15); defaultpen(linewidth(0.7)); real r = 0.3, row1 = 3.5, row2 = 0, row3 = -3.5; void necklace(pair k, pen colors[]){  draw(shift(k)*unitcircle);   for(int i = 0; i < colors.length; ++i){   pair p = k+expi(pi/2+2*pi*i/colors.length);   fill(Circle(p,r),colors[i]);   draw(Circle(p,r));  } } void htick(pair A, pair B,pair ticklength = (0.15,0)){  draw(A--B);  draw(A-ticklength--A+ticklength);  draw(B-ticklength--B+ticklength); }   /* draw necklaces */ pen BEADS1[] = {red,red,red},BEADS2[] = {blue,blue,blue},BEADS3[] = {red,red,blue},BEADS4[] = {blue,red,red},BEADS5[] = {red,blue,red},BEADS6[] = {blue,blue,red},BEADS7[] = {red,blue,blue},BEADS8[] = {blue,red,blue};  necklace((-10,(row2+row3)/2),BEADS1);necklace((-7.5,(row2+row3)/2),BEADS2);  necklace((-2.5,row2),BEADS3);necklace((0,row2),BEADS4);necklace((2.5,row2),BEADS5); necklace((-2.5,row3),BEADS6);necklace((0,row3),BEADS7);necklace((2.5,row3),BEADS8);   /* box them and label */ draw((-4,row2-1.3)--(4,row2-1.3)--(4,row2+1.6)--(-4,row2+1.6)--cycle,linewidth(0.9)+linetype("4 2")); draw((-4,row3-1.3)--(4,row3-1.3)--(4,row3+1.6)--(-4,row3+1.6)--cycle,linewidth(0.9)+linetype("4 2")); htick((-4,row2+2),(4,row2+2),(0,0.15)); label("$p$",(0,row2+2),N,fontsize(10));  htick((-11.5,(row2+row3)/2+2),(-6,(row2+row3)/2+2),(0,0.15)); label("$a$",(-17.5/2,(row2+row3)/2+2),N,fontsize(10));  
+\end{asy}
+\end{center}
+
+Fermat's Little Theorem: $a^p \equiv a \pmod{p}$ for $\text{gcd}\,(a,p) = 1$ (above $a=2,p=3$).
+
+
+\begin{center}
+\begin{asy}
+ defaultpen(linewidth(0.7)); unitsize(30);  real r = 0.2;  pair endPt1 = (-2.5,-1), endPt2 = (2.5,-1); // endpoints of R^1 line real projections[] = {-1.5, -0.75, 1, 2.2}; // x-coordinates of steoreographic projections on y=-1  void makeshiftarrow(pair A, real dir, real arrowlength = r){  /* Arrow option resizes, so draw makeshift arrows */   fill(A--A+arrowlength*expi(dir+pi/8)--A+arrowlength*expi(dir-pi/8)--cycle); }  draw(endPt1 -- endPt2); draw(unitcircle);  for(int i = 0; i < projections.length; ++i) {  draw((0,1) -- (projections[i],-1), linetype("2 2"));  dot((projections[i],-1), Fill(red));  dot(OP((0,1) -- (projections[i],-1),unitcircle), Fill(yellow)); } dot((0,1), Fill(green));  makeshiftarrow(endPt1, 0); makeshiftarrow(endPt2, pi); [/asy][asy] import three; defaultpen(linewidth(0.7)); unitsize(20);   currentprojection = orthographic(0.3,-2,0.6);  pen gridpen = dotted; int gridmin = -2, gridmax = 2, gridlines = 6; pair projections[] = {(1,-1),(1,-2),(2,-2),(2,-1)}; triple IPs[] = new triple[4]; draw((1,-1,-1)--(1,-2,-1)--(2,-2,-1)--(2,-1,-1)--cycle);  for(int i = 0; i < gridlines; ++i) {  draw((gridmin,gridmin+(gridmax-gridmin)*(i+1)/(gridlines+1),-1)--(gridmax,gridmin+(gridmax-gridmin)*(i+1)/(gridlines+1),-1), gridpen);  draw((gridmin+(gridmax-gridmin)*(i+1)/(gridlines+1),gridmin,-1)--(gridmin+(gridmax-gridmin)*(i+1)/(gridlines+1),gridmax,-1), gridpen); }  draw(unitsphere,white); draw(arc((0,0,0), (1,0,0), (-1,0,0), (0,0,1)), linetype("2 2")); draw(arc((0,0,0), (-1,0,0), (1,0,0), (0,0,1))); // draw(circle((0,0,0), 1, (0,1,0)));  // draw projection points for(int i = 0; i < projections.length; ++i) {  real px = projections[i].x/2, py = projections[i].y/2, pxy = 1 + px*px + py*py;  draw((0,0,1)--(2*px, 2*py, -1), linetype("2 2"));  triple IP = (2*px/pxy, 2*py/pxy, (pxy-2)/pxy), OP = (2*px, 2*py, -1);  dot(IP, yellow);  draw(circle(IP, 0.06, (0,1,0)));  IPs[i] = IP;  dot(OP, red);  draw(circle(OP, 0.06, (0,1,0)));  if(i != 0)    draw(IPs[i] -- IPs[i-1], dotted); } draw(IPs[0]--IPs[3], dotted);  dot((0,0,1),green); draw(circle((0,0,1), 0.06, (0,1,0))); 
+\end{asy}
+\end{center}
+
+There exists a homeomorphism, the stereographic projection, between the punctured hypersphere $S^n \setminus \{(1,\underbrace{0, \ldots, 0}_{n-1\text{ zeroes}})\}$ and $\mathbb{R}^n$ for $n = 1,2$.
+
+
+
+Sum of arctangents formula:
+
+
+\begin{center}
+\begin{asy}
+ import graph; usepackage("amsmath"); size(13cm);  real labelscalefactor = 0.5; /* changes label-to-point distance */ pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); /* default pen style */  pen dotstyle = black; /* point style */  real xmin = -0.4717093412177357, xmax = 7.405441345585962, ymin = -1.1854534297865673, ymax = 7.342957746870971;  /* image dimensions */ pen uququq = rgb(0.25098039215686274,0.25098039215686274,0.25098039215686274); pen aqaqaq = rgb(0.6274509803921569,0.6274509803921569,0.6274509803921569); pen qqwuqq = rgb(0.,0.39215686274509803,0.); pen cqcqcq = rgb(0.7529411764705882,0.7529411764705882,0.7529411764705882);   draw((0.,0.)--(0.,1.)--(1.,1.)--cycle);  draw((1.,1.)--(0.,3.)--(0.,1.)--cycle, uququq);  draw((0.,3.)--(6.,6.)--(1.,1.)--cycle, aqaqaq);  draw(arc((1.,1.),0.3101240427875472,180.,225.)--(1.,1.)--cycle, qqwuqq);  draw(arc((1.,1.),0.3101240427875472,116.56505117707799,180.)--(1.,1.)--cycle, qqwuqq);  draw(arc((1.,1.),0.3101240427875472,45.,116.56505117707799)--(1.,1.)--cycle, qqwuqq);   /* draw grid of horizontal/vertical lines */ pen gridstyle = linewidth(0.7) + cqcqcq; real gridx = 1., gridy = 1.; /* grid intervals */ for(real i = ceil(xmin/gridx)*gridx; i <= floor(xmax/gridx)*gridx; i += gridx)  draw((i,ymin)--(i,ymax), gridstyle); for(real i = ceil(ymin/gridy)*gridy; i <= floor(ymax/gridy)*gridy; i += gridy)  draw((xmin,i)--(xmax,i), gridstyle);  /* end grid */    /* draw figures */ draw((0.,0.)--(0.,1.));  draw((0.,1.)--(1.,1.));  draw((1.,1.)--(0.,0.));  draw((1.,1.)--(0.,3.), uququq);  draw((0.,3.)--(0.,1.), uququq);  draw((0.,1.)--(1.,1.), uququq);  draw((0.,3.)--(6.,6.), aqaqaq);  draw((6.,6.)--(1.,1.), aqaqaq);  draw((1.,1.)--(0.,3.), aqaqaq);  label("$\arctan 1 + \arctan 2 + \arctan 3 = \pi$",(1.544096936901321,0.5925910821953678),SE*labelscalefactor,fontsize(10));   /* dots and labels */ dot((0.,0.),linewidth(3.pt) + dotstyle);  dot((0.,1.),dotstyle);  dot((1.,1.),dotstyle);  dot((0.,3.),dotstyle);  dot((6.,6.),dotstyle);  clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+\end{asy}
+\end{center}
+
+Back to Top
+References
+ MathOverflow
+Wolfram MathWorld
+ Attributed to the Chinese text Zhou Bi Suan Jing.
+ This is more of a proof without words of the AM-GM inequality $\frac{a+b}{2} \ge \sqrt{ab}$; though the lengths of the segments labeled RMS and HM can easily be verified to have values of $\sqrt{\frac{a^2+b^2}{2}}, \frac{2}{\frac 1a + \frac 1b}$, respectively, it might not be obvious from the diagram. It still serves as a useful graphical demonstration of the inequality.
+ 
+ 
+\end{document}

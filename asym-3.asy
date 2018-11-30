@@ -1,0 +1,25 @@
+if(!settings.multipleView) settings.batchView=false;
+settings.tex="pdflatex";
+settings.inlinetex=true;
+deletepreamble();
+defaultfilename="asym-3";
+if(settings.render < 0) settings.render=4;
+settings.outformat="";
+settings.inlineimage=true;
+settings.embed=true;
+settings.toolbar=false;
+viewportmargin=(2,2);
+
+size(6cm,0);
+import bsp;
+real u=2.5;
+real v=1;
+currentprojection=oblique;
+path3 y=plane((2u,0,0),(0,2v,0),(-u,-v,0));
+path3 l=rotate(90,Z)*rotate(90,Y)*y;
+path3 g=rotate(90,X)*rotate(90,Y)*y;
+face[] faces;
+filldraw(faces.push(y),project(y),yellow);
+filldraw(faces.push(l),project(l),lightgrey);
+filldraw(faces.push(g),project(g),green);
+add(faces);

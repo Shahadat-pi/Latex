@@ -1,0 +1,50 @@
+\documentclass[border=10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage[greek,english]{babel}
+\usepackage{graphicx}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows, automata, positioning, calc}
+
+\definecolor{lavander}{cmyk}{0,0.48,0,0}
+\definecolor{violet}{cmyk}{0.79,0.88,0,0}
+\definecolor{burntorange}{cmyk}{0,0.52,1,0}
+\def\lav{lavander!90}
+\def\oran{orange!30}
+
+\begin{document}
+
+\tikzset{%
+   peer/.style={draw,circle,violet,bottom color=red, top color= white, text=violet, minimum width=25pt},
+   superpeer/.style={draw, circle,  left color=burntorange, text=violet, minimum width=25pt},
+   point/.style = {fill=black,inner sep=1pt, circle, minimum width=5pt,align=right,rotate=60},
+%   forward edge/.style={->, >=stealth, shorten >=0pt, thick, color=blue},
+   }
+
+\def \n {8}
+
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.8cm, semithick]
+
+\node[peer]          (C)   at ({360/\n * (3 - 1)}:2.5){$1$};
+\node[peer]          (B)   at ({360/\n * (2 - 1)}:2.5){$2$};
+\node[superpeer]     (A)   at ({360/\n * (1 - 1)}:2.5){$3$};
+\node[peer]         (C1)   at ({360/\n * (8 - 1)}:2.5){$4$};
+\node[peer]         (B1)   at ({360/\n * (7 - 1)}:2.5){$5$};
+\node[peer]         (A1)   at ({360/\n * (6 - 1)}:2.5){$6$};
+\node[peer]         (E)    at ({360/\n * (5 - 1)}:2.5){$7$};
+\node[peer]         (D)    at ({360/\n * (4 - 1)}:2.5){$N$};
+
+\node[point] (p1)  at ({360/\n * (4.4 - 1)}:2.5){};
+\node[point] (p2)  at ({360/\n * (4.5 - 1)}:2.5){};  
+\node[point] (p3)  at ({360/\n * (4.6 - 1)}:2.5){};
+
+\foreach \s/\e/\f/\t in {D/C/N/1,C/B/1/2,B/A/2/3,A/C1/3/4,C1/B1/4/5,B1/A1/5/6,A1/E/6/7}
+{\path (\s) edge [color=blue, bend right=20, above, sloped] node[]{\tiny $\lambda_{\f\t},\mu_{\f\t}$} (\e);
+ \path (\e) edge [color=blue, bend right=20, above, sloped] node[]{\tiny $\lambda_{\t\f},\mu_{\t\f}$} (\s);
+};
+
+\end{tikzpicture}
+
+\end{document}

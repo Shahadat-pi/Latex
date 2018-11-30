@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\usepackage{geometry}
+\usepackage[banglamainfont=Kalpurush, 
+            banglattfont=Siyam Rupali
+           ]{latexbangla}
+\usepackage{tikz}
+\usetikzlibrary{scopes}
+\begin{document}
+\def\iangle{30} % Angle of the inclined plane
+
+\def\down{-90}
+\def\arcr{0.5cm} % Radius of the arc used to indicate angles
+\begin{center}
+\begin{Large}
+কাজ ক্ষমতা ও শক্তি
+\end{Large}
+\end{center}
+01. পেট্রোনাস টুইন টাওয়ারের শীর্ষতলের উচ্চতা 75 মিটার। কাসেম 10 kg ভরের একটি বস্তুসহ শীর্ষতলে আরোহণ করে এত সময় লাগে 40 মিনিট। তিনি শীর্ষতল থেকে বস্তুটি নিচে ফেলে দিলেন। উহা বিনা বাধায় ভুমিতে পতিত হল। মনির বললো  আমি এই কাজটি করতে পারবো। কাশেমের ভর 60 kg এবং মনিরের ভর 55 kg।\\
+ক. কর্মদক্ষতা কাকে বলে? \\খ. বলের দ্বারা কৃত কাজ বলতে কি বুঝ? ব্যাখ্যা কর। \\গ. ভুমি থেকে কত উচ্চতায় বস্তুটির বিভব শক্তি ও গতি শক্তি সমান হবে?\\  ঘ. মনির কি একই সময়ে কাজটি করতে পারবে? গণিতিক বিশ্লেষণ পূর্বক মতামত দাও।
+\begin{center}
+\begin{tikzpicture}[
+    force/.style={>=latex,draw=blue,fill=blue},
+    axis/.style={densely dashed,gray,font=\small},
+    M/.style={rectangle,draw,fill=lightgray,minimum size=0.5cm,thin},
+    m/.style={rectangle,draw=black,fill=lightgray,minimum size=0.3cm,thin},
+    plane/.style={draw=black,fill=blue!10},
+    string/.style={draw=red, thick},
+    pulley/.style={thick},
+    scale=1.5
+]
+
+
+    %% Sketch
+    \draw[plane] (0,-1) coordinate (base)
+                     -- coordinate[pos=0.5] (mid) ++(\iangle:3) coordinate (top)
+                     |- (base) -- cycle;
+    \path (mid) node[M,rotate=\iangle,yshift=0.25cm] (M) {};
+
+
+    {[force,->]
+            % Assuming that Mg = 1. The normal force will therefore be cos(alpha)
+            \draw (M.east) -- ++(\iangle:1.2) ;
+        }
+                {[axis,->]
+             \draw (M.center)[rotate=305] -- ++(\iangle:1.2);
+            % Indicate angle. The code is a bit awkward.
+
+            \draw[solid,shorten >=0.5pt,rotate=\iangle] (0.58,-1.1)
+                arc(\down-\iangle:\down:\arcr);
+            \node at (1.3,-.8) {$\alpha$};
+        }
+
+    %%
+\end{tikzpicture}
+\end{center}
+\end{document}

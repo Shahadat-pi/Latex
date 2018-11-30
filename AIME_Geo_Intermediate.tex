@@ -1,0 +1,630 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[sexy]{evan}
+\usepackage{microtype}
+\usepackage{lmodern}
+\usepackage{amsfonts}
+\usepackage{relsize}
+\usepackage{xfrac}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{dirtytalk}
+\usepackage{tikz}
+\usetikzlibrary{arrows,positioning} 
+\usepackage{array}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{tabu}
+\usetikzlibrary{calc}
+\usepackage{changepage}
+\usepackage{caption,setspace}
+\usepackage{draftwatermark}
+\newcommand\perm[2][^n]{\prescript{#1\mkern-2.5mu}{}P_{#2}}
+\newcommand\comb[2][^n]{\prescript{#1\mkern-0.5mu}{}C_{#2}}
+\SetWatermarkText{$AIME$}
+\begin{document}
+
+\begin{center}
+\begin{LARGE}
+AIME Intermediate Geometry
+\end{LARGE}
+\end{center}
+\textbf{Problem 1}
+Rectangle $ABCD$ and a semicircle with diameter $AB$ are coplanar and have nonoverlapping interiors. Let $\mathcal{R}$ denote the region enclosed by the semicircle and the rectangle. Line $\ell$ meets the semicircle, segment $AB$, and segment $CD$ at distinct points $N$, $U$, and $T$, respectively. Line $\ell$ divides region $\mathcal{R}$ into two regions with areas in the ratio $1: 2$. Suppose that $AU = 84$, $AN = 126$, and $UB = 168$. Then $DA$ can be represented as $m\sqrt {n}$, where $m$ and $n$ are positive integers and $n$ is not divisible by the square of any prime. Find $m + n$.
+
+\textbf{Solution}
+\begin{asy}
+import graph; 
+defaultpen(linewidth(0.7)+fontsize(10)); size(500); pen zzttqq = rgb(0.6,0.2,0); pen xdxdff = rgb(0.4902,0.4902,1);    /* segments and figures */ draw((0,-154.31785)--(0,0)); draw((0,0)--(252,0)); draw((0,0)--(126,0),zzttqq); draw((126,0)--(63,109.1192),zzttqq); draw((63,109.1192)--(0,0),zzttqq); draw((-71.4052,(+9166.01287-109.1192*-71.4052)/21)--(504.60925,(+9166.01287-109.1192*504.60925)/21)); draw((0,-154.31785)--(252,-154.31785)); draw((252,-154.31785)--(252,0)); draw((0,0)--(84,0)); draw((84,0)--(252,0)); draw((63,109.1192)--(63,0)); draw((84,0)--(84,-154.31785)); draw(arc((126,0),126,0,180));    /* points and labels */ dot((0,0)); label("$A$",(-16.43287,-9.3374),NE/2); dot((252,0)); label("$B$",(255.242,5.00321),NE/2); dot((0,-154.31785)); label("$D$",(3.48464,-149.55669),NE/2); dot((252,-154.31785)); label("$C$",(255.242,-149.55669),NE/2); dot((126,0)); label("$O$",(129.36332,5.00321),NE/2); dot((63,109.1192)); label("$N$",(44.91307,108.57427),NE/2); label("$126$",(28.18236,40.85473),NE/2); dot((84,0)); label("$U$",(87.13819,5.00321),NE/2); dot((113.69848,-154.31785)); label("$T$",(116.61611,-149.55669),NE/2); dot((63,0)); label("$N'$",(66.42398,5.00321),NE/2); label("$84$",(41.72627,-12.5242),NE/2); label("$168$",(167.60494,-12.5242),NE/2); dot((84,-154.31785)); label("$T'$",(87.13819,-149.55669),NE/2); dot((252,0)); label("$I$",(255.242,5.00321),NE/2); clip((-71.4052,-225.24323)--(-71.4052,171.51361)--(504.60925,171.51361)--(504.60925,-225.24323)--cycle); 
+ \end{asy}
+\textbf{Solution 1}
+The center of the semicircle is also the midpoint of $AB$. Let this point be O. Let $h$ be the length of $AD$.
+
+Rescale everything by 42, so $AU = 2, AN = 3, UB = 4$. Then $AB = 6$ so $OA = OB = 3$.
+
+Since $ON$ is a radius of the semicircle, $ON = 3$. Thus $OAN$ is an equilateral triangle.
+
+Let $X$, $Y$, and $Z$ be the areas of triangle $OUN$, sector $ONB$, and trapezoid $UBCT$ respectively.
+
+$X = \frac {1}{2}(UO)(NO)\sin{O} = \frac {1}{2}(1)(3)\sin{60^\circ} = \frac {3}{4}\sqrt {3}$
+
+$Y = \frac {1}{3}\pi(3)^2 = 3\pi$
+
+To find $Z$ we have to find the length of $TC$. Project $T$ and $N$ onto $AB$ to get points $T'$ and $N'$. Notice that $UNN'$ and $TUT'$ are similar. Thus:
+
+$\frac {TT'}{UT'} = \frac {UN'}{NN'} \implies \frac {TT'}{h} = \frac {1/2}{3\sqrt {3}/2} \implies TT' = \frac {\sqrt {3}}{9}h$.
+
+Then $TC = T'C - T'T = UB - TT' = 4 - \frac {\sqrt {3}}{9}h$. So:
+
+$Z = \frac {1}{2}(BU + TC)(CB) = \frac {1}{2}\left(8 - \frac {\sqrt {3}}{9}h\right)h = 4h - \frac {\sqrt {3}}{18}h^2$
+
+Let $L$ be the area of the side of line $l$ containing regions $X, Y, Z$. Then
+
+$L = X + Y + Z = \frac {3}{4}\sqrt {3} + 3\pi + 4h - \frac {\sqrt {3}}{18}h^2$
+
+Obviously, the $L$ is greater than the area on the other side of line $l$. This other area is equal to the total area minus $L$. Thus:
+
+$\frac {2}{1} = \frac {L}{6h + \frac {9}{2}{\pi} - L} \implies 12h + 9\pi = 3L$.
+
+Now just solve for $h$.
+
+\begin{equation}
+\begin{split}
+12h + 9\pi & = \frac {9}{4}\sqrt {3} + 9\pi + 12h - \frac {\sqrt {3}}{6}h^2 \\ 
+0 &= \frac {9}{4}\sqrt {3} - \frac {\sqrt {3}}{6}h^2 \\
+ h^2 &= \frac {9}{4}(6) \\ 
+ h &= \frac {3}{2}\sqrt {6} 
+ \end{split}
+\end{equation} 
+
+Don't forget to un-rescale at the end to get $AD = \frac {3}{2}\sqrt {6} \cdot 42 = 63\sqrt {6}$.
+
+Finally, the answer is $63 + 6 = \boxed{069}$.
+
+\textbf{Solution 2}
+
+Let $O$ be the center of the semicircle. It follows that $AU + UO = AN = NO = 126$, so triangle $ANO$ is equilateral.
+
+Let $Y$ be the foot of the altitude from $N$, such that $NY = 63\sqrt{3}$ and $NU = 21$.
+
+Finally, denote $DT = a$, and $AD = x$. Extend $U$ to point $Z$ so that $Z$ is on $CD$ and $UZ$ is perpendicular to $CD$. It then follows that $ZT = a-84$. Since $NYU$ and $UZT$ are similar,
+
+$\frac {x}{a-84} = \frac {63\sqrt{3}}{21} = 3\sqrt{3}$
+
+Given that line $NT$ divides $R$ into a ratio of $1:2$, we can also say that
+
+$(x)(\frac{84+a}{2}) + \frac {126^2\pi}{6} - (63)(21)(\sqrt{3}) = (\frac{1}{3})(252x + \frac{126^2\pi}{2})$
+
+where the first term is the area of trapezoid $AUTD$, the second and third terms denote the areas of $\frac{1}{6}$ a full circle, and the area of $NUO$, respectively, and the fourth term on the right side of the equation is equal to $R$. Cancelling out the $\frac{126^2\pi}{6}$ on both sides, we obtain
+
+$(x)(\frac{84+a}{2}) - \frac{252x}{3} = (63)(21)(\sqrt{3})$
+
+By adding and collecting like terms, $\frac{3ax - 252x}{6} = (63)(21)(\sqrt{3})$
+
+$\frac{(3x)(a-84)}{6} = (63)(21)(\sqrt{3})$.
+
+Since $a - 84 = \frac{x}{3\sqrt{3}}$,
+
+$\frac {(3x)(\frac{x}{3\sqrt{3}})}{6} = (63)(21)(\sqrt{3})$
+
+$\frac {x^2}{\sqrt{3}} = (63)(126)(\sqrt{3})$
+
+$x^2 = (63)(126)(3) = (2)(3^5)(7^2)$
+
+$x = AD = (7)(3^2)(\sqrt{6}) = 63\sqrt{6}$, so the answer is $\boxed{069}.$
+
+
+\textbf{Solution 3}
+Note that the total area of $\mathcal{R}$ is $252DA + \frac {126^2 \pi}{2}$ and thus one of the regions has area $84DA + \frac {126^2 \pi}{6}$
+
+As in the above solutions we discover that $\angle AON = 60^\circ$, thus sector $ANO$ of the semicircle has $\frac{1}{3}$ of the semicircle's area.
+
+Similarly, dropping the $N'T'$ perpendicular we observe that $[AN'T'D] = 84DA$, which is $\frac{1}{3}$ of the total rectangle.
+
+Denoting the region to the left of $\overline {NT}$ as $\alpha$ and to the right as $\beta$, it becomes clear that if $[\triangle UT'T] = [\triangle NUO]$ then the regions will have the desired ratio.
+
+Using the 30-60-90 triangle, the slope of $NT$, is ${-3\sqrt{3}}$, and thus $[\triangle UT'T] = \frac {DA^2}{6\sqrt{3}}$.
+
+$[NUO]$ is most easily found by $\frac{absin(c)}{2}$: $[\triangle NUO] = \frac {126*42 * \frac {\sqrt{3}}{2}}{2}$
+
+Equating, $\frac {126*42 * \frac {\sqrt{3}}{2}}{2} = \frac {DA^2}{6\sqrt{3}}$
+
+Solving, $63 * 21 * 3 * 6 = DA^2$
+
+$DA = 63 \sqrt{6} \longrightarrow \boxed {069}$  $\blacksquare$
+
+\textbf{Problem 2}
+In $\triangle{ABC}$ with $AB = 12$, $BC = 13$, and $AC = 15$, let $M$ be a point on $\overline{AC}$ such that the incircles of $\triangle{ABM}$ and $\triangle{BCM}$ have equal radii. Let $p$ and $q$ be positive relatively prime integers such that $\frac {AM}{CM} = \frac {p}{q}$. Find $p + q$.
+
+\begin{center}
+\begin{asy}
+ import graph; defaultpen(linewidth(0.7)+fontsize(10)); size(200);    /* segments and figures */ draw((0,0)--(15,0)); draw((15,0)--(6.66667,9.97775)); draw((6.66667,9.97775)--(0,0)); draw((7.33333,0)--(6.66667,9.97775)); draw(circle((4.66667,2.49444),2.49444)); draw(circle((9.66667,2.49444),2.49444)); draw((4.66667,0)--(4.66667,2.49444)); draw((9.66667,2.49444)--(9.66667,0));    /* points and labels */ label("r",(10.19662,1.92704),SE); label("r",(5.02391,1.8773),SE); dot((0,0)); label("$A$",(-1.04408,-0.60958),NE); dot((15,0)); label("$C$",(15.41907,-0.46037),NE); dot((6.66667,9.97775)); label("$B$",(6.66525,10.23322),NE); label("$15$",(6.01866,-1.15669),NE); label("$13$",(11.44006,5.50815),NE); label("$12$",(2.28834,5.75684),NE); dot((7.33333,0)); label("$M$",(7.56053,-0.908),NE); dot((4.66667,2.49444)); label("$I_1$",(3.97942,2.92179),NE); dot((9.66667,2.49444)); label("$I_2$",(10.04741,2.97153),NE); clip((-3.72991,-6.47862)--(-3.72991,17.44518)--(32.23039,17.44518)--(32.23039,-6.47862)--cycle); 
+ \end{asy}
+ \end{center}
+ 
+\textbf{Solution 1}
+Let $AM = x$, then $CM = 15 - x$. Also let $BM = d$ Clearly, $\frac {[ABM]}{[CBM]} = \frac {x}{15 - x}$. We can also express each area by the rs formula. Then $\frac {[ABM]}{[CBM]} = \frac {p(ABM)}{p(CBM)} = \frac {12 + d + x}{28 + d - x}$. Equating and cross-multiplying yields $25x + 2dx = 15d + 180$ or $d = \frac {25x - 180}{15 - 2x}.$ Note that for $d$ to be positive, we must have $7.2 < x < 7.5$.
+
+By Stewart's Theorem, we have $12^2(15 - x) + 13^2x = d^215 + 15x(15 - x)$ or $432 = 3d^2 + 40x - 3x^2.$ Brute forcing by plugging in our previous result for $d$, we have $432 = \frac {3(25x - 180)^2}{(15 - 2x)^2} + 40x - 3x^2.$ Clearing the fraction and gathering like terms, we get $0 = 12x^4 - 340x^3 + 2928x^2 - 7920x.$
+
+Aside: Since $x$ must be rational in order for our answer to be in the desired form, we can use the Rational Root Theorem to reveal that $12x$ is an integer. The only such $x$ in the above-stated range is $\frac {22}3$.
+
+Legitimately solving that quartic, note that $x = 0$ and $x = 15$ should clearly be solutions, corresponding to the sides of the triangle and thus degenerate cevians. Factoring those out, we get $0 = 4x(x - 15)(3x^2 - 40x + 132) = x(x - 15)(x - 6)(3x - 22).$ The only solution in the desired range is thus $\frac {22}3$. Then $CM = \frac {23}3$, and our desired ratio $\frac {AM}{CM} = \frac {22}{23}$, giving us an answer of $\boxed{045}$.
+
+\textbf{Solution 2}
+Let $AM = 2x$ and $BM = 2y$ so $CM = 15 - 2x$. Let the incenters of $\triangle ABM$ and $\triangle BCM$ be $I_1$ and $I_2$ respectively, and their equal inradii be $r$. From $r = \sqrt {(s - a)(s - b)(s - c)/s}$, we find that
+
+\begin{equation} \label{eq1}
+\begin{split}
+r^2 & = \frac {(x + y - 6)( - x + y + 6)(x - y + 6)}{x + y + 6} \\ & = \frac {( - x + y + 1)(x + y - 1)( - x - y + 14)}{ - x + y + 14}
+\end{split}
+\end{equation}
+
+
+Let the incircle of $\triangle ABM$ meet $AM$ at $P$ and the incircle of $\triangle BCM$ meet $CM$ at $Q$. Then note that $I_1 P Q I_2$ is a rectangle. Also, $\angle I_1 M I_2$ is right because $MI_1$ and $MI_2$ are the angle bisectors of $\angle AMB$ and $\angle CMB$ respectively and $\angle AMB + \angle CMB = 180^\circ$. By properties of tangents to circles $MP = (MA + MB - AB)/2 = x + y - 6$ and $MQ = (MB + MC - BC)/2 = - x + y + 1$. Now notice that the altitude of $M$ to $I_1 I_2$ is of length $r$, so by similar triangles we find that $r^2 = MP \cdot MQ = (x + y - 6)( - x + y + 1)$ (3). Equating (3) with (1) and (2) separately yields
+
+\begin{equation} \label{eq1}
+\begin{split}
+2y^2 - 30 &= 2xy + 5x - 7y \\  2y^2 - 70 &= - 2xy - 5x + 7y, 
+\end{split}
+\end{equation}
+
+and adding these we have
+
+\[4y^2 - 100 = 0\implies y = 5\implies x = 11/3 \\ \implies AM/MC = (22/3)/(15 - 22/3) = 22/23 \implies \boxed{045}.\]
+
+\textbf{Solution 3}
+
+Let the incircle of $ABM$ hit $AM$, $AB$, $BM$ at $X_{1},Y_{1},Z_{1}$, and let the incircle of $CBM$ hit $MC$, $BC$, $BM$ at $X_{2},Y_{2},Z_{2}$. Draw the incircle of $ABC$, and let it be tangent to $AC$ at $X$. Observe that we have a homothety centered at A sending the incircle of $ABM$ to that of $ABC$, and one centered at $C$ taking the incircle of $BCM$ to that of $ABC$. These have the same power, since they take incircles of the same size to the same circle. Also, the power of the homothety is $AX_{1}/AX=CX_{2}/CX$.
+
+By standard computations, $AX=\dfrac{AB+AC-BC}{2}=7$ and $CX=\dfrac{BC+AC-AB}{2}=8$. Now, let $AX_{1}=7x$ and $CX_{2}=8x$. We will now go around and chase lengths. Observe that $BY_{1}=BA-AY_{1}=BA-AX_{1}=12-7x$. Then, $BZ_{1}=12-7x$. We also have $CY_{2}=CX_{2}=8x$, so $BY_{2}=13-8x$ and $BZ_{2}=13-8x$.
+
+Observe now that $X_{1}M+MX_{2}=AC-15x=15(1-x)$. Also,$X_{1}M-MX_{2}=MZ_{1}-MZ_{2}=BZ_{2}-BZ_{1}=BY_{2}-BY_{1}=(1-x)$. Solving, we get $X_{1}M=8-8x$ and $MX_{2}=7-7x$ (as a side note, note that $AX_{1}+MX_{2}=X_{1}M+X_{2}C$, a result that I actually believe appears in Mandelbrot 1995-2003, or some book in that time-range).
+
+Now, we get $BM=BZ_{2}+Z_{2}M=BZ_{2}+MX_{2}=20-15x$. To finish, we will compute area ratios. $\dfrac{[ABM]}{[CBM]}=\dfrac{AM}{MC}=\dfrac{8-x}{7+x}$. Also, since their inradii are equal, we get $\dfrac{[ABM]}{[CBM]}=\dfrac{40-16x}{40-14x}$. Equating and cross multiplying yields the quadratic $3x^{2}-8x+4=0$, so $x=2/3,2$. However, observe that $AX_{1}+CX_{2}=15x<15$, so we take $x=2/3$. Our ratio is therefore $\dfrac{8-2/3}{7+2/3}=\dfrac{22}{23}$, giving the answer $\boxed{045}$.
+
+\textbf{Solution 4}
+Suppose the incircle of $ABM$ touches $AM$ at $X$, and the incircle of $CBM$ touches $CM$ at $Y$. Then
+
+\[r = AX \tan(A/2) = CY \tan(C/2)\]
+We have $\cos A = \frac{12^2+15^2-13^2}{2\cdot 12\cdot 15} = \frac{200}{30\cdot 12}=\frac{5}{9}$, $\tan(A/2) = \sqrt{\frac{1-\cos A}{1+\cos A}} = \sqrt{\frac{9-5}{9+5}} = \frac{2}{\sqrt{14}}$
+
+$\cos C = \frac{13^2+15^2-12^2}{2\cdot 13\cdot 15} = \frac{250}{30\cdot 13} = \frac{25}{39}$, $\tan(C/2) = \sqrt{\frac{39-25}{39+25}}=\frac{\sqrt{14}}{8}$,
+
+Therefore $AX/CY = \tan(C/2)/\tan(A/2) = \frac{14}{2\cdot 8}= \frac{7}{8}.$
+
+And since $AX=\frac{1}{2}(12+AM-BM)$, $CY = \frac{1}{2}(13+CM-BM)$,
+
+\[\frac{12+AM-BM}{13+CM-BM} = \frac{7}{8}\]
+\[96+8AM-8BM = 91 +7CM-7BM\]
+\[BM= 5 + 8AM-7CM = 5 + 15AM - 7(CM+AM) = 5+15(AM-7) \dots\dots (1)\]
+Now,
+
+$\frac{AM}{CM} = \frac{[ABM]}{[CBM]} = \frac{\frac{1}{2}(12+AM+BM)r}{\frac{1}{2}(13+CM+BM)r}=\frac{12+AM+BM}{13+CM+BM}= \frac{12+BM}{13+BM} = \frac{17+15(AM-7)}{18+15(AM-7)}$
+
+\[\frac{AM}{15} = \frac{17+15(AM-7)}{35+30(AM-7)} = \frac{15AM-88}{30AM-175}\]\[6AM^2 - 35AM = 45AM-264\]\[3AM^2 -40AM+132=0\]\[(3AM-22)(AM-6)=0\]
+So $AM=22/3$ or $6$. But from (1) we know that $5+15(AM-7)>0$, or $AM>7-1/3>6$, so $AM=22/3$, $CM=15-22/3=23/3$, $AM/CM=22/23$.
+
+\textbf{Sidenote}
+
+In the problem, $BM=10$ and the equal inradius of the two triangles happens to be $\frac {2\sqrt{14}}{3}$.
+
+\textbf{Problem 3}
+Triangle $ABC$ with right angle at $C$, $\angle BAC < 45^\circ$ and $AB = 4$. Point $P$ on $\overline{AB}$ is chosen such that $\angle APC = 2\angle ACP$ and $CP = 1$. The ratio $\frac{AP}{BP}$ can be represented in the form $p + q\sqrt{r}$, where $p$, $q$, $r$ are positive integers and $r$ is not divisible by the square of any prime. Find $p+q+r$
+
+\textbf{Solution 1}
+Let $O$ be the circumcenter of $ABC$ and let the intersection of $CP$ with the circumcircle be $D$. It now follows that $\angle{DOA} = 2\angle ACP = \angle{APC} = \angle{DPB}$. Hence $ODP$ is isosceles and $OD = DP = 2$.
+
+Denote $E$ the projection of $O$ onto $CD$. Now $CD = CP + DP = 3$. By the pythagorean theorem, $OE = \sqrt {2^2 - \frac {3^2}{2^2}} = \sqrt {\frac {7}{4}}$. Now note that $EP = \frac {1}{2}$. By the pythagorean theorem, $OP = \sqrt {\frac {7}{4} + \frac {1^2}{2^2}} = \sqrt {2}$. Hence it now follows that,
+
+\[\frac {AP}{BP} = \frac {AO + OP}{BO - OP} = \frac {2 + \sqrt {2}}{2 - \sqrt {2}} = 3 + 2\sqrt {2}\]
+This gives that the answer is $\boxed{007}$.
+
+An alternate finish for this problem would be to use Power of a Point on $BA$ and $CD$. By Power of a Point Theorem, $CP\cdot PD=1\cdot 2=BP\cdot PA$. Since $BP+PA=4$, we can solve for $BP$ and $PA$, giving the same values and answers as above.
+\begin{center}
+\begin{asy}
+ import graph; defaultpen(linewidth(0.7)+fontsize(10)); size(250); real lsf = 0.5; /* changes label-to-point distance */ pen xdxdff = rgb(0.49,0.49,1); pen qqwuqq = rgb(0,0.39,0); pen fftttt = rgb(1,0.2,0.2);    /* segments and figures */ draw((0.2,0.81)--(0.33,0.78)--(0.36,0.9)--(0.23,0.94)--cycle,qqwuqq); draw((0.81,-0.59)--(0.93,-0.54)--(0.89,-0.42)--(0.76,-0.47)--cycle,qqwuqq); draw(circle((2,0),2)); draw((0,0)--(0.23,0.94),linewidth(1.6pt)); draw((0.23,0.94)--(4,0),linewidth(1.6pt)); draw((0,0)--(4,0),linewidth(1.6pt)); draw((0.23,(+0.55-0.94*0.23)/0.35)--(4.67,(+0.55-0.94*4.67)/0.35));    /* points and labels */ label("$1$", (0.26,0.42), SE*lsf); draw((1.29,-1.87)--(2,0)); label("$2$", (2.91,-0.11), SE*lsf); label("$2$", (1.78,-0.82), SE*lsf); pair parametricplot0_cus(real t){  return (0.28*cos(t)+0.23,0.28*sin(t)+0.94); } draw(graph(parametricplot0_cus,-1.209429202888189,-0.24334747753738661)--(0.23,0.94)--cycle,fftttt); pair parametricplot1_cus(real t){  return (0.28*cos(t)+0.59,0.28*sin(t)+0); } draw(graph(parametricplot1_cus,0.0,1.9321634507016043)--(0.59,0)--cycle,fftttt); label("$\theta$", (0.42,0.77), SE*lsf); label("$2\theta$", (0.88,0.38), SE*lsf); draw((2,0)--(0.76,-0.47)); pair parametricplot2_cus(real t){  return (0.28*cos(t)+2,0.28*sin(t)+0); } draw(graph(parametricplot2_cus,-1.9321634507016048,0.0)--(2,0)--cycle,fftttt); label("$2\theta$", (2.18,-0.3), SE*lsf); dot((0,0)); label("$B$", (-0.21,-0.2),NE*lsf); dot((4,0)); label("$A$", (4.03,0.06),NE*lsf); dot((2,0)); label("$O$", (2.04,0.06),NE*lsf); dot((0.59,0)); label("$P$", (0.28,-0.27),NE*lsf); dot((0.23,0.94)); label("$C$", (0.07,1.02),NE*lsf); dot((1.29,-1.87)); label("$D$", (1.03,-2.12),NE*lsf); dot((0.76,-0.47)); label("$E$", (0.56,-0.79),NE*lsf); clip((-0.92,-2.46)--(-0.92,2.26)--(4.67,2.26)--(4.67,-2.46)--cycle); 
+ \end{asy}
+ \end{center}
+ 
+\textbf{Solution 2}
+Let $AC=b$, $BC=a$ by convention. Also, Let $AP=x$ and $BP=y$. Finally, let $\angle ACP=\theta$ and $\angle APC=2\theta$.
+
+We are then looking for $\frac{AP}{BP}=\frac{x}{y}$
+
+Now, by arc interceptions and angle chasing we find that $\triangle BPD \sim \triangle CPA$, and that therefore $BD=yb.$ Then, since $\angle ABD=\theta$ (it intercepts the same arc as $\angle ACD$) and $ADB$ is right,
+
+$\cos\theta=\frac{DB}{AB}=\frac{by}{4}$.
+
+
+Using law of sines on $APC$, we additionally find that $\frac{b}{\sin 2\theta}=\frac{x}{\sin\theta}.$ Simplification by the double angle formula $\sin 2\theta=2\sin \theta\cos\theta$ yields
+
+$\cos \theta=\frac{b}{2x}$.
+
+
+We equate these expressions for $\cos\theta$ to find that $xy=2$. Since $x+y=AB=4$, we have enough information to solve for $x$ and $y$. We obtain  $x,y=2 \pm \sqrt{2}$
+
+Since we know $x>y$, we use $\frac{x}{y}=\frac{2+\sqrt{2}}{2-\sqrt{2}}=3+2\sqrt{2}$
+
+\textbf{Solution 3}
+Let $\angle{ACP}$ be equal to $x$. Then by Law of Sines, $PB = -\frac{\cos{x}}{\cos{3x}}$ and $AP = \frac{\sin{x}}{\sin{3x}}$. We then obtain $\cos{3x} = 4\cos^3{x} - 3\cos{x}$ and $\sin{3x} = 3\sin{x} - 4\sin^3{x}$. Solving, we determine that $\sin^2{x} = \frac{4 \pm \sqrt{2}}{8}$. Plugging this in gives that $\frac{AP}{PB} = \frac{\sqrt{2}+1}{\sqrt{2}-1} = 3 + 2\sqrt{2}$. The answer is $\boxed{007}$.
+
+\textbf{Solution 4} (The quickest and most elegant)
+Let $\alpha=\angle{ACP}$, $\beta=\angle{ABC}$, and $x=BP$. By Law of Sines,
+
+$\frac{1}{sin(\beta)}=\frac{x}{sin(90-\alpha)}\implies sin(\beta)=\frac{cos(\alpha)}{x}$ (1), and
+
+$\frac{4-x}{sin(\alpha)}=\frac{4sin(\beta)}{sin(2\alpha)} \implies 4-x=\frac{2sin(\beta)}{cos(\alpha)}$. (2)
+
+Then, substituting (1) into (2), we get
+
+$4-x=\frac{2}{x} \implies x^2-4x+2=0 \implies x=2-\sqrt{2} \implies \frac{4-x}{x}=\frac{2+\sqrt{2}}{2-\sqrt{2}}=3+2\sqrt{2}$
+
+The answer is $\boxed{007}$.  \hfill $\blacksquare$
+ 
+\textbf{ Problem 4}
+Let $ABCDEF$ be a regular hexagon. Let $G$, $H$, $I$, $J$, $K$, and $L$ be the midpoints of sides $AB$, $BC$, $CD$, $DE$, $EF$, and $AF$, respectively. The segments $\overline{AH}$, $\overline{BI}$, $\overline{CJ}$, $\overline{DK}$, $\overline{EL}$, and $\overline{FG}$ bound a smaller regular hexagon. Let the ratio of the area of the smaller hexagon to the area of $ABCDEF$ be expressed as a fraction $\frac {m}{n}$ where $m$ and $n$ are relatively prime positive integers. Find $m + n$.
+
+\textbf{Solution 1}
+\begin{center}
+\begin{asy}
+defaultpen(0.8pt+fontsize(12pt)); pair A,B,C,D,E,F; pair G,H,I,J,K,L; A=dir(0); B=dir(60); C=dir(120); D=dir(180); E=dir(240); F=dir(300); draw(A--B--C--D--E--F--cycle,blue);  G=(A+B)/2; H=(B+C)/2; I=(C+D)/2; J=(D+E)/2; K=(E+F)/2; L=(F+A)/2;  int i; for (i=0; i<6; i+=1) {  draw(rotate(60*i)*(A--H),dotted);  }   pair M,N,O,P,Q,R; M=extension(A,H,B,I); N=extension(B,I,C,J); O=extension(C,J,D,K); P=extension(D,K,E,L); Q=extension(E,L,F,G); R=extension(F,G,A,H); draw(M--N--O--P--Q--R--cycle,red);   label('$A$',A,(1,0)); label('$B$',B,NE); label('$C$',C,NW); label('$D$',D, W); label('$E$',E,SW); label('$F$',F,SE); label('$G$',G,NE); label('$H$',H, (0,1)); label('$I$',I,NW); label('$J$',J,SW); label('$K$',K, S); label('$L$',L,SE); label('$M$',M); label('$N$',N); label('$O$',(0,0),NE); dot((0,0));
+\end{asy}
+\end{center}
+
+Let $M$ be the intersection of $\overline{AH}$ and $\overline{BI}$
+
+and $N$ be the intersection of $\overline{BI}$ and $\overline{CJ}$.
+
+Let $O$ be the center.
+
+Solution 1
+Let $BC=2$ (without loss of generality).
+
+Note that $\angle BMH$ is the vertical angle to an angle of regular hexagon, and so has degree $120^\circ$.
+
+Because $\triangle ABH$ and $\triangle BCI$ are rotational images of one another, we get that $\angle{MBH}=\angle{HAB}$ and hence $\triangle ABH \sim \triangle BMH \sim \triangle BCI$.
+
+Using a similar argument, $NI=MH$, and
+
+\[MN=BI-NI-BM=BI-(BM+MH).\]
+Applying the Law of cosines on $\triangle BCI$, $BI=\sqrt{2^2+1^2-2(2)(1)(\cos(120^\circ))}=\sqrt{7}$
+
+\begin{equation}
+\begin{split}
+\frac{BC+CI}{BI}&=\frac{3}{\sqrt{7}}=\frac{BM+MH}{BH} \\ BM+MH&=\frac{3BH}{\sqrt{7}}=\frac{3}{\sqrt{7}} \\ MN&=BI-(BM+MH)=\sqrt{7}-\frac{3}{\sqrt{7}}=\frac{4}{\sqrt{7}} \\ \frac{\text{Area of smaller hexagon}}{\text{Area of bigger hexagon}}&=\left(\frac{MN}{BC}\right)^2=\left(\frac{2}{\sqrt{7}}\right)^2=\frac{4}{7}
+\end{split}
+\end{equation}
+
+
+Thus, the answer is 4 + 7 = $\boxed{011}$.
+
+Solution 2
+We can use coordinates. Let $O$ be at $(0,0)$ with $A$ at $(1,0)$,
+
+then $B$ is at $(\cos(60^\circ),\sin(60^\circ))=\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)$,
+
+$C$ is at $(\cos(120^\circ),\sin(120^\circ))=\left(-\frac{1}{2},\frac{\sqrt{3}}{2}\right)$,
+
+$D$ is at $(\cos(180^\circ),\sin(180^\circ))=(-1,0)$,
+
+\begin{equation}
+\begin{split}
+&H=\frac{B+C}{2}=\left(0,\frac{\sqrt{3}}{2}\right) \\ &I=\frac{C+D}{2}=\left(-\frac{3}{4},\frac{\sqrt{3}}{4}\right)
+\end{split}
+\end{equation}
+
+Line $AH$ has the slope of $-\frac{\sqrt{3}}{2}$ and the equation of $y=-\frac{\sqrt{3}}{2}(x-1)$
+
+
+Line $BI$ has the slope of $\frac{\sqrt{3}}{5}$ and the equation $y-\frac{3}{2}=\frac{\sqrt{3}}{5}\left(x-\frac{1}{2}\right)$
+
+
+Let's solve the system of equation to find $M$
+
+\begin{equation}
+\begin{split}
+-\frac{\sqrt{3}}{2}(x-1)-\frac{3}{2}&=\frac{\sqrt{3}}{5}\left(x-\frac{1}{2}\right) \\ -5\sqrt{3}x&=2\sqrt{3}x-\sqrt{3} \\ x&=\frac{1}{7} \\ y&=-\frac{\sqrt{3}}{2}(x-1)=\frac{3\sqrt{3}}{7}
+\end{split}
+\end{equation}
+
+Finally,
+
+\begin{equation}
+\begin{split}
+&\sqrt{x^2+y^2}=OM=\frac{1}{7}\sqrt{1^2+(3\sqrt{3})^2}=\frac{1}{7}\sqrt{28}=\frac{2}{\sqrt{7}} \\ &\frac{\text{Area of smaller hexagon}}{\text{Area of bigger hexagon}}=\left(\frac{OM}{OA}\right)^2=\left(\frac{2}{\sqrt{7}}\right)^2=\frac{4}{7}
+\end{split}
+\end{equation}
+Thus, the answer is $\boxed{011}$. \hfill $\blacksquare$
+
+\textbf{Problem 5}
+In triangle $ABC$, $BC = 23$, $CA = 27$, and $AB = 30$. Points $V$ and $W$ are on $\overline{AC}$ with $V$ on $\overline{AW}$, points $X$ and $Y$ are on $\overline{BC}$ with $X$ on $\overline{CY}$, and points $Z$ and $U$ are on $\overline{AB}$ with $Z$ on $\overline{BU}$. In addition, the points are positioned so that $\overline{UV}\parallel\overline{BC}$, $\overline{WX}\parallel\overline{AB}$, and $\overline{YZ}\parallel\overline{CA}$. Right angle folds are then made along $\overline{UV}$, $\overline{WX}$, and $\overline{YZ}$. The resulting figure is placed on a level floor to make a table with triangular legs. Let $h$ be the maximum possible height of a table constructed from triangle $ABC$ whose top is parallel to the floor. Then $h$ can be written in the form $\frac{k\sqrt{m}}{n}$, where $k$ and $n$ are relatively prime positive integers and $m$ is a positive integer that is not divisible by the square of any prime. Find $k+m+n$.
+
+\begin{center}
+\begin{asy}
+ unitsize(1 cm); pair translate; pair[] A, B, C, U, V, W, X, Y, Z; A[0] = (1.5,2.8); B[0] = (3.2,0); C[0] = (0,0); U[0] = (0.69*A[0] + 0.31*B[0]); V[0] = (0.69*A[0] + 0.31*C[0]); W[0] = (0.69*C[0] + 0.31*A[0]); X[0] = (0.69*C[0] + 0.31*B[0]); Y[0] = (0.69*B[0] + 0.31*C[0]); Z[0] = (0.69*B[0] + 0.31*A[0]); translate = (7,0); A[1] = (1.3,1.1) + translate; B[1] = (2.4,-0.7) + translate; C[1] = (0.6,-0.7) + translate; U[1] = U[0] + translate; V[1] = V[0] + translate; W[1] = W[0] + translate; X[1] = X[0] + translate; Y[1] = Y[0] + translate; Z[1] = Z[0] + translate; draw (A[0]--B[0]--C[0]--cycle); draw (U[0]--V[0],dashed); draw (W[0]--X[0],dashed); draw (Y[0]--Z[0],dashed); draw (U[1]--V[1]--W[1]--X[1]--Y[1]--Z[1]--cycle); draw (U[1]--A[1]--V[1],dashed); draw (W[1]--C[1]--X[1]); draw (Y[1]--B[1]--Z[1]); dot("$A$",A[0],N); dot("$B$",B[0],SE); dot("$C$",C[0],SW); dot("$U$",U[0],NE); dot("$V$",V[0],NW); dot("$W$",W[0],NW); dot("$X$",X[0],S); dot("$Y$",Y[0],S); dot("$Z$",Z[0],NE); dot(A[1]); dot(B[1]); dot(C[1]); dot("$U$",U[1],NE); dot("$V$",V[1],NW); dot("$W$",W[1],NW); dot("$X$",X[1],dir(-70)); dot("$Y$",Y[1],dir(250)); dot("$Z$",Z[1],NE);
+\end{asy}
+\end{center}
+
+\textbf{Solution 1}
+Note that the area is given by Heron's formula and it is $20\sqrt{221}$. Let $h_i$ denote the length of the altitude dropped from vertex i. It follows that $h_b = \frac{40\sqrt{221}}{27}, h_c  = \frac{40\sqrt{221}}{30}, h_a = \frac{40\sqrt{221}}{23}$. From similar triangles we can see that $\frac{27h}{h_a}+\frac{27h}{h_c} \le 27 \rightarrow h \le \frac{h_ah_c}{h_a+h_c}$. We can see this is true for any combination of a,b,c and thus the minimum of the upper bounds for h yields $h = \frac{40\sqrt{221}}{57} \rightarrow \boxed{318}$.
+
+\textbf{Solution 2}
+As from above, we can see that the length of the altitude from A is the longest. Thus the highest table is formed when X and Y meet up. Let the distance of this point from C be x, then the distance from B will be 23 - x. Let h be the height of the table. From similar triangles, we have $\frac{x}{23} = \frac{h}{h_c} = \frac{27h}{2A}$ where A is the area of triangle ABC. Similarly, $\frac{23-x}{23}=\frac{h}{h_b}=\frac{30h}{2A}$. Therefore, $1-\frac{x}{23}=\frac{30h}{2A} \rightarrow1-\frac{27h}{2A}=\frac{30h}{2A}$ and hence $h = \frac{2A}{57} = \frac{40\sqrt{221}}{57}\rightarrow \boxed{318}$. \hfill $\blacksquare$
+
+\textbf{Problem 6}
+Cube $ABCDEFGH,$ labeled as shown below, has edge length $1$ and is cut by a plane passing through vertex $D$ and the midpoints $M$ and $N$ of $\overline{AB}$ and $\overline{CG}$ respectively. The plane divides the cube into two solids. The volume of the larger of the two solids can be written in the form $\tfrac{p}{q},$ where $p$ and $q$ are relatively prime positive integers. Find $p+q.$
+
+\begin{center}
+\begin{asy}
+import cse5; unitsize(10mm); pathpen=black; dotfactor=3;  pair A = (0,0), B = (3.8,0), C = (5.876,1.564), D = (2.076,1.564), E = (0,3.8), F = (3.8,3.8), G = (5.876,5.364), H = (2.076,5.364), M = (1.9,0), N = (5.876,3.465); pair[] dotted = {A,B,C,D,E,F,G,H,M,N};  D(A--B--C--G--H--E--A); D(E--F--B); D(F--G); pathpen=dashed; D(A--D--H); D(D--C);  dot(dotted); label("$A$",A,SW); label("$B$",B,S); label("$C$",C,SE); label("$D$",D,NW); label("$E$",E,W); label("$F$",F,SE); label("$G$",G,NE); label("$H$",H,NW); label("$M$",M,S); label("$N$",N,NE); 
+\end{asy}
+\end{center}
+
+\textbf{Solution 1: think outside the box (pun intended)}
+Define a coordinate system with $D$ at the origin and $C,$ $A,$ and $H$ on the $x$, $y$, and $z$ axes respectively. The $D=(0,0,0),$ $M=(.5,1,0),$ and $N=(1,0,.5).$ It follows that the plane going through $D,$ $M,$ and $N$ has equation $2x-y-4z=0.$ Let $Q = (1,1,.25)$ be the intersection of this plane and edge $BF$ and let $P = (1,2,0).$ Now since $2(1) - 1(2) - 4(0) = 0,$ $P$ is on the plane. Also, $P$ lies on the extensions of segments $DM,$ $NQ,$ and $CB$ so the solid $DPCN = DMBCQN + MPBQ$ is a right triangular pyramid. Note also that pyramid $MPBQ$ is similar to $DPCN$ with scale factor $.5$ and thus the volume of solid $DMBCQN,$ which is one of the solids bounded by the cube and the plane, is $[DPCN] - [MPBQ] = [DPCN] - \left(\frac{1}{2}\right)^3[DPCN] = \frac{7}{8}[DPCN].$ But the volume of $DPCN$ is simply the volume of a pyramid with base $1$ and height $.5$ which is $\frac{1}{3} \cdot 1 \cdot .5 = \frac{1}{6}.$ So $[DMBCQN] = \frac{7}{8} \cdot \frac{1}{6} = \frac{7}{48}.$ Note, however, that this volume is less than $.5$ and thus this solid is the smaller of the two solids. The desired volume is then $[ABCDEFGH] - [DMBCQN] = 1 - \frac{7}{48} = \frac{41}{48} \rightarrow p+q = \boxed{089.}$
+
+\textbf{Solution 2}
+Define a coordinate system with $D = (0,0,0)$, $M = (1, \frac{1}{2}, 0)$, $N = (0,1,\frac{1}{2})$. The plane formed by $D$, $M$, and $N$ is $z = \frac{y}{2} - \frac{x}{4}$. It intersects the base of the unit cube at $y = \frac{x}{2}$. The z-coordinate of the plane never exceeds the height of the unit cube for $0 \leq x \leq 1, 0 \leq y \leq 1$. Therefore, the volume of one of the two regions formed by the plane is \[\int_0^1 \int_{\frac{x}{2}}^1 \int_0^{\frac{y}{2}-\frac{x}{4}}dz\,dy\,dx = \frac{7}{48}\] Since $\frac{7}{48} < \frac{1}{2}$, our answer is $1-\frac{7}{48} = \frac{41}{48} \rightarrow p+q = \boxed{089}$.
+
+Alternative Solution (using calculus) : think inside the box
+Let $Q$ be the intersection of the plane with edge $FB,$ then $\triangle MQB$ is similar to $\triangle DNC$ and the volume $[DNCMQB]$ is a sum of areas of cross sections of similar triangles running parallel to face $ABFE.$ Let $x$ be the distance from face $ABFE,$ let $h$ be the height parallel to $AB$ of the cross-sectional triangle at that distance, and $a$ be the area of the cross-sectional triangle at that distance. $A(x)=\frac{h^2}{4},$ and $h=\frac{x+1}{2},$ then $A=\frac{(x+1)^2}{16}$, and the volume $[DNCMQB]$ is $\int^1_0{A(x)}\,\mathrm{d}x=\int^1_0{\frac{(x+1)^2}{16}}\,\mathrm{d}x=\frac{7}{48}.$ Thus the volume of the larger solid is $1-\frac{7}{48}=\frac{41}{48} \rightarrow p+q = \boxed{089}$
+
+\textbf{Alternative Solution :} think inside the box with formula
+If you memorized the formula for a frustum, then this problem is very trivial.
+
+The formula for a frustum is:
+
+$\frac{h_2b_2 -h_1b_1}3$ where $b_i$ is the area of the base and $h_i$ is the height from the chopped of apex to the base.
+
+We can easily see that from symmetry, the area of the smaller front base is $\frac{1}{16}$ and the area of the larger back base is $\frac{1}4$
+
+Now to find the height of the apex.
+
+Extend the $DM$ and (call the intersection of the plane with $FB$ G) $NG$ to meet at $x$. Now from similar triangles $XMG$ and $XDN$ we can easily find the total height of the triangle $XDN$ to be $2$
+
+Now straight from our formula, the volume is $\frac{7}{48}$ Thus the answer is:
+
+$1-\text{Volume} \Longrightarrow \boxed{089}$
+
+\textbf{Problem 7}
+In $\triangle RED$, $\measuredangle DRE=75^{\circ}$ and $\measuredangle RED=45^{\circ}$. $RD=1$. Let $M$ be the midpoint of segment $\overline{RD}$. Point $C$ lies on side $\overline{ED}$ such that $\overline{RC}\perp\overline{EM}$. Extend segment $\overline{DE}$ through $E$ to point $A$ such that $CA=AR$. Then $AE=\frac{a-\sqrt{b}}{c}$, where $a$ and $c$ are relatively prime positive integers, and $b$ is a positive integer. Find $a+b+c$.
+
+\textbf{Solution}
+Let $P$ be the foot of the perpendicular from $A$ to $\overline{CR}$, so $\overline{AP}\parallel\overline{EM}$. Since triangle $ARC$ is isosceles, $P$ is the midpoint of $\overline{CR}$, and $\overline{PM}\parallel\overline{CD}$. Thus, $APME$ is a parallelogram and $AE = PM = \frac{CD}{2}$. We can then use coordinates. Let $O$ be the foot of altitude $RO$ and set $O$ as the origin. Now we notice special right triangles! In particular, $DO = \frac{1}{2}$ and $EO = RO = \frac{\sqrt{3}}{2}$, so $D(\frac{1}{2}, 0)$, $E(-\frac{\sqrt{3}}{2}, 0)$, and $R(0, \frac{\sqrt{3}}{2}).$ $M =$ midpoint$(D, R) = (\frac{1}{4}, \frac{\sqrt{3}}{4})$ and the slope of $ME = \frac{\frac{\sqrt{3}}{4}}{\frac{1}{4} + \frac{\sqrt{3}}{2}} = \frac{\sqrt{3}}{1 + 2\sqrt{3}}$, so the slope of $RC = -\frac{1 + 2\sqrt{3}}{\sqrt{3}}.$ Instead of finding the equation of the line, we use the definition of slope: for every $CO = x$ to the left, we go $\frac{x(1 + 2\sqrt{3})}{\sqrt{3}} = \frac{\sqrt{3}}{2}$ up. Thus, $x = \frac{\frac{3}{2}}{1 + 2\sqrt{3}} = \frac{3}{4\sqrt{3} + 2} = \frac{3(4\sqrt{3} - 2)}{44} = \frac{6\sqrt{3} - 3}{22}.$ $DC = \frac{1}{2} - x = \frac{1}{2} - \frac{6\sqrt{3} - 3}{22} = \frac{14 - 6\sqrt{3}}{22}$, and $AE = \frac{7 - \sqrt{27}}{22}$, so the answer is $\boxed{056}$.
+
+\begin{center}
+\begin{asy}
+ unitsize(8cm); pair a, o, d, r, e, m, cm, c,p; o =(0,0); d = (0.5, 0); r = (0,sqrt(3)/2); e = (-sqrt(3)/2,0);  m = midpoint(d--r); draw(e--m); cm = foot(r, e, m); draw(L(r, cm,1, 1)); c = IP(L(r, cm, 1, 1), e--d); clip(r--d--e--cycle); draw(r--d--e--cycle); draw(rightanglemark(e, cm, c, 1.5)); a = -(4sqrt(3)+9)/11+0.5; dot(a); draw(a--r, dashed); draw(a--c, dashed); pair[] PPAP = {a, o, d, r, e, m, c}; for(int i = 0; i<7; ++i) { 	dot(PPAP[i]); } label("$A$", a, W); label("$E$", e, SW); label("$C$", c, S); label("$O$", o, S); label("$D$", d, SE); label("$M$", m, NE); label("$R$", r, N); p = foot(a, r, c); label("$P$", p, NE); draw(p--m, dashed); draw(a--p, dashed); dot(p); 
+\end{asy}
+\end{center}
+
+\textbf{Solution 2}
+Call $MP$ $x$. Meanwhile, because $\triangle RPM$ is similar to $\triangle RCD$ (angle, side, and side- $RP$ and $RC$ ratio), $CD$ must be 2$x$. Now, notice that $AE$ is $x$, because of the parallel segments $\overline A\overline E$ and $\overline P\overline M$.
+
+Now we just have to calculate $ED$. Using the Law of Sines, or perhaps using altitude $\overline R\overline O$, we get $ED = \frac{\sqrt{3}+1}{2}$. $CA=RA$, which equals $ED - x$
+
+Finally, what is $RE$? It comes out to $\frac{\sqrt{6}}{2}$.
+
+We got the three sides. Now all that is left is using the Law of Cosines. There we can equate $x$ and solve for it.
+
+Taking $\triangle AER$ and using $\angle AER$, of course, we find out (after some calculation) that $AE = \frac{7 - \sqrt{27}}{22}$. The step before? $x=\frac{1-\sqrt{3}}{4\sqrt{3}+2}$ \hfill $\blacksquare$
+
+\textbf{Problem 8}
+Let $ABCD$ be an isosceles trapezoid, whose dimensions are $AB = 6, BC=5=DA,$ and $CD=4.$ Draw circles of radius 3 centered at $A$ and $B,$ and circles of radius 2 centered at $C$ and $D.$ A circle contained within the trapezoid is tangent to all four of these circles. Its radius is $\frac{-k+m\sqrt{n}}p,$ where $k, m, n,$ and $p$ are positive integers, $n$ is not divisible by the square of any prime, and $k$ and $p$ are relatively prime. Find $k+m+n+p.$
+
+\textbf{Solution}
+Let the radius of the center circle be $r$ and its center be denoted as $O$.
+
+\begin{center}
+\begin{asy}
+ pointpen = black; pathpen = black+linewidth(0.7); pen d = linewidth(0.7) + linetype("4 4"); pen f = fontsize(8);    real r = (-60 + 48 * 3^.5)/23; pair A=(0,0), B=(6,0), D=(1, 24^.5), C=(5,D.y), O = (3,(r^2 + 6*r)^.5);  D(MP("A",A)--MP("B",B)--MP("C",C,N)--MP("D",D,N)--cycle); D(CR(A,3));D(CR(B,3));D(CR(C,2));D(CR(D,2));D(CR(O,r)); D(O); D((3,0)--(3,D.y),d); D(A--O--D,d); MP("3",(3/2,0),S,f);MP("2",(2,D.y),N,f);
+\end{asy}
+\end{center}
+
+Clearly line $AO$ passes through the point of tangency of circle $A$ and circle $O$. Let $y$ be the height from the base of the trapezoid to $O$. From the Pythagorean Theorem, \[3^2 + y^2 = (r + 3)^2 \Longrightarrow y = \sqrt {r^2 + 6r}.\]
+We use a similar argument with the line $DO$, and find the height from the top of the trapezoid to $O$, $z$, to be $z = \sqrt {r^2 + 4r}$.
+
+Now $y + z$ is simply the height of the trapezoid. Let $D'$ be the foot of the perpendicular from $D$ to $AB$; then $AD' = 3 - 2 = 1$. By the Pythagorean Theorem, $(AD')^2 + (DD')^2 = (AD)^2 \Longrightarrow DD' = \sqrt{24}$ so we need to solve the equation $\sqrt {r^2 + 4r} + \sqrt {r^2 + 6r} = \sqrt {24}$. We can solve this by moving one radical to the other side, and squaring the equation twice to end with a quadratic equation.
+
+Solving this, we get $r = \frac { - 60 + 48\sqrt {3}}{23}$, and the answer is $k + m + n + p = 60 + 48 + 3 + 23 = \boxed{134}$. \hfill $\blacksquare$
+
+\textbf{Problem 9}
+Circle $C$ with radius 2 has diameter $\overline{AB}$. Circle D is internally tangent to circle $C$ at $A$. Circle $E$ is internally tangent to circle $C$, externally tangent to circle $D$, and tangent to $\overline{AB}$. The radius of circle $D$ is three times the radius of circle $E$, and can be written in the form $\sqrt{m}-n$, where $m$ and $n$ are positive integers. Find $m+n$.
+
+\textbf{Solution 1}
+\begin{center}
+\begin{asy}
+import graph; size(7.99cm);  real labelscalefactor = 0.5;  pen dps = linewidth(0.7) + fontsize(10); defaultpen(dps); pen dotstyle = black;  real xmin = 4.087153740193288, xmax = 11.08175859031552, ymin = -4.938019122704778, ymax = 1.194137062512079;  draw(circle((7.780000000000009,-1.320000000000002), 2.000000000000000));  draw(circle((7.271934046987930,-1.319179731427737), 1.491933384829670));  draw(circle((9.198812158392690,-0.8249788848962227), 0.4973111282761416));  draw((5.780002606580324,-1.316771019595571)--(9.779997393419690,-1.323228980404432));  draw((9.198812158392690,-0.8249788848962227)--(9.198009254448635,-1.322289365031666));  draw((7.271934046987930,-1.319179731427737)--(9.198812158392690,-0.8249788848962227));  draw((9.198812158392690,-0.8249788848962227)--(7.780000000000009,-1.320000000000002));  dot((7.780000000000009,-1.320000000000002),dotstyle);  label("$C$", (7.707377218471464,-1.576266740352400), NE * labelscalefactor);  dot((7.271934046987930,-1.319179731427737),dotstyle);  label("$D$", (7.303064016111554,-1.276266740352400), NE * labelscalefactor);  dot((9.198812158392690,-0.8249788848962227),dotstyle);  label("$E$", (9.225301294671791,-0.7792624249832147), NE * labelscalefactor);  dot((9.198009254448635,-1.322289365031666),dotstyle);  label("$F$", (9.225301294671791,-1.276266740352400), NE * labelscalefactor);  dot((9.779997393419690,-1.323228980404432),dotstyle);  label("$B$", (9.810012253929656,-1.276266740352400), NE * labelscalefactor);  dot((5.780002606580324,-1.316771019595571),dotstyle);  label("$A$", (5.812051070003994,-1.276266740352400), NE * labelscalefactor);  clip((xmin,ymin)--(xmin,ymax)--(xmax,ymax)--(xmax,ymin)--cycle); 
+\end{asy}
+\end{center}
+
+
+Using the diagram above, let the radius of $D$ be $3r$, and the radius of $E$ be $r$. Then, $EF=r$, and $CE=2-r$, so the Pythagorean theorem in $\triangle CEF$ gives $CF=\sqrt{4-4r}$. Also, $CD=CA-AD=2-3r$, so \[DF=DC+CF=2-3r+\sqrt{4-4r}.\] Noting that $DE=4r$, we can now use the Pythagorean theorem in $\triangle DEF$ to get \[(2-3r+\sqrt{4-4r})^2+r^2=16r^2.\]
+Solving this quadratic is somewhat tedious, but the constant terms cancel, so the computation isn't terrible. Solving gives $3r=\sqrt{240}-14$ for a final answer of $\boxed{254}$.
+
+Notice that C, E and the point of tangency to circle C for circle E will be concurrent because C and E intersect the tangent line at a right angle, implying they must be on the same line.
+
+\textbf{Solution 2}
+
+Consider a reflection of circle $E$ over diameter $\overline{AB}$. By symmetry, we now have three circles that are pairwise externally tangent and all internally tangent to a large circle. The small circles have radii $r$, $r$, and $3r$, and the big circle has radius $2$.
+
+Descartes' Circle Theorem gives $(\frac{1}{r}+\frac{1}{r}+\frac{1}{3r}-\frac12)^2 = 2((\frac{1}{r})^2+(\frac{1}{r})^2+(\frac{1}{3r})^2+(-\frac12)^2)$
+
+Note that the big circle has curvature $-\frac12$ because it is internally tangent. Solving gives $3r=\sqrt{240}-14$ for a final answer of $\boxed{254}$. \hfill $\blacksquare$
+
+\textbf{Problem 10}
+Rectangle $ABCD$ has side lengths $AB=84$ and $AD=42$. Point $M$ is the midpoint of $\overline{AD}$, point $N$ is the trisection point of $\overline{AB}$ closer to $A$, and point $O$ is the intersection of $\overline{CM}$ and $\overline{DN}$. Point $P$ lies on the quadrilateral $BCON$, and $\overline{BP}$ bisects the area of $BCON$. Find the area of $\triangle CDP$.
+
+\textbf{Solution}
+\begin{center}
+\begin{asy} pair A,B,C,D,M,n,O,P; A=(0,42);B=(84,42);C=(84,0);D=(0,0);M=(0,21);n=(28,42);O=(12,18);P=(32,13); fill(C--D--P--cycle,lightgray); draw(A--B--C--D--cycle); draw(C--M); draw(D--n); draw(B--P); draw(D--P); label("$A$",A,NW); label("$B$",B,NE); label("$C$",C,SE); label("$D$",D,SW); label("$M$",M,W); label("$N$",n,N); label("$O$",O,(-0.5,1)); label("$P$",P,N); dot(A); dot(B); dot(C); dot(D); dot(M); dot(n); dot(O); dot(P); label("28",(0,42)--(28,42),N); label("56",(28,42)--(84,42),N);
+\end{asy}
+\end{center}
+Impose a coordinate system on the diagram where point $D$ is the origin. Therefore $A=(0,42)$, $B=(84,42)$, $C=(84,0)$, and $D=(0,0)$. Because $M$ is a midpoint and $N$ is a trisection point, $M=(0,21)$ and $N=(28,42)$. The equation for line $DN$ is $y=\frac{3}{2}x$ and the equation for line $CM$ is $\frac{1}{84}x+\frac{1}{21}y=1$, so their intersection, point $O$, is $(12,18)$. Using the shoelace formula on quadrilateral $BCON$, or or drawing diagonal $\overline{BO}$ and using $\frac 12 bh$, we find that its area is $2184$. Therefore the area of triangle $BCP$ is $\frac{2184}{2}$ and the distance from $P$ to line $BC$ is $52$ and its $x$-coordinate is $32$. Because $P$ lies on the equation $\frac{1}{84}x+\frac{1}{21}y=1$, $P$'s $y$-coordinate is $13$, which is also the height of $CDP$. Therefore the area of $CDP$ is $\frac{1}{2} \cdot 13 \cdot 84=\boxed{546}$. \hfill $\blacksquare$
+
+\textbf{Problem 11}
+In $\triangle{ABC}, AB=10, \angle{A}=30^\circ$ , and $\angle{C=45^\circ}$. Let $H, D,$ and $M$ be points on the line $BC$ such that $AH\perp{BC}$, $\angle{BAD}=\angle{CAD}$, and $BM=CM$. Point $N$ is the midpoint of the segment $HM$, and point $P$ is on ray $AD$ such that $PN\perp{BC}$. Then $AP^2=\dfrac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.
+
+\begin{center}
+\begin{asy}
+unitsize(20); pair A = MP("A",(-5sqrt(3),0)), B = MP("B",(0,5),N), C = MP("C",(5,0)), M = D(MP("M",0.5(B+C),NE)), D = MP("D",IP(L(A,incenter(A,B,C),0,2),B--C),N), H = MP("H",foot(A,B,C),N), N = MP("N",0.5(H+M),NE), P = MP("P",IP(A--D,L(N,N-(1,1),0,10))); D(A--B--C--cycle); D(B--H--A,blue+dashed); D(A--D); D(P--N); markscalefactor = 0.05; D(rightanglemark(A,H,B)); D(rightanglemark(P,N,D)); MP("10",0.5(A+B)-(-0.1,0.1),NW); 
+\end{asy}
+\end{center}
+
+\textbf{Solution 1}
+
+As we can see,
+$M$ is the midpoint of $BC$ and $N$ is the midpoint of $HM$
+
+
+$AHC$ is a $45-45-90$ triangle, so $\angle{HAB}=15^\circ$.
+
+
+$AHD$ is $30-60-90$ triangle.
+
+
+$AH$ and $PN$ are parallel lines so $PND$ is $30-60-90$ triangle also.
+
+
+Then if we use those informations we get $AD=2HD$ and
+
+
+$PD=2ND$ and $AP=AD-PD=2HD-2ND=2HN$ or $AP=2HN=HM$
+
+
+Now we know that $HM=AP$, we can find for $HM$ which is simpler to find.
+
+
+We can use point $B$ to split it up as $HM=HB+BM$,
+
+
+We can chase those lengths and we would get
+
+
+$AB=10$, so $OB=5$, so $BC=5\sqrt{2}$, so $BM=\dfrac{1}{2} \cdot BC=\dfrac{5\sqrt{2}}{2}$
+
+
+We can also use Law of Sines:
+
+\[\frac{BC}{AB}=\frac{\sin\angle A}{\sin\angle C}\]\[\frac{BC}{10}=\frac{\frac{1}{2}}{\frac{\sqrt{2}}{2}}\implies BC=5\sqrt{2}\]
+Then using right triangle $AHB$, we have $HB=10 \sin 15^\circ$
+
+
+So $HB=10 \sin 15^\circ=\dfrac{5(\sqrt{6}-\sqrt{2})}{2}$.
+
+
+And we know that $AP = HM = HB + BM = \frac{5(\sqrt6-\sqrt2)}{2} + \frac{5\sqrt2}{2} = \frac{5\sqrt6}{2}$.
+
+
+Finally if we calculate $(AP)^2$.
+
+
+$(AP)^2=\dfrac{150}{4}=\dfrac{75}{2}$. So our final answer is $75+2=77$.
+
+
+$m+n=\boxed{077}$
+
+\textbf{Solution 2}
+Here's a solution that doesn't need $\sin 15^\circ$.
+
+As above, get to $AP=HM$. As in the figure, let $O$ be the foot of the perpendicular from $B$ to $AC$. Then $BCO$ is a 45-45-90 triangle, and $ABO$ is a 30-60-90 triangle. So $BO=5$ and $AO=5\sqrt{3}$; also, $CO=5$, $BC=5\sqrt2$, and $MC=\dfrac{BC}{2}=5\dfrac{\sqrt2}{2}$. But $MO$ and $AH$ are parallel, both being orthogonal to $BC$. Therefore $MH:AO=MC:CO$, or $MH=\dfrac{5\sqrt3}{\sqrt2}$, and we're done.
+
+\textbf{Solution 3}
+Break our diagram into 2 special right triangle by dropping an altitude from $B$ to $AC$ we then get that \[AC=5+5\sqrt{3}, BC=5\sqrt{2}.\] Since $\triangle{HCA}$ is a 45-45-90,
+
+\[HC=\frac{5\sqrt2+5\sqrt6}{2}\]$MC=\frac{BM}{2},$ \[HM=\frac{5\sqrt6}{2}\]\[HN=\frac{5\sqrt6}{4}\] We know that $\triangle{AHD}\simeq \triangle{PND}$ and are 30-60-90. Thus, \[AP=2 \cdot HN=\frac{5\sqrt6}{2}.\]
+$(AP)^2=\dfrac{150}{4}=\dfrac{75}{2}$. So our final answer is $75+2=\boxed{077}$ \hfill $\blacksquare$
+
+\textbf{Problem 12}
+Circle $C_0$ has radius $1$, and the point $A_0$ is a point on the circle. Circle $C_1$ has radius $r<1$ and is internally tangent to $C_0$ at point $A_0$. Point $A_1$ lies on circle $C_1$ so that $A_1$ is located $90^{\circ}$ counterclockwise from $A_0$ on $C_1$. Circle $C_2$ has radius $r^2$ and is internally tangent to $C_1$ at point $A_1$. In this way a sequence of circles $C_1,C_2,C_3,\ldots$ and a sequence of points on the circles $A_1,A_2,A_3,\ldots$ are constructed, where circle $C_n$ has radius $r^n$ and is internally tangent to circle $C_{n-1}$ at point $A_{n-1}$, and point $A_n$ lies on $C_n$ $90^{\circ}$ counterclockwise from point $A_{n-1}$, as shown in the figure below. There is one point $B$ inside all of these circles. When $r = \frac{11}{60}$, the distance from the center $C_0$ to $B$ is $\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.
+
+\begin{center}
+\begin{asy}
+draw(Circle((0,0),125)); draw(Circle((25,0),100)); draw(Circle((25,20),80)); draw(Circle((9,20),64)); dot((125,0)); label("$A_0$",(125,0),E); dot((25,100)); label("$A_1$",(25,100),SE); dot((-55,20)); label("$A_2$",(-55,20),E); 
+\end{asy}
+\end{center}
+
+
+\textbf{Solution 1}
+Impose a coordinate system and let the center of $C_0$ be $(0,0)$ and $A_0$ be $(1,0)$. Therefore $A_1=(1-r,r)$, $A_2=(1-r-r^2,r-r^2)$, $A_3=(1-r-r^2+r^3,r-r^2-r^3)$, $A_4=(1-r-r^2+r^3+r^4,r-r^2-r^3+r^4)$, and so on, where the signs alternate in groups of $2$. The limit of all these points is point $B$. Using the geometric series formula on $B$ and reducing the expression, we get $B=\left(\frac{1-r}{r^2+1},\frac{r-r^2}{r^2+1}\right)$. The distance from $B$ to the origin is $\sqrt{\left(\frac{1-r}{r^2+1}\right)^2+\left(\frac{r-r^2}{r^2+1}\right)^2}=\frac{1-r}{\sqrt{r^2+1}}.$ Let $r=\frac{11}{60}$, and the distance from the origin is $\frac{49}{61}$. $49+61=\boxed{110}$.
+
+\textbf{Solution 2}
+Let the center of circle $C_i$ be $O_i$. Note that $O_0BO_1$ is a right triangle, with right angle at $B$. Also, $O_1B=\frac{11}{60}O_0B$, or $O_0B = \frac{60}{61}O_0O_1$. It is clear that $O_0O_1=1-r=\frac{49}{60}$, so $O_0B=\frac{60}{61}\times\frac{49}{60}=\frac{49}{61}$. Our answer is $49+61=\boxed{110}$ \hfill $\blacksquare$
+
+\textbf{Problem 13}
+A cylindrical barrel with radius $4$ feet and height $10$ feet is full of water. A solid cube with side length $8$ feet is set into the barrel so that the diagonal of the cube is vertical. The volume of water thus displaced is $v$ cubic feet. Find $v^2$.
+
+
+\begin{center}
+\begin{asy}
+ import three;
+  import solids; 
+  size(5cm); 
+  currentprojection=orthographic(1,-1/6,1/6);  draw(surface(revolution((0,0,0),(-2,-2*sqrt(3),0)--(-2,-2*sqrt(3),-10),Z,0,360)),white,nolight);  triple A =(8*sqrt(6)/3,0,8*sqrt(3)/3), B = (-4*sqrt(6)/3,4*sqrt(2),8*sqrt(3)/3), C = (-4*sqrt(6)/3,-4*sqrt(2),8*sqrt(3)/3), X = (0,0,-2*sqrt(2));  draw(X--X+A--X+A+B--X+A+B+C); draw(X--X+B--X+A+B); draw(X--X+C--X+A+C--X+A+B+C); draw(X+A--X+A+C); draw(X+C--X+C+B--X+A+B+C,linetype("2 4")); draw(X+B--X+C+B,linetype("2 4"));  draw(surface(revolution((0,0,0),(-2,-2*sqrt(3),0)--(-2,-2*sqrt(3),-10),Z,0,240)),white,nolight); draw((-2,-2*sqrt(3),0)..(4,0,0)..(-2,2*sqrt(3),0)); draw((-4*cos(atan(5)),-4*sin(atan(5)),0)--(-4*cos(atan(5)),-4*sin(atan(5)),-10)..(4,0,-10)..(4*cos(atan(5)),4*sin(atan(5)),-10)--(4*cos(atan(5)),4*sin(atan(5)),0)); draw((-2,-2*sqrt(3),0)..(-4,0,0)..(-2,2*sqrt(3),0),linetype("2 4"));
+\end{asy}
+\end{center}
+
+\textbf{Solution}
+
+Our aim is to find the volume of the part of the cube submerged in the cylinder. In the problem, since three edges emanate from each vertex, the boundary of the cylinder touches the cube at three points. Because the space diagonal of the cube is vertical, by the symmetry of the cube, the three points form an equilateral triangle. Because the radius of the circle is $4$, by the Law of Cosines, the side length s of the equilateral triangle is
+
+\[s^2 = 2*(4^2) - 2*(4^2)\cos(120^{\circ}) = 3(4^2)\]
+so $s = 4\sqrt{3}$.* Again by the symmetry of the cube, the volume we want to find is the volume of a tetrahedron with right angles on all faces at the submerged vertex, so since the lengths of the legs of the tetrahedron are $\frac{4\sqrt{3}}{\sqrt{2}} = 2\sqrt{6}$ (the three triangular faces touching the submerged vertex are all $45-45-90$ triangles) so
+
+\[v = \frac{1}{3}(2\sqrt{6})\left(\frac{1}{2} \cdot (2\sqrt{6})^2\right) = \frac{1}{6} \cdot 48\sqrt{6} = 8\sqrt{6}\]
+so
+
+\[v^2 = 64 \cdot 6 = \boxed{384}\].
+
+In this case, our base was one of the isosceles triangles (not the larger equilateral one). To calculate volume using the latter, note that the height would be $2\sqrt{2}$.
+
+Note that in a 30-30-120 triangle, side length ratios are $1:1:\sqrt{3}$.
+Or, note that the altitude and the centroid of an equilateral triangle are the same point, so since the centroid is 4 units from the vertex (which is $\frac{2}{3}$ the length of the median), the altitude is 6, which gives a hypotenuse of $\frac{12}{\sqrt{3}}=4\sqrt{3}$ by $1:\frac{\sqrt{3}}{2}:\frac{1}{2}$ relationship for 30-60-90 triangles.
+
+\textbf{Problem 14}
+In triangle $ABC$, $AB=\frac{20}{11} AC$. The angle bisector of $\angle A$ intersects $BC$ at point $D$, and point $M$ is the midpoint of $AD$. Let $P$ be the point of the intersection of $AC$ and $BM$. The ratio of $CP$ to $PA$ can be expressed in the form $\dfrac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.
+
+\textbf{Solution 1}
+
+\begin{center}
+\begin{asy}
+pointpen = black; pathpen = linewidth(0.7);  pair A = (0,0), C= (11,0), B=IP(CR(A,20),CR(C,18)), D = IP(B--C,CR(B,20/31*abs(B-C))), M = (A+D)/2, P = IP(M--2*M-B, A--C), D2 = IP(D--D+P-B, A--C);  D(MP("A",D(A))--MP("B",D(B),N)--MP("C",D(C))--cycle); D(A--MP("D",D(D),NE)--MP("D'",D(D2))); D(B--MP("P",D(P))); D(MP("M",M,NW)); MP("20",(B+D)/2,ENE); MP("11",(C+D)/2,ENE); 
+\end{asy}
+\end{center}
+
+ Let $D'$ be on $\overline{AC}$ such that $BP \parallel DD'$. It follows that $\triangle BPC \sim \triangle DD'C$, so \[\frac{PC}{D'C} = 1 + \frac{BD}{DC} = 1 + \frac{AB}{AC} = \frac{31}{11}\] by the Angle Bisector Theorem. Similarly, we see by the midline theorem that $AP = PD'$. Thus, \[\frac{CP}{PA} = \frac{1}{\frac{PD'}{PC}} = \frac{1}{1 - \frac{D'C}{PC}} = \frac{31}{20},\] and $m+n = \boxed{051}$.
+
+\textbf{Solution 2}
+Assign mass points as follows: by Angle-Bisector Theorem, $BD / DC = 20/11$, so we assign $m(B) = 11, m(C) = 20, m(D) = 31$. Since $AM = MD$, then $m(A) = 31$, and $\frac{CP}{PA} = \frac{m(A) }{ m(C)} = \frac{31}{20}$, so $m+n = \boxed{051}$.
+
+\textbf{Solution 3}
+By Menelaus' Theorem on $\triangle ACD$ with transversal $PB$, \[1 = \frac{CP}{PA} \cdot \frac{AM}{MD} \cdot \frac{DB}{CB} = \frac{CP}{PA} \cdot \left(\frac{1}{1+\frac{AC}{AB}}\right) \quad \Longrightarrow \quad \frac{CP}{PA} = \frac{31}{20}.\] So $m+n = \boxed{051}$.
+
+\textbf{Solution 4}
+We will use barycentric coordinates. Let $A = (1, 0, 0)$, $B = (0, 1, 0)$, $C = (0, 0, 1)$. By the Angle Bisector Theorem, $D = [0:11:20] = \left(0, \frac{11}{31}, \frac{20}{31}\right)$. Since $M$ is the midpoint of $AD$, $M = \frac{A + D}{2} = \left(\frac{1}{2}, \frac{11}{62}, \frac{10}{31}\right)$. Therefore, the equation for line BM is $20x = 31z$. Let $P = (x, 0, 1-x)$. Using the equation for $BM$, we get \[20x = 31(1-x)\]\[x = \frac{31}{51}\] Therefore, $\frac{CP}{PA} = \frac{1-x}{x} = \frac{31}{20}$ so the answer is $\boxed{051}$.
+
+\textbf{Solution 5}
+Let $DC=x$. Then by the Angle Bisector Theorem, $BD=\frac{20}{11}x$. By the Ratio Lemma, we have that $\frac{PC}{AP}=\frac{\frac{31}{11}x\sin\angle PBC}{20\sin\angle ABP}.$ Notice that $[\triangle BAM]=[\triangle BMD]$ since their bases have the same length and they share a height. By the sin area formula, we have that \[\frac{1}{2}\cdot20\cdot BM\cdot \sin\angle ABP=\frac{1}{2}\cdot \frac{20}{11}x\cdot BM\cdot\sin\angle PBC.\] Simplifying, we get that $\frac{\sin\angle PBC}{\sin\angle ABP}=\frac{11}{x}.$ Plugging this into what we got from the Ratio Lemma, we have that $\frac{PC}{AP}=\frac{31}{20}\implies\boxed{051.}$
+ \hfill $\blacksquare$
+ 
+\begin{center}
+\begin{large}
+ About JNI
+\end{large}
+\end{center} 
+ 
+ Today is the fifth death anniversary of Professor Jamal Nazrul Islam. I know all of you are mourning Professor Hawking. But Professor JNI was also a larger than life figure. It is unfortunate that more people don't know him in Bangladesh. In my mind, Hawking's greatest achievement was helping fund and create the Centre for Mathematical Sciences -- the largest mathematics department in the world. Professor JNI did something similar, although he didn't receive the acclaim and support that Hawking received. He established Research Center for Mathematical and Physical Sciences, the only such center in all of Bangladesh. This is an incredible achievement, a nation-building achievement.
+
+People always measure scientists by stupid measures like what discoveries they made and what prizes they won. But, discovering something incredible is a haphazard process. You have to be smart. But more importantly you have to be very lucky. I always think of Sidney Coleman in this context. He was a giant, an unparalleled expert on Quantum Field Theory. He wrote incredibly important papers. Yet, he is not widely remembered because he is not credited with a "great discovery." The same goes for giants like Tom Kibble, who in fact co-discovered the Higgs Mechanism, but was not widely credited for it, and is thus largely unknown to the wider population.
+
+But the real measure of a scientist is what institutions they leave behind, and the students they have produced. Professor JNI in that respect is as large a personality as any in Asia, or elsewhere.
+
+I myself would not have applied to Cambridge, were it not for him. There are many people like me whose lives Professor JNI touched in the most remarkable of ways. All the people who we touch academically, are therefore also the products of Professor Jamal Nazrul Islam.
+
+ 
+ 
+ 
+ 
+\end{document}
