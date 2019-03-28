@@ -1,0 +1,271 @@
+\documentclass[addpoints]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+\usepackage{relsize}
+\usepackage{dirtytalk}
+\usepackage{graphicx}
+\graphicspath{ {./drift/} }
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\usepackage{geometry}
+\usepackage{draftwatermark}
+\SetWatermarkFontSize{2cm}
+\SetWatermarkText{Mathematics-2000}
+\usepackage[banglamainfont=Kalpurush, 
+            banglattfont=Siyam Rupali
+           ]{latexbangla}
+        
+\begin{document}
+\begin{LARGE}
+\begin{center}
+গণিত (Mathematics - 2000)
+\end{center}
+\end{LARGE}
+\begin{questions}
+
+\question $ (-5,7) $ ও $ (3,-1) $  বিন্দুদ্বয়ের সংযোগকারী রেখাংশের লম্বসমদ্বিখন্ডক রেখার সমীকরণ- (What is the equation of the perpendicular bisector of the line joining the points $ (-5,7) $ and $ (3,-1) $ ?)  
+
+\begin{oneparchoices}
+\choice $ y-3 = x+1 $
+\choice $ y+1 = x-3 $
+\choice $ y+3= x-1 $
+\choice $ y-1 = x+3 $
+\end{oneparchoices}
+
+\question  $ k $ এর কোন মানের জন্য $ (x-y+3)^{2}+(kx+2)(y-1)=0 $ সমীকরণটি একটি বৃত্ত নির্দেশ করে? (For what value of $ k $ does the equation $ (x-y+3)^{2}+(kx+2)(y-1)=0 $ represent a circle ?)
+
+\begin{oneparchoices}
+\choice  2
+\choice  $ 1 $
+\choice  $ -2 $
+\choice  $ -1 $
+\end{oneparchoices}
+
+\question $ y^{2}-4y-4x+16=0 $ একটি পরাবৃত্ত নিদের্শ করে এর উপকেন্দ্রের স্থানাংক- ( $ y^{2}-4y-4x+16=0 $ represents a parabola, what are the coordinates of its focus? )
+
+\begin{oneparchoices}
+\choice $ (4,2) $
+\choice $ (-2,-4) $
+\choice $ (2,4) $
+\choice $ (-4,-2) $
+\end{oneparchoices}
+
+\question $ \Bigg(2x^{2} + \dfrac{1}{x^{2}} \Bigg)^{6} $ এর সম্প্রসারণে $ x- $ বর্জিত পদ হল – (What is term independent of $ x $ in the expansion of $ \Bigg(2x^{2} + \dfrac{1}{x^{2}} \Bigg)^{6} $ ?)
+
+\begin{oneparchoices}
+\choice $ -180 $
+\choice $ 160 $
+\choice $ -160 $
+\choice  $ 180 $
+\end{oneparchoices}
+
+\question $ \tan 15^{\circ} $ এর মান- (The value of $ \tan 15^{\circ} $ )
+
+\begin{oneparchoices}
+\choice $ 2+\sqrt{2} $
+\choice  $ 2-\sqrt{3} $
+\choice $ 2+\sqrt{3} $
+\choice $ 3+\sqrt{2} $  
+\end{oneparchoices}
+
+\question  যদি দুইটি বল 12N ও 5N একটি কণার উপর ক্রিয়া করে এবং বল দুইটি দ্বারা সৃষ্ট কোণ $ 60^{\circ} $ হয়, তবে বল দুইটির লদ্ধি প্রথম বলের সাথে কত কোণ উৎপন্ন করে? (If two forces 12N and 5N are acting on particle and if the angle mady by the two forces is $ 60^{\circ} $, what angle does the resultant force from with the first force?)
+
+\begin{oneparchoices}
+\choice $ 16.63^{\circ} $
+\choice $ 20.63^{\circ} $
+\choice $ 88.34^{\circ} $
+\choice $ 11.54^{\circ} $
+\end{oneparchoices}
+
+\question $ y=e^{\tan^{-1}x} $ হলে $ \dfrac{dy}{dx}=?  $ (If $ y=e^{\tan^{-1}x} $ then $ \dfrac{dy}{dx}=?  $) 
+
+\begin{oneparchoices}
+\choice $ e^{\tan^{-1}x} $
+\choice $ e^{\tan^{-1}x}(1+x^{2}) $
+\choice $ \dfrac{e^{\tan^{-1}x}}{1+x^{2}} $
+\choice $ \dfrac{1}{1+x^{2}} $
+\end{oneparchoices}
+
+
+
+\question $ y=2x^{3}+3x^{2}-12x+7 $ একটি বক্ররেখার সমীকরণ মুলবিন্দুতে এর নতি কত? (The equation of a curve is $ y=2x^{3}+3x^{2}-12x+7 $. What is the gradient of the curve at the origin? )
+
+\begin{oneparchoices}
+\choice $ 8 $
+\choice $ 12 $
+\choice $ 6 $
+\choice $ -12 $
+\end{oneparchoices}
+
+\question  (What is the value of ) $ \cos\Bigg(\sin^{-1}\dfrac{1}{4} + \cos^{-1}\dfrac{1}{4}\Bigg) $ এর মান কত?
+
+\begin{oneparchoices}
+\choice $ 1 $
+\choice $ \dfrac{\pi}{4} $
+\choice $ \dfrac{\pi}{2} $
+\choice $ 0 $
+\end{oneparchoices}
+
+\question একটি সমবাহু ত্রিভুজ 3P, 7P এবং 5P ও মানের তিনটি বলের দিক যথাক্রমে AB, BC ও CA এর দিকে। বল তিনটির লদ্ধির মান কত? (The triangle ABC is equilateral, and three forces of magnitude 3P, 7P and 5P have the direction of AB, BC and CA respectively. What is the magnitude of the resultant of the three forces? )
+
+\begin{oneparchoices}
+\choice $ 3 $P
+\choice $ 2 $P
+\choice $ 2\sqrt{3} $P
+\choice  $ 3\sqrt{2} $P
+\end{oneparchoices}
+
+\question $ \dfrac{1}{2}+\Big(-\dfrac{1}{4} \Big)+\dfrac{1}{8}+\Big(-\dfrac{1}{16} \Big) + \cdots \cdots $ অসীম ধারা এর যোগফল কত? (What is the sum of the infinite series $ \dfrac{1}{2}+\Big(-\dfrac{1}{4} \Big)+\dfrac{1}{8}+\Big(-\dfrac{1}{16} \Big) + \cdots \cdots $ ? )
+
+
+\begin{oneparchoices}
+\choice $ \dfrac{1}{3} $
+\choice $ \dfrac{1}{4} $
+\choice $ \dfrac{1}{2} $
+\choice $ \dfrac{1}{8} $
+\end{oneparchoices}
+
+
+\question  নির্ণায়কটির মান 2 হলে $ k $ এর মান কত? $ \begin{vmatrix}
+1 & 1 & 1\\
+1 & 2 & 3\\
+1 & 4 &  k  
+\end{vmatrix} $  (The determinant has the value of 2. What is the value of $ k $) 
+
+
+\begin{oneparchoices}
+\choice $ 9 $
+\choice $ 8 $
+\choice $ 7 $
+\choice $ 6 $
+\end{oneparchoices}
+
+\question প্রতিবার প্রথমে ও শেষে C রেখে CALCULUS শব্দটির অক্ষরগুলোকে কতভাবে সাজানো যাবে? (What is the number of ways in which the letters of the word  CALCULUS (with existing repetitions) can be arranged so that the first and last letters are always C ?)
+
+\begin{oneparchoices}
+\choice  720
+\choice  360
+\choice  180
+\choice  5040
+\end{oneparchoices}
+
+\question একটি থলিতে 4টি নীল 5টি কালো ও 6টি সবুজ বল আছে। দৈবচয়ন পদ্ধতিতে একটি বল নেয়া হলে বলটি কালো হওয়ার সম্ভাবনা কত? (There are 4 blue, 5 black and 6 green ball in an urn. One ball is drawn at random from urn, what is the probability that the ball drawn is black? )
+
+\begin{oneparchoices}
+\choice $ \dfrac{4}{15} $
+\choice $ \dfrac{6}{15} $
+\choice $ \dfrac{1}{5} $
+\choice $ \dfrac{1}{3} $
+\end{oneparchoices}
+
+\question 1 থেকে 9 পর্যন্ত সংখ্যাগুলির ঘনের সমষ্টি কত? (Wha is the sum of the cubes of the natural number 1 to 9? )
+
+
+\begin{oneparchoices}
+\choice $ 1600 $
+\choice $ 2025 $
+\choice $ 2500 $
+\choice $ 1225 $
+\end{oneparchoices}
+
+\question $ |2x-7|<5 $ অসমতাটির বাস্তব সংখ্যায় সমাধান কি? (What is the solution of the inequality $ |2x-7|<5 $ in real numbers?)
+
+
+\begin{oneparchoices}
+\choice $ x>1 $
+\choice $ x<6 $
+\choice $ x>6 $ or $ x<1 $
+\choice $ x>1 $ and $ x<6 $
+\end{oneparchoices}
+
+\question $ x^{2}-4x+4=0 $ এর বীজদ্বয় $ \alpha $ এবং $ \beta $ হলে $ \alpha^{3}+ \beta^{3} $ এর মান কত? (What is the value of $ \alpha^{3}+ \beta^{3} $, if $ \alpha $ and $ \beta $ are the roots of $ x^{2}-4x+4=0 $ ? )
+
+
+\begin{oneparchoices}
+\choice 24
+\choice 32 
+\choice 16
+\choice 8
+\end{oneparchoices}
+
+\question নিচের কোন রাশিমালাটি $ \cos 3A $ কে $ \sin A $ বা $ \cos A $ এর বহুপদী রুপে প্রকাশ করে (Which of the following expression gives  $ \cos 3A $ as a polynomial in $ \sin A $ or $ \cos A $) -
+
+\begin{oneparchoices}
+\choice  $ 3\cos A -4\cos^{3} A $
+\choice  $ 3\sin A -4\sin^{3} A $
+\choice  $ 4\cos^{3} A -3\cos A $
+\choice  $ 4\sin^{3} A -3\sin A $
+\end{oneparchoices}
+
+\question  $ y=\sqrt{\sec x} $ হলে $ \dfrac{dy}{dx}=?  $ (If $ y=\sqrt{\sec x} $ then, $ \dfrac{dy}{dx}=?  $) 
+
+\begin{oneparchoices}
+\choice  $ \dfrac{y}{4}\tan x $
+\choice   $ \dfrac{y}{2}\tan x $
+\choice   $ \dfrac{y^{2}}{2}\tan x $
+\choice   $ \dfrac{y}{2}\tan^{2} x $
+\end{oneparchoices}
+
+\question $ \sin (4x+1) $ এর পর্যায় কত? (What is the period of $ \sin (4x+1) $ ?)
+
+
+\begin{oneparchoices}
+\choice $ 4\pi $
+\choice $ \pi $
+\choice $ 2\pi $
+\choice  $ \dfrac{\pi}{2} $
+\end{oneparchoices}
+
+ \question  $ y=\dfrac{\sqrt{x}+1}{\sqrt{x}-1} $ হলে $ \dfrac{dy}{dx}=?  $ (If $ y=\dfrac{\sqrt{x}+1}{\sqrt{x}-1} $ then, $ \dfrac{dy}{dx}=?  $) 
+
+
+\begin{oneparchoices}
+\choice $ \dfrac{1}{\sqrt{x}(\sqrt{x}+1)} $
+\choice $ \dfrac{-1}{\sqrt{x}(\sqrt{x}+1)} $
+\choice $ \dfrac{1}{\sqrt{x}(\sqrt{x}-1)} $
+\choice $ \dfrac{-1}{\sqrt{x}(\sqrt{x}-1)} $
+\end{oneparchoices}
+
+\question  $ \mathlarger{\int_{0}^{1}}\dfrac{e^{\sqrt{x}}}{\sqrt{x}}dx=? $
+
+\begin{oneparchoices}
+\choice  $ 2(e-1) $
+\choice  $ 2(e+1) $
+\choice  $ 2(1-e) $
+\choice  $ e+1 $
+\end{oneparchoices}
+
+\question $ x^{2}+y^{2}-4x-6y+c=0 $ বৃত্তটি $ x $ অক্ষকে স্পর্শ করলে $ c $ এর মান কত? (What is the value of $ c $ if the circle $ x^{2}+y^{2}-4x-6y+c=0 $ touches the $ x $ axis )
+
+\begin{oneparchoices}
+\choice 11
+\choice 7
+\choice 5
+\choice 4
+\end{oneparchoices}
+
+\question (If) $\mathlarger{\int\limits_{}^{} \frac{xe^{x}}{(x+1)^2}dx = f(x)}$  হলে (then) $f(x)=?$
+
+\begin{oneparchoices}
+ \choice $\mathlarger{\frac{x}{x+1} +c}$
+ \choice $\mathlarger{\frac{x}{(x+1)^2} +c}$
+ \choice $\mathlarger{\frac{e^x}{x+1} +c}$
+\choice $\mathlarger{\frac{e^x}{(x+1)^2} +c}$
+\end{oneparchoices}
+
+\question  $ \dfrac{1-\sin x}{\cos x} $ এর লিমিট কি যখন $ x\to \dfrac{\pi}{2} $? (What is the limit of $ \dfrac{1-\sin x}{\cos x} $ when $ x\to \dfrac{\pi}{2} $ ? )  
+
+\begin{oneparchoices}
+\choice $ 2 $
+\choice $ 0 $
+\choice $ \dfrac{1}{2} $
+\choice $ 1 $
+\end{oneparchoices}
+
+\end{questions}
+
+\end{document}

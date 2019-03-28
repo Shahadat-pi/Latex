@@ -1,0 +1,344 @@
+\documentclass[addpoints]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[american,siunitx]{circuitikz}
+\ctikzset{bipoles/resistor/width=.35}
+\ctikzset{bipoles/resistor/height=.15}
+\pgfplotsset{width=3cm,compat=1.4}
+\usepackage{graphicx}%
+\usepackage{mathtools}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+\tikzstyle arrowstyle=[scale=1]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+\tikzstyle reverse directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]
+\usepackage{graphicx}%
+\usepackage{mathtools}
+\usepackage{dirtytalk}
+\usepackage{isotope}
+\usepackage{relsize}
+\graphicspath{ {images/} }
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\usepackage[legalpaper]{geometry}
+\geometry{
+top = 30 mm
+ }
+\usepackage{draftwatermark}
+\SetWatermarkFontSize{2cm}
+\SetWatermarkText{DU-Physics}
+\usepackage[banglamainfont=Kalpurush, 
+            banglattfont=Siyam Rupali
+           ]{latexbangla}
+        
+\begin{document}
+\begin{LARGE}
+\begin{center}
+পদার্থবিজ্ঞান (Physics - 2016)
+\end{center}
+\end{LARGE}
+\begin{questions}
+
+\question নিচের কোনটি মৌলিক একক? (Which one of the following is base unit?)
+
+\begin{oneparchoices}
+\choice Coulomb
+\choice Ampere
+\choice Volt
+\choice Ohm
+\end{oneparchoices}
+
+ \question  $30\,m$ উচ্চতা থেকে বিনা বাধায় পড়ন্ত একটি বস্তুর কোন উচ্চতায় গতি শক্তি বিভব শক্তির দ্বিগুণ হবে? (Suppose a body is allowed to fall from a height $30\,m$ without any resistance. At what height will the kinetic energy of the substance be twice of its potential energy?)
+
+\begin{oneparchoices}
+\choice $10\,m$
+\choice $15\,m$
+\choice $25\,m$
+\choice $28\,m$
+
+\end{oneparchoices}
+
+\question মহাকর্ষীয় ধ্রুবকের মাত্রা হলো (The dimention of the gravitational constant is )
+
+\begin{oneparchoices}
+\choice $ ML^{3}T^{-3} $
+\choice  $ M^{-3}L^{3}T^{-2} $
+\choice  $ M^{-2}L^{3}T^{-1} $
+\choice  $ M^{-3}L^{3}T $
+\end{oneparchoices}
+
+\question দুটি স্পন্দনরত কণার সরণ যথাক্রমে $ x=A\sin \omega t $ এবং $ x=A\cos \omega t $ হলে এদের মধ্যে দশা পার্থক্য হবে (Two particles are oscillating at simple harmonic motion. If their displacement are described by $ x=A\sin \omega t $ and $ x=A\cos \omega t $ ,respectively, the phase difference between them is)
+
+\begin{oneparchoices}
+ \choice $ \pi $
+ \choice $ 2\pi $
+ \choice $ \dfrac{\pi}{2} $
+ \choice $ \dfrac{\pi}{4} $
+\end{oneparchoices}
+
+\question একটি গ্যাস অণুর ব্যাস $ 2\times 10^{10}\,m $। প্রতি ঘন সেন্টিমিটারে অণুর সংখ্যা $ 3\times 10^{-19} $ হলে গ্যাস অণুর গড় মুক্ত পথ হবে (If the molecular diameter of a gas molecule is $ 2\times 10^{10}\,m $ and the number of molecule per cc is $ 3\times 10^{-19} $ , the free mean path of a gas molecule is )
+
+\begin{oneparchoices}
+\choice $ 3\times 10^{3}\,cm $
+\choice $ 3\times 10^{3}\,cm $
+\choice $ 3\times 10^{5}\,cm $
+\choice $ 3\times 10^{6}\,cm $
+\end{oneparchoices}
+
+
+\question  একটি পাথরকে $ 4.9\,m/s $ বেগে সোজা উপরের দিকে নিক্ষেপ করা হল। কত সময় পাথরটি ভূপৃষ্ঠে ফিরে আসবে? (A stone is thrown vertically upward with velocity $ 4.9\,m/s $ . How long it will take to return the ground? )($ g=9.8m/s^{2} $)
+
+\begin{oneparchoices}
+\choice 4.9 s
+\choice 9.8 s
+\choice 1 s
+\choice 2 s
+\end{oneparchoices}
+
+\question  বেগ হচ্ছে (Velocity can be found from the)
+
+\begin{oneparchoices}
+\choice সরণ-সময় লেখচিত্রের নিচের ক্ষেত্রফল (Area under the displacement-time graph)\\
+\hspace*{-.3cm}\choice বল-সময় লেখচিত্রের নিচের ক্ষেত্রফল (Area under the force-time graph)\\
+\hspace*{-.3cm}\choice সরণ-সময় লেখচিত্রের ঢাল (Gradient of a displacement-time graph)\\
+\hspace*{-.3cm}\choice ত্বরণ-সময় লেখচিত্রের ঢাল (Gradient of a acceleration-time graph)
+
+\end{oneparchoices}
+
+\question $ 0^{\circ}\,C $ তাপমাত্রার $ 273\,kg $ বরফকে $ 0^{\circ}\,C $ তাপমাত্রার পানিতে রুপান্তর করলে এন্ট্রপির পরিবর্তন হবে? বরফ গলনের আপেক্ষিক সুপ্ততাপ $ 3.36\times 10^{5}\, J/Kg$ (What is the change of entropy in converting $ 273\,kg $ ice at $ 0^{\circ}\,C $ into water of $ 0^{\circ}\,C $ ? The specific latent heat of fusion of ice is $ 3.36\times 10^{5}\, J/Kg$ )
+ 
+\begin{oneparchoices}
+\choice $ 917.28\times 10^{5}\, J/Kg$
+\choice $ 3.36\times 10^{5}\, J/Kg$
+\choice $ 273\times 10^{5}\, J/Kg$
+\choice $ 0\, J/Kg$
+\end{oneparchoices}
+
+\question  একটি তামার তারের দৈর্ঘ্য $ 2\,m $ এবং ব্যাস $ 5\,mm $। যদি তারের দৈর্ঘ্য দ্বিগুণ ও ব্যাস অর্ধেক করা হয় তবে তারটির আপেক্ষিক রোধের কি পরিবর্তন হবে? (A copper wire has a length $ 2\,m $ and diameter $ 2\,mm $. If the length of the wire is doubled and diameter reduced to half, what will be the change of specific resistance to wire? ) 
+
+\begin{oneparchoices}
+\choice দ্বিগুণ (doubled)
+\hspace*{-.4cm}\choice অর্ধেক (halved)
+\hspace*{-.4cm}\choice চারগুণ (four times larger)
+\hspace*{-.4cm}\choice অপরিবর্তিত থাকবে (unchanged)
+\end{oneparchoices}
+
+
+\question  যদি $ \vec{A} = 2\hat{i} + a\hat{j} + \hat{k} $ এবং $ \vec{B} = -2\hat{i}+\hat{j}-2\hat{k} $ পরস্পর লম্ব হয়। তবে $ a $ এর মান হবে - (If $ \vec{A} = 2\hat{i} + a\hat{j} + \hat{k} $ and $ \vec{B} = -2\hat{i}+\hat{j}-2\hat{k} $ are perpendicular to each other then the value of $ a $ is)
+
+\begin{oneparchoices}
+ \choice $ -4 $
+\choice $ -6 $
+\choice $ 6 $
+\choice $ -2 $
+\end{oneparchoices}
+
+\question যদি একটি স্থির তরঙ্গের তরঙ্গদৈর্ঘ্য $ 40\,cm $ হয় তবে দুটি পাশাপাশি সুস্পন্দ বা নিস্পন্দ বিন্দুর মধ্যকার দূরত্ব হবে (If the wave length of stationary wave is $ 40\,cm $, the distance between two consecutive nodes or antinodes is )
+
+\begin{oneparchoices}
+\choice $ 20\,cm $
+\choice $ 10\,cm $
+\choice $ 40\,cm $
+\choice $ 80\,cm $
+\end{oneparchoices}
+
+
+\question $ 27^{\circ}\,C $ এবং $ 127^{\circ}\,C $ তাপমাত্রার মধ্যে কর্মরত কার্নোর ইঞ্জিনের কর্মদক্ষতা কত? (The efficiency of Carnot's engine working between $ 27^{\circ}\,C $ and $ 127^{\circ}\,C $ is )
+
+\begin{oneparchoices}
+\choice  $ 15\% $
+\choice   $ 25\% $
+\choice   $ 35\% $
+\choice   $ 50\% $
+\end{oneparchoices}
+
+\question  বৈদ্যুতিক ফ্লুাক্সের একক (The unit of electric flux is)
+
+\begin{oneparchoices}
+\choice $ \dfrac{Newton-meter^{2}}{Coulomb} $
+\choice $ \dfrac{Newton-meter}{Coulomb} $
+\choice $ \dfrac{Newton}{Coulomb} $
+\choice $ \dfrac{Newton}{meter^{2}} $
+\end{oneparchoices}
+
+\question  শূন্য মাধ্যমে দুইটি ইলেকট্রনের কুলম্ব বল $ F_{E} $ এবং মহাকর্ষ বল $ {F}_{G} $ এর অনুপাত হবে (The ratio of the coulomb electric force $ F_{E} $ and gravitational force $ {F}_{G} $ between two electron in vacuum is)  
+
+\begin{oneparchoices}
+\choice $ 4.2\times 10^{62} $
+\choice $ 4.2\times 10^{52} $
+\choice $ 4.2\times 10^{42} $
+\choice $ 4.2\times 10^{32} $
+\end{oneparchoices}
+
+\question  একটি প্রক্ষেপকে আনুভূমিকের সাথে $ 60^{\circ} $ কোণে $ 3\,m/s $ বেগে প্রক্ষেপ করা হলে সর্বোচ্চ উচ্চতায় এর বেগ কত হবে? (A projectile is thrown with velocity of $ 3\,m/s $ making an angle $ 60^{\circ} $ with the horizon. What is the velocity of projectile at maximum height?)
+
+\begin{oneparchoices}
+\choice  $\dfrac{3}{2} m/s$
+\choice  $\dfrac{\sqrt{3}}{2}m/s$
+\choice  $ 3\,m/s $
+\choice  $ 0\,m/s $
+\end{oneparchoices}
+
+\question $ 6.63\,eV $ ফোটনের কম্পাংক কত? (The frequency of $ 6.63\,eV $ photon is )
+
+\begin{oneparchoices}
+\choice $ 1.6\times 10^{15}\,/s $
+\choice  $ 6.631\times 10^{34}\,J/s $
+\choice  $ 4.14\times 10^{15}/s $
+\choice  $ 4.14\times 10^{34}/s $
+\end{oneparchoices}
+
+\question  30 kg ভরের একটি স্থির বস্তুর বেগ 2 মিনিটে বৃদ্ধি করে $ 36\,km/h $ এ উন্নীত করার জন্য বস্তুটির উপর কত বল প্রয়োগ করতে হবে? (How much force will have to be applied of on a body of mass 30 kg, initially at rest, to increase its velocity to $ 36\,km/h $ in 2 minutes?)
+
+\begin{oneparchoices}
+\choice 2 N
+\choice 2.5 N
+\choice 300 N
+\choice 500 N
+
+\end{oneparchoices}
+
+
+\question একটি কৃত্তিম উপগ্রহ 7000 km ব্যাসার্ধ বিশিষ্ট একটি বৃত্তাকার কক্ষপথে পৃথিবীকে প্রদক্ষিণ করছে। উপগ্রহটির পর্যায়কাল 2h হলে কেন্দ্রমুখী ত্বরণ কত? (An artificial satellite is orbiting the earth in an orbit of 7000 km. If the time period of satellite is 2h, what is the centripetal acceleration?)
+
+\begin{oneparchoices}
+\choice $ 1.331\,m/s^{2} $
+\choice $ 2.663\,m/s^{2} $
+\choice $ 5.325\,m/s^{2} $
+\choice $ 10.650\,m/s^{2} $
+\end{oneparchoices}
+
+
+
+\question $ 9.11\times 10^{31}\,kg $ ভর বিশিষ্ট একটি ইলেকট্রন যদি $ 2.5\times 10^{6}\,m/s $ বেগে চলে তাহলে এর জন্য দ্য ব্রগলি তরঙ্গের তরঙ্গদৈর্ঘ্য কত হবে? (The Broglie wavelength associate with electron of mass $ 9.11\times 10^{31}\,kg $ and speed $ 2.5\times 10^{6}\,m/s $ respectively is)
+
+\begin{oneparchoices}
+\choice $ 2.9\times 10^{-4}\,m $
+\choice $ 2.4\times 10^{-8}\,m $
+\choice $ 2.9\times 10^{-10}\,m $
+\choice $ 2.4\times 10^{-39}\,J/Kg $
+\end{oneparchoices}
+
+\question  নিচের সমীকরণে $ U-235 $ এর ফিসান বিক্রিয়া দেখানো হয়েছে। খালি বাক্সটিতে নিচের কোন সংখ্যাটি হবে? (The equation below shows fission reaction of $ U-235 $. Which of the following number will be in the empty box?)
+
+\[ \isotope[235][92]{}U+  \isotope[1][0]{}n \to \isotope[\square][56]{}Ba + \isotope[92][36]{}Kr + 3\isotope[1][0]{}n \]
+
+\begin{oneparchoices}
+\choice $ 141 $
+\choice $ 142 $
+\choice $ 143 $
+\choice $ 144 $
+\end{oneparchoices}
+
+\question   F ফোকাস দূরত্বের দুটি উত্তল লেন্সকে পরস্পর সংস্পর্শে রাখলে তাদের মিলিত ফোকাস দূরত্ব কত হবে? (What will be the resultant focal length of two convex lenses in contact if F is the focal length of each lens?)
+
+\begin{oneparchoices}
+\choice $ 141 $
+\choice $ 142 $
+\choice $ 143 $
+\choice $ 144 $
+\end{oneparchoices}
+
+
+
+\question $ 12 V $ তড়িৎচ্চালক শক্তি এবং $ 0.1\Omega $ অভ্যন্তরীণ রোধের একটি ব্যাটারিকে  একটি বৈদ্যুতিক মোটরের সঙ্গে সংযুক্ত করলে ব্যাটারির দুই প্রান্তের বিভব পার্থক্য দাঁড়ায় $ 7 V $। মোটরে সরবরাহকৃত কারেন্টের মান কত? (A battery of emf $ 12 V $ and internal resistance of $ 0.1\Omega $ is connected to an electric motor, if the potential difference across the battery becomes $ 7 V $, what is the current supplied to the motor?)
+
+\begin{oneparchoices}
+\choice $ 50\,A $
+\choice $ 70\,A $
+\choice $ 120\,A $
+\choice $ 190\,A $
+\end{oneparchoices}
+
+\question দুটি সমান চার্জের মধ্যবর্তী দূরত্ব অর্ধেক করা হলে এবং এদের মান কমিয়ে অর্ধেক করা হলে বলের মান হবে (When the distance between two equal charges reduced to half and the magnitudes of the charges are also decreases to half, the force between them )
+
+
+\begin{oneparchoices}
+\choice দ্বিগুণ (doubled)
+\hspace*{-.4cm}\choice অর্ধেক (halved)
+\hspace*{-.4cm}\choice চারগুণ (four times)
+\hspace*{-.4cm}\choice অপরিবর্তিত থাকবে (unchanged)
+\end{oneparchoices}
+
+\question  কোনটি তড়িৎ চুম্বকীয় তরঙ্গ নয়? (Which one of the following is not electromagnetic wave?)
+
+\begin{oneparchoices}
+\choice Radio wave
+\choice Microwave
+\choice X-ray
+\choice Ultrasound
+\end{oneparchoices}
+
+\question  একই বেগে চলমান একটি ইলেকট্রন এবং একটি প্রোটনকে একটি অভিন্ন চুম্বক ক্ষেত্রের দিকের সাথে $ 90^{\circ} $ কোণে প্রেরন করা হল। তাদের উপর প্রযুক্ত প্রারম্ভিক চুম্বক বল হবে (An electron and a proton traveling with a same velocity are injected into a region of uniform magnetic field at $ 90^{\circ} $ to the magnetic field direction. The initial magnetic forces on them are )
+
+\begin{oneparchoices}
+\choice সমান এবং একই দিকে (equal in magnitude and same direction)\\
+\hspace*{-.3cm}\choice সমান এবং বিপরীত দিকে (equal in magnitude and opposite direction)\\
+\hspace*{-.3cm}\choice সমান এবং পারস্পরিক লম্বভাবে (equal in magnitude and perpendicular to each other)\\
+\hspace*{-.3cm}\choice ভিন্ন এবং বিপরীত দিকে (differing in magnitude and in opposite direction)
+\end{oneparchoices}
+
+\question  একটি ট্রান্সফরমারের মুখ্য ও গৌণ কুন্ডলীর পাকের সংখ্যা 1000 এবং 100। মুখ্য কুন্ডলীতে 1A মানের তড়িৎ প্রবাহিত হলে গৌণ কুন্ডলীতে কত তড়িৎ প্রবাহ পাওয়া যাবে? (Number of turns in the primary and secondary coils of an ideal transformer are 1000 and 100, respectively. If an AC current of 1.0 A flows through the primary coil, what current will through the secondary coil?)
+
+\begin{oneparchoices}
+\choice $ 1\,A $
+\choice $ 10\,A $
+\choice $ 12\,A $
+\choice $ 100\,A $
+\end{oneparchoices}
+
+\question আলোকবর্ষ কিসের একক? (Light year is the unit of )
+
+\begin{oneparchoices}
+\choice দ্রুতির (speed)
+\choice দূরত্বের (distance)
+\choice  সময়ের (time)
+\choice  কম্পাঙ্কের (frequency)
+\end{oneparchoices}
+
+\question  পাশের চিত্রটি কোন লজিক গেটের সমতুল্য বর্তনী ? (The circuit in the adjacent figure is equivalent to which logic gate?)
+\begin{center}
+  \begin{circuitikz}[american voltages]
+   \draw (-.5,0) node [/tikz/circuitikz/bipoles/length=0.7 cm,mixer](m){};
+    \draw (-.75,0) to [battery1] (-2,0)--(-3,0)--(-3,2)--(-2,2)--(-2,2.5) to[nos,anchor=east](0,2.5)--(0,2)--(1,2)--(1,0)to[short](-.25,0);
+   \draw (-2,2)--(-2,1.5)to[nos,anchor=east](0,1.5)--(0,2);
+   \draw (-.75,2.5) node[above]{A}; 
+      \draw (-.75,1.5) node[above]{B}; 
+       \draw (-.5,.5) node[above]{Bulb};
+\end{circuitikz}
+\end{center}
+
+
+\begin{oneparchoices}
+\choice OR gate
+\choice NOR gate
+\choice NOT gate
+\choice AND gate
+\end{oneparchoices}
+
+\question একটি ধাতুর কার্যাপেক্ষক $ 6.63\,eV $। ধাতুটির ক্ষেত্রে ফটোইলেকট্রন নিঃসরণের সূচন কম্পাঙ্ক কত? (The work function of a metal is $ 6.63\,eV $ . What is the threshold frequency for photo emission from the metal ) (Plack's constant $= 6.63\times 10^{-34}\,J.S $ ) 
+
+\begin{oneparchoices}
+\choice $ 16\times 10^{14}\, Hz $
+\choice $ 16\times 10^{-14}\, Hz $
+\choice $ 1.6\times 10^{-19}\, Hz $
+\choice $ 1.6\times 10^{19}\, Hz $
+\end{oneparchoices}
+
+
+\question   14 মিনিট শেষে তেজস্ক্রিয় Polonium এর $ \dfrac{1}{6} $ অংশ অবশিষ্ট থাকে। মৌলটির অর্ধায়ু (At the end of the 14 mins $ \dfrac{1}{6} $ of the radioactive remains. The half life of the Polonium is )
+
+\begin{oneparchoices}
+\choice $ \dfrac{7}{8}\, min $
+\choice $ \dfrac{8}{7}\, min $
+\choice $ \dfrac{7}{2}\, min $
+\choice $ \dfrac{14}{3}\, min $
+
+\end{oneparchoices}
+
+\end{questions}
+
+\end{document}

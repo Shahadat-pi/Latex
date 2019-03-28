@@ -1,0 +1,278 @@
+\documentclass[addpoints]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+\usepackage{relsize}
+\usepackage{dirtytalk}
+\usepackage{graphicx}
+\graphicspath{ {./drift/} }
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\usepackage{geometry}
+\usepackage{draftwatermark}
+\SetWatermarkFontSize{2cm}
+\SetWatermarkText{Mathematics-1996}
+\usepackage[banglamainfont=Kalpurush, 
+            banglattfont=Siyam Rupali
+           ]{latexbangla}
+        
+\begin{document}
+\begin{LARGE}
+\begin{center}
+গণিত (Mathematics - 1996)
+\end{center}
+\end{LARGE}
+\begin{questions}
+
+ \question  P, Q, R ধ্রুবক এবং $ \dfrac{3x^{2}-5x+4}{(x-1)(x^{2}+1)} \equiv \dfrac{P}{x-1} + \dfrac{Qx+R}{x^{2}+1} $ হয় তবে R=?  (If P, Q, R are constants and $ \dfrac{3x^{2}-5x+4}{(x-1)(x^{2}+1)} \equiv \dfrac{P}{x-1} + \dfrac{Qx+R}{x^{2}+1} $ then R=?)
+
+\begin{oneparchoices}
+\choice $ 4 $
+\choice $ -3 $
+\choice $ -5 $
+\choice $ 1 $
+\end{oneparchoices}
+
+\question যদি $ x^{2}+x+2=0 $ সমীকরণের এর মূল $ \alpha $ এবং $ \beta  $ হয়, তবে $ \dfrac{1}{\alpha},\dfrac{1}{\beta} = ?$ (If  and are the roots of the equation $ x^{2}+x+2=0 $ then $ \dfrac{1}{\alpha},\dfrac{1}{\beta} = ?$ )
+
+\begin{oneparchoices}
+\choice $ -2 $
+\choice $ -1 $ m
+\choice $ -\dfrac{1}{2} $
+\choice $ \dfrac{1}{2} $
+\end{oneparchoices}
+
+\question $ \dfrac{2+3i}{2-i} = P+Qi $ এবং P, Q বাস্তব সংখ্যা হলে $ Q=? $ (If $ \dfrac{2+3i}{2-i} = P+Qi $ and P, Q are real numbers then, $ Q=? $ )
+
+\begin{oneparchoices}
+\choice $ \dfrac{4}{3} $ 
+\choice $ \dfrac{8}{3} $ 
+\choice $ \dfrac{8}{5} $
+\choice $ \dfrac{7}{5} $
+\end{oneparchoices}
+
+\question 1,3,5,7,9 অঙ্কগুলি থেকে তিনটি ভিন্ন অঙ্ক নিয়ে 200 থেকে বৃহত্তর তিন অঙ্কের যে সকল সংখ্যা গঠন করা যায় তাদের সংখ্যা কত? (The number of three digit integers than 200 formed with three different digits chosen from 1,3,5,7,9 is ?)
+ 
+
+\begin{oneparchoices}
+\choice $ 24 $ 
+\choice $ 48 $ 
+\choice $ 60 $
+\choice $ 64 $
+\end{oneparchoices}
+
+\question  $ |2x|<1 $ এর জন্য $ x^{3} $ এর ঘাতের উর্ধ্বক্রমে $ \sqrt{2+2x} $ এর বিস্তৃতিতে $ x^{3} $ এর সহগ: (The coefficient of $ x^{3} $ in the expansion of $ \sqrt{2+2x} $ is ascending power of $ x $ when $ |2x|<1 $ is :)
+
+\begin{oneparchoices}
+\choice $ -\dfrac{1}{2} $
+\choice $ -\dfrac{1}{16} $
+\choice $ \dfrac{1}{16} $
+\choice $ \dfrac{1}{2} $
+\end{oneparchoices}
+
+
+\question   $ -1<x<1  $ হলে, এবং $ \log_{e}\Big(\dfrac{1-x}{1+x}\Big) $ এর বিস্তৃতিতে $ x^{3} $ এর সহগ $ K $ হলে $ K=? $ (If $ -1<x<1  $ and K is the coefficient of $ x^{3} $ in the expansion of $ \log_{e}\Big(\dfrac{1-x}{1+x}\Big) $ then K=? )
+
+\begin{oneparchoices}
+\choice $ -\dfrac{2}{3} $
+\choice $ -\dfrac{1}{3} $
+\choice $ \dfrac{1}{3} $
+\choice $ \dfrac{2}{3} $
+\end{oneparchoices}
+
+\question $ \begin{vmatrix}
+10 & 20 & 30\\
+40 & 50 & 60\\
+50 & 70 & 90 
+\end{vmatrix}  $  নির্ণায়কটির মান কত? (The value of the determinant $ \begin{vmatrix}
+10 & 20 & 30\\
+40 & 50 & 60\\
+50 & 70 & 90 
+\end{vmatrix}  $ is)
+
+\begin{oneparchoices}
+\choice $ 0 $
+\choice $ -100 $
+\choice $ 100 $
+\choice $ 40 $
+\end{oneparchoices}
+
+\question $ x=2\cos t,\, y= \sin t $  হলে  $ \dfrac{dy}{dx} = ? $ (If $ x=2\cos t,\, y= 2\sin t $ then $ \dfrac{dy}{dx} =? $ )
+
+\begin{oneparchoices}
+\choice $ \cot t $
+\choice $ -\cot t $
+\choice $ \tan t $
+\choice $ -\tan t $
+\end{oneparchoices}
+
+\question $ 3x+4y-5=0 $ রেখা হতে $ (-1,2) $ বিন্দুর দূরত্ব $ d $ হলে $ d= $ কত? (If $ d $ is the distance at the point $ (-1,2) $ from the line $ 3x+4y-5=0 $ what is the value of $ d $ ? )
+
+\begin{oneparchoices}
+\choice $ 5 $
+\choice $ 3 $ 
+\choice $ -3 $
+\choice $ \dfrac{5}{7} $
+\end{oneparchoices}
+
+\question $ 3x-4y-5=0 $ এবং $ 2y-x+3=0 $ রেখা দুইটির অন্তর্বর্তী সুক্ষকোণ $ \theta $ হলে $ \tan\theta =? $ (if $ \theta $ is the acute angle between the line $ 2y-x+3=0 $ and $ 3x-4y-5=0 $ then $ \tan\theta =? $)
+
+\begin{oneparchoices}
+\choice $ -\dfrac{11}{2} $
+\choice $ -\dfrac{1}{2} $
+\choice $ \dfrac{1}{2} $
+\choice $ \dfrac{11}{2} $
+\end{oneparchoices}
+
+
+\question যদি $ y=2x+b $ রেখাটি $ y^{2}=16x $ পরাবৃত্তকে স্পর্শ করে তবে $ b=? $ (If the line $ y=2x+b $ touches the parabola $ y^{2}=16x $ then the value of $ b $ is: )
+
+
+\begin{oneparchoices}
+\choice  $ -2 $
+\choice  $ 2 $
+\choice  $ -1 $
+\choice  $ 1 $
+\end{oneparchoices}
+
+
+\question $ \csc x= 2 $ এবং $ \cot x = -\sqrt{3} $ হলে কোনটি সত্য? (If $ \csc x= 2 $ and  $ \cot x = -\sqrt{3} $ then which one is true? )
+
+\begin{oneparchoices}
+\choice $ \sin x = \dfrac{1}{2} $
+\choice $ \cos x = \dfrac{\sqrt{3}}{2} $
+\choice $ \tan x = \dfrac{\sqrt{3}}{2} $
+\choice $ \cos x =-\dfrac{\sqrt{3}}{2} $
+\end{oneparchoices}
+
+\question (The general solution of the following equation is) $ \sin 2\theta = \dfrac{1}{2} $ সমীকরনের সাধারণ সমাধান- (এখানে $ n $ একটি পূর্ন সংখ্যা নির্দেশ করে) (Here $ n $ is an integer.)
+
+\begin{oneparchoices}
+\choice $ \theta = \dfrac{n\pi}{2} +(-1)^{n}\dfrac{\pi}{12} $
+\choice $ \theta = \dfrac{n\pi}{2} +(-1)^{n}\dfrac{\pi}{6} $
+\choice $ \theta = n\pi +(-1)^{n}\dfrac{\pi}{12} $
+\choice $ \theta = n\pi +(-1)^{n}\dfrac{\pi}{6} $
+\end{oneparchoices}
+
+\question  যদি $ x^{2}-2x^{2}y+2y^{2}=1 $ হয় তবে $ \dfrac{dy}{dx}=? $ (If $ x^{2}-2x^{2}y+2y^{2}=1 $ then $ \dfrac{dy}{dx}=? $ )
+
+\begin{oneparchoices}
+\choice $ \dfrac{x+4y}{2x} $
+\choice $ \dfrac{x-2y}{x+2y} $
+\choice $ \dfrac{x-y}{x-2y} $
+\choice $ \dfrac{x-2y}{4y} $
+\end{oneparchoices}
+
+\question যদি $ \mathlarger{\int}x\cos x\, dx =f(x) + constant $ হয় তবে, $ f(x) =?  $ (If $ \mathlarger{\int}x\cos x\, dx =f(x) + constant $ then $ f(x) =? $ )
+
+\begin{oneparchoices}
+\choice $ x\sin x + \cos x $
+\choice $ x\sin x -\cos x $
+\choice $ \dfrac{x}{2}\sin x $
+\choice $ \dfrac{x^{2}}{2}\cos x + x\sin x $
+\end{oneparchoices}
+
+\question যদি $ \mathlarger{\int}e^{x}(\cos x + \sin x)\, dx =f(x) + c $ হয় তবে, $ f(x) =?  $ (If $ \mathlarger{\int}e^{x}(\cos x + \sin x)\, dx =f(x) + c $ then $ f(x) =? $ )
+
+\begin{oneparchoices}
+\choice $ e^{x}\cos x $
+\choice $ -e^{x}\cos x $
+\choice $ e^{x}\sin x $
+\choice $ -e^{x}\sin x $
+\end{oneparchoices}
+
+\question $ \mathlarger{\int_{0}^{1}}\dfrac{1}{\sqrt{1-3x^{2}}}\,dx = I $ হলে $ I=? $ (If $ \mathlarger{\int_{0}^{1}}\dfrac{1}{\sqrt{1-3x^{2}}}\,dx = I $ then $ I=? $ )
+
+\begin{oneparchoices}
+\choice  $ \dfrac{\pi}{3\sqrt{3}} $
+\choice  $ \dfrac{\pi}{\sqrt{3}} $
+\choice  $ \dfrac{\pi}{9} $
+\choice  $ \dfrac{\pi}{3} $
+\end{oneparchoices}
+
+
+
+\question  $ \mathlarger{\int_{1}^{2}\log_{e}x\, dx = ?} $
+
+\begin{oneparchoices}
+\choice $ e $
+\choice $ 1 $
+\choice $ -e $
+\choice $ -1 $
+\end{oneparchoices}
+
+\question 3N এবং 5N মানের দুইটি বল পরস্পর বিপরীতভাবে ক্রিয়া করে। তাদের লদ্ধির মান কত? (Two forces of magnitudes 3N and 5N act in opposite directions.  The magnitude of their resultant is :) 
+
+\begin{oneparchoices}
+\choice $ 2 $ N
+\choice $ 8 $ N
+\choice $ \sqrt{34} $ N
+\choice $ 15 $ N  
+\end{oneparchoices}
+
+
+\question নিন্মের কোন বলত্রয় ত্রিভুজের বাহু দ্বারা দিকে ও মানে একইক্রমে প্রকাশ করলে স্থিতাবস্থায় থাকবে? (Which three of the forces when represented by the three sides of a triangle in directions magnitudes taken in order will be in equilibrium ?)
+
+
+\begin{oneparchoices}
+\choice 1N, 2N, 4N
+\choice 3N, 4N, 5N
+\choice 10N, 20N, 50N
+\choice  5N, 20N, 80N
+\end{oneparchoices}
+
+
+\question একটি কণার উপর 3 মি/সে, 5 মি/সে, 7 মি/সে মানের এমন তিনটি বেগ আরোপ করা হল যেন কণাটি স্থিতীশীল থাকে। ক্ষুদ্রতর মানের বেগদুটির মধ্যবর্তী কোণের মান কত? (Three velocities of magnitudes 3 m/s$ ^{2} $, 5 m/s$ ^{2} $, 7 m/s$ ^{2} $ are imposed on a particle in three directions such that the particle remains at rest. What is the angle between the directions of two smaller velocities?)
+
+\begin{oneparchoices}
+\choice  $ 30^{\circ} $
+\choice  $ 60^{\circ} $
+\choice  $ 90^{\circ} $
+\choice  $ 45^{\circ} $
+\end{oneparchoices}
+
+\question একটি কণা আনুভূমিক তলের সাথে $ \theta $ কোণে $ v $ বেগ সহকারে প্রক্ষেপ করা হল। আনুভূমিক তল থেকে কনাটি সর্বাধিক উচ্চতা লাভের সময় কত হবে? 
+
+\begin{oneparchoices}
+\choice $\dfrac{v^{2}\sin^{2}\theta}{2g} $
+\choice $\dfrac{v^{2}\sin^{2}2\theta}{g} $
+\choice $\dfrac{v\sin\theta}{g} $
+\choice $\dfrac{v\sin \theta}{2g} $
+\end{oneparchoices}
+
+
+ \question একটি প্রক্ষেপককে কত আদি বেগে নিক্ষেপ করলে সর্বাধিক আনুভুমিক পাল্লা ৯০ মিটার হবে? (If the maximum horizontal range is 90 meter, what should be the initial speed at which the projectile be projected?)
+
+\begin{oneparchoices}
+\choice $ 30 $ m/s
+\choice 40 m/s
+\choice 90 m/s
+\choice 50 m/s
+\end{oneparchoices}
+
+
+
+\question একটি কণা আনুভূমিক তলের সাথে $ 30^{\circ} $ কোণে $ 8 $ m/s বেগ সহকারে প্রক্ষেপ করা হল। আনুভূমিক তল থেকে কনাটি সর্বাধিক কত মিটার উচ্চতা লাভ করবে? 
+
+\begin{oneparchoices}
+\choice $\dfrac{5}{8} $
+\choice $\dfrac{8}{5} $
+\choice $\dfrac{40}{49} $
+\choice $\dfrac{49}{40} $
+\end{oneparchoices}
+
+\question  একজন লোক ২০০ মিটার উপর থেকে ১০০ কেজি ওজনের ভারী বস্তুনিয়ে শূন্যে লাফ দেয়।  শূন্যে থাকা অবস্থায় তার মাথার উপর চাপের পরিমাণ -  
+
+\begin{oneparchoices}
+\choice $ 10 $ kg
+\choice $ 100 $ kg
+\choice $ 150 $ kg
+\choice $ 200 $ kg
+\end{oneparchoices}
+
+\end{questions}
+
+\end{document}

@@ -8,9 +8,19 @@
 \usetikzlibrary{arrows}
 \usetikzlibrary{decorations.pathreplacing,decorations.markings}
 \usetikzlibrary{datavisualization.formats.functions}
+\usepackage[american,siunitx]{circuitikz}
+\ctikzset{bipoles/resistor/width=.35}
+\ctikzset{bipoles/resistor/height=.15}
 \pgfplotsset{width=3cm,compat=1.4}
 \usepackage{graphicx}%
 \usepackage{mathtools}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+\tikzstyle arrowstyle=[scale=1]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+\tikzstyle reverse directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]
 \usepackage{dirtytalk}
 \usepackage{relsize}
 \graphicspath{ {images/} }
@@ -41,6 +51,13 @@
 \end{oneparchoices}
 
  \question  চিত্রে প্রদর্শিত বর্তনীতে $ 4\Omega $ রোধের মধ্যে তড়িৎ প্রবাহ কত? (What is the current through $ 4\Omega $ resistor in the circuit shown?)
+ \begin{center}
+  \begin{circuitikz}[american voltages]
+    \draw (.75,1.5)--(0,1.5)--(0,0) to[battery, l_=5<\volt>](2.8,0)--(3,0) to [R, l=4<\ohm>]  (3,1.4)--(3,1.5)to(2,1.5);
+    \draw (.75,1.5)--(.75,2) to [R, l=2<\ohm>] (2,2)--(2,1)to [R, l=2<\ohm>]  (.75,1)--(.75,1.5);
+\end{circuitikz}
+ \end{center}
+
 
 \begin{oneparchoices}
 \choice $ \dfrac{5}{4} $ Ampere
@@ -52,21 +69,44 @@
 
 \question  একটি আলোকরশ্মি চিত্রে প্রদর্শিত তিনটি মাধ্যম দিয়ে অতিক্রম করছে । বেগগুলোর কোন ক্রমটি সঠিক? (A ray of light passes through three media as shown. Which order of the velocities is correct? )
 
+\begin{center}
+\begin{tikzpicture}[
+    force/.style={>=latex,draw=blue,fill=blue},
+    axis/.style={densely dashed,gray,font=\small},
+    M/.style={rectangle,draw,fill=lightgray,minimum size=0.5cm,thin},
+    m/.style={circle,draw=black,fill=lightgray,minimum size=0.1cm,thin},
+    plane/.style={draw=black,fill=blue!10},
+    string/.style={draw=red, thick},
+    pulley/.style={thick},
+]
+
+    % Free body diagram of m
+\draw (0,0)--(4,0);
+\draw (0,-1)--(4,-1);
+\draw (0,-2)--(4,-2);
+ \draw[red, thick,reverse directed] (1.5,0)--(.5,1);
+ \draw[red, thick,reverse directed] (2,-1) -- (1.5,0);
+  \draw[red, thick,reverse directed] (3.5,-2) -- (2,-1);
+  \node at (3,.3){বেগ $v_{1}$};
+   \node at (3,-.7){বেগ $v_{2}$};
+    \node at (.8,-1.5){বেগ $v_{3}$};
+\end{tikzpicture}
+\end{center}
+
 \begin{oneparchoices}
 \choice $ v_{3}>v_{1}>v_{2}$
 \choice $ v_{3}>v_{2}>v_{1}$
 \choice $ v_{1}>v_{2}>v_{3}$
 \choice $ v_{1}>v_{3}>v_{2}$
-
 \end{oneparchoices}
 
 \question  একটি আদর্শ গ্যাস একটি তাপ অন্তরকের আবরণযুক্ত দৃঢ়পাত্রে শূণ্য মাধ্যমে প্রসারিত হলো। ফলে নিন্মের কোনটি ঘটে? (An ideal gas expands into vacuum in an insulated rigid vessel. Which of the followings happens?)
 
 \begin{oneparchoices}
 \choice অন্তস্থ শক্তির কোন পরিবর্তন হয়না। (no change of internal energy) \\
-\choice তাপমাত্রা হ্রাস পায়। (a decrease of temperature)\\ 
-\choice চাপের কোন পরিবর্তন হয়না। (no change of pressure)\\
-\choice দশার পরিবর্তন হয়। (a change of phase)
+\hspace*{-.3cm}\choice তাপমাত্রা হ্রাস পায়। (a decrease of temperature)\\ 
+\hspace*{-.3cm}\choice চাপের কোন পরিবর্তন হয়না। (no change of pressure)\\
+\hspace*{-.3cm}\choice দশার পরিবর্তন হয়। (a change of phase)
 \end{oneparchoices}
 
 \question  একটি পিয়নো তারের দৈর্ঘ্য L এবং ভর M । যদি এর মূল কম্পাংক $ f $ হয় তবে তারের টান হলো : (A piano wire has length L and mass M. If its fundamental frequency is $ f $, then the tension in the wire is:)
@@ -308,19 +348,19 @@
 \question শূণ্যমাধ্যমে প্রবাহমান একটি সমতল তরঙ্গমুখের বিদ্যুৎ ও চৌম্বক ক্ষেত্রের বিস্তারের অনুপাত $ \dfrac{E}{B} $ এর মান এস আই এককে হলো : (In a plane electromagnetic wave propagating in vacuum, the ratio of the amplitudes of the electromagnetic fields, $ \dfrac{E}{B} $ in SI units is: )
 
 \begin{oneparchoices}
-\hspace*{.2cm}\choice তরঙ্গের কৌণিক কম্পাংক, $ \omega $ (Angular frequency of the wave $ \omega $)\\
-\choice শূণ্যমাধ্যমে তরঙ্গদৈর্ঘ্য $ \lambda $ (the wavelength of the wave in vacuum $ \lambda $)\\
-\choice  শূণ্যমাধ্যমে আলোর বেগ, $ c $ (the speed of the light in vacuum $ c $)\\
-\choice  প্লাংকের ধ্রুবক, $ h $ (Planck's constant, $ h $)
+\choice তরঙ্গের কৌণিক কম্পাংক, $ \omega $ (Angular frequency of the wave $ \omega $)\\
+\hspace*{-.3cm}\choice শূণ্যমাধ্যমে তরঙ্গদৈর্ঘ্য $ \lambda $ (the wavelength of the wave in vacuum $ \lambda $)\\
+\hspace*{-.3cm}\choice  শূণ্যমাধ্যমে আলোর বেগ, $ c $ (the speed of the light in vacuum $ c $)\\
+\hspace*{-.3cm}\choice  প্লাংকের ধ্রুবক, $ h $ (Planck's constant, $ h $)
 \end{oneparchoices}
 
 \question  সরণ পাওয়া যায়: (Displacement is obtained from: )
 
 \begin{oneparchoices}
 \choice বেগ-সময় লেখচিত্রের ঢাল থেকে (the slope of the velocity-time graph.)\\
-\choice ত্বরণ-সময় লেখচিত্রের ঢাল থেকে (the slope of the acceleration-time graph.)\\
-\choice বেগ-সময় লেখচিত্রের নিচের ক্ষেত্রফল থেকে (the area under the velocity-time graph.)\\
-\choice ত্বরণ-সময় লেখচিত্রের ক্ষেত্রফল থেকে (the area under the acceleration-time graph.)
+\hspace*{-.3cm}\choice ত্বরণ-সময় লেখচিত্রের ঢাল থেকে (the slope of the acceleration-time graph.)\\
+\hspace*{-.3cm}\choice বেগ-সময় লেখচিত্রের নিচের ক্ষেত্রফল থেকে (the area under the velocity-time graph.)\\
+\hspace*{-.3cm}\choice ত্বরণ-সময় লেখচিত্রের ক্ষেত্রফল থেকে (the area under the acceleration-time graph.)
 
 \end{oneparchoices}
 
@@ -368,13 +408,13 @@
 
 \end{oneparchoices}
 
-\question  গ্রহের গতির ক্ষেত্রে – "একটি নক্ষত্র থেকে গ্রহকে সংযোককারী সরলরেখা সমান সময়ে সমান ক্ষেত্রফল অতিক্রম করে" - এটি কোন নীতির সরাসরি ফলাফল? (In planetary motions - \say{the line joining the star to the planet sweeps out equal areas in equal times}. This is direct principle of which principle? )
+\question  গ্রহের গতির ক্ষেত্রে – \say{একটি নক্ষত্র থেকে গ্রহকে সংযোককারী সরলরেখা সমান সময়ে সমান ক্ষেত্রফল অতিক্রম করে} - এটি কোন নীতির সরাসরি ফলাফল? (In planetary motions - \say{the line joining the star to the planet sweeps out equal areas in equal times}. This is direct principle of which principle? )
 
 \begin{oneparchoices}
 \choice শক্তির সংরক্ষণ নীতি (the conservation of energy)\\
-\choice ভরবেগের সংরক্ষণ নীতি (the conservation of momentum) \\
-\choice কৌণিক ভরবেগের সংরক্ষণ নীতি (the conservation of angular momentum)\\
-\choice ভরের সংরক্ষণ নীতি (the conservation of mass)
+\hspace*{-.3cm}\choice ভরবেগের সংরক্ষণ নীতি (the conservation of momentum) \\
+\hspace*{-.3cm}\choice কৌণিক ভরবেগের সংরক্ষণ নীতি (the conservation of angular momentum)\\
+\hspace*{-.3cm}\choice ভরের সংরক্ষণ নীতি (the conservation of mass)
 \end{oneparchoices}
 
 \end{questions}

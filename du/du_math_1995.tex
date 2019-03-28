@@ -1,0 +1,54 @@
+\documentclass[10pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{pgf,tikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\pagestyle{empty}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{arrows.meta,arrows}
+\usetikzlibrary{shapes,positioning}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{scopes}
+\usepackage{relsize}
+\usepackage{graphicx}
+\graphicspath{ {./du/} }
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{caption,setspace}
+\usepackage{geometry}
+
+\tikzstyle arrowstyle=[scale=1]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+
+
+
+
+        
+\begin{document}
+\begin{tikzpicture}[
+    force/.style={>=latex,draw=blue,fill=blue},
+    axis/.style={densely dashed,gray,font=\small},
+    M/.style={rectangle,draw,fill=lightgray,minimum size=0.5cm,thin},
+    m/.style={circle,draw=black,fill=lightgray,minimum size=0.1cm,thin},
+    plane/.style={draw=black,fill=blue!10},
+    string/.style={draw=red, thick},
+    pulley/.style={thick},
+]
+
+    % Free body diagram of m
+    \node[m] (m) {};
+     \node[below] at (0,-.2) {$O$};
+    \draw[axis,->](-5,0)-- (m) -- ++(5,0) node[right] {$X$};
+    \draw[axis,->](m) -- ++(0,4) node[above] {$Y$};
+    {[force,->]
+       \draw[blue,directed, thick] (m.center) -- (135:5)node[above] {$Z$};
+        \draw[blue,directed, thick] (m.center) -- (45:5)node[above] {$F$};
+        \draw (.75,0) arc (0:90:.75);
+         \draw (1.25,0) arc (0:135:1.25) ;
+        \node[] at (110:1.6)  {$135^{\circ}$};
+         \node[] at (70:1)  {$90^{\circ}$};      
+    }
+\end{tikzpicture}
+
+\end{document}

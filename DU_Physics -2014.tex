@@ -1,0 +1,403 @@
+\documentclass[addpoints]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage[american,siunitx]{circuitikz}
+\ctikzset{bipoles/resistor/width=.35}
+\ctikzset{bipoles/resistor/height=.15}
+\pgfplotsset{width=3cm,compat=1.4}
+\usepackage{graphicx}%
+\usepackage{mathtools}
+\usetikzlibrary{arrows,shapes,positioning}
+\usetikzlibrary{decorations.markings}
+\tikzstyle arrowstyle=[scale=1]
+\tikzstyle directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrow[arrowstyle]{stealth}}}}]
+\tikzstyle reverse directed=[postaction={decorate,decoration={markings,
+    mark=at position .65 with {\arrowreversed[arrowstyle]{stealth};}}}]
+\usepackage{graphicx}%
+\usepackage{mathtools}
+\usepackage{dirtytalk}
+\usepackage{relsize}
+\graphicspath{ {images/} }
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\usepackage[legalpaper]{geometry}
+\usepackage{draftwatermark}
+\SetWatermarkFontSize{2cm}
+\SetWatermarkText{DU-Physics}
+\usepackage[banglamainfont=Kalpurush, 
+            banglattfont=Siyam Rupali
+           ]{latexbangla}
+        
+\begin{document}
+\begin{LARGE}
+\begin{center}
+পদার্থবিজ্ঞান (Physics - 2016)
+\end{center}
+\end{LARGE}
+\begin{questions}
+
+\question নিচের কোনটি মৌলিক একক? (Which one of the following is base unit?)
+
+\begin{oneparchoices}
+\choice Coulomb
+\choice Ampere
+\choice Volt
+\choice Ohm
+\end{oneparchoices}
+
+ \question  30 m উচ্চতা থেকে বিনা বাধায় পড়ন্ত একটি বস্তুর কোন উচ্চতায় গতি শক্তি বিভব শক্তির দ্বিগুণ হবে? (Suppose a body is allowed to fall from a height 30 m without any resistance. At what height will the kinetic energy of the substance be twice of its potential energy?)
+
+\begin{oneparchoices}
+\choice 10 m
+\choice 15 m
+\choice 25 m
+\choice 28 m
+
+\end{oneparchoices}
+
+\question মহাকর্ষীয় ধ্রুবকের মাত্রা হলো (The dimention of the gravitational constant is )
+
+\begin{oneparchoices}
+\choice $ ML^{3}T^{-3} $
+\choice  $ M^{-3}L^{3}T^{-2} $
+\choice  $ M^{-2}L^{3}T^{-1} $
+\choice  $ M^{-3}L^{3}T $
+\end{oneparchoices}
+
+\question  সমবেগে চলা একটি গাড়ির ব্রেক কষার পর গাড়িটি সমমন্দনে থামতে শুরু করল। নিচের কোন লেখচিত্রটি গাড়িটির সরনের $ (s) $ সাথে বেগ $ (v) $ এর পরিবর্তন নির্দেশ করে ? (A car is travelling at a constant velocity. It brakes are then applied causing uniform deceleration. Which graph shows the variation of the velocity $ v $ with the distance $ s $ of the car?)
+
+\begin{oneparchoices}
+ \choice\begin{tikzpicture}
+      \draw[->] (0,0) -- (2,0);
+      \draw[->] (0,0) -- (0,2) ;
+      \draw (0,1)node[left] {$v$};
+     \draw (2,0) node[below] {$s$};
+      \draw[scale=0.4,domain=0:2.5,smooth,variable=\x,blue] plot ({\x},{(3.1)});
+      \draw[scale=0.4,domain=2.5:4,smooth,variable=\x,blue] plot ({\x},{(sqrt(16-\x*\x))});
+    \end{tikzpicture}
+ \choice\begin{tikzpicture}
+      \draw[->] (0,0) -- (2,0);
+      \draw[->] (0,0) -- (0,2) ;
+      \draw (0,1)node[left] {$v$};
+     \draw (2,0) node[below] {$s$};
+      \draw[scale=0.5,domain=0:1.5,smooth,variable=\x,blue] plot ({\x},{(2.5)});
+      \draw[scale=0.5, blue] (3,0) -- (1.5,2.5) ;
+    \end{tikzpicture}
+ \choice\begin{tikzpicture}
+      \draw[->] (0,0) -- (2,0);
+      \draw[->] (0,0) -- (0,2) ;
+      \draw (0,1)node[left] {$v$};
+     \draw (2,0) node[below] {$s$};
+      \draw[scale=0.5,domain=0:1,smooth,variable=\x,blue] plot ({\x},{(2.5)});
+     \draw[scale=0.5,domain=1:3.5,smooth,variable=\x,blue] plot ({\x},{(-sqrt(6.25-(\x*\x-7*\x+12.25)))+2.5});
+    \end{tikzpicture}
+ \choice \begin{tikzpicture}
+      \draw[->] (0,0) -- (2,0);
+      \draw[->] (0,0) -- (0,2) ;
+      \draw (0,1)node[left] {$v$};
+     \draw (2,0) node[below] {$s$};
+      \draw[scale=0.5,domain=0:1.5,smooth,variable=\x,blue] plot ({\x},{(2.5)});
+ \draw[scale=0.5, blue] (1.5,0) -- (1.5,2.5) ;
+
+    \end{tikzpicture}
+\end{oneparchoices}
+
+\question বৃত্তাকার পথে $ 72km/h $ বেগে চলমান একটি গাড়ির কেদ্রমুখী ত্বরণ $ 1m/s^{2} $ হলে পথের ব্যাসার্ধ কত? (A car is moving in a circular path with a constant speed of $ 72km/h $ experiences a centripetal acceleration of $ 1m/s^{2} $. What is the radius of the circular path? )
+
+\begin{oneparchoices}
+\choice $ 150\,m $
+\choice $ 300\,m $
+\choice $ 400\,m $
+\choice $ 200\,m $
+\end{oneparchoices}
+
+
+\question  স্বাভাবিক তাপমাত্রায় $ p- $টাইপ অর্ধপরিবাহীর আধান পরিবাহী কোনটি (কোনগুলো) ? (What is(are) the charge(s) carrier in a $ p- $type semiconductor at room temperature?)
+
+\begin{oneparchoices}
+\choice  শুধুমাত্র হোল (holes only)\\
+\hspace*{-.3cm}\choice   শুধুমাত্র ইলেকট্রন (electrons only)\\
+\hspace*{-.3cm}\choice  ধনাত্মক আধান (positive ions)\\
+\hspace*{-.3cm}\choice  হোল ও ইলেকট্রন (both holes and electrons)
+\end{oneparchoices}
+
+\question  একটি তারের ইয়ং এর গুণাঙ্ক $ 4\times 10^{11}\,N/m^{2} $ । তারটির দৈর্ঘ্য $ 7.5\% $  বাড়াতে কি পরিমাণ পীড়ন প্রয়োজন? (Young modulus of a string is $ 4\times 10^{11}\,N/m^{2} $. How much stress has to be applied t increase $ 7.5\% $ of its length?)
+
+\begin{oneparchoices}
+\choice $ 7.5\times 10^{11}\,N/m^{2} $
+\choice $ 3\times 10^{10}\,N/m^{2} $
+\choice $ 5.33\times 10^{10}\,N/m^{2} $
+\choice $ 4\times 10^{10}\,N/m^{2} $
+
+\end{oneparchoices}
+
+\question একটি কণার উপর $ \vec{F}=(10\hat{i}+10\hat{j}+10\hat{k})N $ বল প্রয়োগ করলে কণাটির সরণ হয় $ \vec{r}= (2\hat{i}+2\hat{j}-2\hat{k})m$ বল কর্তৃক কৃত কাজ কত? (A particle is moved through a distance $ \vec{r}= (2\hat{i}+2\hat{j}-2\hat{k})m$ when a force $ \vec{F}=(10\hat{i}+10\hat{j}+10\hat{k})N $ is applied on it. What is the work done by the force?)
+
+\begin{oneparchoices}
+\choice $ 200\,J $
+\choice $ 30\,J $
+\choice $ 10\,J $
+\choice $ 40\,J $
+\end{oneparchoices}
+
+\question  একটি সরল দোলকের বিস্তার দ্বিগুণ করা হলে সরল দোলকটির পর্যায়কাল (If the amplitude of oscillation of  a simple pendulum is doubled, then the period of oscillation will be )
+
+\begin{oneparchoices}
+\choice দ্বিগুণ (doubled)
+\hspace*{-.4cm}\choice অর্ধেক (halved)
+\hspace*{-.4cm}\choice চারগুণ (four times larger)
+\hspace*{-.4cm}\choice অপরিবর্তিত থাকবে (unchanged)
+\end{oneparchoices}
+
+
+\question  একটি পাথরকে একটি উঁচু যায়গা থেকে ফেলে দেয়া হল। নিন্মের কোন লেখচিত্রটি এর গতি প্রকাশ করে? (A stone is dropped from a cliff. Which is the graphs represents its motion?)
+
+\begin{oneparchoices}
+ \choice\begin{tikzpicture}
+      \draw[->] (0,0) -- (2,0);
+      \draw[->] (0,0) -- (0,2) ;
+      \node[rotate=90] at(-.3,1) {$x(m)$};
+     \draw (1,0) node[below] {$t(s)$};
+      \draw[scale=0.4,domain=0:4,smooth,variable=\x,blue] plot ({\x},{(\x)});
+
+    \end{tikzpicture}
+ \choice\begin{tikzpicture}
+      \draw[->] (0,0) -- (2,0);
+      \draw[->] (0,0) -- (0,2) ;
+      \node[rotate=90] at(-.3,1) {$v(m/s)$};
+     \draw (1,0) node[below] {$t(s)$};
+    \draw[scale=0.4,domain=0:4,smooth,variable=\x,blue] plot ({\x},{-(sqrt(16-\x*\x))+4});
+    \end{tikzpicture}
+ \choice\begin{tikzpicture}
+      \draw[->] (0,0) -- (2,0);
+      \draw[->] (0,0) -- (0,2) ;
+      \node[rotate=90] at(-.3,1) {$v(m/s)$};
+     \draw (1,0) node[below] {$t(s)$};
+      \draw[scale=0.4,domain=0:4,smooth,variable=\x,blue] plot ({\x},{(\x)});
+    \end{tikzpicture}
+ \choice \begin{tikzpicture}
+      \draw[->] (0,0) -- (2,0);
+      \draw[->] (0,0) -- (0,2) ;
+    \node[rotate=90] at(-.3,1) {$a(m/s^{2})$};
+     \draw (1,0) node[below] {$t(s)$};
+      \draw[scale=0.4,domain=0:4,smooth,variable=\x,blue] plot ({\x},{-(sqrt(16-\x*\x))+4});
+
+    \end{tikzpicture}
+\end{oneparchoices}
+
+\question একটি তানা তারে টানের পরিমাণ চারগুণ বৃদ্ধি করলে  কম্পাংক  কতগুন বৃদ্ধি পাবে? (If the tension of a stretched string is increased 4 times, how many times will the frequency increase?)
+
+\begin{oneparchoices}
+\choice 16
+\choice 4
+\choice 3
+\choice 2
+\end{oneparchoices}
+
+
+\question  রুদ্ধতাপীয় প্রক্রিয়ায় কোন ভৌত রাশিটি স্থির থাকে? (Which physical quantity remain constant in an adiabatic process?)
+
+\begin{oneparchoices}
+\choice  তাপমাত্রা (temperature)
+\hspace*{-.4cm}\choice   চাপ (pressure)
+\hspace*{-.4cm}\choice  অভ্যন্তরীণ শক্তি (internal energy)
+\hspace*{-.4cm}\choice  এন্ট্রপি (entropy)
+\end{oneparchoices}
+
+\question  পৃথিবী পৃষ্ঠে $ (g_{e} = 9.8\,m/s^{2}) $ একটি দোলক ঘড়ি সঠিক সময় দেয়। ঘড়িটি চন্দ্রপৃষ্ঠে $ (g_{m}=1.6\,m/s^{2}) $ নেয়া হলে পৃথিবী পৃষ্ঠের সময় চন্দ্রপৃষ্ঠে হবে- (Suppose you have pendulum clock that keeps the correct time on earth $ (g_{e} = 9.8\,m/s^{2}) $. You take it to the moon $ (g_{m}=1.6\,m/s^{2}) $. For every hour(h) of interval (on the earth), the moon clock will record  )
+
+\begin{oneparchoices}
+\choice $ \dfrac{9.8}{1.6}h $
+\choice $ \sqrt{\dfrac{1.6}{9.8}}h $
+\choice $ \sqrt{\dfrac{9.8}{1.6}}h $
+\choice $ \dfrac{1.6}{9.8}h $
+\end{oneparchoices}
+
+\question  তিনটি সুর শলাকা নেয়া হল যাদের কম্পাঙ্ক যথাক্রমে 105 Hz, 315 Hz এবং 525 Hz । শলাকা তিনটি দিয়ে বায়ুতে শব্দ সৃষ্টি করলে সৃষ্ট শব্দের তরঙ্গ দৈর্ঘ্যর অনুপাত হবে- (Three tuning forks are taken whose frequencies are 105 Hz, 315 Hz and 525 Hz, respectively. If these forks are produce sound waves in air, what will be the ratio of their respective wavelengths?)
+
+\begin{oneparchoices}
+\choice $ 1:3:5 $
+\choice $ 3:5:15 $
+\choice $ 15:5:3 $
+\choice $ 5:3:1 $
+\end{oneparchoices}
+
+\question  সাম্যবস্থায় থাকা একটি বস্তু বিস্ফোরিত হয়ে $ M_{1} $ এবং $ M_{2} $ ভরের দুটি বস্তুতে ভাগ হল। ভর দুটি একে অপর থেকে $ v_{1} $ এবং $ v_{2} $ বেগে দূরে সরতে লাগল। $ \dfrac{v_{1}}{v_{2}} $ অনুপাতটি হবে - (A body, initially at rest, is exploded into two masses $ M_{1} $ and $ M_{2} $. These masses move apart with speed $ v_{1} $ and $ v_{2} $, respectively. The ratio $ \dfrac{v_{1}}{v_{2}} $ will be ) 
+
+\begin{oneparchoices}
+\choice  $\dfrac{M_{1}}{M_{2}}$
+\choice  $\dfrac{M_{2}}{M_{1}}$
+\choice  $\sqrt{\dfrac{M_{1}}{M_{2}}}$
+\choice  $\sqrt{\dfrac{M_{2}}{M_{1}}}$
+\end{oneparchoices}
+
+\question  চিত্রে প্রদর্শিত বর্তনীতে প্রবাহমাত্রা $ I_{2} $ কত হবে? (What will be the current $ I_{2} $ in the circuit shown in the figure?)
+
+ \begin{center}
+  \begin{circuitikz}[american voltages]
+    \draw (0,2.5) to[battery1, l_=9<\volt>](0,0);
+    \draw (0,2.5) to [R, l=20<\ohm>, i_=$I$]  (3.5,2.5)--(3.5,2);
+    \draw (3.5,2) to[short, i_=$I_{2}$] (2.5,2) to [R, l=12<\ohm>] (2.5,.5) to [short, i_=$I_{2}$](3.5,.5);
+    \draw (3.5,2) to[short, i_=$I_{1}$] (4.5,2) to [R, l=10<\ohm>] (4.5,.5) to [short, i_=$I_{1}$](3.5,.5);
+    \draw (3.5,.5) -- (3.5,0)to[short, i_=$I$] (0,0);
+\end{circuitikz}
+ \end{center}
+
+\begin{oneparchoices}
+\choice 0.16 A
+\choice 0.26 A
+\choice 0.36 A
+\choice 0.46 A
+\end{oneparchoices}
+
+\question  দুটি সুরেলী কাঁটার কম্পাংক 220 Hz ও 210 Hz। যদি সুরেলী কাঁটা দুটি একত্রে  শব্দ তৈরি করে তবে প্রতি সেকেন্ডে উৎপন্ন বীটের সংখ্যা হবে (There are two tuning forks of frequencies 220 Hz and 210 Hz. If the forks are sounded together, the number of beats produced per second is)
+
+\begin{oneparchoices}
+\choice 220
+\choice 210
+\choice 430
+\choice 10
+
+\end{oneparchoices}
+
+
+\question  কোন তাপমাত্রা সেন্টিগ্রেড স্কেল ও ফারেনহাইট স্কেলে সমান? (Which temperature is the same in both the Centigrade and Fahrenheit scales?)
+
+\begin{oneparchoices}
+\choice $ -40^{\circ}$
+\choice $ 40^{\circ} $
+\choice $ 0^{\circ} $
+\choice  $ 100^{\circ} $
+\end{oneparchoices}
+
+
+
+\question $ 100^{\circ}\,C $ তাপমাত্রার 373 kg পানিকে $ 100^{\circ}\,C $  তাপমাত্রার বাষ্পে পরিণত করা হলে এন্ট্রপির পরিবর্তন হবে। (পানির বাষ্পীভবনের সুপ্ততাপ $ = 2.26\times 10^{6}\,J/Kg $) (The change of entropy of 373 kg water of $ 100^{\circ}\,C $ to convert into vapor of $ 100^{\circ}\,C $ is) (Latent heat of vaporization $ = 2.26\times 10^{6}\,J/Kg $)
+
+\begin{oneparchoices}
+\choice $ 2.26\times 10^{6}\,J/Kg $
+\choice $ 842.98\times 10^{6}\,J/Kg $
+\choice $ 165.04\times 10^{6}\,J/Kg $
+\choice $ 847.01\times 10^{6}\,J/Kg $
+\end{oneparchoices}
+
+\question  একটি কাঁচ স্লাবের সংকট কোণ $ 60^{\circ} $ হলে এর উপাদানের প্রতিসরাঙ্ক কত? (If the critical angle of a glass slab is $ 60^{\circ} $, then the refractive index of the  material of the glass slab will be)
+
+\begin{oneparchoices}
+\choice $ \dfrac{1}{\sqrt{2}} $
+\choice $ \sqrt{2} $
+\choice $ \dfrac{\sqrt{3}}{2} $
+\choice $ \dfrac{2}{\sqrt{3}} $
+\end{oneparchoices}
+
+\question   F ফোকাস দূরত্বের দুটি উত্তল লেন্সকে পরস্পর সংস্পর্শে রাখলে তাদের মিলিত ফোকাস দূরত্ব কত হবে? (What will be the resultant focal length of two convex lenses in contact if F is the focal length of each lens?)
+
+\begin{oneparchoices}
+\choice $ 4F $
+\choice $ 2F $
+\choice $ \dfrac{F}{2} $
+\choice $ F $
+\end{oneparchoices}
+
+
+
+\question $ 12 V $ তড়িৎচ্চালক শক্তি এবং $ 0.1\Omega $ অভ্যন্তরীণ রোধের একটি ব্যাটারিকে  একটি বৈদ্যুতিক মোটরের সঙ্গে সংযুক্ত করলে ব্যাটারির দুই প্রান্তের বিভব পার্থক্য দাঁড়ায় $ 7 V $। মোটরে সরবরাহকৃত কারেন্টের মান কত? (A battery of emf $ 12 V $ and internal resistance of $ 0.1\Omega $ is connected to an electric motor, if the potential difference across the battery becomes $ 7 V $, what is the current supplied to the motor?)
+
+\begin{oneparchoices}
+\choice $ 50\,A $
+\choice $ 70\,A $
+\choice $ 120\,A $
+\choice $ 190\,A $
+\end{oneparchoices}
+
+\question দুটি সমান চার্জের মধ্যবর্তী দূরত্ব অর্ধেক করা হলে এবং এদের মান কমিয়ে অর্ধেক করা হলে বলের মান হবে (When the distance between two equal charges reduced to half and the magnitudes of the charges are also decreases to half, the force between them )
+
+
+\begin{oneparchoices}
+\choice দ্বিগুণ (doubled)
+\hspace*{-.4cm}\choice অর্ধেক (halved)
+\hspace*{-.4cm}\choice চারগুণ (four times)
+\hspace*{-.4cm}\choice অপরিবর্তিত থাকবে (unchanged)
+\end{oneparchoices}
+
+\question  কোনটি তড়িৎ চুম্বকীয় তরঙ্গ নয়? (Which one of the following is not electromagnetic wave?)
+
+\begin{oneparchoices}
+\choice Radio wave
+\choice Microwave
+\choice X-ray
+\choice Ultrasound
+\end{oneparchoices}
+
+\question  একই বেগে চলমান একটি ইলেকট্রন এবং একটি প্রোটনকে একটি অভিন্ন চুম্বক ক্ষেত্রের দিকের সাথে $ 90^{\circ} $ কোণে প্রেরন করা হল। তাদের উপর প্রযুক্ত প্রারম্ভিক চুম্বক বল হবে (An electron and a proton traveling with a same velocity are injected into a region of uniform magnetic field at $ 90^{\circ} $ to the magnetic field direction. The initial magnetic forces on them are )
+
+\begin{oneparchoices}
+\choice সমান এবং একই দিকে (equal in magnitude and same direction)\\
+\hspace*{-.3cm}\choice সমান এবং বিপরীত দিকে (equal in magnitude and opposite direction)\\
+\hspace*{-.3cm}\choice সমান এবং পারস্পরিক লম্বভাবে (equal in magnitude and perpendicular to each other)\\
+\hspace*{-.3cm}\choice ভিন্ন এবং বিপরীত দিকে (differing in magnitude and in opposite direction)
+\end{oneparchoices}
+
+\question  একটি ট্রান্সফরমারের মুখ্য ও গৌণ কুন্ডলীর পাকের সংখ্যা 1000 এবং 100। মুখ্য কুন্ডলীতে 1A মানের তড়িৎ প্রবাহিত হলে গৌণ কুন্ডলীতে কত তড়িৎ প্রবাহ পাওয়া যাবে? (Number of turns in the primary and secondary coils of an ideal transformer are 1000 and 100, respectively. If an AC current of 1.0 A flows through the primary coil, what current will through the secondary coil?)
+
+\begin{oneparchoices}
+\choice $ 1\,A $
+\choice $ 10\,A $
+\choice $ 12\,A $
+\choice $ 100\,A $
+\end{oneparchoices}
+
+\question আলোকবর্ষ কিসের একক? (Light year is the unit of )
+
+\begin{oneparchoices}
+\choice দ্রুতির (speed)
+\choice দূরত্বের (distance)
+\choice  সময়ের (time)
+\choice  কম্পাঙ্কের (frequency)
+\end{oneparchoices}
+
+\question  পাশের চিত্রটি কোন লজিক গেটের সমতুল্য বর্তনী ? (The circuit in the adjacent figure is equivalent to which logic gate?)
+\begin{center}
+  \begin{circuitikz}[american voltages]
+   \draw (-.5,0) node [/tikz/circuitikz/bipoles/length=0.7 cm,mixer](m){};
+    \draw (-.75,0) to [battery1] (-2,0)--(-3,0)--(-3,2)--(-2,2)--(-2,2.5) to[nos,anchor=east](0,2.5)--(0,2)--(1,2)--(1,0)to[short](-.25,0);
+   \draw (-2,2)--(-2,1.5)to[nos,anchor=east](0,1.5)--(0,2);
+   \draw (-.75,2.5) node[above]{A}; 
+      \draw (-.75,1.5) node[above]{B}; 
+       \draw (-.5,.5) node[above]{Bulb};
+\end{circuitikz}
+\end{center}
+
+
+\begin{oneparchoices}
+\choice OR gate
+\choice NOR gate
+\choice NOT gate
+\choice AND gate
+\end{oneparchoices}
+
+\question একটি ধাতুর কার্যাপেক্ষক $ 6.63\,eV $। ধাতুটির ক্ষেত্রে ফটোইলেকট্রন নিঃসরণের সূচন কম্পাঙ্ক কত? (The work function of a metal is $ 6.63\,eV $ . What is the threshold frequency for photo emission from the metal ) (Plack's constant $= 6.63\times 10^{-34}\,J.S $ ) 
+
+\begin{oneparchoices}
+\choice $ 16\times 10^{14}\, Hz $
+\choice $ 16\times 10^{-14}\, Hz $
+\choice $ 1.6\times 10^{-19}\, Hz $
+\choice $ 1.6\times 10^{19}\, Hz $
+\end{oneparchoices}
+
+
+\question   14 মিনিট শেষে তেজস্ক্রিয় Polonium এর $ \dfrac{1}{6} $ অংশ অবশিষ্ট থাকে। মৌলটির অর্ধায়ু (At the end of the 14 mins $ \dfrac{1}{6} $ of the radioactive remains. The half life of the Polonium is )
+
+\begin{oneparchoices}
+\choice $ \dfrac{7}{8}\, min $
+\choice $ \dfrac{8}{7}\, min $
+\choice $ \dfrac{7}{2}\, min $
+\choice $ \dfrac{14}{3}\, min $
+
+\end{oneparchoices}
+
+\end{questions}
+
+\end{document}
